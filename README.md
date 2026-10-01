@@ -17,7 +17,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 5. Define what should and should not compound over time, then map which paths reinforce those trajectories
 6. Trace one plausible upside chain and one plausible downside chain for each option, stopping when the next causal link would mostly be a guess
 7. Invert the decision by identifying what would make it fail to achieve the intended outcome
-8. Stress-test how much room there is to be wrong
+8. Stress Test each option against the same less-favourable conditions and identify where there is least room for things going wrong
 9. Separate verified facts, reasonable estimates, assumptions, and unknowns
 10. Surface psychological influences in plain language
 11. Test reversibility and switching costs
