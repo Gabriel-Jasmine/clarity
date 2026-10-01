@@ -16,14 +16,15 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
 5. Define what should and should not compound over time, then map which paths reinforce those trajectories
 6. Trace one plausible upside chain and one plausible downside chain for each option, stopping when the next causal link would mostly be a guess
-7. Stress-test how much room there is to be wrong
-8. Separate verified facts, reasonable estimates, assumptions, and unknowns
-9. Surface psychological influences in plain language
-10. Test reversibility and switching costs
-11. Consolidate the few factors that genuinely drive the decision
-12. Review the current Decision State
-13. Read the Clarity Map
-14. Export a full Decision Brief for deeper analysis
+7. Invert the decision by identifying what would make it fail to achieve the intended outcome
+8. Stress-test how much room there is to be wrong
+9. Separate verified facts, reasonable estimates, assumptions, and unknowns
+10. Surface psychological influences in plain language
+11. Test reversibility and switching costs
+12. Consolidate the few factors that genuinely drive the decision
+13. Review the current Decision State
+14. Read the Clarity Map
+15. Export a full Decision Brief for deeper analysis
 
 ## Decision State
 
