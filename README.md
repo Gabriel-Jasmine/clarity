@@ -13,7 +13,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 1. Define the decision, realistic alternatives, starting inclination, objective, and time horizon
 2. Identify the life domains that matter most and define any decision-wide hard boundaries
 3. Examine what each option closes off and what limited capacity it would tie up
-4. Look at external and internal incentives
+4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
 5. Consider what each path compounds over time
 6. Trace second- and third-order consequences
 7. Stress-test how much room there is to be wrong
