@@ -10,7 +10,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 ## What Clarity guides you through
 
-1. Frame the decision and realistic alternatives
+1. Define the decision, realistic alternatives, starting inclination, objective, and time horizon
 2. Define non-negotiable boundaries
 3. Examine trade-offs and opportunity cost
 4. Look at external and internal incentives
