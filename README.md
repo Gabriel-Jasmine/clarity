@@ -12,7 +12,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 1. Define the decision, realistic alternatives, starting inclination, objective, and time horizon
 2. Identify the life domains that matter most and define any decision-wide hard boundaries
-3. Examine trade-offs and opportunity cost
+3. Examine what each option closes off and what limited capacity it would tie up
 4. Look at external and internal incentives
 5. Consider what each path compounds over time
 6. Trace second- and third-order consequences
