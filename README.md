@@ -15,7 +15,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 3. Examine what each option closes off and what limited capacity it would tie up
 4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
 5. Define what should and should not compound over time, then map which paths reinforce those trajectories
-6. Trace second- and third-order consequences
+6. Trace one plausible upside chain and one plausible downside chain for each option, stopping when the next causal link would mostly be a guess
 7. Stress-test how much room there is to be wrong
 8. Separate verified facts, reasonable estimates, assumptions, and unknowns
 9. Surface psychological influences in plain language
