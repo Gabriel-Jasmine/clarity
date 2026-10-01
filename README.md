@@ -1,8 +1,10 @@
 # Clarity
 
-**Think more clearly before you choose.**
+**For consequential choices that can meaningfully affect your life, work, relationships, or future direction.**
 
-Clarity is a guided decision-thinking tool that helps people structure difficult choices, examine trade-offs and assumptions, surface hidden influences, identify what they still need to learn, and leave with a clear map of what is shaping their decision.
+Clarity is for consequential choices that can meaningfully affect your life, work, relationships, or future direction — especially when there is no obvious right answer and each path comes with different trade-offs, uncertainties, and consequences.
+
+It guides you through the decision so you can understand what your choice is really based on, what is driving it, and what you still need to know before you commit.
 
 Clarity does not tell people what to choose. It helps make the structure of their own reasoning visible.
 
