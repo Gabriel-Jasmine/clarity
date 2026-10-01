@@ -19,7 +19,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 7. Invert the decision by identifying what would make it fail to achieve the intended outcome
 8. Stress Test each option against the same less-favourable conditions and identify where there is least room for things going wrong
 9. Separate verified facts, reasonable estimates, assumptions, and unknowns
-10. Surface psychological influences in plain language
+10. Run a decision-level Judgment Check using counterfactual tests, with extra checks only when earlier answers make them relevant
 11. Test reversibility and switching costs
 12. Consolidate the few factors that genuinely drive the decision
 13. Review the current Decision State
