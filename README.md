@@ -18,34 +18,29 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 6. Trace one plausible upside chain and one plausible downside chain for each option, stopping when the next causal link would mostly be a guess
 7. Invert the decision by identifying what would make it fail to achieve the intended outcome
 8. Stress Test each option against the same less-favourable conditions and identify where there is least room for things going wrong
-9. Separate verified facts, reasonable estimates, assumptions, and unknowns
-10. Run a decision-level Judgment Check using counterfactual tests, with extra checks only when earlier answers make them relevant
-11. Test reversibility and switching costs
-12. Consolidate the few factors that genuinely drive the decision
-13. Review the current Decision State
-14. Read the Clarity Map
-15. Export a full Decision Brief for deeper analysis
+9. Run a decision-level Judgment Check using counterfactual tests, with extra checks only when earlier answers make them relevant
+10. Test reversibility and switching costs
+11. Consolidate the few Decision Drivers that genuinely drive the decision, assessing each once by direction, importance, and evidence
+12. Review one Decision Overview that shows where the user stands, what they are trying to achieve, what drives the current view, what still needs to be found out, where the decision is vulnerable, what may be shaping judgment, and how much room there is to change course
 
-## Decision State
+## Decision Overview
 
-The Decision State is an orientation signal, not a recommendation. It shows where the user's reasoning currently leans, how ready the decision is, how strong the evidence is, and how stable the current lean appears.
+The Decision Overview is the product's answer to the user. It is organised around understanding the decision, not replaying the questionnaire.
 
-## Clarity Map
-
-The Clarity Map is a readable synthesis of:
+It brings together:
 
 - where the user currently stands
-- what the current lean is based on
-- what is known
-- what is reasonably estimated
-- what is assumed
-- what still needs to be found out
-- what may be influencing judgment
-- which hard boundaries remain unresolved
+- what they are trying to achieve
+- what the decision needs to protect
+- the few Decision Drivers behind the current view
+- actionable unknowns that still need to be resolved
+- the main places where the decision is vulnerable
+- Judgment Check signals worth noticing
+- room to change course
 
-## Decision Brief
+Actionable unknowns are captured when they arise in earlier sections and compiled once in the overview. Judgment Check signals stay separate because they are not research tasks.
 
-The Decision Brief preserves the user's full reasoning and turns it into a portable, LLM-ready brief for deeper study, adversarial review, missing-evidence checks, and further research.
+At the bottom of the overview, Clarity provides structured Markdown context that can be copied into ChatGPT or another GenAI model for deeper analysis. The human-facing overview is optimised for clarity; the copied context preserves more of the underlying reasoning for model interpretation.
 
 ## Scoring philosophy
 
