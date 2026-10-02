@@ -48,7 +48,7 @@ Clarity does not reduce a decision to one authoritative score.
 
 Only consolidated decision factors are assessed using:
 
-- **Direction** — which option the factor currently supports
+- **Direction** — which options the factor currently supports
 - **Importance** — Low / Medium / High
 - **Evidence** — Verified fact / Reasonable estimate / Assumption
 
@@ -56,7 +56,7 @@ Non-negotiables stay separate from scoring.
 
 ## Visual system
 
-Clarity uses a warm beige-grey background, dark graphite serif typography, generous negative space, thin structural lines, and selective monochrome pixel-dither gradients.
+Clarity uses a warm beige-grey background, dark graphite serif headings and readable sans-serif controls, generous negative space, thin structural lines, and selective monochrome pixel-dither gradients.
 
 The dither is functional: uncertainty appears more diffuse, while clearer states become more concentrated.
 
@@ -77,3 +77,8 @@ Open `index.html` in a browser.
 3. Select **main**
 4. Select **/ (root)**
 5. Save
+
+
+## UX update
+
+Decision Drivers now groups linked earlier reflections and can support multiple paths. The overview separates incomplete assessments from findings, shows explicit unassessed states, provides edit links and copy feedback, and retains the AI context export. Navigation resumes the last working location, tracks reviewed sections separately from location, and provides a mobile section menu. Existing saved entries are preserved; new driver assessments and reversibility start unanswered.

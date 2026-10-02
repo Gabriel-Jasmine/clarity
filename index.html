@@ -10,12 +10,12 @@
 <body>
 <div class="app">
   <aside>
-    <div class="brand"><strong>Clarity</strong><small>For consequential choices that can meaningfully affect your life, work, relationships, or future direction.</small></div>
-    <nav id="nav"></nav>
+    <div class="brand"><strong>Clarity</strong><small>Think clearly. Choose deliberately.</small></div>
+    <button id="mobileNavToggle" class="secondary" aria-expanded="false" aria-controls="nav">Sections</button><nav id="nav" aria-label="Decision sections"></nav><p class="storage-note">Saved in this browser</p>
     <button id="reset" class="secondary">New decision</button>
   </aside>
   <main>
-    <header><div><div class="eyebrow">CLARITY / GUIDED DECISION THINKING</div><h1 id="title"></h1></div><span class="saved">Saved locally</span></header>
+    <header><div><div class="eyebrow">CLARITY / GUIDED DECISION THINKING</div><h1 id="title"></h1></div><span class="saved" id="stepCount"></span></header>
     <div class="progress"><i id="bar"></i></div>
     <section id="screen"></section>
     <footer><button id="back" class="secondary">← Back</button><button id="next">Continue →</button></footer>
