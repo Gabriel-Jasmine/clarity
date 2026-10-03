@@ -11,7 +11,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 ## What Clarity guides you through
 
 1. Define the decision, realistic alternatives, starting inclination, and time horizon
-2. Zoom out to the life the user is trying to build or protect, identify which parts of that life the decision could meaningfully affect, and define any decision-wide hard boundaries
+2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
 3. Examine what each option closes off and what limited capacity it would tie up
 4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
 5. Define what should and should not compound over time, then map which paths reinforce those trajectories
@@ -22,6 +22,32 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 10. Test reversibility and switching costs
 11. Consolidate the few Decision Drivers that genuinely drive the decision, assessing each once by direction, importance, and evidence
 12. Review one Decision Overview that shows where the user stands, what they are trying to achieve, what drives the current view, what still needs to be found out, where the decision is vulnerable, what may be shaping judgment, and how much room there is to change course
+
+## What Matters design
+
+### What Matters mini-funnel
+
+What Matters deliberately establishes the reference point before option evaluation begins:
+
+1. **Step back** — put the current decision aside and describe the life the user wants to build, protect, or become.
+2. **Identify what matters most within that life** — choose up to three broad life domains.
+3. **Bring the decision back in** — from those selected domains, identify which are actually at stake in the current decision without yet judging the effect as good or bad.
+4. **Define hard boundaries** — optionally articulate any condition that must remain true for a choice to be acceptable.
+
+The current nine-domain scaffold is:
+- Values, identity & purpose
+- Health & personal capacity
+- Partner, family & caregiving
+- Friends, community & belonging
+- Work & contribution
+- Learning & mastery
+- Money & material security
+- Time, freedom & way of life
+- Place, safety & stability
+
+Hard boundaries use guided short text rather than preset answers. Domain reminders and sentence starters reduce blank-page burden while preserving the deliberate thinking required to articulate a real boundary.
+
+What Matters does **not** test options against hard boundaries. Criteria are established independently before candidate evaluation begins.
 
 ## Decision Overview
 
