@@ -10,7 +10,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 ## What Clarity guides you through
 
-1. Define the decision, realistic alternatives, starting inclination, and time horizon
+1. Define one proposed action, its intended outcome, starting inclination (take it / do not take it / no clear inclination), and consequence horizon
 2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
 3. Examine what each option closes off and what limited capacity it would tie up
 4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
@@ -22,6 +22,12 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 10. Test reversibility and switching costs
 11. Consolidate the few Decision Drivers that genuinely drive the decision, assessing each once by direction, importance, and evidence
 12. Review one Decision Overview that shows where the user stands, what they are trying to achieve, what drives the current view, what still needs to be found out, where the decision is vulnerable, what may be shaping judgment, and how much room there is to change course
+
+## Proposed-action opening (2026-10-04)
+
+New decisions examine one proposed action at a time. Decision repeats the entered action and no longer asks users to list alternatives. The intended outcome of this choice is stored separately from the wider life-direction reflection in What Matters. Earlier saved multi-option decisions retain their options and linked reflections.
+
+This is a staged change to Decision and What Matters only. Trade-offs still uses its existing questions; the agreed “If not this, what?” alternative-generation and selection flow is pending. The “Not taking this action” label is a provisional comparison, not a defined alternative. Hard-boundary evaluation remains a later-design question; What Matters establishes criteria only.
 
 ## What Matters design
 
