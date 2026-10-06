@@ -10,7 +10,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 ## What Clarity guides you through
 
-1. Enter concrete options, the aim for this decision, starting inclination, and consequence horizon
+1. State one choice under consideration, the decision aim, starting leaning, and consequence horizon
 2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
 3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for each option
 4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
@@ -25,7 +25,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 ## Decision opening and direction references (2026-10-06)
 
-Decision asks “What are you choosing between?” and captures concrete options, a starting leaning, the aim for this choice and consequence horizon. It derives the decision description rather than asking users to enter it twice.
+Decision now asks **“What choice are you considering?”** with the helper **“Write it as something you could choose to do.”** New decisions store one contemplated path, a starting leaning towards making or not making that choice, the decision aim and consequence horizon. No negative alternative is invented. Existing saved paths and their IDs are retained; the first saved path anchors the new opening. See the latest update below for the transition’s limits.
 
 What Matters first shows **Aim for this decision**, then asks what the user ultimately wants to build, protect or become as **Direction in life**. An explicit “I don’t know yet” lets users proceed. It is distinct from an unanswered field and does not lower readiness.
 
@@ -137,3 +137,12 @@ Each existing option remains a separate path. Trade-Offs shows its name, Decisio
 The only cost uncertainty choice is **I don’t know yet but I will find out later**. Selecting it disables that answer while preserving typed text; uncertainty remains in the overview, readiness and Markdown export. Blank costs and alternatives keep the assessment incomplete. Known cost answers are available to consolidate in Decision Drivers. Earlier Trade-Offs notes retain their original categories and remain editable and exported; they are not guessed into immediate/future answers.
 
 The seven areas are reflective prompts, not scores or a universal scientific classification. Alternatives are collected without automatic ranking, selection or rewriting the options entered in Decision. Selecting the best alternative and redesigning later comparative stages remain open product questions.
+
+
+## Single-choice opening (2026-10-06)
+
+The opening no longer asks users to enter an option list. Alternatives are explored in Trade-Offs. The one choice statement updates the decision anchor and exported context; the starting leaning is recorded independently from any alternative. Existing multi-path saves retain their paths, IDs and linked reflections. Reset starts with one blank choice and no preselected leaning.
+
+Existing path-based sections run once for a new single-choice decision. Their questions, matrices and final synthesis still need a coordinated review; this change does not implement a best-alternative comparison. Single-path driver entries cannot produce a comparative winner: the overview and export mark comparison as not assessed. The overview distinguishes reviewing the entered reflections from comparing alternatives.
+
+The product-notes repository now includes **CLARITY_LANGUAGE_GUIDE.md**, plus the rationale, risks, mitigations and follow-up questions for this transition. Global language changes, promotion of alternatives into evaluated paths, migration controls for older multi-path decisions and final comparison design remain pending.
