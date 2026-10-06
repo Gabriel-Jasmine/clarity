@@ -12,7 +12,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 1. Enter concrete options, the aim for this decision, starting inclination, and consequence horizon
 2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
-3. Examine what each option closes off and what limited capacity it would tie up
+3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for each option
 4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
 5. Define what should and should not compound over time, then map which paths reinforce those trajectories
 6. Trace one plausible upside chain and one plausible downside chain for each option, stopping when the next causal link would mostly be a guess
@@ -29,7 +29,7 @@ Decision asks “What are you choosing between?” and captures concrete options
 
 What Matters first shows **Aim for this decision**, then asks what the user ultimately wants to build, protect or become as **Direction in life**. An explicit “I don’t know yet” lets users proceed. It is distinct from an unanswered field and does not lower readiness.
 
-Both inputs appear together on all later pages with Edit links, and travel in the overview and AI context. Existing options, IDs, entered goals and linked reflections are preserved. The deeper Trade-offs redesign remains pending; What Matters still establishes criteria rather than testing options.
+Both inputs appear together on all later pages with Edit links, and travel in the overview and AI context. Existing options, IDs, entered goals and linked reflections are preserved. Trade-Offs now uses the approved alternatives and immediate/future costs layout; What Matters still establishes criteria rather than testing options.
 
 ## What Matters design
 
@@ -128,3 +128,12 @@ Decision Drivers now groups linked earlier reflections and can support multiple 
 - Displayed the immediate aim before the broader question, then both inputs together across all subsequent pages with Edit links.
 - Updated Decision Overview and AI context to carry both inputs, distinguishing unanswered from explicitly unknown life direction. Life direction does not gate readiness.
 - Preserved existing option IDs, entered goals and linked reflections.
+
+
+## Trade-Offs design (2026-10-06)
+
+Each existing option remains a separate path. Trade-Offs shows its name, Decision aim and Life direction, then asks for realistic alternatives. One **Cost of the Decision** section contains a compact seven-row life-area table followed by Immediate cost and Future cost subsections. Moving-abroad examples appear as placeholders, never as saved answers.
+
+The only cost uncertainty choice is **I don’t know yet but I will find out later**. Selecting it disables that answer while preserving typed text; uncertainty remains in the overview, readiness and Markdown export. Blank costs and alternatives keep the assessment incomplete. Known cost answers are available to consolidate in Decision Drivers. Earlier Trade-Offs notes retain their original categories and remain editable and exported; they are not guessed into immediate/future answers.
+
+The seven areas are reflective prompts, not scores or a universal scientific classification. Alternatives are collected without automatic ranking, selection or rewriting the options entered in Decision. Selecting the best alternative and redesigning later comparative stages remain open product questions.
