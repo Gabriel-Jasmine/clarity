@@ -12,7 +12,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 1. State one choice under consideration, the decision aim, starting leaning, and consequence horizon
 2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
-3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for each option
+3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for the choice under consideration
 4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
 5. Define what should and should not compound over time, then map which paths reinforce those trajectories
 6. Trace one plausible upside chain and one plausible downside chain for each option, stopping when the next causal link would mostly be a guess
@@ -132,7 +132,7 @@ Decision Drivers now groups linked earlier reflections and can support multiple 
 
 ## Trade-Offs design (2026-10-06)
 
-Each existing option remains a separate path. Trade-Offs shows its name, Decision aim and Life direction, then asks for realistic alternatives. One **Cost of the Decision** section contains a compact seven-row life-area table followed by Immediate cost and Future cost subsections. Moving-abroad examples appear as placeholders, never as saved answers.
+Trade-Offs now shows only the focal choice entered in Decision, with Decision aim and Life direction, then asks for realistic alternatives. It has no option tabs or path-by-path navigation, including for older multi-path saves. One **Cost of the Decision** section contains a compact seven-row life-area table followed by Immediate cost and Future cost subsections. Moving-abroad examples appear as placeholders, never as saved answers.
 
 The only cost uncertainty choice is **I don’t know yet but I will find out later**. Selecting it disables that answer while preserving typed text; uncertainty remains in the overview, readiness and Markdown export. Blank costs and alternatives keep the assessment incomplete. Known cost answers are available to consolidate in Decision Drivers. Earlier Trade-Offs notes retain their original categories and remain editable and exported; they are not guessed into immediate/future answers.
 
@@ -146,3 +146,10 @@ The opening no longer asks users to enter an option list. Alternatives are explo
 Existing path-based sections run once for a new single-choice decision. Their questions, matrices and final synthesis still need a coordinated review; this change does not implement a best-alternative comparison. Single-path driver entries cannot produce a comparative winner: the overview and export mark comparison as not assessed. The overview distinguishes reviewing the entered reflections from comparing alternatives.
 
 The product-notes repository now includes **CLARITY_LANGUAGE_GUIDE.md**, plus the rationale, risks, mitigations and follow-up questions for this transition. Global language changes, promotion of alternatives into evaluated paths, migration controls for older multi-path decisions and final comparison design remain pending.
+
+
+## Trade-Offs single-choice alignment (2026-10-06)
+
+Trade-Offs always uses the choice shown in Decision. Its context, costs and alternative inputs remain attached to that choice’s existing ID; other saved paths and answers are preserved. Continue goes directly to Incentives, and Back returns to What Matters. The heading **Alternatives** and the three questions now use the approved choice wording. The seven-area table, shared cost section, examples as placeholders and uncertainty behavior are retained.
+
+The remaining page audit is recorded as SC-07 in the product notes’ OPEN_QUESTIONS.md. Compounding, Stress Test, Decision Drivers and Decision Overview require the most substantial follow-up. Other pages need scoped wording or interface alignment; alternative-comparison design and older-save migration remain open.
