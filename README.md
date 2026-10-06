@@ -10,7 +10,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 ## What Clarity guides you through
 
-1. Define one proposed action, its intended outcome, starting inclination (take it / do not take it / no clear inclination), and consequence horizon
+1. Enter concrete options, the aim for this decision, starting inclination, and consequence horizon
 2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
 3. Examine what each option closes off and what limited capacity it would tie up
 4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
@@ -23,11 +23,13 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 11. Consolidate the few Decision Drivers that genuinely drive the decision, assessing each once by direction, importance, and evidence
 12. Review one Decision Overview that shows where the user stands, what they are trying to achieve, what drives the current view, what still needs to be found out, where the decision is vulnerable, what may be shaping judgment, and how much room there is to change course
 
-## Proposed-action opening (2026-10-04)
+## Decision opening and direction references (2026-10-06)
 
-New decisions examine one proposed action at a time. Decision repeats the entered action and no longer asks users to list alternatives. The intended outcome of this choice is stored separately from the wider life-direction reflection in What Matters. Earlier saved multi-option decisions retain their options and linked reflections.
+Decision asks “What are you choosing between?” and captures concrete options, a starting leaning, the aim for this choice and consequence horizon. It derives the decision description rather than asking users to enter it twice.
 
-This is a staged change to Decision and What Matters only. Trade-offs still uses its existing questions; the agreed “If not this, what?” alternative-generation and selection flow is pending. The “Not taking this action” label is a provisional comparison, not a defined alternative. Hard-boundary evaluation remains a later-design question; What Matters establishes criteria only.
+What Matters first shows **Aim for this decision**, then asks what the user ultimately wants to build, protect or become as **Direction in life**. An explicit “I don’t know yet” lets users proceed. It is distinct from an unanswered field and does not lower readiness.
+
+Both inputs appear together on all later pages with Edit links, and travel in the overview and AI context. Existing options, IDs, entered goals and linked reflections are preserved. The deeper Trade-offs redesign remains pending; What Matters still establishes criteria rather than testing options.
 
 ## What Matters design
 
@@ -114,3 +116,15 @@ Open `index.html` in a browser.
 ## UX update
 
 Decision Drivers now groups linked earlier reflections and can support multiple paths. The overview separates incomplete assessments from findings, shows explicit unassessed states, provides edit links and copy feedback, and retains the AI context export. Navigation resumes the last working location, tracks reviewed sections separately from location, and provides a mobile section menu. Existing saved entries are preserved; new driver assessments and reversibility start unanswered.
+
+
+
+## 2026-10-06
+
+### Decision and shared direction references
+- Replaced the proposed-action/legacy split with one option-entry interaction, “What are you choosing between?” Separate decision-description input and saved-decision commentary removed.
+- Captured starting leaning and “Aim for this decision” once in Decision.
+- Preserved the broader life reflection in What Matters as “Direction in life”, with an explicit optional “I don’t know yet” state.
+- Displayed the immediate aim before the broader question, then both inputs together across all subsequent pages with Edit links.
+- Updated Decision Overview and AI context to carry both inputs, distinguishing unanswered from explicitly unknown life direction. Life direction does not gate readiness.
+- Preserved existing option IDs, entered goals and linked reflections.
