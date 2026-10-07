@@ -13,8 +13,8 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 1. State one choice under consideration, the decision aim, starting leaning, and consequence horizon
 2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
 3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for the choice under consideration
-4. Surface the gains and avoidance motives pulling toward each option, then reflect on which motives are worth reinforcing
-5. Define what should and should not compound over time, then map which paths reinforce those trajectories
+4. Describe the focal choice’s expected gains and relief, then reflect on how those rewards fit the user’s direction in life
+5. Use a nine-area practical and psychological guide, then describe what the focal choice could develop, reinforce or make harder to sustain over time
 6. Trace one plausible upside chain and one plausible downside chain for each option, stopping when the next causal link would mostly be a guess
 7. Invert the decision by identifying what would make it fail to achieve the intended outcome
 8. Stress Test each option against the same less-favourable conditions and identify where there is least room for things going wrong
@@ -152,7 +152,7 @@ The product-notes repository now includes **CLARITY_LANGUAGE_GUIDE.md**, plus th
 
 Trade-Offs always uses the choice shown in Decision. Its context, costs and alternative inputs remain attached to that choice’s existing ID; other saved paths and answers are preserved. Continue goes directly to Incentives, and Back returns to What Matters. The heading **Alternatives** and the three questions now use the approved choice wording. The seven-area table, shared cost section, examples as placeholders and uncertainty behavior are retained.
 
-The remaining page audit is recorded as SC-07 in the product notes’ OPEN_QUESTIONS.md. Compounding, Stress Test, Decision Drivers and Decision Overview require the most substantial follow-up. Other pages need scoped wording or interface alignment; alternative-comparison design and older-save migration remain open.
+The remaining page audit is recorded as SC-07 in the product notes’ OPEN_QUESTIONS.md. Compounding is now aligned; Stress Test, Decision Drivers and Decision Overview require substantial follow-up. Other pages need scoped wording or interface alignment; alternative-comparison design and older-save migration remain open.
 
 
 ## Incentives writing flow (2026-10-07)
@@ -164,3 +164,12 @@ A collapsible two-column guide uses group rows for **External rewards** and **Ps
 Continue goes directly to Compounding; Back returns to Trade-Offs. Earlier selections, concerns, option IDs and non-focal reflections are preserved, with earlier Incentives notes accessible separately. New writing is included in the existing Decision Drivers reflection pool and structured AI export. No motives are inferred from text. Existing conditional Judgment Check triggers still use retained legacy selections; adapting those triggers to the free-text flow is deferred in the product notes.
 
 The generic **A closer look** judgment review remains deferred. Reward-direction alignment examines the attraction of a reward against an intended life direction; it does not replace Compounding, Chain Effects or Judgment Check. See the product notes' 2026-10-07 reasoning and UX records and INC-01 / INC-04.
+
+
+## Compounding writing flow (2026-10-07)
+
+Compounding now follows the approved description → areas-of-life guide → three writing questions structure for the focal choice. The guide reuses What Matters' nine areas, with **Practical effects** and **Psychological effects** in every row's second column. It offers starting points, not a complete list or predictions. Helpers and visibly labelled examples connect repeated practical effects with confidence, motivation, attachment and discouragement.
+
+The questions ask what could be built on, which unwanted patterns could strengthen, and what could become harder to sustain or pursue. Each has one blank writing field and **I don’t know yet**; uncertainty preserves writing and remains unresolved in readiness, overview and export. There is no no-effect preset or category-selection cap. Known answers join the existing Decision Drivers reflection pool without new scores or inferred psychological labels.
+
+Earlier categories, original path associations, per-path records and existing linked driver sources remain preserved. Earlier Compounding notes are accessible separately, with category details still editable, and included in export; they are not inferred into new answers. Migration clears the section's earlier reviewed mark once. Back returns to Incentives; Continue enters Chain Effects, whose retained comparative flow remains deferred under SC-07. Incentives examines attraction and reward-direction fit; Compounding examines development and reinforcement over time; Chain Effects traces possible causal sequences.
