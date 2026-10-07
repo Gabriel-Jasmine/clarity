@@ -109,3 +109,33 @@ input,textarea,select{font-family:var(--ui);font-size:16px;border-radius:5px}inp
 .overview-trade+.overview-trade{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}
 .overview-trade p{white-space:pre-wrap;overflow-wrap:anywhere}
 @media(max-width:600px){.trade-cost-table th,.trade-cost-table td{padding:10px 6px}.trade-cost-table th:first-child{width:38%}.trade-cost-part textarea{min-height:270px}.trade-alternative-row{flex-wrap:wrap}.trade-alternative-row button{margin-left:30px}.trade-alternative-row input{font-size:16px}}
+
+
+/* Incentives: rewards and relief attached to one contemplated choice. */
+.incentive-page-intro{font-size:16px;line-height:1.6;max-width:820px;margin:0 0 24px}
+.incentive-writing-card{min-width:0}
+.incentive-choice-context{padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.incentive-choice-context p{font-size:20px;line-height:1.5;margin:8px 0 0;overflow-wrap:anywhere}
+.incentive-reward-guide>summary{font-size:17px;font-weight:500;padding:0 0 14px}
+.incentive-reward-guide>.field-note{font-size:15px;line-height:1.6;margin:0 0 18px;max-width:850px}
+.incentive-reward-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:14px;line-height:1.55}
+.incentive-reward-table th,.incentive-reward-table td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.incentive-reward-table th{font-weight:500}
+.incentive-reward-table thead th:first-child,.incentive-reward-table tbody tr:not(.incentive-reward-group)>th{width:34%}
+.incentive-reward-table .incentive-reward-group th{background:rgba(45,45,42,.055);padding:15px 14px}
+.incentive-reward-group span{display:block;font-size:15px;font-weight:500}
+.incentive-reward-group small{display:block;font-size:13px;line-height:1.5;color:var(--soft);font-weight:400;margin-top:4px}
+.incentive-writing-part{border-top:1px solid var(--line);padding-top:26px;margin-top:28px}
+.incentive-writing-part h2.question{font-family:inherit;font-size:20px;line-height:1.45;font-weight:500;margin:0 0 8px;letter-spacing:0}
+.incentive-writing-part .field-note{font-size:15px;line-height:1.6;margin:0 0 16px}
+.incentive-writing-part textarea{min-height:120px;font-size:16px;line-height:1.55}
+.incentive-writing-example{font-size:14px;line-height:1.6;color:var(--soft);margin:14px 0 0}
+.incentive-writing-example>span{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.incentive-direction-reference{padding:16px 18px;border-radius:8px;background:rgba(45,45,42,.045);margin:0 0 16px}
+.incentive-direction-reference p{margin:7px 0 0;font-size:16px;line-height:1.5;overflow-wrap:anywhere}
+.incentive-fit-unknown{display:flex;gap:10px;align-items:center;font-size:15px;margin-top:14px}
+.incentive-fit-unknown input{width:18px;height:18px;margin:0;flex-shrink:0}
+.incentive-earlier{border-top:1px solid var(--line);margin-top:28px;padding-top:12px}
+.incentive-earlier section{margin:12px 0 20px}
+.incentive-earlier h3{font-size:18px}
+@media(max-width:600px){.incentive-reward-table{font-size:13px}.incentive-reward-table th,.incentive-reward-table td{padding:10px 8px}.incentive-reward-group small{font-size:12px}.incentive-writing-part h2.question{font-size:18px}.incentive-direction-reference{padding:14px}}

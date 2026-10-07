@@ -153,3 +153,14 @@ The product-notes repository now includes **CLARITY_LANGUAGE_GUIDE.md**, plus th
 Trade-Offs always uses the choice shown in Decision. Its context, costs and alternative inputs remain attached to that choice’s existing ID; other saved paths and answers are preserved. Continue goes directly to Incentives, and Back returns to What Matters. The heading **Alternatives** and the three questions now use the approved choice wording. The seven-area table, shared cost section, examples as placeholders and uncertainty behavior are retained.
 
 The remaining page audit is recorded as SC-07 in the product notes’ OPEN_QUESTIONS.md. Compounding, Stress Test, Decision Drivers and Decision Overview require the most substantial follow-up. Other pages need scoped wording or interface alignment; alternative-comparison design and older-save migration remain open.
+
+
+## Incentives writing flow (2026-10-07)
+
+Incentives now reflects on the focal choice with three free-text questions: expected gains; what the choice could help reduce, leave behind or avoid; and how those rewards fit with the user's direction in life. The title remains **Incentives**. Existing **Aim for this decision** and **Direction in life** references and Edit links are retained.
+
+A collapsible two-column guide uses group rows for **External rewards** and **Psychological rewards**. It includes **Networks and connections** and explicitly presents its areas as starting points, not an exhaustive list. Consequential-life examples use a management promotion and independent design practice; examples are guidance, never stored answers. The alignment question includes **I'm not sure yet**, retains any earlier writing and does not score or infer alignment.
+
+Continue goes directly to Compounding; Back returns to Trade-Offs. Earlier selections, concerns, option IDs and non-focal reflections are preserved, with earlier Incentives notes accessible separately. New writing is included in the existing Decision Drivers reflection pool and structured AI export. No motives are inferred from text. Existing conditional Judgment Check triggers still use retained legacy selections; adapting those triggers to the free-text flow is deferred in the product notes.
+
+The generic **A closer look** judgment review remains deferred. Reward-direction alignment examines the attraction of a reward against an intended life direction; it does not replace Compounding, Chain Effects or Judgment Check. See the product notes' 2026-10-07 reasoning and UX records and INC-01 / INC-04.
