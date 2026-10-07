@@ -375,25 +375,11 @@ function earlierCompoundingText(){
  });
  return out.join('\n\n');
 }
-function earlierCompounding(){
- if(!earlierCompoundingText())return '';
- const c=data.compounding;
- const categories=['grow','avoid'].map(kind=>earlierCompoundKeys(kind).map(id=>{
-   const item=(kind==='grow'?compoundGrow:compoundAvoid).find(x=>x.id===id);
-   const paths=(c[kind+'Options'][id]||[]).map(oid=>data.options.find(o=>o.id===oid)?.name||'Unknown retained path');
-   return '<section><h3>'+esc((kind==='grow'?'Earlier desired growth: ':'Earlier unwanted accumulation: ')+(item?.title||id))+'</h3><label class="field"><span>Earlier detail</span><textarea data-compounddetail="'+kind+'" data-compoundid="'+esc(id)+'">'+esc(c[kind+'Details'][id]||'')+'</textarea></label><p class="field-note">Earlier associated paths: '+esc(paths.join(', ')||'None selected')+'</p></section>';
- }).join('')).join('');
- const paths=data.options.map(o=>{
-   const old=legacyOptionCompoundingText(o),other=o.id!==choiceOption().id&&compoundingQuestions.some(({key})=>o.compound[key].trim()||o.compound[key+'Unknown']);
-   return old||other?'<section><h3>'+esc(o.name||'Untitled path')+'</h3><pre class="brief">'+esc([old,other?compoundingReflectionText(o):''].filter(Boolean).join('\n\n'))+'</pre></section>':'';
- }).join('');
- return '<details class="compounding-earlier"><summary>Earlier Compounding notes</summary><p class="field-note">Kept in their original categories and associated paths. These notes have not been converted into answers to the new questions.</p>'+categories+paths+'</details>';
-}
 function compounding(){
  const o=choiceOption(),c=o.compound;
  const guide='<details class="compounding-life-guide" open><summary>Areas of life to keep in view</summary><p class="field-note">Use the table to look for effects you might otherwise overlook. In each area, consider how continued attention, repeated experiences or neglect could build on what came before. The practical and psychological effects may influence one another.</p><p class="field-note">These are starting points, not a complete list or predictions about your choice. Use whatever is relevant, and include anything else that matters to you.</p><table class="compounding-life-table" aria-label="Guide to reflection across areas of life"><thead><tr><th scope="col">Area of life</th><th scope="col">What to consider over time</th></tr></thead><tbody>'+compoundingAreas.map(([area,practical,psych])=>'<tr><th scope="row">'+esc(area)+'</th><td><p><strong>Practical effects</strong>'+esc(practical)+'</p><p><strong>Psychological effects</strong>'+esc(psych)+'</p></td></tr>').join('')+'</tbody></table></details>';
  const parts=compoundingQuestions.map(({key,question,help,example,placeholder})=>'<section class="compounding-writing-part"><h2 class="question"><label for="compounding-'+key+'">'+esc(question)+'</label></h2><p class="field-note" id="compounding-'+key+'-help">'+esc(help)+'</p><p class="compounding-writing-example" id="compounding-'+key+'-example"><span>Example</span>'+esc(example)+'</p><label class="compounding-write-label" for="compounding-'+key+'">Your reflection</label><textarea id="compounding-'+key+'" data-compoundingtext="'+key+'" aria-describedby="compounding-'+key+'-help compounding-'+key+'-example" placeholder="'+esc(placeholder)+'" '+(c[key+'Unknown']?'disabled':'')+'>'+esc(c[key])+'</textarea><label class="compounding-unknown"><input type="checkbox" data-compoundingunknown="'+key+'" aria-controls="compounding-'+key+'" '+(c[key+'Unknown']?'checked':'')+'><span>I don’t know yet</span></label></section>').join('');
- return '<p class="muted compounding-page-intro">Some effects of a choice build over time. Earlier progress can support further progress, while repeated demands or rewards can make a pattern stronger. This can change both your circumstances and how you think, feel and act. Consider what making this choice could keep developing, reinforce or gradually weaken, in relation to the life you want to build.</p><div class="card compounding-writing-card"><section class="compounding-choice-context"><div class="direction-label">You’re considering <button class="reference-edit" data-edit="0">Edit</button></div><p>'+esc(o.name||'Your choice is not defined yet.')+'</p></section>'+guide+parts+earlierCompounding()+'</div>';
+ return '<p class="muted compounding-page-intro">Some effects of a choice build over time. Earlier progress can support further progress, while repeated demands or rewards can make a pattern stronger. This can change both your circumstances and how you think, feel and act. Consider what making this choice could keep developing, reinforce or gradually weaken, in relation to the life you want to build.</p><div class="card compounding-writing-card"><section class="compounding-choice-context"><div class="direction-label">You’re considering <button class="reference-edit" data-edit="0">Edit</button></div><p>'+esc(o.name||'Your choice is not defined yet.')+'</p></section>'+guide+parts+'</div>';
 }
 function consequences(){
 const o=option(),oi=data.options.indexOf(o),num=oi+1,total=data.options.length;
