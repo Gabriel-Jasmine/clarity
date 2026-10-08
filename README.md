@@ -15,7 +15,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for the choice under consideration
 4. Describe the focal choice’s expected gains and relief, then reflect on how those rewards fit the user’s direction in life
 5. Use a nine-area practical and psychological guide, then describe what the focal choice could develop, reinforce or make harder to sustain over time
-6. Trace one plausible upside chain and one plausible downside chain for each option, stopping when the next causal link would mostly be a guess
+6. Follow further consequences of the focal choice through a possible benefit and a possible difficulty, using automatic causal prompts, compact earlier answers and “That’s it” to finish
 7. Invert the decision by identifying what would make it fail to achieve the intended outcome
 8. Stress Test each option against the same less-favourable conditions and identify where there is least room for things going wrong
 9. Run a decision-level Judgment Check using counterfactual tests, with extra checks only when earlier answers make them relevant
@@ -163,7 +163,7 @@ A collapsible two-column guide uses group rows for **External rewards** and **Ps
 
 Continue goes directly to Compounding; Back returns to Trade-Offs. Earlier selections, concerns, option IDs and non-focal reflections are preserved, with earlier Incentives notes accessible separately. New writing is included in the existing Decision Drivers reflection pool and structured AI export. No motives are inferred from text. Existing conditional Judgment Check triggers still use retained legacy selections; adapting those triggers to the free-text flow is deferred in the product notes.
 
-The generic **A closer look** judgment review remains deferred. Reward-direction alignment examines the attraction of a reward against an intended life direction; it does not replace Compounding, Chain Effects or Judgment Check. See the product notes' 2026-10-07 reasoning and UX records and INC-01 / INC-04.
+The generic **A closer look** judgment review remains deferred. Reward-direction alignment examines the attraction of a reward against an intended life direction; it does not replace Compounding, Further Consequences or Judgment Check. See the product notes' 2026-10-07 reasoning and UX records and INC-01 / INC-04.
 
 
 ## Compounding writing flow (2026-10-07)
@@ -173,3 +173,13 @@ Compounding now follows the approved description → areas-of-life guide → thr
 The questions ask what could be built on, which unwanted patterns could strengthen, and what could become harder to sustain or pursue. Each has one blank writing field and **I don’t know yet**; uncertainty preserves writing and remains unresolved in readiness, overview and export. There is no no-effect preset or category-selection cap. Known answers join the existing Decision Drivers reflection pool without new scores or inferred psychological labels.
 
 Earlier categories, original path associations, per-path records and existing linked driver sources remain preserved. Earlier Compounding data remains in browser storage and structured export; it is not inferred into new answers. The unapproved Earlier Compounding notes panel was removed from the page on 2026-10-07 to restore the agreed flow. Migration clears the section's earlier reviewed mark once. Back returns to Incentives; Continue enters Chain Effects, whose retained comparative flow remains deferred under SC-07. Incentives examines attraction and reward-direction fit; Compounding examines development and reinforcement over time; Chain Effects traces possible causal sequences.
+
+
+
+## Further Consequences (2026-10-08)
+
+Chain Effects is now **Further Consequences**. The approved flow is description → shared nine-area guide with one integrated description per area → causal guidance → two explorations, starting with a possible benefit and a possible difficulty. Either can contain a mix of helpful and harmful effects. Compounding examines repetition, accumulation and reinforcement; this section follows an initial change through subsequent changes and responses.
+
+Start with one small blank field. As it gains text, the next causal question appears inline without taking focus. Moving into it compacts earlier answers into editable text entries. Longer entries use Show more / Show less. There is one unused continuation, and no Then what? button. **That’s it** finishes the sequence; **Explore further** reopens it. Stop when another plausible connection cannot be explained; no minimum of two effects or maximum chain length is imposed.
+
+Saved answers, internal gaps, earlier path records and driver snapshots are preserved. Existing saves request one new review of this section. Decision Drivers receives one connected reflection per sequence; structured export includes all effects and finished/open states. No AI or causal validation is added. The section runs once for the focal choice, with Continue leading to Inversion and Back to Compounding.

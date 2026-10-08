@@ -164,3 +164,35 @@ input,textarea,select{font-family:var(--ui);font-size:16px;border-radius:5px}inp
 .compounding-unknown{display:flex;gap:10px;align-items:center;font-size:15px;min-height:44px;margin-top:10px;cursor:pointer}
 .compounding-unknown input{width:18px;height:18px;flex:0 0 18px;margin:0}
 @media(max-width:600px){.compounding-life-table th,.compounding-life-table td{padding:12px 8px}.compounding-life-table th:first-child{width:34%}.compounding-writing-part h2.question{font-size:19px}}
+
+/* Further Consequences: one available continuation, compact earlier answers. */
+.consequence-card{min-width:0}
+.consequence-card [hidden]{display:none!important}
+.consequence-card>h2{margin-top:0}
+.consequence-guide{margin:32px 0}
+.consequence-guide h2,.consequence-instructions h2,.consequence-exploration h2{font-size:24px;font-weight:400}
+.consequence-life-table td{font-size:14px;line-height:1.6}
+.consequence-instructions{margin:28px 0}
+.consequence-exploration{border-top:1px solid var(--line);padding-top:24px;margin-top:28px}
+.consequence-entry{border-left:1px solid var(--line);padding-left:16px;margin-top:14px;min-width:0}
+.consequence-entry:first-child{margin-top:0}
+.consequence-summary-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.consequence-summary-head>span{font-size:12px;color:var(--muted)}
+.consequence-text-action{border:0;background:transparent;color:var(--ink);padding:6px 0;min-height:44px;text-decoration:underline;text-underline-offset:3px}
+.consequence-answer{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:16px;line-height:1.5}
+.consequence-answer.clamped{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.consequence-continuation-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+.consequence-continuation-head>span{font-family:var(--serif);font-size:20px}
+.consequence-editor>label{display:block;font-size:16px;margin-bottom:8px}
+.consequence-editor>.field-note{margin:0 0 10px}
+.consequence-editor>textarea{display:block;width:100%;min-height:72px;resize:vertical;font-size:16px;line-height:1.5;padding:10px 12px}
+.consequence-finished{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+.consequence-finished>span{font-size:13px;color:var(--muted)}
+.consequence-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(max-width:600px){
+ .consequence-entry{padding-left:12px}
+ .consequence-life-table,.consequence-life-table tbody,.consequence-life-table tr,.consequence-life-table th,.consequence-life-table td{display:block;width:100%}
+ .consequence-life-table thead{display:none}
+ .consequence-life-table tbody th:first-child{width:100%;padding:16px 0 4px;border:0}
+ .consequence-life-table tbody td{padding:0 0 16px}
+}
