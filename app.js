@@ -147,7 +147,8 @@ const compoundingQuestions=[
   }
 ];
 const blankCompounding=()=>({formatVersion:2,stronger:[],weaker:[],horizon:"",build:"",reinforce:"",sustain:"",buildUnknown:false,reinforceUnknown:false,sustainUnknown:false});
-const blankOption=name=>({id:uid(),name,trade:{alternatives:["",""],immediate:"",future:"",immediateUnknown:false,futureUnknown:false,foregone:[""],commitments:[""],foregoneState:"",foregoneUnknown:"",commitmentState:"",commitmentUnknown:""},incentives:{formatVersion:2,promises:[],avoid:[],gain:"",relief:"",fit:"",fitUnknown:false},compound:blankCompounding(),consequence:{formatVersion:2,positive:[""],negative:[""],ended:{positive:false,negative:false}},resilience:{conditions:[],financial:"maybe",time:"maybe",emotional:"maybe",strategic:"maybe"},reverse:{difficulty:0,costs:[],easier:""}});
+const blankConsequence=()=>({formatVersion:3,immediate:"",branches:{favourable:[""],unfavourable:[""]},branchEnded:{favourable:false,unfavourable:false},positive:[""],negative:[""],ended:{positive:false,negative:false}});
+const blankOption=name=>({id:uid(),name,trade:{alternatives:["",""],immediate:"",future:"",immediateUnknown:false,futureUnknown:false,foregone:[""],commitments:[""],foregoneState:"",foregoneUnknown:"",commitmentState:"",commitmentUnknown:""},incentives:{formatVersion:2,promises:[],avoid:[],gain:"",relief:"",fit:"",fitUnknown:false},compound:blankCompounding(),consequence:blankConsequence(),resilience:{conditions:[],financial:"maybe",time:"maybe",emotional:"maybe",strategic:"maybe"},reverse:{difficulty:0,costs:[],easier:""}});
 function fresh(){const proposed=blankOption("");return{decisionMode:"choice",choiceOptionId:proposed.id,choiceInclination:"",decision:"",decisionAim:"",objective:"",lifeDirectionUnknown:false,inclination:"",horizon:"",options:[proposed],priorities:[],stakes:[],hasHardBoundaries:"",rules:[],incentiveConcerns:[],incentiveConcernNone:false,compounding:{grow:[],avoid:[],growDetails:{},growOptions:{},avoidDetails:{},avoidOptions:{}},inversion:[""],stressTest:{ratings:{},leastRoom:""},knowledge:[],judgment:{answers:{},strongestCase:"",changeEvidence:""},psych:[],factors:[],investigate:[],reviewed:[]}}
 let data=(()=>{try{return JSON.parse(localStorage.getItem("clarity-v1"))||fresh()}catch{return fresh()}})();
 if(!("inclination" in data))data.inclination="";
@@ -228,20 +229,29 @@ data.options.forEach(o=>{
   if(!("foregoneUnknown" in o.trade))o.trade.foregoneUnknown="";
   if(!("commitmentState" in o.trade))o.trade.commitmentState="";
   if(!("commitmentUnknown" in o.trade))o.trade.commitmentUnknown="";
-  if(!o.consequence)o.consequence={positive:[""],negative:[""]};
-  if(o.consequence.formatVersion!==2){if(o.id===data.choiceOptionId)consequenceFormatChanged=true;o.consequence.formatVersion=2;}
+  if(!o.consequence)o.consequence=blankConsequence();
+  // Preserve all earlier separate-origin benefit/difficulty chains exactly as legacy data.
   if(!o.consequence.ended)o.consequence.ended={positive:false,negative:false};
   ["positive","negative"].forEach(k=>{
     if(!Array.isArray(o.consequence[k]))o.consequence[k]=[""];
-    // Remove unused trailing slots, retaining written answers and any internal gaps in place.
     while(o.consequence[k].length>1&&!o.consequence[k].at(-1).trim())o.consequence[k].pop();
     if(!o.consequence[k].length)o.consequence[k].push("");
     if(typeof o.consequence.ended[k]!=="boolean")o.consequence.ended[k]=false;
   });
-  if(!o.consequence.expanded)o.consequence.expanded={
-    positive:Boolean(o.consequence.positive[2]),
-    negative:Boolean(o.consequence.negative[2])
-  };
+  if(typeof o.consequence.immediate!=="string")o.consequence.immediate="";
+  if(!o.consequence.branches)o.consequence.branches={};
+  if(!o.consequence.branchEnded)o.consequence.branchEnded={};
+  ["favourable","unfavourable"].forEach(k=>{
+    if(!Array.isArray(o.consequence.branches[k]))o.consequence.branches[k]=[""];
+    while(o.consequence.branches[k].length>1&&!o.consequence.branches[k].at(-1).trim())o.consequence.branches[k].pop();
+    if(!o.consequence.branches[k].length)o.consequence.branches[k].push("");
+    if(typeof o.consequence.branchEnded[k]!=="boolean")o.consequence.branchEnded[k]=false;
+  });
+  if(o.consequence.formatVersion!==3){
+    if(o.id===data.choiceOptionId)consequenceFormatChanged=true;
+    // Do not assume two older, independently entered immediate effects share one origin.
+    o.consequence.formatVersion=3;
+  }
 });
 let step=Math.max(0,Math.min(11,data.ui?.step||0)),active=data.options.some(o=>o.id===data.ui?.active)?data.ui.active:data.options[0].id,incentiveReview=false,selectedReflections=[];
 if(!data.reviewed)data.reviewed=[];
@@ -399,19 +409,30 @@ const consequenceGuidance=[
  'How could changes in your surroundings or access to services affect how secure and settled you feel, and in turn your daily activities, connections or reliance on others?'
 ];
 function consequenceSequenceText(o,key){
- const values=o.consequence[key]||[];
+ const values=(key==="favourable"||key==="unfavourable")?o.consequence.branches?.[key]||[]:o.consequence[key]||[];
  if(!values.some(t=>t.trim()))return '[Not answered]';
  const end=values.findLastIndex(t=>t.trim());
  return values.slice(0,end+1).map(t=>t.trim()||'[Connection not yet explained]').join(' → ');
 }
 function consequenceReflectionText(o){
- return ['positive','negative'].map(key=>(key==='positive'?'Starting with a possible benefit':'Starting with a possible difficulty')+'\n'+consequenceSequenceText(o,key)+'\nExploration: '+(o.consequence.ended[key]?'Finished by the user':'Still open')).join('\n\n');
+ const c=o.consequence;
+ const first='Immediate change:\n'+(c.immediate?.trim()||'[Not answered]');
+ const branches=['favourable','unfavourable'].map(k=>{
+   const heading=k==='favourable'?'Favourable possibility':'Unfavourable possibility';
+   const effects=consequenceSequenceText(o,k);
+   return heading+'\n'+effects+'\nExploration: '+(c.branchEnded?.[k]?'Finished by the user':'Still open');
+ }).join('\n\n');
+ const earlier=['positive','negative'].filter(k=>(c[k]||[]).some(t=>t.trim()));
+ const historical=earlier.length?'\n\n### Earlier consequences (retained from the previous design; separate original starting changes)\n'+earlier.map(k=>(k==='positive'?'Earlier possible benefit':'Earlier possible difficulty')+'\n'+consequenceSequenceText(o,k)+'\nExploration: '+(c.ended?.[k]?'Finished by the user':'Still open')).join('\n\n'):'';
+ return first+'\n\n'+branches+historical;
 }
 function consequences(){
- const o=choiceOption();
+ const o=choiceOption(),c=o.consequence;
  const guide='<section class="consequence-guide"><h2>Areas of life</h2><p class="field-note">These areas serve as a starting point for seeing how this choice could influence your life. Let them guide your thinking without limiting what you consider.</p><table class="compounding-life-table consequence-life-table" aria-label="Areas of life and guidance for further consequences"><thead><tr><th scope="col">Area of life</th><th scope="col">What to consider</th></tr></thead><tbody>'+compoundingAreas.map(([area],i)=>'<tr><th scope="row">'+esc(area)+'</th><td>'+esc(consequenceGuidance[i])+'</td></tr>').join('')+'</tbody></table></section>';
- const explorations=['positive','negative'].map(key=>'<section class="consequence-exploration" data-consequence-exploration="'+key+'" aria-labelledby="consequence-'+key+'-title"><h2 id="consequence-'+key+'-title">Start with a possible '+(key==='positive'?'benefit':'difficulty')+'</h2><div class="consequence-entries"></div><div class="consequence-finished" hidden><span>That’s it. You can still edit your answers.</span><button type="button" class="secondary" data-consequence-reopen>Explore further</button></div></section>').join('');
- return '<div class="card consequence-card"><h2>What could this choice lead to?</h2><p class="muted">A choice can set off a chain of effects in your life. What looks good at first may eventually undermine the direction you want to take, while what seems inconvenient may lead to a sweeter future. To understand where a choice could lead, look beyond its first result. Consider how that result could change how you feel, what becomes possible or impossible, and your surroundings or relationships. Those changes can create further consequences of their own.</p><p class="field-note">Use the Areas of Life below to map out a good case and a bad case. In each case, start with a possible first result of your choice. Then ask what that result could cause, and what could follow from that change. Keep the connections plausible, and consider how these consequences could support or interfere with the goal you want to achieve and the life you want to build.</p><section class="compounding-choice-context"><div class="direction-label">Your choice <button class="reference-edit" data-edit="0">Edit</button></div><p>'+esc(o.name||'Your choice is not defined yet.')+'</p></section>'+guide+'<section class="consequence-instructions"><h2>Lay out what follows</h2><p>Write down the first change this choice could bring. Then consider what it might set in motion across different Areas of Life, one step at a time.</p><p class="field-note">Continue while you can reasonably explain how one change could lead to another. Select ‘That’s it’ when you can no longer make that connection.</p></section>'+explorations+'<div class="consequence-status" role="status" aria-live="polite"></div></div>';
+ const example=text=>'<div class="consequence-example"><span>EXAMPLE OF WHAT COULD FOLLOW</span><p>'+esc(text)+'</p></div>';
+ const directions=['favourable','unfavourable'].map((key,i)=>'<section class="consequence-exploration" data-consequence-exploration="'+key+'" aria-labelledby="consequence-'+key+'-title"><div class="consequence-direction">'+String(i+1).padStart(2,'0')+' / '+(key==='favourable'?'FAVOURABLE POSSIBILITY':'UNFAVOURABLE POSSIBILITY')+'</div><h3 id="consequence-'+key+'-title">'+(key==='favourable'?'What favourable change could this lead to?':'What unfavourable change could this lead to?')+'</h3>'+example(key==='favourable'?'Higher salary → More money saved → Greater financial security':'Higher salary → Higher lifestyle spending → Greater dependence on maintaining that income')+'<div class="consequence-entries"></div><div class="consequence-finished" hidden><span>That’s it. You can still edit your answers.</span><button type="button" class="secondary" data-consequence-reopen>Explore further</button></div></section>').join('');
+ const oldNotes=(c.positive||[]).some(t=>t.trim())||(c.negative||[]).some(t=>t.trim())?'<p class="consequence-legacy-hint">Your earlier consequence notes are preserved in your decision context. They have not been assigned to these new paths.</p>':'';
+ return '<div class="card consequence-card"><h2>What could this choice lead to?</h2><p class="muted">A choice can set off a chain of effects in your life. What looks good at first may eventually undermine the direction you want to take, while what seems inconvenient may lead to a sweeter future. To understand where a choice could lead, look beyond its first result. Consider how that result could change how you feel, what becomes possible or impossible, and your surroundings or relationships. Those changes can create further consequences of their own.</p><p class="field-note">Use the Areas of Life below to consider different ways an immediate change could affect your life. One change may lead to favourable and unfavourable possibilities. Follow each possibility to see what it could set in motion, including consequences that take an unexpected turn. Keep the connections plausible, and consider how they relate to your goals and the life you want to build.</p><section class="compounding-choice-context"><div class="direction-label">Your choice <button class="reference-edit" data-edit="0">Edit</button></div><p>'+esc(o.name||'Your choice is not defined yet.')+'</p></section>'+guide+'<section class="consequence-instructions"><h2>Lay out what follows</h2><p>Write down the first change this choice could bring. Then consider what it might set in motion across different Areas of Life, one step at a time.</p><p class="field-note">Continue while you can reasonably explain how one change could lead to another. Select ‘That’s it’ when you can no longer make that connection.</p></section><section class="consequence-immediate"><h2>Immediate change</h2><label for="consequence-immediate-input">What is one immediate change this choice could bring?</label><div class="consequence-example"><span>EXAMPLE</span><p>My monthly salary could increase.</p></div><textarea id="consequence-immediate-input" rows="2">'+esc(c.immediate)+'</textarea></section><section class="consequence-next"><h2>Then what?</h2><p class="muted">The same change can lead to different consequences, some favourable and others unfavourable.</p><div class="consequence-origin" '+(!c.immediate.trim()?'hidden':'')+'><span>YOUR IMMEDIATE CHANGE</span><p data-consequence-origin>'+esc(c.immediate)+'</p></div></section>'+directions+oldNotes+'<div class="consequence-status" role="status" aria-live="polite"></div></div>';
 }
 let consequenceResizeObserver;
 function bindConsequences(){
@@ -419,6 +440,13 @@ function bindConsequences(){
  const root=document.querySelector('.consequence-card');
  if(!root)return;
  const c=choiceOption().consequence,status=root.querySelector('[role="status"]');
+ const initial=root.querySelector('#consequence-immediate-input'),origin=root.querySelector('.consequence-origin');
+ initial.oninput=()=>{
+   c.immediate=initial.value;
+   origin.hidden=!c.immediate.trim();
+   origin.querySelector('[data-consequence-origin]').textContent=c.immediate;
+   save();
+ };
  const updateMore=entry=>{
    if(entry.summary.hidden||entry.more.getAttribute('aria-expanded')==='true')return;
    entry.more.hidden=entry.answer.scrollHeight<=entry.answer.clientHeight+1;
@@ -428,7 +456,7 @@ function bindConsequences(){
    const finished=section.querySelector('.consequence-finished'),reopen=section.querySelector('[data-consequence-reopen]');
    const entries=[];
    let serial=0;
-   const persist=()=>{c[key]=entries.map(entry=>entry.input.value);save();};
+   const persist=()=>{c.branches[key]=entries.map(entry=>entry.input.value);save();};
    const resize=entry=>{entry.input.style.height='auto';entry.input.style.height=Math.max(72,entry.input.scrollHeight+2)+'px';};
    const compact=entry=>{
      if(!entry.input.value.trim())return;
@@ -445,29 +473,28 @@ function bindConsequences(){
    const finish=()=>{
      if(!entries.some(entry=>entry.input.value.trim()))return;
      while(entries.length>1&&!entries.at(-1).input.value.trim())entries.pop().node.remove();
-     c.ended[key]=true;
+     c.branchEnded[key]=true;
      entries.forEach(entry=>{compact(entry);entry.stop.hidden=true;});
      finished.hidden=false;persist();
-     status.textContent='The '+(key==='positive'?'benefit':'difficulty')+' exploration is finished. Your answers remain editable.';
+     status.textContent='The '+key+' exploration is finished. Your answers remain editable.';
      reopen.focus();
    };
    const add=(value='',collapsed=false)=>{
-     const position=entries.length,id='consequence-'+key+'-'+(++serial);
-     const first=position===0;
-     const question=first?(key==='positive'?'What is one possible benefit of this choice?':'What is one possible difficulty this choice could create?'):'Because of that change, what else could happen?';
-     const helper=first?(key==='positive'?'For example, a higher income could ease the pressure of covering my expenses.':'For example, greater responsibility could leave me mentally tired after work.'):'Explain the connection, including how you or someone else might respond.';
-     const node=document.createElement('div');node.className='consequence-entry';
-     node.innerHTML='<div class="consequence-summary" hidden><div class="consequence-summary-head"><span>'+(first?'Initial change':'Because of that change')+'</span><button type="button" class="consequence-text-action" data-consequence-edit aria-label="Edit '+(key==='positive'?'benefit':'difficulty')+' consequence '+(position+1)+'">Edit</button></div><p class="consequence-answer clamped" id="'+id+'-answer"></p><button type="button" class="consequence-text-action" data-consequence-more aria-expanded="false" aria-controls="'+id+'-answer" hidden>Show more</button></div><div class="consequence-editor"><div class="consequence-continuation-head"><span>'+(first?'Initial change':'Then what?')+'</span><button type="button" class="secondary" data-consequence-finish '+(first||c.ended[key]?'hidden':'')+'>That’s it</button></div><label for="'+id+'">'+question+'</label><p class="field-note" id="'+id+'-help">'+helper+'</p><textarea id="'+id+'" rows="2" aria-describedby="'+id+'-help"></textarea></div>';
+     const position=entries.length,id='consequence-'+key+'-'+(++serial),first=position===0;
+     const question=first?'': 'Because of that change, what else could happen?';
+     const helper=first?'':'Describe the next change, whether it comes from what you do, how others respond, or what changes around you.';
+     const node=document.createElement('div');node.className='consequence-entry'+(first?' consequence-first-entry':'');
+     node.innerHTML='<div class="consequence-summary" hidden><div class="consequence-summary-head"><span>'+(first?'First possibility':'Because of that change')+'</span><button type="button" class="consequence-text-action" data-consequence-edit aria-label="Edit '+key+' possibility '+(position+1)+'">Edit</button></div><p class="consequence-answer clamped" id="'+id+'-answer"></p><button type="button" class="consequence-text-action" data-consequence-more aria-expanded="false" aria-controls="'+id+'-answer" hidden>Show more</button></div><div class="consequence-editor">'+(first?'':'<div class="consequence-continuation-head"><span>Then what?</span><button type="button" class="secondary" data-consequence-finish '+(c.branchEnded[key]?'hidden':'')+'>That’s it</button></div><label for="'+id+'">'+question+'</label><p class="field-note" id="'+id+'-help">'+helper+'</p>')+'<textarea id="'+id+'" rows="2" '+(first?'aria-label="'+(key==='favourable'?'Favourable':'Unfavourable')+' possibility"':'aria-describedby="'+id+'-help"')+'></textarea></div>';
      list.append(node);
      const entry={node,summary:node.querySelector('.consequence-summary'),editor:node.querySelector('.consequence-editor'),input:node.querySelector('textarea'),answer:node.querySelector('.consequence-answer'),more:node.querySelector('[data-consequence-more]'),stop:node.querySelector('[data-consequence-finish]')};
      entry.input.value=value;entries.push(entry);
      entry.input.onfocus=()=>{
        open(entry);
-       if(!c.ended[key]&&entry.input.value.trim()&&entry===entries.at(-1)){add();persist();}
+       if(!c.branchEnded[key]&&entry.input.value.trim()&&entry===entries.at(-1)){add();persist();}
      };
      entry.input.oninput=()=>{
        resize(entry);entry.answer.textContent=entry.input.value;
-       if(!c.ended[key]){
+       if(!c.branchEnded[key]){
          if(entry.input.value.trim()&&entry===entries.at(-1)){
            add();status.textContent='The next question is available below. You can keep writing your current answer.';
          }
@@ -479,7 +506,7 @@ function bindConsequences(){
        persist();
      };
      node.querySelector('[data-consequence-edit]').onclick=()=>open(entry,true);
-     entry.stop.onclick=finish;
+     if(entry.stop)entry.stop.onclick=finish;
      entry.more.onclick=()=>{
        const expanded=entry.more.getAttribute('aria-expanded')!=='true';
        entry.more.setAttribute('aria-expanded',String(expanded));entry.more.textContent=expanded?'Show less':'Show more';entry.answer.classList.toggle('clamped',!expanded);
@@ -487,12 +514,11 @@ function bindConsequences(){
      if(collapsed)compact(entry);else resize(entry);
      return entry;
    };
-   // Written answers are shown as compact entries on return; new decisions start blank.
-   c[key].forEach(value=>add(value,Boolean(value.trim())));
-   if(!c.ended[key]&&entries.at(-1).input.value.trim())add();
-   finished.hidden=!c.ended[key];
+   c.branches[key].forEach(value=>add(value,Boolean(value.trim())));
+   if(!c.branchEnded[key]&&entries.at(-1).input.value.trim())add();
+   finished.hidden=!c.branchEnded[key];
    reopen.onclick=()=>{
-     c.ended[key]=false;finished.hidden=true;
+     c.branchEnded[key]=false;finished.hidden=true;
      const last=entries.at(-1);
      if(last.input.value.trim()){compact(last);open(add(),true);}else open(last,true);
      persist();status.textContent='The exploration is open again.';
@@ -538,7 +564,7 @@ function driverOptions(f){return (f.options||[]).filter(id=>data.options.some(o=
 function driverDirection(f){const ids=driverOptions(f);return ids.length?'Supports '+ids.map(id=>data.options.find(o=>o.id===id).name).join(' and '):f.directionAssessed?'No clear difference':'Direction not assessed';}
 function reflections(){
  const rows=[];const add=(id,text,optionId)=>{if(text?.trim())rows.push({id,text:text.trim(),optionId});};
- data.options.forEach(o=>{['immediate','future'].forEach(k=>{if(!o.trade[k+'Unknown'])add(o.id+'-trade-'+k,o.trade[k],o.id);});['foregone','commitments'].forEach(k=>(o.trade[k]||[]).forEach((t,i)=>add(o.id+'-trade-'+k+'-'+i,t,o.id)));['positive','negative'].forEach(k=>{if(o.consequence[k].some(t=>t.trim()))add(o.id+'-consequences-'+k,consequenceSequenceText(o,k),o.id);});[...(o.incentives.promises||[]),...(o.incentives.avoid||[])].forEach(id=>add(o.id+'-motive-'+id,[...incentivePromises,...incentiveAvoid].find(x=>x.id===id)?.title,o.id));['gain','relief','fit'].forEach(k=>{if(k!=='fit'||!o.incentives.fitUnknown)add(o.id+'-incentive-'+k,o.incentives[k],o.id);});compoundingQuestions.forEach(({key})=>{if(!o.compound[key+'Unknown'])add(o.id+'-compound-'+key,o.compound[key],o.id);});});
+ data.options.forEach(o=>{['immediate','future'].forEach(k=>{if(!o.trade[k+'Unknown'])add(o.id+'-trade-'+k,o.trade[k],o.id);});['foregone','commitments'].forEach(k=>(o.trade[k]||[]).forEach((t,i)=>add(o.id+'-trade-'+k+'-'+i,t,o.id)));['favourable','unfavourable'].forEach(k=>{if(o.consequence.branches[k].some(t=>t.trim()))add(o.id+'-consequences-'+k,[o.consequence.immediate.trim(),consequenceSequenceText(o,k)].filter(Boolean).join(' → '),o.id);});['positive','negative'].forEach(k=>{if(o.consequence[k].some(t=>t.trim()))add(o.id+'-consequences-'+k,consequenceSequenceText(o,k),o.id);});[...(o.incentives.promises||[]),...(o.incentives.avoid||[])].forEach(id=>add(o.id+'-motive-'+id,[...incentivePromises,...incentiveAvoid].find(x=>x.id===id)?.title,o.id));['gain','relief','fit'].forEach(k=>{if(k!=='fit'||!o.incentives.fitUnknown)add(o.id+'-incentive-'+k,o.incentives[k],o.id);});compoundingQuestions.forEach(({key})=>{if(!o.compound[key+'Unknown'])add(o.id+'-compound-'+key,o.compound[key],o.id);});});
  ['grow','avoid'].forEach(k=>data.compounding[k].forEach(id=>add('compound-'+k+'-'+id,data.compounding[k+'Details'][id],null)));
  data.inversion.forEach((text,i)=>add('inversion-'+i,text,null));
  return rows;
@@ -551,7 +577,7 @@ function factors(){
  return '<div class="drivers-page"><p class="muted">Bring related reasons together. Assess each once.</p>'+decisionAnchor()+'<div class="drivers-workspace"><section class="reflection-panel"><h2>Your earlier reflections</h2><p class="field-note">Select related reflections to group into one driver.</p>'+reference+'<button id="groupReflections" '+(!selectedReflections.length?'disabled':'')+'>Create driver from '+selectedReflections.length+' reflection'+(selectedReflections.length===1?'':'s')+'</button></section><section class="driver-editors">'+(editors||'<div class="empty-state"><h2>What are the real reasons?</h2><p>Select related reflections, or add a driver directly. Aim for a few distinct reasons rather than repeating the same one.</p></div>')+'<button id="addFactor" class="secondary">+ Add a decision driver</button></section></div></div>';
 }
 function decisionAnchor(){return '<div class="decision-anchor"><small>DECISION</small><p>'+esc(data.decision||'Your decision is not defined yet.')+'</p></div>';}
-function assessmentComplete(){return Boolean(data.options.every(o=>o.name.trim())&&data.decisionAim.trim()&&data.hasHardBoundaries&&data.priorities.length&&data.stakes.length&&data.reviewed.filter(i=>i<11).length===11&&choiceOption().trade.alternatives.some(t=>t.trim())&&["immediate","future"].every(k=>choiceOption().trade[k+"Unknown"]||choiceOption().trade[k].trim())&&compoundingQuestions.every(({key})=>choiceOption().compound[key+"Unknown"]||choiceOption().compound[key].trim())&&["positive","negative"].every(k=>choiceOption().consequence.ended[k]&&choiceOption().consequence[k].some(t=>t.trim()))&&data.options.every(o=>o.reverse.difficulty>0)&&data.factors.length&&data.factors.every(f=>f.name.trim()&&f.importance&&f.evidence&&f.strength&&(f.directionAssessed||driverOptions(f).length))&&stressRows.every(r=>data.options.every(o=>data.stressTest.ratings[r.id]?.[o.id])));}
+function assessmentComplete(){return Boolean(data.options.every(o=>o.name.trim())&&data.decisionAim.trim()&&data.hasHardBoundaries&&data.priorities.length&&data.stakes.length&&data.reviewed.filter(i=>i<11).length===11&&choiceOption().trade.alternatives.some(t=>t.trim())&&["immediate","future"].every(k=>choiceOption().trade[k+"Unknown"]||choiceOption().trade[k].trim())&&compoundingQuestions.every(({key})=>choiceOption().compound[key+"Unknown"]||choiceOption().compound[key].trim())&&choiceOption().consequence.immediate.trim()&&["favourable","unfavourable"].every(k=>choiceOption().consequence.branchEnded[k]&&choiceOption().consequence.branches[k].some(t=>t.trim()))&&data.options.every(o=>o.reverse.difficulty>0)&&data.factors.length&&data.factors.every(f=>f.name.trim()&&f.importance&&f.evidence&&f.strength&&(f.directionAssessed||driverOptions(f).length))&&stressRows.every(r=>data.options.every(o=>data.stressTest.ratings[r.id]?.[o.id])));}
 
 function analyse(){
  const scores=Object.fromEntries(data.options.map(o=>[o.id,0]));
