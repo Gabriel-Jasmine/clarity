@@ -16,7 +16,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 4. Describe the focal choice’s expected gains and relief, then reflect on how those rewards fit the user’s direction in life
 5. Use a nine-area practical and psychological guide, then describe what the focal choice could develop, reinforce or make harder to sustain over time
 6. Follow further consequences of the focal choice through a possible benefit and a possible difficulty, using automatic causal prompts, compact earlier answers and “That’s it” to finish
-7. Invert the decision by identifying what would make it fail to achieve the intended outcome
+7. The Devil's Advocate: describe failure relative to life direction within this decision, then examine whether and how the focal choice could lead towards that outcome
 8. Stress Test each option against the same less-favourable conditions and identify where there is least room for things going wrong
 9. Run a decision-level Judgment Check using counterfactual tests, with extra checks only when earlier answers make them relevant
 10. Test reversibility and switching costs
@@ -183,3 +183,16 @@ Chain Effects is now **Further Consequences**. The approved flow is description 
 Start with one small blank field. As it gains text, the next causal question appears inline without taking focus. Moving into it compacts earlier answers into editable text entries. Longer entries use Show more / Show less. There is one unused continuation, and no Then what? button. **That’s it** finishes the sequence; **Explore further** reopens it. Stop when another plausible connection cannot be explained; no minimum of two effects or maximum chain length is imposed.
 
 Saved answers, internal gaps, earlier path records and driver snapshots are preserved. Existing saves request one new review of this section. Decision Drivers receives one connected reflection per sequence; structured export includes all effects and finished/open states. No AI or causal validation is added. The section runs once for the focal choice, with Continue leading to Inversion and Back to Compounding.
+
+## The Devil's Advocate (2026-10-10)
+
+Inversion is now **The Devil's Advocate**. The approved two-part flow asks:
+
+1. **Looking at your life direction, what would failure in this decision look like?** Describe a recognisable situation that would take the user further from what they want to build or protect.
+2. **Could making this choice lead you towards that outcome? If so, how?** Explain a plausible connection without assuming that the choice causes failure.
+
+Both writing fields stay visible together, with helpers, labelled bakery-expansion examples and prompting ghost text. **Explore another outcome** adds another pair. The shared life-direction/decision-aim references and focal choice remain visible. Examples are independent of the user's personal circumstances and are not stored as answers.
+
+New outcome/connection pairs persist with stable IDs. Decision Drivers receives each pair as one reflection; the vulnerability overview and Markdown export retain the relationship and distinguish unanswered parts. Earlier Inversion notes and driver links remain intact without being inferred into new answers or adding a legacy editor. Older saves request one fresh review of section 7. Completeness requires at least one written pair, with both parts answered in every started pair; a blank extra pair does not count. No recommendation, likelihood or new score is inferred. Stress Test is unchanged.
+
+Validation: syntax, saved-data migration, paired editing/add/remove, persistence/reload, reset, Drivers/Overview/export, escaping and all-screen rendering/navigation checks passed. Live-browser visual verification remains pending.
