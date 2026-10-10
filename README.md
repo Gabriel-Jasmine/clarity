@@ -17,7 +17,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 5. Use a nine-area practical and psychological guide, then describe what the focal choice could develop, reinforce or make harder to sustain over time
 6. Follow further consequences of the focal choice through a possible benefit and a possible difficulty, using automatic causal prompts, compact earlier answers and “That’s it” to finish
 7. The Devil's Advocate: describe failure relative to life direction within this decision, then examine whether and how the focal choice could lead towards that outcome
-8. Stress Test each option against the same less-favourable conditions and identify where there is least room for things going wrong
+8. Stress Test the contemplated choice against plausible setbacks and describe how much you could manage before it becomes unworkable
 9. Run a decision-level Judgment Check using counterfactual tests, with extra checks only when earlier answers make them relevant
 10. Test reversibility and switching costs
 11. Consolidate the few Decision Drivers that genuinely drive the decision, assessing each once by direction, importance, and evidence
@@ -152,7 +152,7 @@ The product-notes repository now includes **CLARITY_LANGUAGE_GUIDE.md**, plus th
 
 Trade-Offs always uses the choice shown in Decision. Its context, costs and alternative inputs remain attached to that choice’s existing ID; other saved paths and answers are preserved. Continue goes directly to Incentives, and Back returns to What Matters. The heading **Alternatives** and the three questions now use the approved choice wording. The seven-area table, shared cost section, examples as placeholders and uncertainty behavior are retained.
 
-The remaining page audit is recorded as SC-07 in the product notes’ OPEN_QUESTIONS.md. Compounding is now aligned; Stress Test, Decision Drivers and Decision Overview require substantial follow-up. Other pages need scoped wording or interface alignment; alternative-comparison design and older-save migration remain open.
+The remaining page audit is recorded as SC-07 in the product notes’ OPEN_QUESTIONS.md. Compounding and Stress Test are now aligned; Decision Drivers and Decision Overview require substantial follow-up. Other pages need scoped wording or interface alignment; alternative-comparison design and older-save migration remain open.
 
 
 ## Incentives writing flow (2026-10-07)
@@ -196,3 +196,17 @@ Both writing fields stay visible together, with helpers, labelled bakery-expansi
 The current outcome/connection reflection and its response persist with a stable ID. Additional pairs from earlier saves are retained in historical export and Drivers with their original IDs. Decision Drivers receives each pair as one reflection; the vulnerability overview and Markdown export retain the relationship and distinguish unanswered parts. Earlier Inversion notes and driver links remain intact without being inferred into new answers or adding a legacy editor. Older saves request one fresh review of section 7. Completeness requires a written outcome plus either a written connection or an explicit alternative. Unknown is an answered question with an unresolved investigation in Overview/export. No is the user’s assessment, not proof of safety, and is not counted as an identified vulnerability. Retained explanation text is labelled historical while an alternative is selected. No recommendation, likelihood or new score is inferred. Stress Test is unchanged.
 
 Validation: syntax, single-pair editing, response switching/restored writing, saved-data migration, persistence/reload, reset, Drivers/Overview/export, escaping and all-screen rendering/navigation checks passed. Run `node tests/advocate.cjs` for the interaction/data regression checks. Live-browser visual verification remains pending.
+
+
+
+## Stress Test — room after setbacks (2026-10-10)
+
+Stress Test now combines adverse-condition prompts with margin-of-safety assessment for the focal contemplated action. It keeps the user's choice, Decision aim and Life direction visible. Six conditions cover Money, Available Time, Time to reach the outcome, Health and energy, Support and Cooperation, and Access to what you need. Available Time includes time displaced from other things that matter; outcome delay is assessed separately. People matter here when their support, cooperation or follow-through is a dependency.
+
+Each condition has one response: No meaningful effect, Enough room remains, Little or no room left, Beyond tolerance, or I don’t know yet. A visible, secondary inset guide explains these responses, with term and explanation left edges aligned. The assessment concerns room remaining after a plausible setback; it is not a stress-feeling rating. The guide reflows at narrower widths.
+
+One shared writing box asks “How much could you manage before this becomes unworkable?” It asks for detailed, concrete make-or-break setbacks, what could still be managed, the point where continuing becomes unworkable or crosses an important boundary, and limits not yet understood. A native collapsed “See an example” disclosure supports this writing. There is no numerical requirement or resilience score; greater margin does not establish a better choice, and independent rows do not establish resilience to combined setbacks.
+
+New answers are versioned and tied to the focal path. The old comparative matrix, original ratings and least-room writing remain historical in saved data and Markdown export rather than being reinterpreted. Migration clears the old Stress Test reviewed mark once. Current concrete writing is available to Drivers and Overview; unknown responses generate information needs. A blank response remains incomplete; an explicit unknown is answered but unresolved. Old matrix ratings do not establish new completion or stability.
+
+Validation: `node --check app.js`, `node tests/advocate.cjs` and `node tests/stress.cjs`. Tests cover persistence, migration, source preservation, unknowns, reporting, escaping, navigation and reset. Browser visual QA remains outstanding; desktop and mobile CSS reflow is implemented.
