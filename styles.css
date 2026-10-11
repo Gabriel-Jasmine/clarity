@@ -230,3 +230,19 @@ input,textarea,select{font-family:var(--ui);font-size:16px;border-radius:5px}inp
 @media(max-width:1050px){.stress-assessment{grid-template-columns:minmax(0,1fr);gap:20px}.stress-response-guide dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.stress-response-guide dl>div+div{margin-top:0}}
 @media(max-width:600px){.stress-context{grid-template-columns:1fr;padding:16px;gap:14px}.stress-card .stress-question{font-size:21px}.stress-card .stress-table thead{display:none}.stress-card .stress-table,.stress-card .stress-table tbody,.stress-card .stress-table tr,.stress-card .stress-table th,.stress-card .stress-table td{display:block;width:100%}.stress-card .stress-table tr{border-bottom:1px solid var(--line);padding:16px 0}.stress-card .stress-table th:first-child{width:100%;padding:0;border:0}.stress-card .stress-table td{padding:12px 0 0;border:0}.stress-card .stress-table td select{font-size:16px;width:100%}.stress-response-guide dl{grid-template-columns:1fr 1fr}.stress-writing{margin-top:24px}}
 @media(max-width:380px){.stress-response-guide dl{grid-template-columns:1fr}}
+
+/* Decision-level timing: existing choice controls, neutral examples and writing presets. */
+.decision-timing-field{border:0;padding:0;margin:0;min-width:0}
+.decision-timing-field>.question{display:block;padding:0}
+.decision-deadline-choices{grid-template-columns:repeat(3,minmax(0,1fr))}
+.decision-deadline-details{margin-top:24px}
+.decision-deadline-details>.question{display:block}
+.decision-timing-example{background:var(--bg);border-radius:4px;padding:12px 16px;margin:14px 0 16px}
+.decision-timing-example>span{display:block;font-size:12px;color:var(--soft);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+.decision-timing-example>p{font-size:15px;line-height:1.6;margin:0;overflow-wrap:anywhere}
+.decision-timing-field textarea{display:block;min-height:112px;font-size:16px;line-height:1.6}
+.decision-waiting-responses{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.decision-waiting-responses>label{display:flex;align-items:center;gap:10px;min-height:44px;width:fit-content;max-width:100%;font-size:16px;cursor:pointer}
+.decision-waiting-responses input{width:18px;height:18px;margin:0;flex-shrink:0}
+.decision-timing-field textarea:focus-visible,.decision-timing-field input:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media(max-width:950px){.decision-deadline-choices{grid-template-columns:1fr}}

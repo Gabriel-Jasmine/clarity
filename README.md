@@ -10,7 +10,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 
 ## What Clarity guides you through
 
-1. State one choice under consideration, the decision aim, starting leaning, and consequence horizon
+1. State one choice under consideration, the decision aim, starting leaning and consequence horizon, then record the deadline and what waiting would change
 2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
 3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for the choice under consideration
 4. Describe the focal choice’s expected gains and relief, then reflect on how those rewards fit the user’s direction in life
@@ -210,3 +210,18 @@ One shared writing box asks “How much could you manage before this becomes unw
 New answers are versioned and tied to the focal path. The old comparative matrix, original ratings and least-room writing remain historical in saved data and Markdown export rather than being reinterpreted. Migration clears the old Stress Test reviewed mark once. Current concrete writing is available to Drivers and Overview; unknown responses generate information needs. A blank response remains incomplete; an explicit unknown is answered but unresolved. Old matrix ratings do not establish new completion or stability.
 
 Validation: `node --check app.js`, `node tests/advocate.cjs` and `node tests/stress.cjs`. Tests cover persistence, migration, source preservation, unknowns, reporting, escaping, navigation and reset. Browser visual QA remains outstanding; desktop and mobile CSS reflow is implemented.
+
+## Decision timing (2026-10-11)
+
+The Decision page now ends with two timing questions after the consequence horizon:
+
+1. **Does this decision have a deadline?** — Yes / No fixed deadline / I don’t know yet. Yes reveals **When do you need to decide, and what sets that deadline?**, with date/timeframe/source guidance and a neutral premises example.
+2. **What would change if you waited before deciding?** — always visible. One writing box asks about learning, opportunities, costs, feasibility and the period considered. **Nothing significant comes to mind** and **I don’t know yet** are mutually exclusive alternatives to writing.
+
+All answers start blank. Deadline and waiting presets retain earlier writing without treating it as the active response; returning to Yes or deselecting a waiting preset restores the writing. The opening placeholder now uses a neutral community-pottery-studio example. No date picker, countdown, urgency rating, automatic verification or recommendation is added.
+
+Timing is decision-level and versioned. Older saves preserve choice/path IDs, all earlier answers and linked driver sources; migration clears only Decision's reviewed mark once for this addition. Editing a timing response clears that section's reviewed mark. Navigation remains available: unanswered timing prevents a complete assessment, while explicit unknown is answered but unresolved and generates an information need. No fixed deadline and nothing significant coming to mind are user reports, not proof that waiting is costless.
+
+Overview includes current timing and an Edit link; Markdown includes exact timing questions, current responses and separately labelled inactive writing. Active written timing answers join Decision Drivers with stable source IDs. This is G06 capture implementation, not psychological validation or a redesign of Judgment Check.
+
+Validation: syntax plus `node tests/timing.cjs`, `node tests/advocate.cjs` and `node tests/stress.cjs` cover state switching, saving/reload/reset, non-destructive migration, Drivers/Overview/export, unknowns/completeness, escaping and navigation. The timing harness uses document/storage stubs; live-browser visual and accessibility checks remain pending.
