@@ -246,3 +246,30 @@ input,textarea,select{font-family:var(--ui);font-size:16px;border-radius:5px}inp
 .decision-waiting-responses input{width:18px;height:18px;margin:0;flex-shrink:0}
 .decision-timing-field textarea:focus-visible,.decision-timing-field input:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 @media(max-width:950px){.decision-deadline-choices{grid-template-columns:1fr}}
+
+/* Drivers: retain the reflection/evaluation columns and reveal corrections on demand. */
+.factor[data-active="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--line)}
+.driver-link-target{font:13px/1.5 var(--ui);margin:16px 0;overflow-wrap:anywhere}
+.driver-activate{background:transparent;color:var(--soft);border:0;padding:4px 0;min-height:36px;font:12px var(--ui);text-align:left;margin-bottom:10px}
+.driver-activate[aria-pressed="true"]{color:var(--ink)}
+.driver-sources{margin:6px 0 16px}
+.driver-sources>summary{font:13px var(--ui);min-height:44px;display:list-item;padding:12px 0}
+.driver-sources ul{padding-left:19px;margin:0}
+.driver-sources li{padding:10px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}
+.driver-sources li>p{white-space:pre-wrap;font:14px/1.5 var(--ui);margin:0 0 10px}
+.driver-sources details p{white-space:pre-wrap;font:14px/1.5 var(--ui)}
+.driver-move{display:flex;flex-direction:column;gap:6px;font:12px var(--ui);margin:12px 0 6px}
+.driver-move select{font-size:14px;min-height:44px;max-width:100%}
+.driver-basis{border-top:1px solid var(--line);padding-top:26px;margin-top:28px}
+.driver-basis-question{display:block;font:24px/1.35 var(--serif);margin-bottom:12px}
+.driver-basis>.field-note{font:14px/1.6 var(--ui);max-width:850px;margin-bottom:16px}
+.driver-basis-example{background:rgba(45,45,42,.045);border:1px solid var(--line);border-radius:4px;padding:14px 16px;margin-bottom:15px;max-width:850px}
+.driver-basis-example>small{display:block;font:11px var(--ui);text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:7px}
+.driver-basis-example>p{font:14px/1.6 var(--ui);margin:0}
+#driverBasis{min-height:130px;font-size:16px;max-width:850px}
+#driverBasis:disabled{opacity:.65}
+.driver-basis-unknown{display:flex;align-items:center;gap:10px;min-height:44px;width:fit-content;font:16px var(--ui);margin-top:10px;cursor:pointer}
+.driver-basis-unknown input{width:18px;height:18px;flex-shrink:0;margin:0}
+.reflection-row span{min-width:0;overflow-wrap:anywhere}
+@media(max-width:600px){.driver-move select{font-size:16px}.driver-activate{min-height:44px}.driver-basis-question{font-size:22px}}
+

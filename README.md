@@ -20,7 +20,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 8. Stress Test the contemplated choice against plausible setbacks and describe how much you could manage before it becomes unworkable
 9. Run a decision-level Judgment Check using counterfactual tests, with extra checks only when earlier answers make them relevant
 10. Test reversibility and switching costs
-11. Consolidate the few Decision Drivers that genuinely drive the decision, assessing each once by direction, importance, and evidence
+11. Select related reflections to open and restore shared Decision Drivers, assess each once, and explain the basis of the expectations carrying the main reasons
 12. Review one Decision Overview that shows where the user stands, what they are trying to achieve, what drives the current view, what still needs to be found out, where the decision is vulnerable, what may be shaping judgment, and how much room there is to change course
 
 ## Decision opening and direction references (2026-10-06)
@@ -225,3 +225,18 @@ Timing is decision-level and versioned. Older saves preserve choice/path IDs, al
 Overview includes current timing and an Edit link; Markdown includes exact timing questions, current responses and separately labelled inactive writing. Active written timing answers join Decision Drivers with stable source IDs. This is G06 capture implementation, not psychological validation or a redesign of Judgment Check.
 
 Validation: syntax plus `node tests/timing.cjs`, `node tests/advocate.cjs` and `node tests/stress.cjs` cover state switching, saving/reload/reset, non-destructive migration, Drivers/Overview/export, unknowns/completeness, escaping and navigation. The timing harness uses document/storage stubs; live-browser visual and accessibility checks remain pending.
+
+## Decision Drivers and expectation basis (2026-10-11)
+
+The approved reflection/evaluation columns are retained. Selecting a first reflection opens a Driver card with an editable title copied from that reflection. Further previously unlinked selections join the active card. The destination is shown above the reflection list and on the active card; editing a card or selecting **Add reflections here** makes it the destination. **Add a decision driver** opens an independent blank card for a newly considered reason. New direction, importance, evidence and directional strength begin unanswered.
+
+Supporting reflections are collapsible directly beneath the title. Their expanded list includes **Move to another driver**, including a New driver destination, for correcting grouping without clearing either card's evaluation. Unchecking detaches a supporting reflection. An automatically created card hides when its last supporting reflection is unchecked; checking a previously linked reflection restores its original card, title and ratings/writing. A manually added reason remains available without supporting reflections. Active groups count once; retained inactive cards do not contribute to assessment or current Overview.
+
+One decision-level writing block below the workspace asks **What are the expectations you’re relying on most, and what are they based on?** The helper distinguishes an expectation from why it matters, requests relevant experience/information/comparisons and their limits, and allows remaining assumptions to be explained in the same box. **I don’t know yet** disables and retains writing. Blank is incomplete; unknown is answered but unresolved and generates an information need. No source uploads, probability estimates, automatic grouping or external verification are introduced.
+
+`driverReview.formatVersion` is 1. Existing drivers, shared legacy links, path associations, source snapshots, notes, IDs and ratings are preserved without guessed regrouping. Older saves request one fresh review of Drivers only for this change; edits to Drivers or the new basis reset its reviewed mark. The active destination, source selections, hidden cards and evaluations persist across reload. Earlier linked writing is identified when it differs from the current reflection or no longer appears in the current reflection list.
+
+Overview shows active drivers and the current expectation basis. Markdown exports active and retained inactive Drivers separately, with source IDs/text/path association, moved-source history, importance, user-assessed evidence and directional strength. Inactive basis writing is separately labelled. Evidence selections remain user assessments; support is not external verification, strength is not probability, and repeated source snapshots are not independent evidence. Broader scoring, comparative logic, global provenance and Judgment Check redesign remain separate pending work.
+
+Validation: `node --check app.js`, `node tests/drivers.cjs`, `node tests/timing.cjs`, `node tests/advocate.cjs`, `node tests/stress.cjs` and `git diff --check` pass. The focused checks cover grouping, restoring title/evaluation across reload, manual reasons, explicit moves, inactive exclusion, new-state defaults, unknown/blank treatment, old shared groups, changed snapshots, export, escaping and all-section navigation/reset. These use a simulated document/storage environment; live-browser desktop/mobile visual and keyboard verification remains pending.
+

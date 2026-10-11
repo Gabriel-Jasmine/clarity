@@ -94,8 +94,9 @@ assert(!r('decisionOverview()').includes('<img src=x'));assert(!r('decisionOverv
 assert(r('decisionContextText()').includes('<script>alert(1)</script>')); // Raw export preserves the user's words.
 r('data.reviewed.push(0);save()');assert(b.reload().run('data.reviewed.includes(0)'));
 write('waiting','A week allows supplier quotes.');
-r('selectedReflections=["decision-timing-waiting"];step=10;render()');
-b.doc.querySelector('#groupReflections').onclick();
+r('step=10;render()');
+const timingReflection=b.doc.querySelectorAll('[data-reflection]').find(e=>e.dataset.reflection==='decision-timing-waiting');
+timingReflection.checked=true;timingReflection.onchange();
 assert.equal(r('data.factors.at(-1).sources[0].id'),'decision-timing-waiting');
 assert.equal(r('data.factors.at(-1).sources[0].optionId'),null);
 assert(r('data.factors.at(-1).sources[0].text').includes('A week allows supplier quotes.'));
@@ -114,7 +115,7 @@ const malformed=JSON.parse(r('JSON.stringify(data)'));malformed.decisionTiming={
 const normalised=boot(malformed);assert.equal(normalised.run('data.decisionTiming.deadline'),'');assert.equal(normalised.run('data.decisionTiming.waiting'),'');
 r('data.options[0].name="Bakery expansion";data.decisionAim="Increase income";data.hasHardBoundaries="no";data.priorities=[lifeDomains[0].id];data.stakes=[lifeDomains[0].id];data.reviewed=Array.from({length:11},(_,i)=>i);const o=choiceOption();o.trade.alternatives=["Keep one bakery"];o.trade.immediate="Time";o.trade.future="Flexibility";compoundingQuestions.forEach(q=>o.compound[q.key]="Reflection");o.consequence.immediate="More customers";["favourable","unfavourable"].forEach(k=>{o.consequence.branchEnded[k]=true;o.consequence.branches[k]=["Possible effect"]});o.reverse.difficulty=1;data.factors=[{id:"f",name:"Time",importance:3,evidence:2,strength:1,directionAssessed:true,options:[],sources:[]}];stressRows.forEach(row=>data.stressTest.ratings[row.id]={[o.id]:"room"});data.devilsAdvocate.outcomes[0].outcome="Less time to bake";data.devilsAdvocate.outcomes[0].connectionResponse="no";data.decisionTiming=blankDecisionTiming();');
 assert(!r('assessmentComplete()'));
-r('data.decisionTiming.deadline="none";data.decisionTiming.waitingResponse="none"');assert(r('assessmentComplete()'));assert.equal(r('timingInvestigations().length'),0);
+r('data.driverReview.basis="Based on documented practical constraints"');r('data.decisionTiming.deadline="none";data.decisionTiming.waitingResponse="none"');assert(r('assessmentComplete()'));assert.equal(r('timingInvestigations().length'),0);
 r('data.decisionTiming.deadline="yes"');assert(!r('assessmentComplete()'));
 r('data.decisionTiming.deadline="unknown";data.decisionTiming.waitingResponse="unknown"');assert(r('assessmentComplete()'));assert.equal(r('timingInvestigations().length'),2);assert.equal(r('analyse().readiness'),'Still investigating');
 for(let i=0;i<12;i++){r('step='+i+';render()');assert(b.doc.querySelector('#screen').innerHTML.length>0);}
