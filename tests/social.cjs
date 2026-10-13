@@ -51,4 +51,3 @@ r('data.judgment.evidenceEncountered="unsure";render()');assert(b.doc.querySelec
 for(let i=0;i<12;i++){r('step='+i+';render()');assert(page().length>0);}
 r('step=8;render()');b.doc.querySelector('#next').onclick();assert.equal(r('step'),9);b.doc.querySelector('#reset').onclick();assert.equal(r('data.judgment.socialContext.response'),'');assert.equal(r('data.judgment.socialContext.detail'),'');
 console.log('Passed: universal G03 gate, three blank choices, Yes-only writing, retained/restored/reloaded detail, input-node continuity, blank/unknown treatment, active/inactive reporting, exact legacy No/Yes preservation without inference or active signals, scoped review reset, unchanged uncertainty gate/G02, escaping and all-section navigation/reset. Browser visual/accessibility checks remain separate.');
-
