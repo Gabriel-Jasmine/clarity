@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const source=fs.readFileSync(require('path').join(__dirname,'../app.js'),'utf8');
+const source=['capture.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
 function boot(saved){
  const globals=new Map(),screenNodes=[];let storage=saved?JSON.stringify(saved):null;
  const node=(attrs='')=>{

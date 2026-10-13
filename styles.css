@@ -290,3 +290,4 @@ input,textarea,select{font-family:var(--ui);font-size:16px;border-radius:5px}inp
 .judgment-live{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 @media(max-width:600px){.judgment-evidence legend,.judgment-challenge-field>label{font-size:22px}.judgment-evidence-choices label{flex:1 1 auto}}
 
+.incentive-response-choices{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:10px}.incentive-response-choices label,.stress-summary-unknown{display:flex;align-items:center;gap:9px;font:14px var(--ui);color:var(--soft);min-height:44px}.incentive-response-choices input,.stress-summary-unknown input{width:17px;height:17px;flex-shrink:0;margin:0;accent-color:var(--ink)}.stress-summary-unknown{margin-top:10px}

@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const source=fs.readFileSync(require('path').join(__dirname,'../app.js'),'utf8');
+const source=['capture.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
 function boot(saved){
  const globals=new Map(),screenNodes=[];let storage=saved?JSON.stringify(saved):null;
  const node=(attrs='')=>{
@@ -66,6 +66,7 @@ migrated.run('data.reviewed.push(8);save()');assert(migrated.reload().run('data.
 const partial=b.stored();partial.reviewed=[0,7,8,10];delete partial.judgment.exampleContext;const partialBoot=boot(partial);assert.equal(partialBoot.run('data.judgment.wordingContext.detail'),'Independent wording writing');assert.equal(partialBoot.run('data.judgment.wordingContext.response'),'yes');assert(!partialBoot.run('data.reviewed.includes(8)'));
 const malformed=b.stored();malformed.judgment.exampleContext={formatVersion:1,response:'invalid',detail:42};const normalized=boot(malformed);assert.equal(normalized.run('data.judgment.exampleContext.response'),'');assert.equal(normalized.run('data.judgment.exampleContext.detail'),'');
 r('data.options[0].name="Bakery expansion";data.decisionAim="Increase income";data.hasHardBoundaries="no";data.priorities=[lifeDomains[0].id];data.stakes=[lifeDomains[0].id];data.reviewed=Array.from({length:11},(_,i)=>i);const o=choiceOption();o.trade.alternatives=["Keep one bakery"];o.trade.immediate="Time";o.trade.future="Flexibility";compoundingQuestions.forEach(q=>o.compound[q.key]="Reflection");o.consequence.immediate="More customers";["favourable","unfavourable"].forEach(k=>{o.consequence.branchEnded[k]=true;o.consequence.branches[k]=["Possible effect"]});o.reverse.difficulty=1;data.factors=[{id:"f",name:"Time",importance:3,evidence:2,strength:1,directionAssessed:true,options:[],sources:[]}];stressRows.forEach(row=>data.stressTest.ratings[row.id]={[o.id]:"room"});data.devilsAdvocate.outcomes[0].outcome="Less time to bake";data.devilsAdvocate.outcomes[0].connectionResponse="no";data.driverReview.basis="Relevant experience";data.decisionTiming.deadline="none";data.decisionTiming.waitingResponse="none";data.judgment.evidenceEncountered="none";data.judgment.strongestCase="Repeat demand may be lower";data.judgment.changeEvidence="Paid repeat bookings";data.judgment.socialContext.response="none";data.judgment.wordingContext.response="none";data.judgment.exampleContext.response="none";data.judgment.investmentContext.response="none";data.judgment.stateContext.response="none";');
+r('data.horizon="Weeks or months";choiceOption().incentives.gainResponse="none";choiceOption().incentives.reliefResponse="none";choiceOption().incentives.fit="Fits my priorities";data.stressTest.notesByOption[choiceOption().id]="Savings cover the pictured delays";');
 assert(r('assessmentComplete()'));
 for(const key of keys){
  r('data.judgment.'+key+'.response=""');assert(!r('assessmentComplete()'));

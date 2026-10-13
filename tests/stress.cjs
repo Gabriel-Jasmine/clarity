@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const source=fs.readFileSync(require('path').join(__dirname,'../app.js'),'utf8');
+const source=['capture.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
 function boot(saved){
  const globals=new Map(),screenNodes=[];let storage=saved?JSON.stringify(saved):null;
  const node=(attrs='')=>{
@@ -38,7 +38,7 @@ assert(!html.includes('<details open'));assert(!html.includes('stress-legend'));
 assert.equal(b.doc.querySelectorAll('[data-stressrow]').length,6);
 const id=r('choiceOption().id');
 for(const field of b.doc.querySelectorAll('[data-stressrow]')){field.value='room';field.onchange();}
-assert(r('stressComplete()'));assert.equal(r('stressStatus()'),'Room remains in the setbacks considered');
+assert(!r('stressComplete()'));assert.equal(r('stressStatus()'),'Partly assessed');
 const notes=b.doc.querySelectorAll('[data-stresssummary]')[0];notes.value='I can fund 3 months. A fourth month would use rent money. A delay plus replacing equipment could exceed this.';notes.oninput();
 assert.equal(b.stored().stressTest.notesByOption[id],notes.value);
 assert.equal(b.reload().run('stressNotes()'),notes.value);
@@ -71,3 +71,4 @@ html=b.doc.querySelector('#screen').innerHTML;assert(!html.includes('<script>'))
 r('step=7;render()');b.doc.querySelector('#back').onclick();assert.equal(r('step'),6);b.doc.querySelector('#next').onclick();assert.equal(r('step'),7);b.doc.querySelector('#next').onclick();assert.equal(r('step'),8);
 b.doc.querySelector('#reset').onclick();assert.equal(r('data.stressTest.formatVersion'),2);assert.equal(r('stressNotes()'),'');assert(!r('stressComplete()'));
 console.log('Passed: six-condition focal-choice UI, guide/example structure, real context and escaping, response and writing persistence, unknowns/completion/status, Drivers/Overview/export, non-destructive historical migration and one-time review reset, retained-path association, navigation and reset.');
+
