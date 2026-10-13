@@ -18,7 +18,7 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 6. Follow further consequences of the focal choice through a possible benefit and a possible difficulty, using automatic causal prompts, compact earlier answers and “That’s it” to finish
 7. The Devil's Advocate: describe failure relative to life direction within this decision, then examine whether and how the focal choice could lead towards that outcome
 8. Stress Test the contemplated choice against plausible setbacks and describe how much you could manage before it becomes unworkable
-9. Review two counterfactual checks, contrary information, current-path investment and commitments, other people’s influence, and current feelings, energy and pressures; contextual writing opens for Yes
+9. Review the words and examples shaping the choice, current-path investment and commitments, contrary information, other people’s influence, and current feelings, energy and pressures through explicit contextual questions
 10. Test reversibility and switching costs
 11. Select related reflections to open and restore shared Decision Drivers, assess each once, and explain the basis of the expectations carrying the main reasons
 12. Review one Decision Overview that shows where the user stands, what they are trying to achieve, what drives the current view, what still needs to be found out, where the decision is vulnerable, what may be shaping judgment, and how much room there is to change course
@@ -283,4 +283,18 @@ The two remaining counterfactual rows concern framing and memorable examples. Ev
 Detailed investment histories, mood scales, extra ratings and repeated-review features remain optional and unapproved. Broader Judgment list/order, whole-review completeness/provenance and the future LLM playbook remain separate work. Earlier dated records describe the designs at those dates.
 
 Validation: `node tests/judgment-contexts.cjs` covers blank/Yes/none/unknown states, preserved/restored writing and reload, independent controls, migration without inference, old positive/negative/uncertain answers, partial migrations, current/historical Overview/export, completeness, escaping and navigation/reset. Existing G02/G03/Drivers/timing/Devil's Advocate/Stress Test suites, syntax and staged whitespace checks pass in simulated document/storage. Live-browser layout/mobile/keyboard, screen-reader and comprehension checks remain pending.
+
+## Judgment Check: words and memorable examples — G09 (2026-10-13)
+
+The approved G09 mock replaces the two remaining counterfactual rows with separate relevance questions: **Are particular words or descriptions shaping how you see this choice?** and **Is a particular experience, story or comparison shaping how you see this choice?** Both start unanswered with **Yes / Nothing comes to mind / Not sure**. Only Yes opens one writing field, with the approved helper, generic pottery example and ghost text. Other states hide the entire follow-up and retain writing for restoration/reload.
+
+The wording follow-up asks how the choice is described and what this brings into focus, inviting another description of the same facts and reasons for any changed view. The example follow-up asks what keeps coming to mind and what it leads the user to expect, including why it stands out, its relevance and important differences. An earlier answer can be referenced. G01 still owns the wider expectation basis, G02 contrary information, and G05 present feelings/pressure; no extra comparison form or numerical-reference history is added.
+
+`judgment.wordingContext` and `judgment.exampleContext` each have version 1, response/detail. Missing either version requests one fresh Judgment review; no other section reset is added, and existing G02–G05 state remains. No new relevance is inferred from old `framing`/`vivid` ratings. Every old framing/memorable-example answer remains stored and exports with its original question and No/Maybe/Yes meaning as historical. The old table/key/hypothetical instruction are removed; the overall page order is unchanged.
+
+Full Overview displays current relevance and active detail. Export labels inactive writing and old checks separately. Blank or Yes without detail is incomplete; Not sure is answered but unresolved and adds an information need. The old counterfactual no-change summary now describes recorded responses, avoiding an absence claim when no active counterfactuals remain. No numerical score or bias/causal diagnosis is added. A different description may reveal a legitimate consideration, and a memorable example can be useful evidence; representativeness and numerical anchoring are not established by this capture.
+
+Detailed comparison tables, numerical-reference histories and extra ratings remain optional/unapproved. Final question-list/flow usability, global completeness/provenance and the future LLM playbook remain separate work. Earlier dated records describe the product at those dates.
+
+Validation: `node tests/judgment-examples.cjs` plus existing G02/G03/G04/G05/Drivers/timing/Devil's Advocate/Stress Test suites pass. Checks cover Yes-only writing, independent controls, preserved/restored/reloaded text, blank/unknown/completeness, one-time/partial migration, existing answers and all old negative/uncertain/positive states without inference/current signals, Overview/export, escaping/navigation/reset. Syntax and staged whitespace checks pass. Live-browser layout/mobile/keyboard, screen-reader and comprehension checks remain pending.
 
