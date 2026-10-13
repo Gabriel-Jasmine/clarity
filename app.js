@@ -177,7 +177,8 @@ const blankDecisionTiming=()=>({formatVersion:1,deadline:"",deadlineDetails:"",w
 const driverBasisCopy={
  question:"What are the expectations you’re relying on most, and what are they based on?",
  helper:"Focus on what you believe will happen or be possible, rather than why it matters to you. Draw on relevant experience, information or comparable situations. Explain where those comparisons may not fit, and what you are still assuming.",
- example:"I expect weekend classes to cover most of the studio’s rent. My trial workshops usually filled, and two nearby studios charge similar prices. However, those workshops were occasional events; I don’t yet know whether people would attend regularly."
+ dependencyHelp:"If this relies on other people or circumstances, what needs to happen, and what can you influence?",
+ example:"I expect weekend classes to cover most of the studio’s rent. My trial workshops usually filled, but I don’t yet know whether people would attend regularly. I can organise the classes, but they depend on the landlord allowing weekend access. The landlord is open to this; permission is still unconfirmed."
 };
 const blankDriverReview=()=>({formatVersion:1,basis:"",basisUnknown:false,activeDriverId:null});
 
@@ -851,7 +852,7 @@ function driverBasisComplete(){return data.driverReview.basisUnknown||Boolean(da
 function driverBasisText(){return data.driverReview.basisUnknown?"I don’t know yet":data.driverReview.basis.trim()||"[Not answered]";}
 function driverBasisInvestigations(){return data.driverReview.basisUnknown?["Find out what the expectations you are relying on are based on."]:[];}
 function driverBasisForm(){
- return '<section class="driver-basis"><label class="driver-basis-question" for="driverBasis">'+esc(driverBasisCopy.question)+'</label><p class="field-note" id="driverBasisHelp">'+esc(driverBasisCopy.helper)+'</p><div class="driver-basis-example"><small>Example</small><p>'+esc(driverBasisCopy.example)+'</p></div><textarea id="driverBasis" data-driverbasis aria-describedby="driverBasisHelp" placeholder="I expect… This is based on…" '+(data.driverReview.basisUnknown?'disabled':'')+'>'+esc(data.driverReview.basis)+'</textarea><label class="driver-basis-unknown"><input type="checkbox" data-driverbasisunknown '+(data.driverReview.basisUnknown?'checked':'')+'><span>I don’t know yet</span></label></section>';
+ return '<section class="driver-basis"><label class="driver-basis-question" for="driverBasis">'+esc(driverBasisCopy.question)+'</label><p class="field-note" id="driverBasisHelp">'+esc(driverBasisCopy.helper)+'</p><p class="field-note" id="driverDependencyHelp">'+esc(driverBasisCopy.dependencyHelp)+'</p><div class="driver-basis-example"><small>Example</small><p>'+esc(driverBasisCopy.example)+'</p></div><textarea id="driverBasis" data-driverbasis aria-describedby="driverBasisHelp driverDependencyHelp" placeholder="I expect… This is based on…" '+(data.driverReview.basisUnknown?'disabled':'')+'>'+esc(data.driverReview.basis)+'</textarea><label class="driver-basis-unknown"><input type="checkbox" data-driverbasisunknown '+(data.driverReview.basisUnknown?'checked':'')+'><span>I don’t know yet</span></label></section>';
 }
 function driverSourceDetails(f){
  const sources=activeDriverSources(f);if(!sources.length)return "";
