@@ -273,3 +273,20 @@ input,textarea,select{font-family:var(--ui);font-size:16px;border-radius:5px}inp
 .reflection-row span{min-width:0;overflow-wrap:anywhere}
 @media(max-width:600px){.driver-move select{font-size:16px}.driver-activate{min-height:44px}.driver-basis-question{font-size:22px}}
 
+.judgment-challenge{display:block}
+.judgment-evidence{border:0;padding:0;margin:0 0 26px;min-width:0}
+.judgment-evidence legend,.judgment-challenge-field>label{display:block;font:23px/1.35 var(--serif);margin:0 0 12px;width:100%;overflow-wrap:anywhere}
+.judgment-evidence-choices{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.judgment-evidence-choices label{display:flex;align-items:center;gap:10px;min-height:46px;padding:11px 14px;border:1px solid var(--line);border-radius:5px;background:rgba(252,250,245,.45);font:16px var(--ui);cursor:pointer}
+.judgment-evidence-choices label:has(input:checked){border-color:var(--ink);background:rgba(45,45,42,.06)}
+.judgment-evidence-choices input{width:18px;height:18px;flex-shrink:0;margin:0;accent-color:var(--ink)}
+.judgment-challenge-field{margin:0 0 26px}
+.judgment-challenge-field[hidden]{display:none!important}
+.judgment-challenge-field>.field-note{font:14px/1.6 var(--ui);max-width:850px;margin-bottom:15px}
+.judgment-example{background:rgba(45,45,42,.045);border:1px solid var(--line);border-radius:4px;padding:14px 16px;margin-bottom:15px;max-width:850px}
+.judgment-example>small{display:block;font:11px var(--ui);text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:7px}
+.judgment-example>p{font:14px/1.6 var(--ui);margin:0}
+.judgment-challenge-field textarea{min-height:130px;font-size:16px;max-width:850px}
+.judgment-live{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(max-width:600px){.judgment-evidence legend,.judgment-challenge-field>label{font-size:22px}.judgment-evidence-choices label{flex:1 1 auto}}
+
