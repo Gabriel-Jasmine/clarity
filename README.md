@@ -17,10 +17,10 @@ Clarity does not tell people what to choose. It helps make the structure of thei
 5. Use a nine-area practical and psychological guide, then describe what the focal choice could develop, reinforce or make harder to sustain over time
 6. Follow further consequences of the focal choice through a possible benefit and a possible difficulty, using automatic causal prompts, compact earlier answers and “That’s it” to finish
 7. The Devil's Advocate: describe failure relative to life direction within this decision, then examine whether and how the focal choice could lead towards that outcome
-8. Stress Test the contemplated choice against plausible setbacks and describe how much you could manage before it becomes unworkable
-9. Review the words and examples shaping the choice, current-path investment and commitments, contrary information, other people’s influence, and current feelings, energy and pressures through explicit contextual questions
-10. Test reversibility and switching costs
-11. Select related reflections to open and restore shared Decision Drivers, assess each once, and explain the basis of the expectations carrying the main reasons
+8. Stress Test the contemplated choice against plausible setbacks, describe how much you could manage, then check compatibility with any written hard boundaries
+9. Test the focal choice’s reversibility and switching costs
+10. Select related reflections to open and restore shared Decision Drivers, assess support/against/neither/unknown once, and explain the expectations carrying the reasons
+11. Review wording, examples, current-path investment, contrary information, other people and present feelings through contextual questions, then revisit Drivers if a reason changes
 12. Review one Decision Overview that shows where the user stands, what they are trying to achieve, what drives the current view, what still needs to be found out, where the decision is vulnerable, what may be shaping judgment, and how much room there is to change course
 
 ## Decision opening and direction references (2026-10-06)
@@ -312,3 +312,35 @@ All four audited corrections are implemented in application build `20261013-revi
 
 **Verification and limits:** all nine DOM/storage regression suites (`integrity`, `judgment-examples`, `judgment-contexts`, `judgment`, `social`, `drivers`, `stress`, `advocate`, `timing`), JavaScript syntax and whitespace checks pass. Tests cover retention/restoration/reload, snapshot changes, raw records and versions, optional/unknown/missing completeness, boundary/branch rules, scoped edit invalidation and one-time migration. Live-browser layout/mobile/keyboard, screen-reader and comprehension checks remain pending. The scientific register remains 33 families/52 sources; the cumulative question inventory remains 65 records, seven retired counterfactual families, 57 active input families plus one grouping action. Self-report is not independent verification or a validated psychological assessment.
 
+
+
+## 2026-10-15 — Agreed whole-flow corrections
+
+The reviewed ten-part correction set is implemented in app build `20261015-whole-flow` . This record supersedes earlier pending-order, multi-path direction and current/history descriptions below. The [whole-flow audit and item-by-item resolution](https://github.com/Gabriel-Jasmine/clarity-product-decision-notes/blob/main/reviews/2026-10-13-whole-flow-audit.md#approved-resolution--2026-10-15) retain the pinned baseline findings.
+
+The current order is Decision → What Matters → Trade-Offs → Incentives → Compounding → Further Consequences → The Devil’s Advocate → Stress Test → Reversibility → Decision Drivers → Judgment Check → Decision Overview. Existing stored section IDs are retained; navigation order, Back/Continue, edit links and saved positions use an explicit order mapping.
+
+Priorities remain capped at three, while decision stakes use all nine domains independently. Deselecting a priority preserves stakes. A consequence branch can finish immediately with “That’s it”; an empty finished branch means no further plausible effect identified, not proof of no effects. Reopening preserves entries and restores the finish control.
+
+Stress Test ends with a conditional check against each written hard boundary: **This choice respects it / This choice would conflict with it / I’m not sure yet**. Conflict or uncertainty offers one optional note. Notes remain stored when hidden. The assessment belongs to the exact boundary and focal action; rewording either requires a fresh check and preserves earlier assessments. Old boundary status maps are historical, never inferred into this new answer.
+
+Each consolidated Driver asks **How does this reason affect your view?** with **Supports it · Against it · Neither · Not sure**. The user assesses one focal action. Strength appears only for support/against; hiding retains its saved value. Importance and user-labelled evidence remain; Why this matters is optional. Old path-support associations, ratings and groups remain in history without inventing a new direction. Legacy comparative arithmetic is removed from current synthesis; comparison remains **Comparison not assessed**.
+
+The existing reflection/evaluation panel layout, automatic title, supporting reflections directly beneath the title, shared groups, last-link hiding/restoration, Add a decision driver and explicit move correction remain. Current reflection groups include active Judgment narratives and the strongest opposing case when visible; the future change-evidence criterion is not treated as current evidence. Historical/non-focal/hidden writing is separated and does not block current completeness or appear as a current vulnerability automatically.
+
+Two checkbox controls use the approved wording in both states:
+
+- **This is still relevant** deliberately includes earlier writing in the current Driver review. Clearing it reverses the links it introduced, preserving other links and independent manual reasons. The last supporting link hides an automatic card; rechecking restores its identity, title, grouping and ratings, including previously shared legacy groups and moved relationships.
+- **This is my thinking now** adopts the current source wording under that Driver. Clearing it restores the quote saved before the switch; it does not edit the source on its original page. Both versions remain retained. The switch survives saving, reload and moves. Another source edit is labelled; clearing and reselecting explicitly adopts the latest writing. Relevant changes clear the Driver review mark.
+
+Judgment Check ends with **Has this changed a reason?**, the helper **You can link these reflections to a driver or revise its assessment. Your earlier writing is retained.**, and **Review your decision drivers**. Reuse is deliberate, with no automatic psychological grouping or inference.
+
+Overview retains the full review, groups Drivers by their assessed direction, shows current supporting quotes with freshness, and separates unlinked and earlier writing. Readiness reports hard-boundary conflicts, tolerance limits, unanswered checks, unknowns/incomplete capture and limited room rather than an unqualified no-blocker claim. These are summaries of entries, not a recommendation or validated assessment.
+
+The existing Markdown export carries schema version **2**, Q01–Q69 definitions, exact raw writing, scopes, saved quote versions, reuse/switch states, boundary snapshots/history, legacy path associations and source/Driver IDs. Q45 is version 2; Q41 reflects focal-choice wording. Q66/Q67 add boundary compatibility and optional detail; Q68/Q69 are the two reflection actions. Inventory: **69 cumulative records, seven retired counterfactual families, 59 active input families and three actions**. The scientific register remains **33 families / 52 sources**. Repeated quotes and readable/structured representations are the same evidence.
+
+Review-policy version 2 clears What Matters, Stress Test and Drivers marks once for older saves, in addition to any independently needed older migrations. Answers, section identities and saved locations remain. Further edits clear affected current reviews; merely navigating, choosing a destination or opening a reflection group does not.
+
+Validation: ten suites (the previous nine plus `tests/whole-flow.cjs`), syntax and whitespace checks pass in simulated document/storage and actual consequence finish/reopen closures. Cases include source-switch undo/reload/re-edit/move, historical-reuse undo/restoration/shared groups, old-state migration without inference, raw export scopes/IDs, boundary staleness/history, warnings, independent stakes and navigation. Live-browser visual/mobile/keyboard, screen-reader and comprehension checks remain pending. These checks do not validate psychological interpretation.
+
+Optional ordinary-future-life prompts (G07), extra source forms/scales, full alternative comparison and broad longitudinal dashboards remain for later review. The LLM interpretation playbook and its evaluation remain separate future work.

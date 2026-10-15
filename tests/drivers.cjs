@@ -46,14 +46,14 @@ assert.equal(r('data.factors[0].name'),'Give up evenings to run classes');
 assert.equal(r('data.factors[0].importance'),0);assert.equal(r('data.factors[0].evidence'),0);assert.equal(r('data.factors[0].strength'),0);assert(!r('data.factors[0].directionAssessed'));
 select(build);assert.equal(r('data.factors.length'),1);assert.equal(r('activeDriverSources(data.factors[0]).length'),2);
 assert(screen().indexOf('class="factorhead"')<screen().indexOf('Review supporting reflections'));
-assert(screen().indexOf('Review supporting reflections')<screen().indexOf('Which paths does this support?'));
+assert(screen().indexOf('Review supporting reflections')<screen().indexOf('How does this reason affect your view?'));
 assert(screen().includes('Move to another driver'));assert(screen().includes('New driver'));
-field(first,'name','Time and financial commitment');field(first,'rationale','The commitment needs a buffer.');field(first,'importance','3');field(first,'evidence','2');field(first,'strength','2');
-r('data.factors[0].options=[choiceOption().id];data.factors[0].directionAssessed=true;save()');
-assert.equal(r('analyse().scores[choiceOption().id]'),12);
+field(first,'name','Time and financial commitment');field(first,'rationale','The commitment needs a buffer.');field(first,'importance','3');field(first,'evidence','2');r('data.factors[0].direction="for";render()');field(first,'strength','2');
+r('data.factors[0].options=[choiceOption().id];data.factors[0].directionAssessed=true;data.factors[0].direction="for";save()');
+assert.equal(r('driverDirection(data.factors[0])'),'Supports it');assert.equal(r('analyse().lean'),'Comparison not assessed');
 select(immediate,false);assert.equal(r('activeDrivers().length'),1);
-select(build,false);assert.equal(r('activeDrivers().length'),0);assert.equal(r('analyse().scores[choiceOption().id]'),0);
-assert(!r('decisionOverview().split(\'<section class="ai-export">\')[0]').includes('Time and financial commitment'));
+select(build,false);assert.equal(r('activeDrivers().length'),0);assert.equal(r('Object.keys(analyse().scores).length'),0);
+assert(!r('decisionOverview().split(\'<details class="earlier-review">\')[0]').includes('Time and financial commitment'));
 assert(r('driverContextText()').includes('Retained inactive drivers'));
 assert(r('driverContextText()').includes('The commitment needs a buffer.'));
 assert.equal(b.reload().run('activeDrivers().length'),0);
@@ -76,18 +76,18 @@ assert.equal(r('driverLinks('+JSON.stringify(build)+').length'),1);assert.equal(
 const persisted=b.reload();assert.equal(persisted.run('data.factors.length'),3);assert.equal(persisted.run('data.driverReview.activeDriverId'),third);assert.equal(persisted.run('data.factors[0].sourceHistory.length'),1);
 const beforeInvalid=r('JSON.stringify(data.factors)');r('moveDriverReflection("missing","missing","__new__")');assert.equal(r('JSON.stringify(data.factors)'),beforeInvalid);
 // Editing the earlier answer keeps the linked snapshot and marks the difference.
-r('choiceOption().compound.build="The revised current reflection";render()');assert(screen().includes('Earlier linked writing; the reflection has since changed.'));assert(screen().includes('View current reflection'));assert.equal(r('data.factors.at(-1).sources[0].text'),'Regular bookings could reduce reliance on savings');
+r('choiceOption().compound.build="The revised current reflection";render()');assert(screen().includes('Earlier linked writing; the reflection has since changed'));assert(screen().includes('View current writing'));assert.equal(r('data.factors.at(-1).sources[0].text'),'Regular bookings could reduce reliance on savings');
 r('data.reviewed=[0,3,10];render()');
 const basis=b.doc.querySelectorAll('[data-driverbasis]')[0];basis.value='Trial workshops and two comparable studios; repeat demand remains uncertain.';basis.oninput();
 assert(r('driverBasisComplete()'));assert(!r('data.reviewed.includes(10)'));assert(r('data.reviewed.includes(0)'));assert(r('data.reviewed.includes(3)'));
 const unknown=b.doc.querySelectorAll('[data-driverbasisunknown]')[0];unknown.checked=true;unknown.onchange();assert.strictEqual(b.doc.querySelectorAll('[data-driverbasisunknown]')[0],unknown);
 assert(b.doc.querySelectorAll('[data-driverbasis]')[0].disabled);assert.equal(r('driverBasisText()'),'I don’t know yet');assert.equal(r('driverBasisInvestigations().length'),1);assert(r('driverBasisComplete()'));assert.equal(r('analyse().readiness'),'Still investigating');
-assert(r('decisionOverview()').includes('Review expectation basis'));assert(!r('decisionOverview().split(\'<section class="ai-export">\')[0]').includes('Trial workshops and two comparable studios'));
+assert(r('decisionOverview()').includes('Review expectation basis'));assert(!r('decisionOverview().split(\'<details class="earlier-review">\')[0]').includes('Trial workshops and two comparable studios'));
 assert(r('driverContextText()').includes('Earlier expectation-basis writing (inactive; not the current response)'));
 assert.equal(b.reload().run('data.driverReview.basisUnknown'),true);
 const resume=b.doc.querySelectorAll('[data-driverbasisunknown]')[0];resume.checked=false;resume.onchange();assert.equal(r('data.driverReview.basis'),'Trial workshops and two comparable studios; repeat demand remains uncertain.');
 assert(!b.doc.querySelectorAll('[data-driverbasis]')[0].disabled);assert.equal(r('driverBasisInvestigations().length'),0);
-const context=r('decisionContextText()');for(const text of ['Basis of your expectations','Active supporting reflection','Source ID','directional strength','user-assessed evidence','Earlier moved supporting reflection','not independent evidence'])assert(context.includes(text),text);
+const context=r('decisionContextText()');for(const text of ['Basis of your expectations','Active supporting reflection','Source ID','directional strength','user-assessed evidence','Earlier supporting reflection','not independent evidence'])assert(context.includes(text),text);
 // Earlier groups, duplicate links, IDs, ratings, notes and snapshots stay intact.
 const legacy=JSON.parse(r('JSON.stringify(data)'));delete legacy.driverReview;legacy.reviewed=[0,1,7,10];legacy.factors=[{id:'old-a',name:'First old group',rationale:'Keep A',importance:3,evidence:2,strength:1,options:[],sources:[{id:'shared',text:'Original shared reflection',optionId:null}]},{id:'old-b',name:'Second old group',rationale:'Keep B',importance:2,evidence:1,strength:2,sources:[{id:'shared',text:'Original shared reflection',optionId:null},{id:'lost-source',text:'Historical source not in current answers',optionId:'retained-path'}]}];
 const old=boot(legacy);assert.equal(old.run('data.factors.length'),2);assert.equal(old.run('data.factors[0].id'),'old-a');assert.equal(old.run('data.factors[0].importance'),3);assert.equal(old.run('data.factors[1].sources[1].optionId'),'retained-path');assert.equal(old.run('data.factors[1].rationale'),'Keep B');
@@ -98,7 +98,7 @@ old.run('selectDriverReflection("shared",false);selectDriverReflection("shared",
 r('data.factors[0].name="<script>bad</script>";data.factors[0].sources[0].text="<img src=x onerror=bad>";data.driverReview.basis="<img src=x onerror=bad>"');
 assert(!r('factors()').includes('<script>bad'));assert(!r('factors()').includes('<img src=x'));assert(!r('decisionOverview()').includes('<img src=x'));assert(r('decisionContextText()').includes('<img src=x'));
 for(let i=0;i<12;i++){r('step='+i+';render()');assert(screen().length>0);}
-r('step=10;render()');b.doc.querySelector('#back').onclick();assert.equal(r('step'),9);r('step=10;render()');b.doc.querySelector('#next').onclick();assert.equal(r('step'),11);
+r('step=10;render()');b.doc.querySelector('#back').onclick();assert.equal(r('step'),9);r('step=10;render()');b.doc.querySelector('#next').onclick();assert.equal(r('step'),8);
 b.doc.querySelector('#reset').onclick();assert.equal(r('data.factors.length'),0);assert.equal(r('data.driverReview.basis'),'');assert.equal(r('data.driverReview.activeDriverId'),null);
 console.log('Passed: automatic shared Drivers; blank initial ratings; title/source placement; hiding/restoration/reload; active targeting; manual reasons; move correction and provenance; active-only synthesis; expectation blank/unknown/persistence; old groups and shared IDs; source changes; escaping; all sections/navigation/reset.');
 

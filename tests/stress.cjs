@@ -60,7 +60,7 @@ assert(!migrated.run('data.reviewed.includes(7)'));assert(migrated.run('data.rev
 assert(!migrated.run('stressComplete()'));assert.equal(migrated.run('stressValue(stressRows[0])'),'');
 assert.equal(migrated.run('stressInvestigations().length'),0);assert.equal(migrated.run('stressStatus()'),'Not assessed');
 let exported=migrated.run('decisionContextText()');assert(exported.includes('original conditions and pressure scale'));assert(exported.includes('The path takes longer than expected'));assert(exported.includes('Earlier alternative: Too much'));assert(exported.includes('Earlier deadline note'));
-assert(migrated.run('reflections().some(x=>x.text==="Earlier deadline note")'));
+assert(migrated.run('earlierReflectionRows().some(x=>x.text==="Earlier deadline note")'));
 migrated.run('data.reviewed.push(7);step=7;render()');assert.equal(migrated.doc.querySelectorAll('[data-stressrow]').length,6);
 assert(migrated.reload().run('data.reviewed.includes(7)')); // Once reviewed again, migration does not clear it repeatedly.
 // New assessments also stay associated with the focal path if a different saved path is selected later.
@@ -68,7 +68,7 @@ r('data.options.push(blankOption("Another action"));const nextId=data.options[1]
 assert.equal(r('stressNotes()'),'');assert.equal(r('stressStatus()'),'Not assessed');assert(r('decisionContextText()').includes('Earlier margin assessments for retained paths'));
 r('choiceOption().name="<script>alert(1)</script>";data.decisionAim="<img src=x>";data.objective="<b>life</b>";data.stressTest.notesByOption[choiceOption().id]="</textarea><script>bad</script>";render()');
 html=b.doc.querySelector('#screen').innerHTML;assert(!html.includes('<script>'));assert(html.includes('&lt;script&gt;'));assert(html.includes('&lt;/textarea&gt;'));
-r('step=7;render()');b.doc.querySelector('#back').onclick();assert.equal(r('step'),6);b.doc.querySelector('#next').onclick();assert.equal(r('step'),7);b.doc.querySelector('#next').onclick();assert.equal(r('step'),8);
+r('step=7;render()');b.doc.querySelector('#back').onclick();assert.equal(r('step'),6);b.doc.querySelector('#next').onclick();assert.equal(r('step'),7);b.doc.querySelector('#next').onclick();assert.equal(r('step'),9);
 b.doc.querySelector('#reset').onclick();assert.equal(r('data.stressTest.formatVersion'),2);assert.equal(r('stressNotes()'),'');assert(!r('stressComplete()'));
 console.log('Passed: six-condition focal-choice UI, guide/example structure, real context and escaping, response and writing persistence, unknowns/completion/status, Drivers/Overview/export, non-destructive historical migration and one-time review reset, retained-path association, navigation and reset.');
 
