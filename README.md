@@ -354,3 +354,15 @@ Review-policy version 2 clears What Matters, Stress Test and Drivers marks once 
 Validation: ten suites (the previous nine plus `tests/whole-flow.cjs`), syntax and whitespace checks pass in simulated document/storage and actual consequence finish/reopen closures. Cases include source-switch undo/reload/re-edit/move, historical-reuse undo/restoration/shared groups, old-state migration without inference, raw export scopes/IDs, boundary staleness/history, warnings, independent stakes and navigation. Live-browser visual/mobile/keyboard, screen-reader and comprehension checks remain pending. These checks do not validate psychological interpretation.
 
 Optional ordinary-future-life prompts (G07), extra source forms/scales, full alternative comparison and broad longitudinal dashboards remain for later review. The LLM interpretation playbook and its evaluation remain separate future work.
+
+## 2026-10-16 — Review connections and revised approaches
+
+Build `20261016-review-connections` distinguishes the first pass from later edits. Current writing flows into Drivers without a change warning. After an existing assessment's direct source or explicitly selected Reversibility dependency changes, only the affected driver asks **Does your assessment still fit?** with **Keep my assessment / Change my assessment**. Neither action requires a separate visit or acknowledgement in Reversibility. Ratings, grouping and quoted writing remain intact.
+
+Reversibility offers optional, narrative-specific **My explanation relies on this answer** links. The static tool does not infer these dependencies. Overview presents the current route or lasting commitment, an explicitly provisional/adopted adjustment and expandable supporting context. Written Reversibility notes also appear with the information needs, labelled as notes rather than automatically counted tasks. **Review Reversibility checks** opens the correct local stage.
+
+**Use this approach** opens editable confirmation. Adopting a revision preserves exact earlier action/answer snapshots and driver values, clears prior review marks and offers earlier-answer review on the Decision page. Ordinary direct edits also preserve an earlier approach once other thinking exists, with one revision per edit session. Existing answers stay prefilled. There are no Return to page shortcuts; the sidebar and ordinary forward controls handle navigation.
+
+Schema 2 and the 77 numbered prompt definitions remain stable. Supplemental action records carry selected dependencies, assessment-basis/acknowledgement history, historical approach snapshots and pending section reviews. Unknown original capture times remain unknown. Copies and historical versions of the same answers are not independent current evidence. The prior three-action inventory refers to numbered actions, not all workflow controls.
+
+Validation: twelve regression suites, JavaScript syntax/whitespace checks and parsed-production-DOM checks pass. New coverage is `node tests/review-connections.cjs`. Live-browser layout/mobile/keyboard, screen-reader and comprehension checks remain pending.

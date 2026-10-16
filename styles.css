@@ -333,3 +333,14 @@ input,textarea,select{font-family:var(--ui);font-size:16px;border-radius:5px}inp
 .reversibility-page .reverse-writing textarea{min-height:150px;font-size:16px}
 .reverse-raw{white-space:pre-wrap;overflow-wrap:anywhere}
 @media(max-width:600px){.reversibility-page .reverse-trails,.reversibility-page .reverse-demands{grid-template-columns:1fr}.reversibility-page .reverse-section h3{font-size:22px}}
+
+/* Contextual reconsideration is local to an already assessed reason. */
+.driver-review-cue{border-left:2px solid var(--line);padding-left:16px;margin:18px 0}
+.driver-review-cue h3,.approach-review h3,.approach-confirm h3{font-size:20px;font-weight:500;margin:0 0 12px}
+.driver-review-cue blockquote,.approach-confirm blockquote{white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0 16px;padding-left:12px;border-left:2px solid var(--line)}
+.review-actions,.approach-review-links{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.approach-review,.approach-confirm{border-top:1px solid var(--line);margin-top:24px;padding-top:22px}
+.approach-section-note{padding:12px 0;border-bottom:1px solid var(--line)}
+.approach-review summary,.driver-review-cue summary{min-height:44px;padding:10px 0}
+.reverse-dependency{display:flex;align-items:flex-start;gap:10px;min-height:44px;padding:10px 0;font-size:14px}
+.reverse-checks-notes{margin:20px 0}
