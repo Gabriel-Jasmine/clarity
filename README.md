@@ -1,5 +1,15 @@
 # Clarity
 
+## Reversibility update — 2026-10-16
+
+Build `20261016-reversibility` uses exactly two provisional trails, **Reversible / Irreversible**, with no preselected answer. Reversible explores a practical route, optional demands and learning before deeper commitment. Irreversible explores lasting consequences, possible adjustments and relevant checks in three stages. Option hints are visible before selection; examples and prompts precede writing. Earlier current entries are resurfaced with provenance and revisit links; source checks are tied to the exact quotation and contemplated choice.
+
+`reversibility.js` supplies the section, saved-data normalization, source checks, Driver reflection rows and capture helpers. Legacy difficulty/cost/easier writing remains historical without inferring a new answer. Switching trails and conditional responses preserves writing and Driver assessments. Current answers feed Overview; exact inactive/history values and relationships remain in export. Schema 2 adds Q70–Q77 and retires Q41–Q43: 77 cumulative definitions, 10 retired, 64 active inputs and three actions.
+
+Run all dependency-free regression suites with `for test in tests/*.cjs; do node "$test" || exit 1; done`. Eleven suites include `tests/reversibility.cjs`. Browser layout, mobile/keyboard/screen-reader and user-comprehension validation remain open. The section does not verify reversibility or recommend a decision. [Product rationale and sources](https://github.com/Gabriel-Jasmine/clarity-product-decision-notes/blob/main/reviews/2026-10-16-reversibility.md).
+
+Earlier dated implementation entries below describe their original baselines.
+
 **For consequential choices that can meaningfully affect your life, work, relationships, or future direction.**
 
 Clarity is for consequential choices that can meaningfully affect your life, work, relationships, or future direction — especially when there is no obvious right answer and each path comes with different trade-offs, uncertainties, and consequences.

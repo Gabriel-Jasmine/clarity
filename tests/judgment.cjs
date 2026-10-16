@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const source=['capture.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
+const source=['capture.js','reversibility.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
 function boot(saved){
  const globals=new Map(),screenNodes=[];let storage=saved?JSON.stringify(saved):null;
  const node=(attrs='')=>{
