@@ -372,3 +372,7 @@ Validation: twelve regression suites, JavaScript syntax/whitespace checks and pa
 ### Typography refinement · 18 October 2026
 
 The [UI/UX Playbook 1.1.0](docs/CLARITY_UI_UX_PLAYBOOK.md) assigns one shared size, weight and line height to each content role across all 12 pages. Main questions use 18px semibold, user writing 16px regular, and compact labels 14px semibold with separate answer text. Supporting guidance uses 14px regular. Overview distinguishes missing/review work under **Things to finish or review**. [Audit and validation](docs/TYPOGRAPHY_AUDIT_2026-10-17.md).
+
+### Consistent content order · 18 October 2026
+
+[Playbook 1.2.0](docs/CLARITY_UI_UX_PLAYBOOK.md) standardizes page title → description → decision aim/life-direction references → task content. Within writing groups, use question → guidance/context → example → answer. Existing examples remain local to their questions; full samples stay outside writing fields. [Implementation and validation](docs/CONTENT_ORDER_2026-10-18.md).

@@ -1,10 +1,10 @@
 # Clarity UI/UX Playbook
 
-Version **1.1.0** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.2.0** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
-**Status:** adopted typography correction, authorized for publication on 18 October 2026 after review of the mock. Version 1.1.0 defines consistent type roles, separates known system labels from answers and uses the approved “Things to finish or review” heading. Existing data, reasoning and export contracts remain unchanged. See [typography audit and validation](TYPOGRAPHY_AUDIT_2026-10-17.md) for scope and evidence; deployment status is recorded in the private rollout notes.
+**Status:** adopted presentation standard. Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
 
 ## Contents
 
@@ -245,7 +245,7 @@ Desktop default: 232px sidebar; main content with 32px outer padding; generous a
 
 A single writing page should generally cap its main reading surface around 880px. A true reference/editor workspace or report can use approximately 1120px. These are layout defaults to test with real content, not forced widths. Do not center every component independently.
 
-Standard page order: compact decision context and truthful save state → page title and brief description → main working surface → supporting content where needed → existing page actions. The shell and headings must not repeat lengthy instructions.
+Standard reading order: **page title → page description → existing decision aim/life-direction references → task content → existing page actions**. The shell may retain compact progress and truthful save state. Use the shared 14px/22px regular description role. Render exactly one page introduction at the start of the content area, before personal context, source references or the main workspace. Orientation explains what the section is for; the user’s aim and life direction then anchor that task. Do not hide the page description inside a later card or repeat it below context. Preserve page-specific context: Decision is still collecting the aim; What Matters shows the existing aim reference while asking for life direction. Do not add redundant references merely to make every page identical.
 
 Use one page scrollbar by default. A long desktop sidebar may have its own navigation scroll region. Avoid nested scrolling inside ordinary writing cards. Do not pin action bars where they cover writing or keyboard focus.
 
@@ -333,11 +333,11 @@ Hover changes fill/border without movement. Pressed state may darken slightly. D
 
 ## 11. Writing fields and conditional answers
 
-A writing group follows this order: **persistent question → essential helper/definitions → optional example/guide → writing field → relevant answer-state control or status**. Preserve specific approved ordering where a page differs. Guidance/examples come before the related writing in the Reversibility design.
+A writing group follows one order: **persistent question → relevant guidance/definitions and personal context → example → answer field → existing answer-state controls/status**. Examples are local to the question they support, not collected at the bottom of the page. An input label can remain immediately beside its field when a larger question introduces the group. In Reversibility, the direct writing label comes before its helper/example. Preserve conditional visibility and existing disclosure states; a collapsed example stays in the same position before writing. Do not move essential definitions into an optional example.
 
 Use 16px input text, a 44px minimum single-line height and about 120px initial height for a main narrative field. Short supporting textareas can start near 88px. Allow vertical resizing or accessible auto-growth. Long writing must not be clipped, replaced by ellipses or forced into a tiny fixed-height editor.
 
-Placeholders give a short starting cue; they do not replace a label or contain the only instruction. Example answers remain outside the field and are never saved as the user’s response.
+Placeholders give a short starting cue; they do not replace a label or contain the only instruction. Full example answers stay visibly outside and before the related field (or in the existing local disclosure), so typing does not erase the example. Keep short writing cues in the empty field. Samples are never saved as the user’s response. Decision and Trade-Offs now display their existing sample text above the field rather than keeping the full sample only in the placeholder.
 
 Field states: default, hover, focus, filled, unknown/inactive, invalid and read-only. Filled fields keep the same neutral styling; they do not turn green. A focus ring does not change the answer state. Invalid fields use error text and an error border with an associated message; do not use pink as an error signal.
 
@@ -368,7 +368,7 @@ Assessment values remain visually neutral choices. Use pink for whichever answer
 | Content type | Treatment | Information order |
 | --- | --- | --- |
 | Essential definition | Neutral helper text | Visible before the choice |
-| Short example or optional coaching | Small honey surface, labelled | Before related writing; collapsible if long |
+| Short example or optional coaching | Small honey surface, labelled | After its question and guidance/context, before the related answer; existing disclosures stay local |
 | Earlier user writing | Greyish ivory reference card | Explicit source, current/history status and exact text |
 | Long guide | Neutral disclosure/table | Clear summary; expands locally |
 | Open information need in Overview | Blue region | Clear heading, unanswered items and existing action |
@@ -674,6 +674,8 @@ Read `docs/UI_ROLLOUT_2026-10-17.md` for actual validation and remaining limits.
 
 Version 1.1.0 was approved on 18 October 2026 following the all-page typography audit and focused mock. It enforces the shared role scale, separates known report labels from exact writing, and simplifies the pending-work heading to “Things to finish or review.” It changes presentation and status copy only; completeness, reasoning, stored writing and exported strings retain their existing meanings.
 
+Version 1.2.0 standardizes page introductions and local example placement across the product on 18 October 2026. Existing description and example wording is relocated; brief introductions are added to Decision, What Matters and Overview where there was no page-level orientation. Existing examples in Decision and Trade-Offs become persistent above-field content, with shorter placeholder cues. This preserves questions, answers, conditional behavior, review rules and exports.
+
 ### Every future UI update
 
 1. Read the adopted playbook and relevant current product/language guidance.
@@ -769,6 +771,7 @@ Documentation and showcase updates:
 | UI-09 | Canonical documentation structure adopted | Keep public standard and private history linked |
 | UI-10 | Build 20261017-ui-playbook implements the shared presentation | Track page-level adoption and outstanding browser/accessibility checks |
 | UI-11 | Playbook 1.1.0 / build 20261018-typography enforces type roles and approved review wording | Maintain all-page computed-style checks and structured label/value rendering |
+| UI-12 | Playbook 1.2.0 / build 20261018-content-order unifies descriptions and examples | Keep one introduction before references and each example before its related answer |
 
 Minimum visual review set: empty/fresh writing; long writing; completed inactive section; completed current section; long wrapped nav label; unknown with retained writing; selected source and active destination; changed assessment; Reversibility trail switch; Overview information needs and historical content; narrow menu; dialog; validation/save/export failure.
 

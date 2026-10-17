@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Clarity — Component Showcase</title>
 <link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../styles.css?v=20261018-typography">
+<link rel="stylesheet" href="../styles.css?v=20261018-content-order">
 <style>
 .showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .showcase-wide{grid-column:1/-1}.showcase-title{display:flex;align-items:center;gap:8px}
@@ -33,12 +33,13 @@
 <a href="../index.html">Open Clarity</a>
 </aside>
 <main>
-<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.0.0</span></header>
-<p class="muted">Open a community pottery studio.</p>
+<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.2.0</span></header>
+<div class="page-introduction" data-page-introduction="showcase"><p>Review the shared components and their states before applying them to a Clarity page.</p></div>
+<section class="direction-reference"><div><div class="direction-label">Aim for this decision</div><p>Build a sustainable creative practice.</p></div><div><div class="direction-label">Direction in life</div><p>Make room for craft, health and financial breathing room.</p></div></section>
 <div class="showcase-grid">
 <section class="card">
 <h2 class="showcase-title"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#file-pen-line"></use></svg>Writing and answer states</h2>
-<label class="field"><span class="type-question">What choice are you considering?</span><small>Write it as something you could choose to do.</small><textarea>Open a community pottery studio.</textarea></label>
+<label class="field"><span class="type-question">What choice are you considering?</span><small>Write it as something you could choose to do.</small><span class="writing-example"><span class="example-label">Example</span><span>Open a community pottery studio.</span></span><textarea>Open a community pottery studio.</textarea></label>
 <label class="field"><span class="type-question">What do you want this choice to help you achieve?</span><textarea id="unknown-writing" placeholder="I’m hoping this would help me…"></textarea></label>
 <label class="reflection-control"><input type="checkbox" id="unknown-toggle" aria-controls="unknown-writing"><span>I don’t know yet</span></label>
 <label class="field"><span>Read-only source</span><input value="An earlier answer, kept as written." readonly></label>
