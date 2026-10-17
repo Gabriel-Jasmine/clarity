@@ -1,10 +1,10 @@
 # Clarity UI/UX Playbook
 
-Version **1.0.0** · Adopted 17 October 2026 · Owner: Clarity product owner
+Version **1.1.0** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
-**Status:** adopted on 17 October 2026 following explicit authorization to update the product and both repositories. Build `20261017-ui-playbook` applies the shared design across all 12 sections. The measurements below are production defaults, with future adjustments governed by this playbook. This rollout changes presentation and navigation markup; it preserves questions, reasoning, completion rules, saved-data schema and exports. Validation and remaining limits are recorded in `docs/UI_ROLLOUT_2026-10-17.md`. Adoption is not an accessibility certification.
+**Status:** adopted typography correction, authorized for publication on 18 October 2026 after review of the mock. Version 1.1.0 defines consistent type roles, separates known system labels from answers and uses the approved “Things to finish or review” heading. Existing data, reasoning and export contracts remain unchanged. See [typography audit and validation](TYPOGRAPHY_AUDIT_2026-10-17.md) for scope and evidence; deployment status is recorded in the private rollout notes.
 
 ## Contents
 
@@ -189,24 +189,39 @@ Use **Manrope** as the production family, following the mock: `Manrope, system-u
 
 The reference font was not positively identified. Describe Manrope as the selected implementation family, not an exact recovered reference font.
 
-### Production scale
+### Role-based type scale
 
-| Role | Size / line-height | Weight |
-| --- | --- | --- |
-| Page heading | 30 / 38px desktop; 26 / 34px narrow | 700 |
-| Major section title | 22 / 30px | 700 |
-| Main question or card heading | 18 / 27px | 600 |
-| Body and writing | 16 / 26px | 400 |
-| Field label | 14 / 21px | 600 |
-| Guidance and navigation | 14 / 22px | 400–500 |
-| Metadata and compact badges | 12 / 18px | 500 |
-| Button label | 14 / 20px | 600 |
+All ordinary interface and user-writing text uses Manrope. Distinguish purpose with size, weight, line height and spacing; do not introduce a second font family for user writing.
 
-Use rem equivalents in production. Keep body text near 60–75 characters per line where practical. Use normal sentence case. Small uppercase eyebrows are optional and must not become the primary heading style. Main headings may use slight tracking down to -0.02em; body copy uses normal tracking.
+| Role | Examples | Size / line-height | Weight |
+| --- | --- | --- | --- |
+| Page title | Decision, Stress Test | 30 / 38px desktop; 26 / 34px narrow | 700 |
+| Section/panel title | What is driving your view; Your reflections | 22 / 30px | 700 |
+| Main question / subsection heading | What choice are you considering? | 18 / 28px | 600 |
+| User writing and stored answer | Typed answer, earlier reflection, source quote | 16 / 26px | 400 |
+| Entity/category name | Driver name, selectable tile title, Money row label | 16 / 26px | 600 |
+| Field/context/report label | Importance; Decision aim; Outcome | 14 / 22px | 600 |
+| Help, examples and status explanations | Writing guidance; missing-answer explanation | 14 / 22px | 400 |
+| Button and navigation | Continue; Review; sidebar section | 14 / 22px | 600 button; 500 navigation |
+| Metadata | Earlier-writing status, progress count, badge | 12 / 18px | 400–500 |
 
-The component showcase compresses content into 11–13px specimens. Those sizes are not the production reading standard. Do not scale the entire mock up or down as an image. Keep the same shapes and hierarchy while using readable text.
+Use semantic size, line-height and weight tokens: `--cl-size-page`, `--cl-size-section`, `--cl-size-question`, `--cl-size-body`, `--cl-size-label`, `--cl-size-meta` and their corresponding `--cl-line-*` / `--cl-weight-*` tokens. Production uses rem equivalents. Page selectors map markup to these roles; they do not introduce new sizes.
 
-Use a monospace font only where raw structured export is displayed. Do not convert the main experience to monospace or revive the previous serif/dither visual system without a separate design decision.
+**Role precedes HTML tag.** A main question stays 18px/600 whether rendered as a field span, legend, label or nested heading. A section heading stays 22px/700 whether the document hierarchy requires h2 or h3. A compact metric label such as Importance remains 14px/600. Explicitly mark a primary question inside a generic field with `type-question`; do not infer roles from punctuation, text length or a page's name.
+
+**Separate labels from user content.** Render a known label such as Outcome, Possible connection, Money or Check whether this choice respects in its own element, followed by the value on a new line with about 6px separation. Keep long personal answers at 16px/400 with original line breaks. Do not bold an entire personal answer to create a heading. Named entities such as a Driver title can use the 16px/600 entity role; they are not narrative paragraphs.
+
+For typed source material, use its actual field metadata. Do not split arbitrary user text at colons or search for words such as Outcome inside it. Retained snapshots that cannot be safely mapped to exact structured fields stay verbatim, labelled as snapshots. Typography must not replace an earlier quote with current writing.
+
+**Completion copy:** the approved Overview heading is **Things to finish or review**. Distinguish unanswered questions from sections awaiting review. Present the section name in 16px/600, its explanation in 14px/400 and the existing Review action separately. This is a workflow list, separate from unknown decision information in the blue panel. Keep the underlying completeness rules and export wording intact.
+
+**Answers and guidance:** answer writing may be larger than supporting descriptions: 16px regular answers, 14px regular guidance and 18px semibold main questions. Compact report labels use 14px semibold on their own line. This is a Clarity hierarchy choice, not a universal requirement. Do not make essential substantive instructions small or faint simply because they are descriptive; use the 16px body role when they carry primary content. Maintain readable contrast and text resizing.
+
+**Responsive behavior:** only the page title scales down by default. User writing remains 16px, questions 18px and contextual labels 14px on narrow screens. Reflow the component rather than shrinking its typography to fit. Text sizing must honor browser zoom and user font settings.
+
+**Verification:** measure computed font size/weight/line-height in a browser, rather than assuming a CSS declaration won the cascade. Check main questions, compact labels, filled and empty fields, source quotes, conditional branches, report labels and status rows. Compare the same role across all pages. A layout/overflow pass alone does not verify visual hierarchy.
+
+The compact originating showcase's 11–13px specimen text is not a production reading standard. Raw structured export uses monospace; the rest of the product stays in the shared family. The brand wordmark may retain its identity sizing and is not a general content-heading token.
 
 ## 6. Spacing, proportions and page layout
 
@@ -581,9 +596,12 @@ The following definitions describe the production token contract. `styles.css` i
   --cl-space-8: 32px;
   --cl-space-10: 40px;
   --cl-space-12: 48px;
-  --cl-type-body: 1rem;
-  --cl-type-label: .875rem;
-  --cl-type-meta: .75rem;
+--cl-size-page:1.875rem;--cl-size-section:1.375rem;--cl-size-question:1.125rem;
+ --cl-size-body:1rem;--cl-size-label:.875rem;--cl-size-meta:.75rem;
+ --cl-line-page:2.375rem;--cl-line-section:1.875rem;--cl-line-question:1.75rem;
+ --cl-line-body:1.625rem;--cl-line-label:1.375rem;--cl-line-meta:1.125rem;
+ --cl-weight-body:400;--cl-weight-control:500;--cl-weight-label:600;--cl-weight-heading:700;
+ --cl-type-body:var(--cl-size-body);--cl-type-label:var(--cl-size-label);--cl-type-meta:var(--cl-size-meta);
   --cl-sidebar-width: 232px;
   --cl-control-height: 44px;
   --cl-completion-size: 12px;
@@ -653,6 +671,8 @@ Do not turn a component showcase into the functional specification. The current 
 The product owner reviewed the full component mock, accepted it and explicitly authorized updating the application and both repositories on 17 October 2026. Version 1.0.0 establishes this standard. The rollout adds the shared stylesheet, local Manrope font and licensed Lucide sprite; updates sidebar markup and the Overview information-needs styling hook; adds the contributor rules and production component showcase; and updates the private documentation links and history. No reasoning or data migration is introduced.
 
 Read `docs/UI_ROLLOUT_2026-10-17.md` for actual validation and remaining limits. Future design changes follow the maintenance process below. Repository publication follows the user's existing explicit authorization practices; routine implementation choices within an authorized task do not need repeated permission.
+
+Version 1.1.0 was approved on 18 October 2026 following the all-page typography audit and focused mock. It enforces the shared role scale, separates known report labels from exact writing, and simplifies the pending-work heading to “Things to finish or review.” It changes presentation and status copy only; completeness, reasoning, stored writing and exported strings retain their existing meanings.
 
 ### Every future UI update
 
@@ -748,6 +768,7 @@ Documentation and showcase updates:
 | UI-08 | Error/recovery presentation adopted as shared default | Integrate with real error conditions, no invented save state |
 | UI-09 | Canonical documentation structure adopted | Keep public standard and private history linked |
 | UI-10 | Build 20261017-ui-playbook implements the shared presentation | Track page-level adoption and outstanding browser/accessibility checks |
+| UI-11 | Playbook 1.1.0 / build 20261018-typography enforces type roles and approved review wording | Maintain all-page computed-style checks and structured label/value rendering |
 
 Minimum visual review set: empty/fresh writing; long writing; completed inactive section; completed current section; long wrapped nav label; unknown with retained writing; selected source and active destination; changed assessment; Reversibility trail switch; Overview information needs and historical content; narrow menu; dialog; validation/save/export failure.
 

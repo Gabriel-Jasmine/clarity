@@ -368,3 +368,7 @@ Reversibility offers optional, narrative-specific **My explanation relies on thi
 Schema 2 and the 77 numbered prompt definitions remain stable. Supplemental action records carry selected dependencies, assessment-basis/acknowledgement history, historical approach snapshots and pending section reviews. Unknown original capture times remain unknown. Copies and historical versions of the same answers are not independent current evidence. The prior three-action inventory refers to numbered actions, not all workflow controls.
 
 Validation: twelve regression suites, JavaScript syntax/whitespace checks and parsed-production-DOM checks pass. New coverage is `node tests/review-connections.cjs`. Live-browser layout/mobile/keyboard, screen-reader and comprehension checks remain pending.
+
+### Typography refinement · 18 October 2026
+
+The [UI/UX Playbook 1.1.0](docs/CLARITY_UI_UX_PLAYBOOK.md) assigns one shared size, weight and line height to each content role across all 12 pages. Main questions use 18px semibold, user writing 16px regular, and compact labels 14px semibold with separate answer text. Supporting guidance uses 14px regular. Overview distinguishes missing/review work under **Things to finish or review**. [Audit and validation](docs/TYPOGRAPHY_AUDIT_2026-10-17.md).

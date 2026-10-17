@@ -1,0 +1,22 @@
+const assert=require('assert');
+const {boot}=require('./helpers/boot.cjs');
+const b=boot(),r=b.run;
+r(`choiceOption().name="Open a community pottery studio";data.hasHardBoundaries="yes";data.rules=[{id:"b",text:"Keep savings for essential costs: rent, food and transport."}];setBoundaryAnswer("b","unknown");data.rules[0].check.note="Check actual costs — do not assume: six months is enough.";data.devilsAdvocate.outcomes[0].outcome='Outcome: <script>unsafe()</script> should remain literal user writing.';data.devilsAdvocate.outcomes[0].connection='My own words include Money: and Outcome: without creating extra fields.';`);
+const before=r('JSON.stringify(data)'),exported=r('decisionContextText()'),missing=r('JSON.stringify(assessmentMissing())'),gaps=r('JSON.stringify(allInvestigations())');
+let html=r('overviewInvestigationText(allInvestigations()[0])');
+assert(html.includes('class="report-label">Check whether this choice respects</span>'));
+assert(html.includes('class="report-value">Keep savings for essential costs: rent, food and transport.</span>'));
+html=r('overviewVulnerabilityText(vulnerabilityItems()[0])');
+assert.equal((html.match(/class="report-label"/g)||[]).length,2);
+assert(html.includes('&lt;script&gt;unsafe()&lt;/script&gt;'));assert(!html.includes('<script>'));
+assert(html.includes('My own words include Money: and Outcome: without creating extra fields.'));
+// Arbitrary text and saved snapshots are never parsed as labels or replaced by current wording.
+html=r('reflectionReportText({id:"unrelated",text:"Outcome: words written by the user; Money: is not a field."})');
+assert(!html.includes('report-label'));assert(html.includes('Outcome: words written by the user; Money: is not a field.'));
+html=r('reflectionReportText({id:"devils-advocate-"+data.devilsAdvocate.outcomes[0].id,text:"Earlier exact wording: <b>literal</b>"})');
+assert(!html.includes('report-label'));assert(html.includes('Earlier exact wording: &lt;b&gt;literal&lt;/b&gt;'));
+html=r('decisionOverview()');assert(html.includes('Things to finish or review'));assert(!html.includes('Still to complete'));
+assert(html.includes('Some questions haven’t been answered yet.'));
+assert.equal(r('JSON.stringify(data)'),before);assert.equal(r('decisionContextText()'),exported);
+assert.equal(r('JSON.stringify(assessmentMissing())'),missing);assert.equal(r('JSON.stringify(allInvestigations())'),gaps);
+console.log('Typography presentation: separate labels, literal colons, escaping, retained snapshots, pending copy and unchanged data/export/completeness pass.');

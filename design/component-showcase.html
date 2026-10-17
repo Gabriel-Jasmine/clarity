@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Clarity — Component Showcase</title>
 <link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../styles.css?v=20261017-ui-playbook">
+<link rel="stylesheet" href="../styles.css?v=20261018-typography">
 <style>
 .showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .showcase-wide{grid-column:1/-1}.showcase-title{display:flex;align-items:center;gap:8px}
@@ -38,8 +38,8 @@
 <div class="showcase-grid">
 <section class="card">
 <h2 class="showcase-title"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#file-pen-line"></use></svg>Writing and answer states</h2>
-<label class="field"><span>What choice are you considering?</span><small>Write it as something you could choose to do.</small><textarea>Open a community pottery studio.</textarea></label>
-<label class="field"><span>What do you want this choice to help you achieve?</span><textarea id="unknown-writing" placeholder="I’m hoping this would help me…"></textarea></label>
+<label class="field"><span class="type-question">What choice are you considering?</span><small>Write it as something you could choose to do.</small><textarea>Open a community pottery studio.</textarea></label>
+<label class="field"><span class="type-question">What do you want this choice to help you achieve?</span><textarea id="unknown-writing" placeholder="I’m hoping this would help me…"></textarea></label>
 <label class="reflection-control"><input type="checkbox" id="unknown-toggle" aria-controls="unknown-writing"><span>I don’t know yet</span></label>
 <label class="field"><span>Read-only source</span><input value="An earlier answer, kept as written." readonly></label>
 <label class="field"><span>Example validation state</span><input aria-invalid="true" aria-describedby="validation-example" value="" style="border-color:var(--cl-error)"></label>
@@ -47,7 +47,7 @@
 </section>
 <section class="card">
 <h2 class="showcase-title"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#compass"></use></svg>Choices, tiles and pills</h2>
-<fieldset><legend>Which way are you leaning right now?</legend><div class="choice-grid"><label class="choice-card"><input type="radio" name="lean" checked><span>Make this choice</span></label><label class="choice-card"><input type="radio" name="lean"><span>Not make this choice</span></label></div></fieldset>
+<fieldset><legend class="type-question">Which way are you leaning right now?</legend><div class="choice-grid"><label class="choice-card"><input type="radio" name="lean" checked><span>Make this choice</span></label><label class="choice-card"><input type="radio" name="lean"><span>Not make this choice</span></label></div></fieldset>
 <div class="domain-grid"><label class="domain-card"><input type="checkbox" checked><div><strong>Learning &amp; growth</strong><p>Knowledge, skills and understanding.</p></div></label><label class="domain-card"><input type="checkbox"><div><strong>Finance &amp; wealth</strong><p>Income, savings and stability.</p></div></label></div>
 <div class="tabs"><button class="active" aria-pressed="true" data-pill>Current approach</button><button aria-pressed="false" data-pill>Possible adjustment</button></div>
 <div class="showcase-actions"><button>Continue</button><button class="secondary">Cancel</button><button disabled>Unavailable</button><button class="x" aria-label="Remove example item">×</button></div>
@@ -99,7 +99,7 @@
 </section>
 <section class="decision-overview showcase-wide">
 <div class="overview-hero"><span class="assessment-label">Partial assessment</span><h2>Here is where your thinking stands</h2><p>Open a community pottery studio.</p><small>Based on your entries. This is an orientation, not a recommendation.</small></div>
-<div class="overview-pair"><section class="overview-section overview-information-needs"><h3>What you still need to find out</h3><ul><li>Would class income cover rent during quieter months?</li><li>What would ending the lease early cost?</li></ul></section><section class="overview-section"><h3>Where the decision is vulnerable</h3><p>Income may take longer to establish than the savings buffer allows.</p><span class="badge">User-assessed information</span></section></div>
+<div class="overview-pair"><section class="overview-section overview-information-needs"><h3>What you still need to find out</h3><ul><li>Would class income cover rent during quieter months?</li><li>What would ending the lease early cost?</li></ul></section><section class="overview-section"><h3>Where the decision is vulnerable</h3><span class="report-field"><span class="report-label">Outcome</span><span class="report-value">Managing the studio leaves little time to make pottery.</span></span><span class="report-field"><span class="report-label">Money</span><span class="report-value">Little or no room left</span></span><span class="badge">User-assessed information</span></section></div>
 </section>
 </div>
 <p class="muted" style="margin-top:24px">Developer reference using production styles. Sample answers demonstrate states; new Clarity decisions begin unanswered.</p>
