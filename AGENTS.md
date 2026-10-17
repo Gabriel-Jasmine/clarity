@@ -4,7 +4,7 @@ Before UI work, read [the UI/UX Playbook](docs/CLARITY_UI_UX_PLAYBOOK.md) and th
 
 - Reuse the semantic tokens in `styles.css` and established components. Keep pink for selection, green for completion, blue for Overview information needs and honey for optional guidance.
 - Use one 2px charcoal structural frame per page's main working surface. Keep navigation completion badges small and independent of current-page selection.
-- Give filled/fully framed text surfaces explicit internal padding using the shared `--cl-inset-*` role tokens. Check collapsed, active-editor, expanded, selected, hover and narrow states; outer margins do not replace inner padding.
+- Give filled/fully framed text surfaces and all text-button bounds (including transparent actions and their focus outlines) explicit internal padding using the shared `--cl-inset-*` role tokens. Check collapsed, active-editor, expanded, selected, hover and narrow states; outer margins do not replace inner padding.
 - Preserve approved questions, section IDs/order, assessment meanings, saved answers, source identities, current/inactive/history distinctions and export schema unless functional changes are separately authorized.
 - Do not prefill production decisions with showcase samples. Use generic fictional examples in design references.
 - Update `design/component-showcase.html` when adding components/states. Update the playbook only when a design rule changes; record meaningful changes and actual rollout status in the private notes.

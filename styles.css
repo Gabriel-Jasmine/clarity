@@ -1,4 +1,4 @@
-/* Clarity UI/UX Playbook 1.2.1 — shared foundations. */
+/* Clarity UI/UX Playbook 1.2.2 — shared foundations. */
 @font-face{font-family:Manrope;src:url("assets/manrope-latin.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
 :root{
   color-scheme:light;
@@ -105,7 +105,7 @@ main>footer{position:static;display:flex;justify-content:space-between;gap:16px;
 .list{display:flex;flex-direction:column;gap:8px}.list .item{display:grid;grid-template-columns:minmax(0,1fr) 40px;gap:8px}
 .x{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px;border:0;border-radius:50%;background:var(--cl-surface);color:var(--cl-muted);padding:0;}
 .x:hover{background:var(--cl-divider);color:var(--cl-ink)}
-.add,.edit-link,.reference-edit{background:transparent;color:var(--cl-ink);border:0;border-radius:4px;text-decoration:underline;text-underline-offset:3px;padding:6px 0;min-height:36px}
+.add,.edit-link,.reference-edit,.consequence-text-action{background:transparent;color:var(--cl-ink);border:0;border-radius:4px;text-decoration:underline;text-underline-offset:3px;padding:var(--cl-inset-row-block) var(--cl-inset-control-inline);min-height:40px}
 .add:hover,.edit-link:hover,.reference-edit:hover{background:transparent;color:var(--cl-pink-ink)}
 .chips,.tabs,.badges{display:flex;flex-wrap:wrap;gap:8px}
 .chip,.tabs button{background:var(--cl-field);color:var(--cl-ink);border:1px solid var(--cl-control-border);border-radius:var(--cl-radius-pill);padding:8px 12px;}
@@ -372,7 +372,6 @@ details summary {cursor:pointer;padding:12px 0}
 .overview-section {padding:20px 0;border-bottom:1px solid var(--cl-divider)}
 .section-heading {display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px}
 .section-heading h3 {margin:0}
-.edit-link {padding:0;min-height:32px;border:0;text-decoration:underline}
 .overview-section p {margin:8px 0}
 .overview-pair {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
 .overview-pair .overview-section {padding:18px;border:1px solid var(--cl-divider)}
@@ -442,7 +441,6 @@ footer button {max-width:75%}
 .direction-reference {display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--cl-divider)}
 .direction-label {display:flex;align-items:center;justify-content:space-between;gap:12px}
 .direction-reference p {margin:8px 0 0;overflow-wrap:anywhere}
-.reference-edit {border:0;padding:4px;text-decoration:underline}
 .life-unknown {display:flex;align-items:center;gap:10px;margin:12px 0 20px}
 .life-unknown input {width:auto}
 .direction-reference:has(>div:only-child) {grid-template-columns:1fr}
@@ -543,7 +541,7 @@ button:disabled {cursor:default;opacity:.5}
 .consequence-entry {border-left:1px solid var(--cl-divider);padding-left:16px;margin-top:14px;min-width:0}
 .consequence-entry:first-child {margin-top:0}
 .consequence-summary-head {display:flex;align-items:center;justify-content:space-between;gap:12px}
-.consequence-text-action {border:0;padding:6px 0;min-height:44px;text-decoration:underline;text-underline-offset:3px}
+.consequence-text-action {min-height:44px}
 .consequence-answer {margin:0;white-space:pre-wrap;overflow-wrap:anywhere;}
 .consequence-answer.clamped {display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 .consequence-continuation-head {display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
@@ -790,7 +788,6 @@ button:disabled {cursor:default;opacity:.5}
 .consequence-summary-head{padding:var(--cl-inset-row-block) var(--cl-inset-panel)}
 .consequence-answer{padding-inline:var(--cl-inset-panel);margin-top:12px}
 .consequence-finished,.consequence-status{color:var(--cl-muted)}
-.consequence-text-action{background:transparent;color:var(--cl-ink);padding:6px var(--cl-inset-control-inline);border:0;border-radius:4px;text-decoration:underline;text-underline-offset:3px}
 .consequence-text-action:hover{background:var(--cl-surface)}
 .chain-matter-chips span{background:var(--cl-surface);border:1px solid var(--cl-divider);border-radius:var(--cl-radius-pill)}
 .advocate-part-label{margin-bottom:12px}
@@ -1000,7 +997,6 @@ button,.add,.edit-link,.reference-edit,.chip,.tabs button,.driver-activate,
 .pending-section:first-child{border-top:0}
 .pending-section-name{display:block;margin-bottom:4px}
 .pending-section .field-note{margin:0}
-.pending-section .edit-link{padding-top:0}
 .stress-card .stress-table tbody th>label{font-size:var(--cl-size-body);line-height:var(--cl-line-body);font-weight:var(--cl-weight-label)}
 .stress-card .stress-table tbody th>p{font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-body)}
 .overview-trade>h4{font-size:var(--cl-size-body);line-height:var(--cl-line-body);font-weight:var(--cl-weight-label)}
