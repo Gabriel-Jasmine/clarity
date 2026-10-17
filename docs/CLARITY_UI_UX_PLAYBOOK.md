@@ -1,10 +1,10 @@
 # Clarity UI/UX Playbook
 
-Version **1.2.1** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.2.2** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
-**Status:** adopted presentation standard. Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+**Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
 
 ## Contents
 
@@ -241,14 +241,14 @@ Spacing scale: **4, 8, 12, 16, 20, 24, 32, 40, 48px**. Use 2px only for optical/
 
 ### Text inside filled and framed surfaces
 
-A visible fill or full enclosing border needs its own internal padding. Outer margins separate components; they do not create space between text and the component's edge. Do not add a background/radius to a previously flush layout row without adding an appropriate inset in the same rule.
+A visible fill or full enclosing border needs its own internal padding. Transparent text buttons need padding inside the button itself too: their hit area and keyboard focus outline must never hug the label. Audit button bounds even when there is no painted background or border. Outer margins separate components; they do not create space between text and the component's edge. Do not add a background/radius to a previously flush layout row without adding an appropriate inset in the same rule.
 
 | Surface role | Internal padding |
 | --- | --- |
 | Primary workspace | 24px desktop; 16px below 760px |
 | Supporting information/reference panel | 16px on all sides |
 | Compact filled header row | 8px top/bottom; 16px left/right |
-| Compact text control | 8px top/bottom; 12px left/right, with existing target-height rules |
+| Compact text control | 8px top/bottom; 12px left/right, with existing target-height rules; applies to transparent actions too |
 | Larger repeated editing item | Existing shared 20px treatment may remain |
 | Compact status badge | Existing 4px top/bottom; 8px left/right |
 
@@ -258,7 +258,7 @@ Further Consequences uses a padded header and active editor. Its recorded answer
 
 Native select controls use the local Lucide chevron at 16px, vertically centered with a 12px right inset. Reserve 44px at the text end so values cannot run beneath the arrow; retain the 12px leading text inset. Keep the native select element, keyboard behavior and focus ring. In forced-colors mode restore the browser arrow. Driver assessment controls wrap according to available width rather than squeezing long values into narrow columns.
 
-Check actual text bounds against all four edges in default, filled, collapsed, active-editor, expanded, selected, hover and narrow states. A border/background rule that looks correct in an empty card may still fail after a row is collapsed. Preserve native focus rings, writing, typography and interaction behavior.
+Check actual text bounds against all four edges in default, filled, collapsed, active-editor, expanded, selected, hover, keyboard-focus and narrow states. A border/background rule that looks correct in an empty card may still fail after a row is collapsed. Preserve native focus rings, writing, typography and interaction behavior.
 
 ### Shell
 
@@ -799,6 +799,7 @@ Documentation and showcase updates:
 | UI-11 | Playbook 1.1.0 / build 20261018-typography enforces type roles and approved review wording | Maintain all-page computed-style checks and structured label/value rendering |
 | UI-12 | Playbook 1.2.0 / build 20261018-content-order unifies descriptions and examples | Keep one introduction before references and each example before its related answer |
 | UI-13 | Playbook 1.2.1 / build 20261018-surface-insets enforces internal surface spacing | Use role-based inset tokens and inspect populated/expanded/collapsed/hover/narrow states |
+| UI-14 | Playbook 1.2.2 / build 20261018-button-insets covers transparent text-button bounds | Edit, Review, Add and Show more share 8px vertical / 12px horizontal padding; inspect focus outlines as well as painted surfaces |
 
 Minimum visual review set: empty/fresh writing; long writing; completed inactive section; completed current section; long wrapped nav label; unknown with retained writing; selected source and active destination; changed assessment; Reversibility trail switch; Overview information needs and historical content; narrow menu; dialog; validation/save/export failure.
 

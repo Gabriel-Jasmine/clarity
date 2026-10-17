@@ -379,4 +379,6 @@ The [UI/UX Playbook 1.1.0](docs/CLARITY_UI_UX_PLAYBOOK.md) assigns one shared si
 
 ### Surface spacing correction · 18 October 2026
 
-[Playbook 1.2.1](docs/CLARITY_UI_UX_PLAYBOOK.md) enforces internal space inside filled and framed components with shared inset tokens. This corrects consequence headers/editors, choice context, Driver selection controls, dropdown-arrow insets and expanded guides while preserving typography and native control behavior. [Audit and validation](docs/SURFACE_SPACING_2026-10-18.md).
+[Playbook 1.2.2](docs/CLARITY_UI_UX_PLAYBOOK.md) enforces internal space inside filled and framed components with shared inset tokens. This corrects consequence headers/editors, choice context, Driver selection controls, dropdown-arrow insets and expanded guides while preserving typography and native control behavior. [Audit and validation](docs/SURFACE_SPACING_2026-10-18.md).
+
+Transparent text actions also retain 8px vertical and 12px horizontal padding inside their own button bounds, including the keyboard focus outline. [Button-spacing correction and validation](docs/BUTTON_SPACING_2026-10-18.md).

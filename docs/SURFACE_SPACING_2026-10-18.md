@@ -33,3 +33,7 @@ Chromium measured rendered text bounds relative to filled/full-border surfaces o
 A separate 320px long-answer check verifies Show more/Show less, Edit focus, retained text and re-compaction after the padding change. A follow-up review measures dropdown arrow position, text reserve and Driver value fit across all 12 pages at five widths (60 additional views), with no placement violations, clipped Driver values, page errors or page-wide overflow. Native keyboard selection works; forced colors restores the browser arrow; the local chevron asset loads successfully. All 13 existing regression suites, JavaScript syntax and whitespace checks pass.
 
 The scan is implementation evidence for the reviewed fixtures, not a proof about every possible string, a full accessibility certification or a cross-browser/device test. Existing broader validation follow-ups remain open.
+
+## Follow-up: transparent text-button bounds
+
+The owner subsequently identified cramped Edit actions that this painted-surface scan did not cover. [Playbook 1.2.2 button correction](BUTTON_SPACING_2026-10-18.md) removes the remaining 0–4px overrides and explicitly audits transparent button bounds and keyboard focus outlines. The earlier surface-scan result must not be read as covering those missed controls.
