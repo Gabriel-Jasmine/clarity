@@ -1,10 +1,10 @@
 # Clarity UI/UX Playbook
 
-Version **1.2.0** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.2.1** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
-**Status:** adopted presentation standard. Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+**Status:** adopted presentation standard. Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
 
 ## Contents
 
@@ -238,6 +238,27 @@ Spacing scale: **4, 8, 12, 16, 20, 24, 32, 40, 48px**. Use 2px only for optical/
 | Card/workspace padding | 24px desktop, 16px narrow |
 | Main columns | 24px gap |
 | Icon to label | 8px |
+
+### Text inside filled and framed surfaces
+
+A visible fill or full enclosing border needs its own internal padding. Outer margins separate components; they do not create space between text and the component's edge. Do not add a background/radius to a previously flush layout row without adding an appropriate inset in the same rule.
+
+| Surface role | Internal padding |
+| --- | --- |
+| Primary workspace | 24px desktop; 16px below 760px |
+| Supporting information/reference panel | 16px on all sides |
+| Compact filled header row | 8px top/bottom; 16px left/right |
+| Compact text control | 8px top/bottom; 12px left/right, with existing target-height rules |
+| Larger repeated editing item | Existing shared 20px treatment may remain |
+| Compact status badge | Existing 4px top/bottom; 8px left/right |
+
+Use `--cl-inset-workspace`, `--cl-inset-panel`, `--cl-inset-row-block` and `--cl-inset-control-inline`. Keep the same role consistent across pages; do not give badges the same padding as a workspace. Existing native fields retain their shared internal text padding. Icon-only controls and completion indicators may use centered glyphs rather than text padding.
+
+Further Consequences uses a padded header and active editor. Its recorded answer aligns with the header's 16px text inset. Keep vertical padding off the clamped paragraph itself so two-line truncation and Show more remain accurate. Filled hover treatments on text actions also need an internal inset. Expanded Reversibility guides retain 16px after the last paragraph; collapsed summaries keep their existing comfortable targets.
+
+Native select controls use the local Lucide chevron at 16px, vertically centered with a 12px right inset. Reserve 44px at the text end so values cannot run beneath the arrow; retain the 12px leading text inset. Keep the native select element, keyboard behavior and focus ring. In forced-colors mode restore the browser arrow. Driver assessment controls wrap according to available width rather than squeezing long values into narrow columns.
+
+Check actual text bounds against all four edges in default, filled, collapsed, active-editor, expanded, selected, hover and narrow states. A border/background rule that looks correct in an empty card may still fail after a row is collapsed. Preserve native focus rings, writing, typography and interaction behavior.
 
 ### Shell
 
@@ -596,6 +617,10 @@ The following definitions describe the production token contract. `styles.css` i
   --cl-space-8: 32px;
   --cl-space-10: 40px;
   --cl-space-12: 48px;
+  --cl-inset-workspace: var(--cl-space-6); /* 16px on narrow layouts */
+  --cl-inset-panel: var(--cl-space-4);
+  --cl-inset-row-block: var(--cl-space-2);
+  --cl-inset-control-inline: var(--cl-space-3);
 --cl-size-page:1.875rem;--cl-size-section:1.375rem;--cl-size-question:1.125rem;
  --cl-size-body:1rem;--cl-size-label:.875rem;--cl-size-meta:.75rem;
  --cl-line-page:2.375rem;--cl-line-section:1.875rem;--cl-line-question:1.75rem;
@@ -703,6 +728,7 @@ The application README links to this standard, the component showcase and the ro
 
 - [ ] Main task and next action are evident without reading all helpers.
 - [ ] Page uses the shared shell, type scale, spacing and shape system.
+- [ ] Text has internal space on all four edges of every filled/framed surface, including collapsed, expanded, active, hover and narrow states.
 - [ ] One 2px structural frame encloses the appropriate primary workspace.
 - [ ] No browser-sized decorative frame or nested heavy card frames.
 - [ ] Pink means selection/current state; green means section completion.
@@ -772,6 +798,7 @@ Documentation and showcase updates:
 | UI-10 | Build 20261017-ui-playbook implements the shared presentation | Track page-level adoption and outstanding browser/accessibility checks |
 | UI-11 | Playbook 1.1.0 / build 20261018-typography enforces type roles and approved review wording | Maintain all-page computed-style checks and structured label/value rendering |
 | UI-12 | Playbook 1.2.0 / build 20261018-content-order unifies descriptions and examples | Keep one introduction before references and each example before its related answer |
+| UI-13 | Playbook 1.2.1 / build 20261018-surface-insets enforces internal surface spacing | Use role-based inset tokens and inspect populated/expanded/collapsed/hover/narrow states |
 
 Minimum visual review set: empty/fresh writing; long writing; completed inactive section; completed current section; long wrapped nav label; unknown with retained writing; selected source and active destination; changed assessment; Reversibility trail switch; Overview information needs and historical content; narrow menu; dialog; validation/save/export failure.
 

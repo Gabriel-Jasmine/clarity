@@ -376,3 +376,7 @@ The [UI/UX Playbook 1.1.0](docs/CLARITY_UI_UX_PLAYBOOK.md) assigns one shared si
 ### Consistent content order · 18 October 2026
 
 [Playbook 1.2.0](docs/CLARITY_UI_UX_PLAYBOOK.md) standardizes page title → description → decision aim/life-direction references → task content. Within writing groups, use question → guidance/context → example → answer. Existing examples remain local to their questions; full samples stay outside writing fields. [Implementation and validation](docs/CONTENT_ORDER_2026-10-18.md).
+
+### Surface spacing correction · 18 October 2026
+
+[Playbook 1.2.1](docs/CLARITY_UI_UX_PLAYBOOK.md) enforces internal space inside filled and framed components with shared inset tokens. This corrects consequence headers/editors, choice context, Driver selection controls, dropdown-arrow insets and expanded guides while preserving typography and native control behavior. [Audit and validation](docs/SURFACE_SPACING_2026-10-18.md).
