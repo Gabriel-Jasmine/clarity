@@ -1,5 +1,9 @@
 # Clarity
 
+## Latest presentation update — 17 October 2026
+
+Build `20261017-ui-playbook` applies the agreed design across all 12 sections and adopts the [UI/UX Playbook](docs/CLARITY_UI_UX_PLAYBOOK.md). See the [rollout record](docs/UI_ROLLOUT_2026-10-17.md) for validation and remaining checks. Earlier implementation records below retain their dated context.
+
 ## Reversibility update — 2026-10-16
 
 Build `20261016-reversibility` uses exactly two provisional trails, **Reversible / Irreversible**, with no preselected answer. Reversible explores a practical route, optional demands and learning before deeper commitment. Irreversible explores lasting consequences, possible adjustments and relevant checks in three stages. Option hints are visible before selection; examples and prompts precede writing. Earlier current entries are resurfaced with provenance and revisit links; source checks are tied to the exact quotation and contemplated choice.
@@ -100,11 +104,9 @@ Non-negotiables stay separate from scoring.
 
 ## Visual system
 
-Clarity uses a warm beige-grey background, dark graphite serif headings and readable sans-serif controls, generous negative space, thin structural lines, and selective monochrome pixel-dither gradients.
+Clarity follows the [UI/UX Playbook 1.0.0](docs/CLARITY_UI_UX_PLAYBOOK.md): soft ivory and greyish ivory surfaces, Manrope typography, a dark sidebar, pink selections, compact green completion circles and one charcoal frame around each page's main workspace. Blue identifies open information needs in Overview; honey yellow supports optional guidance and examples. This replaces the earlier serif/dither visual direction.
 
-The dither is functional: uncertainty appears more diffuse, while clearer states become more concentrated.
-
-**Uncertainty begins diffuse. Clarity gives it structure.**
+Use the [component showcase](design/component-showcase.html) to review reusable states. The [rollout record](docs/UI_ROLLOUT_2026-10-17.md) records scope, checks and remaining limits. Contributors and coding assistants must follow [AGENTS.md](AGENTS.md) before UI changes. Questions, reasoning, saved-data rules and exports are preserved in this visual rollout.
 
 ## Privacy
 

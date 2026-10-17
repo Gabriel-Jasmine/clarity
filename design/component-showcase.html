@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clarity — Component Showcase</title>
+<link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../styles.css?v=20261017-ui-playbook">
+<style>
+.showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.showcase-wide{grid-column:1/-1}.showcase-title{display:flex;align-items:center;gap:8px}
+.showcase-title .cl-icon{width:20px;height:20px}.showcase-nav{list-style:none;padding:0;margin:0}
+.showcase-source{display:grid;gap:12px}.showcase-chain{border-left:1px solid var(--cl-control-border);padding-left:16px}
+.showcase-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.showcase-state{border-top:1px solid var(--cl-divider);padding-top:16px;margin-top:16px}
+.showcase-error{color:var(--cl-error);font-size:.875rem}
+.showcase-nav button{cursor:default}
+@media(max-width:1099px){.showcase-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+<div class="brand"><strong>Clarity</strong><small>Component reference</small></div>
+<button id="mobileNavToggle" class="secondary" aria-controls="nav" aria-expanded="false">Sections</button>
+<nav id="nav" aria-label="Navigation state examples">
+<button aria-label="Decision, reviewed"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#file-pen-line"></use></svg><span class="nav-label">Decision</span><span class="nav-status"><span class="cl-completion" aria-hidden="true"><svg class="cl-icon"><use href="../assets/icons.svg#check"></use></svg></span></span></button>
+<button aria-label="What Matters, reviewed"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#compass"></use></svg><span class="nav-label">What Matters</span><span class="nav-status"><span class="cl-completion" aria-hidden="true"><svg class="cl-icon"><use href="../assets/icons.svg#check"></use></svg></span></span></button>
+<button aria-label="Further Consequences, not reviewed"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#git-branch"></use></svg><span class="nav-label">Further Consequences</span><span class="nav-status"></span></button>
+<button class="active" aria-current="page" aria-label="Decision Drivers, reviewed"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#layers"></use></svg><span class="nav-label">Decision Drivers</span><span class="nav-status"><span class="cl-completion" aria-hidden="true"><svg class="cl-icon"><use href="../assets/icons.svg#check"></use></svg></span></span></button>
+<button aria-label="Judgment Check, not reviewed"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#eye"></use></svg><span class="nav-label">Judgment Check</span><span class="nav-status"></span></button>
+</nav>
+<p class="storage-note">Fictional sample · changes stay in this view.</p>
+<a href="../index.html">Open Clarity</a>
+</aside>
+<main>
+<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.0.0</span></header>
+<p class="muted">Open a community pottery studio.</p>
+<div class="showcase-grid">
+<section class="card">
+<h2 class="showcase-title"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#file-pen-line"></use></svg>Writing and answer states</h2>
+<label class="field"><span>What choice are you considering?</span><small>Write it as something you could choose to do.</small><textarea>Open a community pottery studio.</textarea></label>
+<label class="field"><span>What do you want this choice to help you achieve?</span><textarea id="unknown-writing" placeholder="I’m hoping this would help me…"></textarea></label>
+<label class="reflection-control"><input type="checkbox" id="unknown-toggle" aria-controls="unknown-writing"><span>I don’t know yet</span></label>
+<label class="field"><span>Read-only source</span><input value="An earlier answer, kept as written." readonly></label>
+<label class="field"><span>Example validation state</span><input aria-invalid="true" aria-describedby="validation-example" value="" style="border-color:var(--cl-error)"></label>
+<p class="showcase-error" id="validation-example">Describe the choice before using this action.</p>
+</section>
+<section class="card">
+<h2 class="showcase-title"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#compass"></use></svg>Choices, tiles and pills</h2>
+<fieldset><legend>Which way are you leaning right now?</legend><div class="choice-grid"><label class="choice-card"><input type="radio" name="lean" checked><span>Make this choice</span></label><label class="choice-card"><input type="radio" name="lean"><span>Not make this choice</span></label></div></fieldset>
+<div class="domain-grid"><label class="domain-card"><input type="checkbox" checked><div><strong>Learning &amp; growth</strong><p>Knowledge, skills and understanding.</p></div></label><label class="domain-card"><input type="checkbox"><div><strong>Finance &amp; wealth</strong><p>Income, savings and stability.</p></div></label></div>
+<div class="tabs"><button class="active" aria-pressed="true" data-pill>Current approach</button><button aria-pressed="false" data-pill>Possible adjustment</button></div>
+<div class="showcase-actions"><button>Continue</button><button class="secondary">Cancel</button><button disabled>Unavailable</button><button class="x" aria-label="Remove example item">×</button></div>
+</section>
+<section class="card">
+<h2>Boundaries and repeated items</h2>
+<div id="boundaries"><div class="boundary-card"><div class="boundary-head"><span>Hard boundary</span><button class="x" aria-label="Remove boundary" data-remove>×</button></div><label class="field"><span>What needs to remain possible?</span><textarea>I need to cover essential living costs.</textarea></label></div></div>
+<button class="add" id="add-boundary">+ Add a boundary</button>
+<div class="goal-callout"><small>Direction in life</small><p>Build a creative practice with room for health and relationships.</p></div>
+</section>
+<section class="card">
+<h2>Guidance, examples and tables</h2>
+<p class="field-note">Essential definitions stay visible before the related choice.</p>
+<div class="judgment-example"><small>Example</small><p>Three quiet months would use most of the money set aside for the studio.</p></div>
+<details class="compounding-life-guide"><summary>A few areas to consider</summary><table class="compounding-life-table"><thead><tr><th>Area</th><th>What could build over time?</th></tr></thead><tbody><tr><th>Skills</th><td>Regular teaching develops practical experience.</td></tr><tr><th>Money</th><td>Recurring commitments reduce room to adapt.</td></tr></tbody></table></details>
+</section>
+<section class="card showcase-wide">
+<h2>Immediate change and consequence trails</h2>
+<div class="consequence-origin"><span>Immediate change</span><p>I take on a permanent studio lease.</p></div>
+<div class="grid two"><div class="showcase-chain"><h3>A favourable possibility</h3><label class="field"><span>What could follow?</span><textarea>More reliable space lets me offer regular classes.</textarea></label><button class="secondary" data-next-node>Then what?</button></div><div class="showcase-chain"><h3>An unfavourable possibility</h3><label class="field"><span>What could follow?</span><textarea>Fixed costs reduce the savings available during quiet months.</textarea></label><button class="secondary" data-next-node>Then what?</button></div></div>
+</section>
+<section class="card">
+<h2>Assessment and response guide</h2>
+<label class="field"><span>Money</span><small>Costs are higher, or income available funds are lower than expected.</small><select><option>Select a response</option><option>No meaningful effect</option><option>Enough room remains</option><option>Little or no room left</option><option>Beyond tolerance</option><option>I don’t know yet</option></select></label>
+<aside class="stress-response-guide"><h3>Response guide</h3><dl><div><dt>Little or no room left</dt><dd>You could continue, but would have little or no room for further setbacks.</dd></div></dl></aside>
+<label class="field"><span>How much could you manage before this becomes unworkable?</span><textarea placeholder="Write your thoughts here…"></textarea></label>
+</section>
+<section class="card reversibility-page">
+<h2>Reversibility and local stages</h2>
+<fieldset class="reverse-trails"><legend>As you see it now, is this decision reversible?</legend><label class="reverse-trail"><input type="radio" name="trail"><span><strong>Reversible</strong><small>I could change course and return to a situation I can manage.</small></span></label><label class="reverse-trail"><input type="radio" name="trail" checked><span><strong>Irreversible</strong><small>I could not undo the main commitment or restore what matters to me.</small></span></label></fieldset>
+<nav class="reverse-stages" aria-label="Stage examples"><button class="reverse-stage" aria-current="step" data-stage>What stays changed</button><button class="reverse-stage" data-stage>Room to adjust</button><button class="reverse-stage" data-stage>What to check</button></nav>
+<details class="reverse-guide"><summary>From your earlier thinking</summary><p>Three quiet months would use most of the money set aside for the studio.</p></details>
+</section>
+<section class="showcase-wide">
+<h2>Decision Drivers workspace</h2>
+<div class="drivers-workspace"><section class="reflection-panel"><h2>Your reflections</h2><p class="driver-link-target">Adding reflections to: Financial breathing room</p><details class="reflection-group" open><summary>Stress Test</summary><label class="reflection-row"><input type="checkbox" checked><span>Three quiet months would use most of the money set aside for the studio.<small>Linked to Financial breathing room</small></span></label></details><label class="reflection-control"><input type="checkbox" checked><span>This is still relevant</span></label><label class="reflection-control"><input type="checkbox"><span>This is my thinking now</span></label></section>
+<section class="driver-editors"><article class="factor"><button class="driver-activate" aria-pressed="true">Adding reflections here</button><div class="factorhead"><input aria-label="Driver name" value="Financial breathing room"><button class="x" aria-label="Remove example driver">×</button></div><details class="driver-sources"><summary>Supporting reflections</summary><blockquote>Three quiet months would use most of the money set aside for the studio.</blockquote></details><fieldset class="driver-direction"><legend>How does this reason affect your view?</legend><label><input type="radio" name="direction"><span>Supports it</span></label><label><input type="radio" name="direction" checked><span>Against it</span></label><label><input type="radio" name="direction"><span>Neither</span></label><label><input type="radio" name="direction"><span>Not sure</span></label></fieldset><div class="metricgrid"><label class="field"><span>Importance</span><select><option>High</option><option>Medium</option><option>Low</option></select></label><label class="field"><span>Evidence</span><select><option>Reasonable estimate</option><option>Assumption</option><option>Verified fact</option></select></label><label class="field"><span>How strongly?</span><select><option>Strongly</option><option>Somewhat</option></select></label></div><label class="field"><span>Why this matters <small>(optional)</small></span><textarea>Keeping a financial buffer would leave me room to adapt.</textarea></label></article><button class="secondary">+ Add a decision driver</button></section></div>
+</section>
+<section class="card">
+<h2>Review connections and retained writing</h2>
+<div class="driver-review-cue"><h3>Does your assessment still fit?</h3><p>You changed an answer in Stress Test after assessing this driver.</p><details><summary>See what changed</summary><p>Earlier and current writing remain separately available.</p></details><div class="showcase-actions"><button class="secondary">Keep my assessment</button><button>Change my assessment</button></div></div>
+<details><summary>Earlier writing</summary><p>An earlier draft is kept here, separate from current thinking.</p><small>Historical; excluded from current support</small></details>
+</section>
+<section class="card">
+<h2>Empty states and export</h2>
+<div class="empty-state"><h3>What are the real reasons?</h3><p>Select a reflection to open its driver here, or add a driver directly.</p><button class="secondary">+ Add a decision driver</button></div>
+<div class="showcase-actions"><button id="copy-example"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#copy"></use></svg>Copy decision context</button><button class="secondary" id="download-example"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#download"></use></svg>Download .md</button></div>
+<p id="copy-feedback" class="field-note" role="status"></p>
+</section>
+<section class="decision-overview showcase-wide">
+<div class="overview-hero"><span class="assessment-label">Partial assessment</span><h2>Here is where your thinking stands</h2><p>Open a community pottery studio.</p><small>Based on your entries. This is an orientation, not a recommendation.</small></div>
+<div class="overview-pair"><section class="overview-section overview-information-needs"><h3>What you still need to find out</h3><ul><li>Would class income cover rent during quieter months?</li><li>What would ending the lease early cost?</li></ul></section><section class="overview-section"><h3>Where the decision is vulnerable</h3><p>Income may take longer to establish than the savings buffer allows.</p><span class="badge">User-assessed information</span></section></div>
+</section>
+</div>
+<p class="muted" style="margin-top:24px">Developer reference using production styles. Sample answers demonstrate states; new Clarity decisions begin unanswered.</p>
+</main>
+</div>
+<script>
+document.getElementById('mobileNavToggle').onclick=function(){const open=document.getElementById('nav').classList.toggle('mobile-open');this.setAttribute('aria-expanded',String(open));};
+document.getElementById('unknown-toggle').onchange=function(){document.getElementById('unknown-writing').disabled=this.checked;};
+document.querySelectorAll('[data-pill]').forEach(button=>button.onclick=()=>{button.parentElement.querySelectorAll('button').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});});
+document.querySelectorAll('[data-stage]').forEach(button=>button.onclick=()=>{button.parentElement.querySelectorAll('button').forEach(b=>b.removeAttribute('aria-current'));button.setAttribute('aria-current','step');});
+document.getElementById('add-boundary').onclick=()=>{const card=document.querySelector('.boundary-card').cloneNode(true);card.querySelector('textarea').value='';document.getElementById('boundaries').appendChild(card);card.querySelector('textarea').focus();};
+document.getElementById('boundaries').onclick=e=>{const button=e.target.closest('[data-remove]');if(button)button.closest('.boundary-card').remove();};
+document.querySelectorAll('[data-next-node]').forEach(button=>button.onclick=()=>{const label=document.createElement('label');label.className='field';label.innerHTML='<span>Then what could follow?</span><textarea></textarea>';button.before(label);label.querySelector('textarea').focus();});
+const sample='# Clarity sample\n\nDecision: Open a community pottery studio.\n\nThis is fictional component-showcase content.';
+document.getElementById('copy-example').onclick=async()=>{try{await navigator.clipboard.writeText(sample);document.getElementById('copy-feedback').textContent='Copied sample context';}catch{document.getElementById('copy-feedback').textContent='Could not copy in this browser.';}};
+document.getElementById('download-example').onclick=()=>{const url=URL.createObjectURL(new Blob([sample],{type:'text/markdown'}));const a=document.createElement('a');a.href=url;a.download='clarity-showcase-example.md';a.click();URL.revokeObjectURL(url);};
+</script>
+</body>
+</html>

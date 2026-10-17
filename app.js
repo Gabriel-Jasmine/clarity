@@ -1,6 +1,9 @@
 const steps=["Decision","What Matters","Trade-Offs","Incentives","Compounding","Further Consequences","The Devil's Advocate","Stress Test","Judgment Check","Reversibility","Decision Drivers","Decision Overview"];
 // Section IDs stay stable in saved data; navigation order is independent.
 const stepOrder=[0,1,2,3,4,5,6,7,9,10,8,11];
+// Presentation-only icons; section IDs and reviewed-state rules stay unchanged.
+const sectionIcons=['file-pen-line','compass','scale','magnet','sprout','git-branch','messages-square','shield','eye','undo-2','layers','map'];
+function uiIcon(name){return '<svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#'+name+'"></use></svg>';}
 const driverDirectionChoices=[["for","Supports it"],["against","Against it"],["neutral","Neither"],["unknown","Not sure"]];
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
@@ -495,7 +498,10 @@ function render(){
  if(step===2||step===3||step===4||step===5||step===7||step===9)active=choiceOption().id;
  save();$("#title").textContent=steps[step];$("#stepCount").textContent=(stepOrder.indexOf(step)+1)+" of "+steps.length;
  $("#bar").style.width=((stepOrder.indexOf(step)+1)/steps.length*100)+"%";
- $("#nav").innerHTML=stepOrder.map(i=>'<button data-step="'+i+'" class="'+(i===step?'active':'')+'" '+(i===step?'aria-current="step"':'')+'><span>'+steps[i]+'</span><small aria-label="'+(data.reviewed.includes(i)?'Reviewed':'Not reviewed')+'">'+(data.reviewed.includes(i)?'✓':'')+'</small></button>').join('');
+ $("#nav").innerHTML=stepOrder.map(i=>{
+  const completed=data.reviewed.includes(i);
+  return '<button data-step="'+i+'" class="'+(i===step?'active':'')+'" '+(i===step?'aria-current="page"':'')+' aria-label="'+esc(steps[i]+(completed?', reviewed':', not reviewed'))+'">'+uiIcon(sectionIcons[i])+'<span class="nav-label">'+steps[i]+'</span><span class="nav-status" aria-hidden="true">'+(completed?'<span class="cl-completion">'+uiIcon('check')+'</span>':'')+'</span></button>';
+ }).join('');
  $("#back").disabled=step===0;$("#next").style.display=step===11?'none':'block';
  $('#next').textContent=step===10?'Continue to Judgment Check →':step===8?'Continue to Decision Overview →':'Continue →';
  $("#screen").innerHTML=approachSectionNote()+(step>2&&step!==7?directionReference():"")+screen();
@@ -1286,7 +1292,7 @@ function vulnerabilityItems(){const out=[];advocateEntries().filter(e=>e.connect
 function overviewList(items,empty="Nothing added yet."){return items.length?'<ul class="overview-list">'+items.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>':'<p class="muted">'+esc(empty)+'</p>'}
 function decisionOverview(){
  const a=analyse();const edit=i=>'<button class="edit-link" data-edit="'+i+'">Edit</button>';
- const section=(title,body,i)=>'<section class="overview-section"><div class="section-heading"><h3>'+title+'</h3>'+(i===null?'':edit(i))+'</div>'+body+'</section>';
+ const section=(title,body,i)=>'<section class="overview-section'+(title==='What you still need to find out'?' overview-information-needs':'')+'"><div class="section-heading"><h3>'+title+'</h3>'+(i===null?'':edit(i))+'</div>'+body+'</section>';
  const priorities=data.stakes.map(id=>lifeDomains.find(d=>d.id===id)?.title).filter(Boolean);
  const drivers=[...activeDrivers()].sort((x,y)=>(y.importance||0)-(x.importance||0));
  const renderDriver=f=>'<details class="overview-driver"><summary><span><strong>'+esc(f.name||'Untitled driver')+'</strong><small>'+(['Not assessed','Low','Medium','High'][f.importance||0])+' importance · '+(['Not assessed','Assumption','Reasonable estimate','Verified fact'][f.evidence||0])+'</small></span><span class="badge">'+esc(driverDirection(f))+'</span></summary>'+driverAssessmentReviewCue(f)+'<p>'+esc(f.rationale||'No reasoning added yet.')+'</p>'+((f.sources||[]).length?driverSourceList(f)+((f.sources||[]).some(r=>!activeDriverSources(f).includes(r))?'<details><summary>Earlier unlinked reflections</summary>'+f.sources.filter(r=>!activeDriverSources(f).includes(r)).map(r=>'<p>'+esc(r.text)+'</p><small>Inactive; excluded from current support</small>').join('')+'</details>':''):'')+((f.sourceHistory||[]).length?'<details><summary>Earlier supporting writing</summary>'+f.sourceHistory.map(r=>'<p>'+esc(r.text)+'</p><small>'+esc(r.reason||'Retained quote')+' · Inactive; not additional evidence</small>').join('')+'</details>':'')+'</details>';
@@ -1325,7 +1331,7 @@ bind=function(){
  document.querySelectorAll('[data-costunknown]').forEach(e=>e.onchange=()=>{const k=e.dataset.costunknown;option().trade[k+'Unknown']=e.checked;save();document.querySelector('[data-cost="'+k+'"]').disabled=e.checked;});
  document.querySelectorAll('[data-lifeunknown]').forEach(e=>e.onchange=()=>{data.lifeDirectionUnknown=e.checked;render();});
  document.querySelectorAll('[data-optname]').forEach(e=>e.oninput=()=>{setOptName(e.dataset.optname,e.value);const label=document.querySelector('[data-option-label="'+e.dataset.optname+'"]');if(label)label.textContent=e.value||'Untitled option';});
- document.querySelectorAll("[data-step]").forEach(b=>{const go=b.onclick;b.onclick=()=>{go();$("#nav").classList.remove("mobile-open");$("#mobileNavToggle").setAttribute("aria-expanded","false");window.scrollTo(0,0);};});
+ document.querySelectorAll("[data-step]").forEach(b=>{const go=b.onclick;b.onclick=()=>{go();$("#nav").classList.remove("mobile-open");$("#mobileNavToggle").setAttribute("aria-expanded","false");$("#title").focus();window.scrollTo(0,0);};});
  document.querySelectorAll('[data-driveroption]').forEach(e=>e.onchange=()=>{const f=data.factors.find(f=>f.id===e.dataset.driveroption);f.options=e.checked?[...new Set([...driverOptions(f),e.value])]:driverOptions(f).filter(id=>id!==e.value);f.directionAssessed=true;save();const none=document.querySelector('[data-drivernone="'+f.id+'"]');if(none)none.checked=!f.options.length;});
  document.querySelectorAll('[data-drivernone]').forEach(e=>e.onchange=()=>{const f=data.factors.find(f=>f.id===e.dataset.drivernone);f.directionAssessed=e.checked;if(e.checked){f.options=[];document.querySelectorAll('[data-driveroption="'+f.id+'"]').forEach(c=>c.checked=false);}save();});
  document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{step=+b.dataset.edit;active=data.options[0].id;incentiveReview=false;render();window.scrollTo(0,0);});
@@ -1334,7 +1340,7 @@ bind=function(){
  if($('#copyContext'))$('#copyContext').onclick=async()=>{try{await navigator.clipboard.writeText(decisionContextText());$('#copyFeedback').textContent='Copied';}catch{$('#copyFeedback').textContent='Could not copy. Use Preview context to copy the text.';}};
 };
 const originalNext=$('#next').onclick;
-$('#next').onclick=()=>{if(step===9&&reverseData().trail==='irreversible'&&reverseStage<2){reverseStage++;render();window.scrollTo(0,0);return;}if(data.approachReview)data.approachReview.sections=data.approachReview.sections.filter(i=>i!==step);if(!data.reviewed)data.reviewed=[];if(!data.reviewed.includes(step))data.reviewed.push(step);originalNext();window.scrollTo(0,0);};
+$('#next').onclick=()=>{if(step===9&&reverseData().trail==='irreversible'&&reverseStage<2){reverseStage++;render();window.scrollTo(0,0);return;}if(data.approachReview)data.approachReview.sections=data.approachReview.sections.filter(i=>i!==step);if(!data.reviewed)data.reviewed=[];if(!data.reviewed.includes(step))data.reviewed.push(step);originalNext();$("#title").focus();window.scrollTo(0,0);};
 $('#mobileNavToggle').onclick=()=>{const open=$('#nav').classList.toggle('mobile-open');$('#mobileNavToggle').setAttribute('aria-expanded',String(open));};
 
 render();
