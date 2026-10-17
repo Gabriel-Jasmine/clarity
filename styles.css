@@ -889,6 +889,20 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
 .reverse-writing-label{display:block;margin:0 0 8px}
 .reverse-writing>.field-note{margin:0 0 12px}
 .reverse-writing>.reverse-guide{margin:0 0 16px}
+/* Native selection behavior with a consistently inset local Lucide chevron. */
+select,.factor .metricgrid select,.stress-card .stress-table td select{
+  -webkit-appearance:none;appearance:none;
+  background-image:url("assets/select-chevron.svg");background-repeat:no-repeat;
+  background-position:right 12px center;background-size:16px 16px;
+  padding-inline-start:var(--cl-inset-control-inline);padding-inline-end:44px;
+}
+.factor .metricgrid{grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:16px 12px;margin:16px 0}
+.factor .metricgrid>.field{margin:0}
+@media(forced-colors:active){
+  select,.factor .metricgrid select,.stress-card .stress-table td select{
+    -webkit-appearance:auto;appearance:auto;background-image:none;padding-inline-end:var(--cl-inset-control-inline);
+  }
+}
 /* Typography is assigned by content role. Page selectors only map existing markup to a role. */
 
 body{font-size:var(--cl-size-body);line-height:var(--cl-line-body);font-weight:var(--cl-weight-body)}

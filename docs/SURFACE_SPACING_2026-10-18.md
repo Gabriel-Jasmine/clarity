@@ -18,6 +18,7 @@ The audit uses fictional pottery-studio writing. The user's screenshot writing i
 - Pad consequence summary headers and active editors, and align saved-answer text with the header inset. Hoverable Edit/Show more actions receive horizontal padding. Preserve the two-line clamp by keeping added vertical spacing outside the clamped paragraph.
 - Add comfortable padding to The Devil's Advocate choice context and the Driver destination control.
 - Give expanded Reversibility guides a 16px bottom inset; preserve closed-summary targets and avoid double bottom margins.
+- Native dropdowns use the bundled Lucide chevron with a 12px right inset, 16px icon and 44px text-end reserve. Driver assessment controls wrap when needed. Native select behavior, focus and keyboard operation remain; forced colors restores the browser arrow.
 - Retain smaller status badges, centered icon-only controls, field padding, existing typography, native focus and control semantics.
 - Update the production-style showcase with the collapsed consequence header and editable state; document the shared rule and contributor checks.
 
@@ -29,6 +30,6 @@ This is a stylesheet/presentation correction. Application questions, examples, c
 
 Chromium measured rendered text bounds relative to filled/full-border surfaces on all 12 pages at 1440, 1024, 768, 390 and 320px (60 views), with populated fictional answers and expanded disclosures. Five additional consequence-editor views and ten Reversibility/hover state views cover conditional states: 75 surface scans total. No remaining edge-contact findings, page-script errors or page-wide overflow were observed in these fixtures. Before/after and representative mobile screenshots were inspected.
 
-A separate 320px long-answer check verifies Show more/Show less, Edit focus, retained text and re-compaction after the padding change. All 13 existing regression suites, JavaScript syntax and whitespace checks pass.
+A separate 320px long-answer check verifies Show more/Show less, Edit focus, retained text and re-compaction after the padding change. A follow-up review measures dropdown arrow position, text reserve and Driver value fit across all 12 pages at five widths (60 additional views), with no placement violations, clipped Driver values, page errors or page-wide overflow. Native keyboard selection works; forced colors restores the browser arrow; the local chevron asset loads successfully. All 13 existing regression suites, JavaScript syntax and whitespace checks pass.
 
 The scan is implementation evidence for the reviewed fixtures, not a proof about every possible string, a full accessibility certification or a cross-browser/device test. Existing broader validation follow-ups remain open.

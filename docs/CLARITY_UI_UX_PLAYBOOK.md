@@ -256,6 +256,8 @@ Use `--cl-inset-workspace`, `--cl-inset-panel`, `--cl-inset-row-block` and `--cl
 
 Further Consequences uses a padded header and active editor. Its recorded answer aligns with the header's 16px text inset. Keep vertical padding off the clamped paragraph itself so two-line truncation and Show more remain accurate. Filled hover treatments on text actions also need an internal inset. Expanded Reversibility guides retain 16px after the last paragraph; collapsed summaries keep their existing comfortable targets.
 
+Native select controls use the local Lucide chevron at 16px, vertically centered with a 12px right inset. Reserve 44px at the text end so values cannot run beneath the arrow; retain the 12px leading text inset. Keep the native select element, keyboard behavior and focus ring. In forced-colors mode restore the browser arrow. Driver assessment controls wrap according to available width rather than squeezing long values into narrow columns.
+
 Check actual text bounds against all four edges in default, filled, collapsed, active-editor, expanded, selected, hover and narrow states. A border/background rule that looks correct in an empty card may still fail after a row is collapsed. Preserve native focus rings, writing, typography and interaction behavior.
 
 ### Shell
