@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Clarity — Component Showcase</title>
 <link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../styles.css?v=20261018-content-order">
+<link rel="stylesheet" href="../styles.css?v=20261018-surface-insets">
 <style>
 .showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .showcase-wide{grid-column:1/-1}.showcase-title{display:flex;align-items:center;gap:8px}
@@ -33,7 +33,7 @@
 <a href="../index.html">Open Clarity</a>
 </aside>
 <main>
-<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.2.0</span></header>
+<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.2.1</span></header>
 <div class="page-introduction" data-page-introduction="showcase"><p>Review the shared components and their states before applying them to a Clarity page.</p></div>
 <section class="direction-reference"><div><div class="direction-label">Aim for this decision</div><p>Build a sustainable creative practice.</p></div><div><div class="direction-label">Direction in life</div><p>Make room for craft, health and financial breathing room.</p></div></section>
 <div class="showcase-grid">
@@ -68,6 +68,7 @@
 <section class="card showcase-wide">
 <h2>Immediate change and consequence trails</h2>
 <div class="consequence-origin"><span>Immediate change</span><p>I take on a permanent studio lease.</p></div>
+<div class="consequence-entry" data-showcase-consequence><div class="consequence-summary"><div class="consequence-summary-head"><span>Because of that change</span><button type="button" class="consequence-text-action" data-showcase-edit>Edit</button></div><p class="consequence-answer">Teaching improves with repeated practice.</p></div><div class="consequence-editor" hidden><label for="showcase-consequence-answer">Because of that change, what else could happen?</label><p class="field-note">Describe the next change, whether it comes from what you do, how others respond, or what changes around you.</p><textarea id="showcase-consequence-answer">Teaching improves with repeated practice.</textarea></div></div>
 <div class="grid two"><div class="showcase-chain"><h3>A favourable possibility</h3><label class="field"><span>What could follow?</span><textarea>More reliable space lets me offer regular classes.</textarea></label><button class="secondary" data-next-node>Then what?</button></div><div class="showcase-chain"><h3>An unfavourable possibility</h3><label class="field"><span>What could follow?</span><textarea>Fixed costs reduce the savings available during quiet months.</textarea></label><button class="secondary" data-next-node>Then what?</button></div></div>
 </section>
 <section class="card">
@@ -114,6 +115,7 @@ document.querySelectorAll('[data-stage]').forEach(button=>button.onclick=()=>{bu
 document.getElementById('add-boundary').onclick=()=>{const card=document.querySelector('.boundary-card').cloneNode(true);card.querySelector('textarea').value='';document.getElementById('boundaries').appendChild(card);card.querySelector('textarea').focus();};
 document.getElementById('boundaries').onclick=e=>{const button=e.target.closest('[data-remove]');if(button)button.closest('.boundary-card').remove();};
 document.querySelectorAll('[data-next-node]').forEach(button=>button.onclick=()=>{const label=document.createElement('label');label.className='field';label.innerHTML='<span>Then what could follow?</span><textarea></textarea>';button.before(label);label.querySelector('textarea').focus();});
+document.querySelectorAll('[data-showcase-edit]').forEach(button=>button.onclick=()=>{const group=button.closest('[data-showcase-consequence]');group.querySelector('.consequence-summary').hidden=true;group.querySelector('.consequence-editor').hidden=false;group.querySelector('textarea').focus();});
 const sample='# Clarity sample\n\nDecision: Open a community pottery studio.\n\nThis is fictional component-showcase content.';
 document.getElementById('copy-example').onclick=async()=>{try{await navigator.clipboard.writeText(sample);document.getElementById('copy-feedback').textContent='Copied sample context';}catch{document.getElementById('copy-feedback').textContent='Could not copy in this browser.';}};
 document.getElementById('download-example').onclick=()=>{const url=URL.createObjectURL(new Blob([sample],{type:'text/markdown'}));const a=document.createElement('a');a.href=url;a.download='clarity-showcase-example.md';a.click();URL.revokeObjectURL(url);};
