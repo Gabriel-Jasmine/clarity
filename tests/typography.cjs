@@ -4,7 +4,7 @@ const b=boot(),r=b.run;
 r(`choiceOption().name="Open a community pottery studio";data.hasHardBoundaries="yes";data.rules=[{id:"b",text:"Keep savings for essential costs: rent, food and transport."}];setBoundaryAnswer("b","unknown");data.rules[0].check.note="Check actual costs — do not assume: six months is enough.";data.devilsAdvocate.outcomes[0].outcome='Outcome: <script>unsafe()</script> should remain literal user writing.';data.devilsAdvocate.outcomes[0].connection='My own words include Money: and Outcome: without creating extra fields.';`);
 const before=r('JSON.stringify(data)'),exported=r('decisionContextText()'),missing=r('JSON.stringify(assessmentMissing())'),gaps=r('JSON.stringify(allInvestigations())');
 let html=r('overviewInvestigationText(allInvestigations()[0])');
-assert(html.includes('class="report-label">Check whether this choice respects</span>'));
+assert(html.includes('class="report-label">Check whether doing this would respect</span>'));
 assert(html.includes('class="report-value">Keep savings for essential costs: rent, food and transport.</span>'));
 html=r('overviewVulnerabilityText(vulnerabilityItems()[0])');
 assert.equal((html.match(/class="report-label"/g)||[]).length,2);

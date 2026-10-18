@@ -1,12 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.4.1** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.5.0** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
 
 ## Contents
+
+Version 1.5.0 adopts the decision-language framing and external answer-starter component. Read [Decision language and framing](DECISION_LANGUAGE.md) before all future copy, question, example, report or AI changes. This supersedes the previous decision/choice vocabulary rule without changing assessment or storage meanings.
 
 Version 1.4.1 adopts the compact centered homepage and exact approved description, with **Shall we begin?** as a separate invitation. See [compact homepage validation](COMPACT_HOMEPAGE_2026-10-18.md).
 
@@ -382,6 +384,8 @@ Hover changes fill/border without movement. Pressed state may darken slightly. D
 
 ## 11. Writing fields and conditional answers
 
+The Decision opening uses **What decision are you trying to make?** with the fixed external starter **I’m deciding whether to…** immediately before its action-only textarea. Use the existing 16px/26px regular writing role; associate it through `aria-describedby`. Never prefill or prepend the starter to saved writing. Existing sentences remain verbatim. Keep the question → helper → example → starter → answer order and one structural frame. [Full contract](DECISION_LANGUAGE.md).
+
 A writing group follows one order: **persistent question → relevant guidance/definitions and personal context → example → answer field → existing answer-state controls/status**. Examples are local to the question they support, not collected at the bottom of the page. An input label can remain immediately beside its field when a larger question introduces the group. In Reversibility, the direct writing label comes before its helper/example. Preserve conditional visibility and existing disclosure states; a collapsed example stays in the same position before writing. Do not move essential definitions into an optional example.
 
 Use 16px input text, a 44px minimum single-line height and about 120px initial height for a main narrative field. Short supporting textareas can start near 88px. Allow vertical resizing or accessible auto-growth. Long writing must not be clipped, replaced by ellipses or forced into a tiny fixed-height editor.
@@ -551,6 +555,8 @@ Default motion: 120–180ms color/opacity transitions. No bouncing completion ba
 Relevant W3C references are listed in section 28. Meeting a few color and size checks does not establish full compliance or usability.
 
 ## 22. Language and information integrity
+
+The owner-approved [Decision language and framing](DECISION_LANGUAGE.md) is the current terminology contract. Use decision for the whole matter and this/doing this/if you do this for the contemplated action. “You’re considering” anchors action-specific questions. Never mechanically substitute nouns in saved quotations or retired prompts. The ordinary verb choose and internal compatibility identifiers are unchanged.
 
 Follow the existing `CLARITY_LANGUAGE_GUIDE.md` and the latest dated product decisions. Use plain language, sentence-case labels and neutral descriptions. Preserve approved page names and source wording.
 

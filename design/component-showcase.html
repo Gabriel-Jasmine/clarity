@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Clarity — Component Showcase</title>
 <link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../styles.css?v=20261018-guide-navigation">
+<link rel="stylesheet" href="../styles.css?v=20261018-decision-language">
 <link rel="stylesheet" href="../home.css?v=20261018-compact-homepage">
 <style>
 .showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
@@ -38,7 +38,7 @@
 <a href="../index.html">Open Clarity</a>
 </aside>
 <main>
-<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.4.1</span></header>
+<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.5.0</span></header>
 <div class="page-introduction" data-page-introduction="showcase"><p>Review the shared components and their states before applying them to a Clarity page.</p></div>
 <section class="direction-reference"><div><div class="direction-label">Aim for this decision</div><p>Build a sustainable creative practice.</p></div><div><div class="direction-label">Direction in life</div><p>Make room for craft, health and financial breathing room.</p></div></section>
 <div class="showcase-grid">
@@ -53,16 +53,16 @@
 </section>
 <section class="card">
 <h2 class="showcase-title"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#file-pen-line"></use></svg>Writing and answer states</h2>
-<label class="field"><span class="type-question">What choice are you considering?</span><small>Write it as something you could choose to do.</small><span class="writing-example"><span class="example-label">Example</span><span>Open a community pottery studio.</span></span><textarea>Open a community pottery studio.</textarea></label>
-<label class="field"><span class="type-question">What do you want this choice to help you achieve?</span><textarea id="unknown-writing" placeholder="I’m hoping this would help me…"></textarea></label>
+<label class="field"><span class="type-question">What decision are you trying to make?</span><small>Focus on one action you’re considering. You’ll explore other ways forward as you work through it.</small><span class="writing-example"><span class="example-label">Example</span><span>I’m deciding whether to open a community pottery studio.</span></span><span class="decision-answer-starter">I’m deciding whether to…</span><textarea>Open a community pottery studio.</textarea></label>
+<label class="field"><span class="type-question">What are you hoping to achieve?</span><textarea id="unknown-writing" placeholder="I’m hoping this would help me…"></textarea></label>
 <label class="reflection-control"><input type="checkbox" id="unknown-toggle" aria-controls="unknown-writing"><span>I don’t know yet</span></label>
 <label class="field"><span>Read-only source</span><input value="An earlier answer, kept as written." readonly></label>
 <label class="field"><span>Example validation state</span><input aria-invalid="true" aria-describedby="validation-example" value="" style="border-color:var(--cl-error)"></label>
-<p class="showcase-error" id="validation-example">Describe the choice before using this action.</p>
+<p class="showcase-error" id="validation-example">Describe the decision before using this action.</p>
 </section>
 <section class="card">
 <h2 class="showcase-title"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg#compass"></use></svg>Choices, tiles and pills</h2>
-<fieldset><legend class="type-question">Which way are you leaning right now?</legend><div class="choice-grid"><label class="choice-card"><input type="radio" name="lean" checked><span>Make this choice</span></label><label class="choice-card"><input type="radio" name="lean"><span>Not make this choice</span></label></div></fieldset>
+<fieldset><legend class="type-question">Which way are you leaning right now?</legend><div class="choice-grid"><label class="choice-card"><input type="radio" name="lean" checked><span>Do this</span></label><label class="choice-card"><input type="radio" name="lean"><span>Not do this</span></label></div></fieldset>
 <div class="domain-grid"><label class="domain-card"><input type="checkbox" checked><div><strong>Learning &amp; growth</strong><p>Knowledge, skills and understanding.</p></div></label><label class="domain-card"><input type="checkbox"><div><strong>Finance &amp; wealth</strong><p>Income, savings and stability.</p></div></label></div>
 <div class="tabs"><button class="active" aria-pressed="true" data-pill>Current approach</button><button aria-pressed="false" data-pill>Possible adjustment</button></div>
 <div class="showcase-actions"><button>Continue</button><button class="secondary">Cancel</button><button disabled>Unavailable</button><button class="x" aria-label="Remove example item">×</button></div>

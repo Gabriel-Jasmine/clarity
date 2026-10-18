@@ -1,5 +1,11 @@
 # Clarity
 
+## Decision language and framing — 18 October 2026
+
+Clarity now opens with **What decision are you trying to make?**, the external starter **I’m deciding whether to…**, and **What are you hoping to achieve?**. The whole tool uses decision for the overall matter and this/doing this for the action under consideration. Alternatives are explored without a comparative-winner claim.
+
+Read [the current language and concept contract](docs/DECISION_LANGUAGE.md) before future product, question, example, report or AI work. This supersedes the earlier decision/choice wording rule; dated entries below preserve history. The [rollout record](docs/DECISION_LANGUAGE_2026-10-18.md) identifies scope and actual validation. Saved writing, assessments, identifiers, storage and schema 2 are preserved.
+
 ## Compact homepage — 18 October 2026
 
 The centered homepage uses the approved shorter description and **Shall we begin?** above **Let’s begin**. Smaller artwork, desktop typography and gaps keep every component visible in the checked 1280 × 720 laptop and 375 × 667 phone viewports. The exact artwork, pink underline, navigation and saved-work behavior remain unchanged. Smaller or zoomed viewports can scroll naturally. See [compact homepage validation](docs/COMPACT_HOMEPAGE_2026-10-18.md).
@@ -38,25 +44,25 @@ Run all dependency-free regression suites with `for test in tests/*.cjs; do node
 
 Earlier dated implementation entries below describe their original baselines.
 
-**For consequential choices that can meaningfully affect your life, work, relationships, or future direction.**
+**For consequential decisions that can meaningfully affect your life, work, relationships, or future direction.**
 
-Clarity is for consequential choices that can meaningfully affect your life, work, relationships, or future direction — especially when there is no obvious right answer and each path comes with different trade-offs, uncertainties, and consequences.
+Clarity is for consequential decisions that can meaningfully affect your life, work, relationships, or future direction — especially when there is no obvious right answer and each path comes with different trade-offs, uncertainties, and consequences.
 
-It guides you through the decision so you can understand what your choice is really based on, what is driving it, and what you still need to know before you commit.
+It guides you through the decision so you can understand what your decision is really based on, what is driving it, and what you still need to know before you commit.
 
 Clarity does not tell people what to choose. It helps make the structure of their own reasoning visible.
 
 ## What Clarity guides you through
 
-1. State one choice under consideration, the decision aim, starting leaning and consequence horizon, then record the deadline and what waiting would change
+1. State one action under consideration, the decision aim, starting leaning and consequence horizon, then record the deadline and what waiting would change
 2. Zoom out from the immediate choice, surface the life the user wants to build or protect, identify what matters most within that life, then bring the decision back in to identify what is at stake and define any hard boundaries
-3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for the choice under consideration
-4. Describe the focal choice’s expected gains and relief, then reflect on how those rewards fit the user’s direction in life
-5. Use a nine-area practical and psychological guide, then describe what the focal choice could develop, reinforce or make harder to sustain over time
-6. Follow further consequences of the focal choice through a possible benefit and a possible difficulty, using automatic causal prompts, compact earlier answers and “That’s it” to finish
-7. The Devil's Advocate: describe failure relative to life direction within this decision, then examine whether and how the focal choice could lead towards that outcome
+3. Consider realistic alternatives, then describe immediate and future costs across seven areas of life for the action under consideration
+4. Describe the contemplated action’s expected gains and relief, then reflect on how those rewards fit the user’s direction in life
+5. Use a nine-area practical and psychological guide, then describe what the contemplated action could develop, reinforce or make harder to sustain over time
+6. Follow further consequences of the contemplated action through a possible benefit and a possible difficulty, using automatic causal prompts, compact earlier answers and “That’s it” to finish
+7. The Devil's Advocate: describe failure relative to life direction within this decision, then examine whether and how the contemplated action could lead towards that outcome
 8. Stress Test the contemplated choice against plausible setbacks, describe how much you could manage, then check compatibility with any written hard boundaries
-9. Test the focal choice’s reversibility and switching costs
+9. Test the contemplated action’s reversibility and switching costs
 10. Select related reflections to open and restore shared Decision Drivers, assess support/against/neither/unknown once, and explain the expectations carrying the reasons
 11. Review wording, examples, current-path investment, contrary information, other people and present feelings through contextual questions, then revisit Drivers if a reason changes
 12. Review one Decision Overview that shows where the user stands, what they are trying to achieve, what drives the current view, what still needs to be found out, where the decision is vulnerable, what may be shaping judgment, and how much room there is to change course

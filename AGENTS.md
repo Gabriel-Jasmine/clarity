@@ -2,6 +2,8 @@
 
 Before UI work, read [the UI/UX Playbook](docs/CLARITY_UI_UX_PLAYBOOK.md) and the relevant current product/language decisions. The playbook is the canonical design standard; the private product-notes repository records rationale and history.
 
+Before any question, copy, example, synthesis or AI work, read [Decision language and framing](docs/DECISION_LANGUAGE.md). “Decision” names the overall matter; “this / doing this / if you do this” refers to the concrete action under consideration. The opening is “What decision are you trying to make?” with the external starter “I’m deciding whether to…”. Preserve one-action scope, action-only storage, raw existing writing and historical prompt/source wording. Do not reintroduce “make this choice”, infer commitment or claim alternative comparison.
+
 - Reuse the semantic tokens in `styles.css` and established components. Keep pink for selection, green for completion, blue for Overview information needs and honey for optional guidance.
 - Use one 2px charcoal structural frame per page's main working surface. Keep navigation completion badges small and independent of current-page selection.
 - Give filled/fully framed text surfaces and all text-button bounds (including transparent actions and their focus outlines) explicit internal padding using the shared `--cl-inset-*` role tokens. Check collapsed, active-editor, expanded, selected, hover and narrow states; outer margins do not replace inner padding.

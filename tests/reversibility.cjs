@@ -45,7 +45,7 @@ assert(!page().includes('proposed premises are available for another six weeks')
 const key='boundary:savings';let e=input('reversecheck',key,'check');e.checked=true;e.onchange();assert(plain('allInvestigations()').some(x=>x.includes('Keep shared savings available')));
 e=input('reversecheck',key,'checked');e.checked=true;e.onchange();assert(!plain('reverseInvestigations()').some(x=>x.includes('Keep shared savings available')));
 r('data.reviewed.push(9);save();data.rules[0].text="Keep essential shared savings available";save();render()');
-assert(!r('data.reviewed.includes(9)'));assert(page().includes('source or choice has changed'));
+assert(!r('data.reviewed.includes(9)'));assert(page().includes('earlier answer or what you’re considering has changed'));
 assert(!r('reverseCheckCurrent(reverseSourceRows().find(s=>s.id==="boundary:savings"))'));
 assert(plain('reverseInvestigations()').some(x=>x.includes('changed')));
 e=input('reversecheck',key,'checked');e.checked=true;e.onchange();assert(r('reverseData().checksHistory.length')>=2);
