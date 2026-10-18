@@ -540,7 +540,7 @@ function render(){
  if(step===2||step===3||step===4||step===5||step===7||step===9)active=choiceOption().id;
  save();$("#title").textContent=steps[step];$("#stepCount").textContent=(stepOrder.indexOf(step)+1)+" of "+steps.length;
  $("#bar").style.width=((stepOrder.indexOf(step)+1)/steps.length*100)+"%";
- $("#nav").innerHTML=stepOrder.map(i=>{
+ $("#nav").innerHTML='<a class="sidebar-guide" href="before-you-begin.html">'+uiIcon('book-open')+'<span>How Clarity works</span></a><hr class="sidebar-nav-divider">'+stepOrder.map(i=>{
   const completed=data.reviewed.includes(i);
   return '<button data-step="'+i+'" class="'+(i===step?'active':'')+'" '+(i===step?'aria-current="page"':'')+' aria-label="'+esc(steps[i]+(completed?', reviewed':', not reviewed'))+'">'+uiIcon(sectionIcons[i])+'<span class="nav-label">'+steps[i]+'</span><span class="nav-status" aria-hidden="true">'+(completed?'<span class="cl-completion">'+uiIcon('check')+'</span>':'')+'</span></button>';
  }).join('');

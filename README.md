@@ -1,5 +1,9 @@
 # Clarity
 
+## Persistent guide — 18 October 2026
+
+**How Clarity works** is available directly below Home, separate from the twelve decision sections. The guide keeps the shared sidebar and existing URL (`before-you-begin.html`), with native links into every section. Its main action reads **Begin my decision** for new users and **Continue my decision** for saved work. Mobile **Menu** contains the guide and decision sections; Home stays visible. Reading the guide preserves saved answers, reviewed states and the last working section. Its explanatory copy is retained pending the separate content revision. See [guide navigation validation](docs/GUIDE_NAVIGATION_2026-10-18.md) and [Playbook 1.4.0](docs/CLARITY_UI_UX_PLAYBOOK.md).
+
 ## Homepage title underline — 18 October 2026
 
 The word **Clarity** in the homepage title now has one straight, solid pink underline (`#EDBDDF`), matching the owner’s reference. This replaces the double honey doodle strokes; the galaxy artwork retains its approved honey accents. See [underline validation](docs/PINK_UNDERLINE_2026-10-18.md).

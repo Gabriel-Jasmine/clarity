@@ -1,4 +1,4 @@
-/* Clarity UI/UX Playbook 1.3.1 — shared foundations. */
+/* Clarity UI/UX Playbook 1.4.0 — shared foundations. */
 @font-face{font-family:Manrope;src:url("assets/manrope-latin.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
 :root{
   color-scheme:light;
@@ -1014,7 +1014,7 @@ button,.add,.edit-link,.reference-edit,.chip,.tabs button,.driver-activate,
 }
 
 /* Global Home navigation is separate from the decision-section list. */
-.sidebar-top{flex-shrink:0;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid color-mix(in srgb,var(--cl-sidebar-muted) 35%,transparent)}
+.sidebar-top{flex-shrink:0;padding-bottom:0;margin-bottom:0}
 .sidebar-top .brand{padding:0 12px 8px}
 .app>aside .brand-home{display:block;width:fit-content;min-height:44px;padding:4px 0;color:var(--cl-sidebar-ink);text-decoration:none}
 .app>aside .sidebar-home{display:flex;align-items:center;gap:8px;min-height:44px;padding:var(--cl-space-2) var(--cl-inset-control-inline);border-radius:8px;color:var(--cl-sidebar-ink);text-decoration:none;font-size:var(--cl-size-label);line-height:var(--cl-line-label)}
@@ -1027,3 +1027,19 @@ button,.add,.edit-link,.reference-edit,.chip,.tabs button,.driver-activate,
  .sidebar-top #mobileNavToggle{border-color:transparent}
  .sidebar-top #mobileNavToggle:hover{background:var(--cl-primary-hover)}
 }
+
+/* The guide is a global destination, outside decision progress. */
+.app>aside .sidebar-guide{display:flex;align-items:center;gap:8px;position:relative;flex-shrink:0;min-height:44px;padding:var(--cl-space-2) var(--cl-inset-control-inline);border-radius:8px;color:var(--cl-sidebar-ink);text-decoration:none;font-size:var(--cl-size-label);line-height:var(--cl-line-label)}
+.app>aside .sidebar-guide:hover,.app>aside .guide-section-link:hover{background:var(--cl-primary-hover)}
+.app>aside .sidebar-guide[aria-current="page"]{color:var(--cl-pink)}
+.sidebar-guide[aria-current="page"]:before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;border-radius:2px;background:var(--cl-pink)}
+#nav .sidebar-nav-divider{align-self:stretch;flex-shrink:0;border:0;border-top:1px solid color-mix(in srgb,var(--cl-sidebar-muted) 35%,transparent);margin:8px 8px 12px}
+.app>aside .guide-section-link{display:grid;grid-template-columns:16px minmax(0,1fr) var(--cl-status-column);align-items:center;gap:8px;flex-shrink:0;min-height:44px;padding:10px 8px;border-radius:8px;color:var(--cl-sidebar-ink);text-decoration:none;font-size:var(--cl-size-label);line-height:var(--cl-line-label)}
+.guide-content{max-width:840px;padding:0 0 40px}
+.guide-content .card{margin-top:24px}
+.guide-content h2{font-size:var(--cl-size-section);line-height:var(--cl-line-section);margin:28px 0 12px}
+.guide-content ul{padding-left:24px;margin-bottom:24px}
+.guide-content li+li{margin-top:12px}
+.guide-content .briefing-footnote{color:var(--cl-muted);margin:24px 0 0}
+.guide-begin{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 24px;border:1px solid var(--cl-primary);border-radius:var(--cl-radius-pill);background:var(--cl-primary);color:var(--cl-field);text-decoration:none;font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-control);margin-top:8px}
+.guide-begin:hover{background:var(--cl-primary-hover)}

@@ -1,12 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.3.2** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.4.0** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
 
 ## Contents
+
+Version 1.4.0 makes **How Clarity works** a persistent guide directly below Home, outside decision progress, and gives the guide the shared tool sidebar. Mobile navigation is labelled **Menu**. See [guide navigation validation](GUIDE_NAVIGATION_2026-10-18.md).
 
 Version 1.3.2 replaces the homepage’s double honey doodle underline with one straight, solid pink (`#EDBDDF`) underline, following the owner’s reference. This scoped brand treatment leaves working-tool selection semantics unchanged.
 
@@ -191,7 +193,7 @@ Do not reduce text opacity indiscriminately. Check the actual rendered foregroun
 
 ## 5. Typography
 
-**Approved entry-page exception, 18 October 2026:** the marketing homepage uses an editorial system-serif stack (`Georgia, "Times New Roman", serif`) for its wordmark, headline, description, invitation and primary link, matching the owner-approved mock. The briefing heading uses that same display stack; its instructions use Manrope. This exception is scoped to `home.css`; it does not change typography in the decision workspace or user writing. System-serif appearance varies by platform; no additional remote font dependency is introduced.
+**Approved entry-page exception, 18 October 2026:** the marketing homepage uses an editorial system-serif stack (`Georgia, "Times New Roman", serif`) for its wordmark, headline, description, invitation and primary link, matching the owner-approved mock. The persistent **How Clarity works** guide uses Manrope for its heading and instructions, matching the shared working-tool shell. This supersedes the earlier serif briefing heading. This exception is scoped to `home.css`; it does not change typography in the decision workspace or user writing. System-serif appearance varies by platform; no additional remote font dependency is introduced.
 
 Use **Manrope** as the production family, following the mock: `Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`. Use actual 400/500/600/700 weights. Verify font loading and fallback widths. The variable Latin font is self-hosted in `assets/manrope-latin.woff2`, with its Open Font License in `assets/MANROPE_OFL.txt`. Other scripts use the fallback stack. Production does not depend on the mock’s external font link.
 
@@ -280,7 +282,7 @@ Use one page scrollbar by default. A long desktop sidebar may have its own navig
 
 ## 7. Signature frame, borders and surfaces
 
-**Public entry flow:** `index.html` is the centered editorial homepage, followed by `before-you-begin.html`, then the existing tool at `decision.html`. The homepage is intentionally unframed and has no sidebar or progress meter. Its illustration precedes the headline, description, invitation and primary action. The briefing uses one shared workspace frame. The 12 decision sections retain their existing shell and framing.
+**Public entry flow:** `index.html` is the centered editorial homepage, followed by `before-you-begin.html`, then the existing tool at `decision.html`. The homepage is intentionally unframed and has no sidebar or progress meter. Its illustration precedes the headline, description, invitation and primary action. The persistent **How Clarity works** guide uses the same sidebar, Manrope typography and one shared workspace frame as the tool, with no decision progress meter. Its existing URL is retained. The 12 decision sections retain their existing shell and framing.
 
 The approved homepage headline is “A good decision begins with Clarity”. Only “Clarity” receives one straight, solid underline in the existing `--cl-pink` token (`#EDBDDF`), following the owner-approved flat underline reference. Use a continuous line with square ends; do not skip the descender. This supersedes the earlier double honey doodle underline. The user-approved constellation illustration is bundled locally; no generated text is baked into the live page. Honey accents in the illustration and the pink title underline are scoped brand treatments, not a decision assessment or selection state. Maintain a text heading and native link controls, meaningful image alt text, responsive widths, adequate inner padding and visible keyboard focus. `Let’s begin` leads to the briefing; the briefing leads to the existing tool. The optional returning-user shortcut reads saved state without changing it.
 
@@ -318,11 +320,13 @@ Circular neutral icon backgrounds may be used for section headers. Do not put ev
 
 ### Global homepage route
 
-The Clarity wordmark links to `index.html` on the homepage, briefing and every decision page. Provide an explicit **Home** link with the bundled outline house icon as well: top right on the briefing, below the wordmark/tagline and above a neutral divider on the desktop tool sidebar. Keep Home separate from the twelve decision sections; it has no section number, progress state or completion badge.
+The Clarity wordmark links to `index.html` on the homepage, guide and every decision page. The guide and tool share a sidebar: **Home**, then **How Clarity works**, then a neutral divider and the twelve decision sections. The guide is a peer of Home, not its child and not a decision step. Home and the guide have no section number, progress contribution or completion badge; the current guide uses the existing pink navigation treatment. Guide section links retain existing reviewed indicators from saved state without changing them.
 
-On mobile, the tool's top row contains **Clarity**, **Home** and **Sections**. Home is always available when the section menu is closed or open. Preserve at least 44px targets and the shared compact-control internal insets. The section menu retains its existing keyboard behavior, expanded state and section selection logic. Links and controls must fit at 320px without clipping or overlap.
+On mobile, the guide and tool top row contains **Clarity**, **Home** and **Menu**. Home is always visible. Menu opens the controlled navigation region containing How Clarity works, the divider and decision sections. Preserve at least 44px targets, compact-control internal insets, existing keyboard/expanded-state behavior and section selection logic. Links and controls must fit at 320px without clipping or overlap.
 
 Use **Home**, not **Back**, for the homepage destination. Home and the wordmark perform ordinary navigation without resetting saved state, marking a section reviewed or introducing a confirmation dialog. The homepage's **Continue my decision** shortcut resumes existing saved work at the recorded section in the same browser. The working tool's section-level Back/Continue and explicit New decision behavior remain unchanged.
+
+The guide’s main action reads **Begin my decision** before work is recorded and **Continue my decision** for saved work. It restores the recorded section. Native section links from the guide enter the requested existing tool section using its normal navigation handler; consume that one-time destination so later reloads resume the latest section. Reading the guide or opening Menu must not initialize or write decision data.
 
 Retain the current page order and approved names:
 
