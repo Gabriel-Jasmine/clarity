@@ -1,0 +1,41 @@
+/* Owner-approved editorial homepage; the decision workspace keeps Manrope. */
+.home-page{--cl-home-serif:Georgia,"Times New Roman",serif}
+.home-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px 40px 0}
+.home-wordmark{font:400 32px/1.2 var(--cl-home-serif);letter-spacing:-.04em;color:var(--cl-ink);text-decoration:none;padding:4px 0}
+.home-resume{font-size:var(--cl-size-label);line-height:var(--cl-line-label);padding:var(--cl-space-2) var(--cl-inset-control-inline);text-align:right}
+main.home-main{max-width:1000px;margin:0 auto;padding:0 32px 64px;text-align:center}
+.home-illustration{width:min(100%,660px);margin:0 auto 12px}
+.home-illustration img{display:block;width:100%;height:auto;mix-blend-mode:darken}
+h1.home-title{margin:0 auto 36px;font:400 clamp(2rem,4.8vw,4rem)/1.13 var(--cl-home-serif);letter-spacing:-.045em;overflow-wrap:normal}
+.home-title>span{display:block}
+.home-underlined{position:relative;display:inline-block;white-space:nowrap}
+.home-underlined::before,.home-underlined::after{content:"";position:absolute;left:0;right:-2%;height:4px;background:var(--cl-honey);border-radius:65% 40% 55% 35%;pointer-events:none}
+.home-underlined::before{bottom:-.085em;transform:rotate(-2deg)}
+.home-underlined::after{left:43%;right:1%;bottom:-.19em;height:3px;transform:rotate(-3deg)}
+.home-description{max-width:810px;margin:0 auto 24px;font:400 20px/1.6 var(--cl-home-serif);text-wrap:pretty}
+.home-invitation{margin:0 0 18px;font:400 20px/1.5 var(--cl-home-serif)}
+.home-cta{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:12px 28px;border:1px solid var(--cl-primary);border-radius:var(--cl-radius-pill);background:var(--cl-primary);color:var(--cl-field);text-decoration:none;font:400 19px/1.4 var(--cl-home-serif);transition:background-color var(--cl-motion-fast)}
+.home-cta:hover{background:var(--cl-primary-hover)}
+.home-cta>span{font-family:var(--cl-font)}
+.briefing-page .home-header{padding-bottom:28px}
+main.briefing-main{max-width:840px;margin:0 auto;padding:16px 32px 64px}
+.briefing-main .card{padding:var(--cl-inset-workspace)}
+.briefing-main h1{margin:0 0 20px;font:400 clamp(1.8rem,4vw,2.5rem)/1.2 var(--cl-home-serif);letter-spacing:-.03em}
+.briefing-main h2{font-size:var(--cl-size-section);line-height:var(--cl-line-section);margin:28px 0 12px}
+.briefing-main p,.briefing-main li{font-size:var(--cl-size-body);line-height:var(--cl-line-body)}
+.briefing-main ul{padding-left:24px;margin:0 0 24px}
+.briefing-main li+li{margin-top:12px}
+.briefing-main .home-cta{font:600 var(--cl-size-label)/var(--cl-line-label) var(--cl-font);margin-top:8px}
+.briefing-footnote{color:var(--cl-muted);margin:24px 0 0}
+@media(max-width:600px){
+ .home-header{padding:20px 20px 0;gap:12px}
+ .home-wordmark{font-size:28px}
+ .home-resume{max-width:165px;font-size:.8125rem}
+ main.home-main{padding:12px 20px 48px}
+ .home-illustration{margin-bottom:20px}
+ h1.home-title{margin-bottom:32px}
+ .home-description,.home-invitation{font-size:18px;line-height:1.6}
+ main.briefing-main{padding:0 20px 40px}
+}
+@media(prefers-reduced-motion:reduce){.home-cta{transition:none}}
+@media print{.home-header,.home-cta{display:none}.home-illustration{max-width:400px}}

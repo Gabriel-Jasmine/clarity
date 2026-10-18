@@ -1,5 +1,13 @@
 # Clarity
 
+## Homepage update — 18 October 2026
+
+The entry page now uses the approved centered illustration and copy: **A good decision begins with Clarity**, a honey-yellow doodle underline, the better-questions description, and **Let’s begin**. The locally bundled galaxy illustration retains the crossed-leg figure and the open constellation of reflection symbols.
+
+The entry flow is `index.html` → `before-you-begin.html` → `decision.html`. The briefing explains the tool, how to use the questions and what the overview provides. Returning users with recorded writing or reviewed sections get a **Continue my decision** link. Both entry pages leave decision storage untouched; `decision.html` preserves the existing tool, storage key and last-section behavior. The 12 sections, reasoning, capture and export logic are unchanged.
+
+The editorial serif treatment is scoped to the entry pages; the working tool keeps Manrope and the existing [UI/UX Playbook](docs/CLARITY_UI_UX_PLAYBOOK.md). See [homepage validation](docs/HOMEPAGE_2026-10-18.md) for checks and limitations.
+
 ## Latest presentation update — 17 October 2026
 
 Build `20261017-ui-playbook` applies the agreed design across all 12 sections and adopts the [UI/UX Playbook](docs/CLARITY_UI_UX_PLAYBOOK.md). See the [rollout record](docs/UI_ROLLOUT_2026-10-17.md) for validation and remaining checks. Earlier implementation records below retain their dated context.

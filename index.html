@@ -3,28 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Clarity is a guided decision-thinking tool for consequential choices where there is no obvious right answer.">
-<title>Clarity — Guided Decision Thinking</title>
-<link rel="preload" href="assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="description" content="A good decision begins with Clarity. Guided questions help you untangle your thoughts and understand what’s influencing your decision.">
+<title>Clarity — A good decision begins with Clarity</title>
 <link rel="stylesheet" href="styles.css?v=20261018-button-insets">
+<link rel="stylesheet" href="home.css?v=20261018-galaxy">
 </head>
-<body>
+<body class="home-page">
 <a class="skip-link" href="#main-content">Skip to content</a>
-<div class="app">
-  <aside>
-    <div class="brand"><strong>Clarity</strong><small>Think clearly. Choose deliberately.</small></div>
-    <button id="mobileNavToggle" class="secondary" aria-expanded="false" aria-controls="nav"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#menu"></use></svg>Sections</button><nav id="nav" aria-label="Decision sections"></nav><p class="storage-note">Saved in this browser</p>
-    <button id="reset" class="secondary"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#plus"></use></svg>New decision</button>
-  </aside>
-  <main id="main-content">
-    <header><div><div class="eyebrow">CLARITY / GUIDED DECISION THINKING</div><h1 id="title" tabindex="-1"></h1></div><span class="saved" id="stepCount"></span></header>
-    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
-    <section id="screen"></section>
-    <footer><button id="back" class="secondary">← Back</button><button id="next">Continue →</button></footer>
-  </main>
-</div>
-<script src="capture.js?v=20261018-button-insets"></script>
-<script src="reversibility.js?v=20261018-button-insets"></script>
-<script src="app.js?v=20261018-button-insets"></script>
+<header class="home-header">
+  <a class="home-wordmark" href="index.html" aria-label="Clarity home">Clarity</a>
+  <a class="home-resume" href="decision.html" hidden>Continue my decision <span aria-hidden="true">→</span></a>
+</header>
+<main class="home-main" id="main-content">
+  <figure class="home-illustration">
+    <img src="assets/clarity-galaxy.png" width="1448" height="1086" fetchpriority="high" alt="A person rests beneath a galaxy. A heart, question mark, stars, waves and exclamation mark form an open constellation, revealing connections among scattered thoughts.">
+  </figure>
+  <h1 class="home-title"><span>A good decision</span><span>begins with <span class="home-underlined">Clarity</span></span></h1>
+  <p class="home-description">And Clarity begins with better questions. The kind that help you untangle your thoughts and lay them on the table. The kind that draw out the ghosts that have been whispering in your ear. Those unhealed wounds, lingering doubts, tangled emotions, outside voices and made-up stories that have been clouding your view.</p>
+  <p class="home-invitation">Ready to get into it?</p>
+  <a class="home-cta" href="before-you-begin.html">Let’s begin <span aria-hidden="true">→</span></a>
+</main>
+<script src="home.js?v=20261018-galaxy" defer></script>
 </body>
 </html>

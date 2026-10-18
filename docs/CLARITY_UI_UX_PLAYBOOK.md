@@ -1,12 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.2.2** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.3.0** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
 
 ## Contents
+
+Version 1.3.0 adds the owner-approved editorial homepage, local constellation artwork, honey underline and homepage → briefing → existing-tool entry flow. Its serif and unframed homepage treatments are scoped exceptions in sections 5 and 7; the working tool retains the existing standard. See [homepage implementation and validation](HOMEPAGE_2026-10-18.md).
 
 1. Authority, scope and documentation homes
 2. Product experience and design principles
@@ -185,6 +187,8 @@ Do not reduce text opacity indiscriminately. Check the actual rendered foregroun
 
 ## 5. Typography
 
+**Approved entry-page exception, 18 October 2026:** the marketing homepage uses an editorial system-serif stack (`Georgia, "Times New Roman", serif`) for its wordmark, headline, description, invitation and primary link, matching the owner-approved mock. The briefing heading uses that same display stack; its instructions use Manrope. This exception is scoped to `home.css`; it does not change typography in the decision workspace or user writing. System-serif appearance varies by platform; no additional remote font dependency is introduced.
+
 Use **Manrope** as the production family, following the mock: `Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`. Use actual 400/500/600/700 weights. Verify font loading and fallback widths. The variable Latin font is self-hosted in `assets/manrope-latin.woff2`, with its Open Font License in `assets/MANROPE_OFL.txt`. Other scripts use the fallback stack. Production does not depend on the mock’s external font link.
 
 The reference font was not positively identified. Describe Manrope as the selected implementation family, not an exact recovered reference font.
@@ -271,6 +275,10 @@ Standard reading order: **page title → page description → existing decision 
 Use one page scrollbar by default. A long desktop sidebar may have its own navigation scroll region. Avoid nested scrolling inside ordinary writing cards. Do not pin action bars where they cover writing or keyboard focus.
 
 ## 7. Signature frame, borders and surfaces
+
+**Public entry flow:** `index.html` is the centered editorial homepage, followed by `before-you-begin.html`, then the existing tool at `decision.html`. The homepage is intentionally unframed and has no sidebar or progress meter. Its illustration precedes the headline, description, invitation and primary action. The briefing uses one shared workspace frame. The 12 decision sections retain their existing shell and framing.
+
+The approved homepage headline is “A good decision begins with Clarity”. Only “Clarity” receives two loose underline strokes in the existing `--cl-honey` token (`#FAE69E`). The user-approved constellation illustration is bundled locally; no generated text is baked into the live page. Honey accents in this entry-page illustration/underline are a scoped brand treatment, not a decision assessment or selection state. Maintain a text heading and native link controls, meaningful image alt text, responsive widths, adequate inner padding and visible keyboard focus. `Let’s begin` leads to the briefing; the briefing leads to the existing tool. The optional returning-user shortcut reads saved state without changing it.
 
 **Every main Clarity page uses one continuous 2px charcoal frame around its primary working surface.** Default radius: **14px**. Frame color: **`#343832`**. It provides a repeated design signature and establishes the task boundary.
 
