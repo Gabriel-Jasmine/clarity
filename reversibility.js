@@ -136,7 +136,7 @@ function reversibilityScreen(){
   body+='</section>';
  }
  const retained=reverseRetainedText();
- return '<div class="reversibility-page">'+decisionAnchor()+card('Your room to change course','',trail+body+(retained?'<details class="reverse-history"><summary>Earlier writing and saved source checks</summary><p class="reverse-raw">'+esc(retained)+'</p></details>':''))+'</div>';
+ return '<div class="reversibility-page">'+card('Your room to change course','',trail+body+(retained?'<details class="reverse-history"><summary>Earlier writing and saved source checks</summary><p class="reverse-raw">'+esc(retained)+'</p></details>':''))+'</div>';
 }
 function bindReversibility(){
  document.querySelectorAll('[data-reversetrail]').forEach(e=>e.onchange=()=>{reverseData().trail=e.value;render();});

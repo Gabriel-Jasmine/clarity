@@ -1,4 +1,4 @@
-/* Clarity UI/UX Playbook 1.5.0 — shared foundations. */
+/* Clarity UI/UX Playbook 1.5.1 — shared foundations. */
 @font-face{font-family:Manrope;src:url("assets/manrope-latin.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
 :root{
   color-scheme:light;
@@ -441,6 +441,12 @@ footer button {max-width:75%}
 .direction-reference {display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:18px 22px;margin:0 0 24px;border:1px solid var(--cl-divider)}
 .direction-label {display:flex;align-items:center;justify-content:space-between;gap:12px}
 .direction-reference p {margin:8px 0 0;overflow-wrap:anywhere}
+.decision-context {grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.decision-context-action {grid-column:1/-1}
+.decision-context-aim-only {grid-template-columns:minmax(0,1fr)}
+@media (max-width:760px) {
+.decision-context {grid-template-columns:minmax(0,1fr)}
+}
 .life-unknown {display:flex;align-items:center;gap:10px;margin:12px 0 20px}
 .life-unknown input {width:auto}
 .direction-reference:has(>div:only-child) {grid-template-columns:1fr}

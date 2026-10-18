@@ -34,7 +34,11 @@ for(const text of ['Open a bakery','Build an income','Time with family','Availab
 assert.equal((html.match(/<select /g)||[]).length,6);
 assert.equal((html.match(/<textarea /g)||[]).length,1);
 assert.equal((html.match(/<details /g)||[]).length,1);
-assert(!html.includes('<details open'));assert(!html.includes('stress-legend'));assert(!html.includes('direction-reference'));
+assert(!html.includes('<details open'));assert(!html.includes('stress-legend'));
+// The shared context is outside the task; Stress Test does not repeat it inside.
+assert.equal((html.match(/class="direction-reference decision-context"/g)||[]).length,1);
+assert(html.indexOf('class="direction-reference decision-context"')<html.indexOf('class="card stress-card"'));
+assert(!html.includes('class="stress-context"'));
 assert.equal(b.doc.querySelectorAll('[data-stressrow]').length,6);
 const id=r('choiceOption().id');
 for(const field of b.doc.querySelectorAll('[data-stressrow]')){field.value='room';field.onchange();}
