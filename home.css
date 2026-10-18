@@ -10,10 +10,7 @@ main.home-main{max-width:1000px;margin:0 auto;padding:0 32px 64px;text-align:cen
 .home-illustration img{display:block;width:100%;height:auto;mix-blend-mode:darken}
 h1.home-title{margin:0 auto 36px;font:400 clamp(2rem,4.8vw,4rem)/1.13 var(--cl-home-serif);letter-spacing:-.045em;overflow-wrap:normal}
 .home-title>span{display:block}
-.home-underlined{position:relative;display:inline-block;white-space:nowrap}
-.home-underlined::before,.home-underlined::after{content:"";position:absolute;left:0;right:-2%;height:4px;background:var(--cl-honey);border-radius:65% 40% 55% 35%;pointer-events:none}
-.home-underlined::before{bottom:-.085em;transform:rotate(-2deg)}
-.home-underlined::after{left:43%;right:1%;bottom:-.19em;height:3px;transform:rotate(-3deg)}
+.home-underlined{display:inline-block;white-space:nowrap;text-decoration-line:underline;text-decoration-style:solid;text-decoration-color:var(--cl-pink);text-decoration-thickness:.14em;text-underline-offset:.03em;text-decoration-skip-ink:none}
 .home-description{max-width:810px;margin:0 auto 24px;font:400 20px/1.6 var(--cl-home-serif);text-wrap:pretty}
 .home-invitation{margin:0 0 18px;font:400 20px/1.5 var(--cl-home-serif)}
 .home-cta{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:12px 28px;border:1px solid var(--cl-primary);border-radius:var(--cl-radius-pill);background:var(--cl-primary);color:var(--cl-field);text-decoration:none;font:400 19px/1.4 var(--cl-home-serif);transition:background-color var(--cl-motion-fast)}

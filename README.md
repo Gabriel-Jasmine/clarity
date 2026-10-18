@@ -1,5 +1,9 @@
 # Clarity
 
+## Homepage title underline — 18 October 2026
+
+The word **Clarity** in the homepage title now has one straight, solid pink underline (`#EDBDDF`), matching the owner’s reference. This replaces the double honey doodle strokes; the galaxy artwork retains its approved honey accents. See [underline validation](docs/PINK_UNDERLINE_2026-10-18.md).
+
 ## Homepage navigation — 18 October 2026
 
 The briefing and all twelve decision pages provide a visible **Home** link. The Clarity wordmark links home too. Desktop tool navigation places Home above the decision sections; mobile keeps Clarity, Home and Sections together in the top row. Going home preserves saved answers and the recorded section; **Continue my decision** resumes the existing tool. See [navigation validation](docs/HOME_NAVIGATION_2026-10-18.md) and [Playbook 1.3.1](docs/CLARITY_UI_UX_PLAYBOOK.md).
