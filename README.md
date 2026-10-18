@@ -1,5 +1,9 @@
 # Clarity
 
+## Compact homepage — 18 October 2026
+
+The centered homepage uses the approved shorter description and **Shall we begin?** above **Let’s begin**. Smaller artwork, desktop typography and gaps keep every component visible in the checked 1280 × 720 laptop and 375 × 667 phone viewports. The exact artwork, pink underline, navigation and saved-work behavior remain unchanged. Smaller or zoomed viewports can scroll naturally. See [compact homepage validation](docs/COMPACT_HOMEPAGE_2026-10-18.md).
+
 ## Persistent guide — 18 October 2026
 
 **How Clarity works** is available directly below Home, separate from the twelve decision sections. The guide keeps the shared sidebar and existing URL (`before-you-begin.html`), with native links into every section. Its main action reads **Begin my decision** for new users and **Continue my decision** for saved work. Mobile **Menu** contains the guide and decision sections; Home stays visible. Reading the guide preserves saved answers, reviewed states and the last working section. Its explanatory copy is retained pending the separate content revision. See [guide navigation validation](docs/GUIDE_NAVIGATION_2026-10-18.md) and [Playbook 1.4.0](docs/CLARITY_UI_UX_PLAYBOOK.md).

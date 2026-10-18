@@ -1,12 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.4.0** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.4.1** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
 
 ## Contents
+
+Version 1.4.1 adopts the compact centered homepage and exact approved description, with **Shall we begin?** as a separate invitation. See [compact homepage validation](COMPACT_HOMEPAGE_2026-10-18.md).
 
 Version 1.4.0 makes **How Clarity works** a persistent guide directly below Home, outside decision progress, and gives the guide the shared tool sidebar. Mobile navigation is labelled **Menu**. See [guide navigation validation](GUIDE_NAVIGATION_2026-10-18.md).
 
@@ -283,6 +285,8 @@ Use one page scrollbar by default. A long desktop sidebar may have its own navig
 ## 7. Signature frame, borders and surfaces
 
 **Public entry flow:** `index.html` is the centered editorial homepage, followed by `before-you-begin.html`, then the existing tool at `decision.html`. The homepage is intentionally unframed and has no sidebar or progress meter. Its illustration precedes the headline, description, invitation and primary action. The persistent **How Clarity works** guide uses the same sidebar, Manrope typography and one shared workspace frame as the tool, with no decision progress meter. Its existing URL is retained. The 12 decision sections retain their existing shell and framing.
+
+**Compact homepage proportions:** illustration width up to 340px on desktop and 240px at widths of 600px or less, preserving the approved artwork and aspect ratio. The two-line headline uses 52px / 1.1 line height on desktop and 32px / 1.13 on mobile. Description width is at most 660px, with 18px / 1.5 desktop text and 17px / 1.5 mobile text. Keep the invitation separate, the primary link at least 48px tall and generous but reduced vertical spacing. All components fit the checked 1280 × 720 desktop and 375 × 667 phone viewports. Shorter screens, zoom and font variation may require natural scrolling; never clip content or lock the homepage to a fixed viewport height.
 
 The approved homepage headline is “A good decision begins with Clarity”. Only “Clarity” receives one straight, solid underline in the existing `--cl-pink` token (`#EDBDDF`), following the owner-approved flat underline reference. Use a continuous line with square ends; do not skip the descender. This supersedes the earlier double honey doodle underline. The user-approved constellation illustration is bundled locally; no generated text is baked into the live page. Honey accents in the illustration and the pink title underline are scoped brand treatments, not a decision assessment or selection state. Maintain a text heading and native link controls, meaningful image alt text, responsive widths, adequate inner padding and visible keyboard focus. `Let’s begin` leads to the briefing; the briefing leads to the existing tool. The optional returning-user shortcut reads saved state without changing it.
 
