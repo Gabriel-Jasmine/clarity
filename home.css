@@ -3,6 +3,8 @@
 .home-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px 40px 0}
 .home-wordmark{font:400 32px/1.2 var(--cl-home-serif);letter-spacing:-.04em;color:var(--cl-ink);text-decoration:none;padding:4px 0}
 .home-resume{font-size:var(--cl-size-label);line-height:var(--cl-line-label);padding:var(--cl-space-2) var(--cl-inset-control-inline);text-align:right}
+.entry-home{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:var(--cl-space-2) var(--cl-inset-control-inline);border-radius:8px;color:var(--cl-ink);text-decoration:none;font-size:var(--cl-size-label);line-height:var(--cl-line-label)}
+.entry-home:hover{background:var(--cl-surface)}
 main.home-main{max-width:1000px;margin:0 auto;padding:0 32px 64px;text-align:center}
 .home-illustration{width:min(100%,660px);margin:0 auto 12px}
 .home-illustration img{display:block;width:100%;height:auto;mix-blend-mode:darken}

@@ -1,12 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.3.0** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.3.1** · Adopted 18 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
 
 ## Contents
+
+Version 1.3.1 adds the approved global Home route, clickable wordmarks and an always-visible mobile Home control beside Sections. See section 9 and [navigation validation](HOME_NAVIGATION_2026-10-18.md).
 
 Version 1.3.0 adds the owner-approved editorial homepage, local constellation artwork, honey underline and homepage → briefing → existing-tool entry flow. Its serif and unframed homepage treatments are scoped exceptions in sections 5 and 7; the working tool retains the existing standard. See [homepage implementation and validation](HOMEPAGE_2026-10-18.md).
 
@@ -311,6 +313,14 @@ Icons aid recognition of navigation, editing, adding, removing, expanding, copyi
 Circular neutral icon backgrounds may be used for section headers. Do not put every icon in a colored circle. Green filled circles are specifically reserved for completion indicators. A small icon must have a larger interaction area when it is actionable.
 
 ## 9. Navigation and section completion
+
+### Global homepage route
+
+The Clarity wordmark links to `index.html` on the homepage, briefing and every decision page. Provide an explicit **Home** link with the bundled outline house icon as well: top right on the briefing, below the wordmark/tagline and above a neutral divider on the desktop tool sidebar. Keep Home separate from the twelve decision sections; it has no section number, progress state or completion badge.
+
+On mobile, the tool's top row contains **Clarity**, **Home** and **Sections**. Home is always available when the section menu is closed or open. Preserve at least 44px targets and the shared compact-control internal insets. The section menu retains its existing keyboard behavior, expanded state and section selection logic. Links and controls must fit at 320px without clipping or overlap.
+
+Use **Home**, not **Back**, for the homepage destination. Home and the wordmark perform ordinary navigation without resetting saved state, marking a section reviewed or introducing a confirmation dialog. The homepage's **Continue my decision** shortcut resumes existing saved work at the recorded section in the same browser. The working tool's section-level Back/Continue and explicit New decision behavior remain unchanged.
 
 Retain the current page order and approved names:
 

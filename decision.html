@@ -6,14 +6,18 @@
 <meta name="description" content="Clarity is a guided decision-thinking tool for consequential choices where there is no obvious right answer.">
 <title>Clarity — Guided Decision Thinking</title>
 <link rel="preload" href="assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20261018-button-insets">
+<link rel="stylesheet" href="styles.css?v=20261018-home-navigation">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <div class="app">
   <aside>
-    <div class="brand"><strong>Clarity</strong><small>Think clearly. Choose deliberately.</small></div>
-    <button id="mobileNavToggle" class="secondary" aria-expanded="false" aria-controls="nav"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#menu"></use></svg>Sections</button><nav id="nav" aria-label="Decision sections"></nav><p class="storage-note">Saved in this browser</p>
+    <div class="sidebar-top">
+      <div class="brand"><a class="brand-home" href="index.html" aria-label="Clarity home"><strong>Clarity</strong></a><small>Think clearly. Choose deliberately.</small></div>
+      <a class="sidebar-home" href="index.html"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#house"></use></svg><span>Home</span></a>
+      <button id="mobileNavToggle" class="secondary" aria-expanded="false" aria-controls="nav"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#menu"></use></svg>Sections</button>
+    </div>
+    <nav id="nav" aria-label="Decision sections"></nav><p class="storage-note">Saved in this browser</p>
     <button id="reset" class="secondary"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#plus"></use></svg>New decision</button>
   </aside>
   <main id="main-content">
