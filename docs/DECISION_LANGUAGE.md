@@ -2,7 +2,7 @@
 
 ## Section-name overlay — 19 October 2026
 
-[Approved section titles and icons](SECTION_NAMES_2026-10-19.md) now govern the section labels referenced by this contract. The opening section is **The Decision**, alternatives are explored in **Cost of Yes**, and the remaining former/current names are mapped there. The decision/action framing, approved questions, examples, response meanings, exact saved writing and previous definitions below are unchanged. Old section names in the dated wording inventory are historical references, not instructions to restore old navigation labels.
+[Approved section titles and icons](SECTION_NAMES_2026-10-19.md) now govern the section labels referenced by this contract. The opening section is **The Decision**, alternatives are explored in **The Trade-Offs**, and the remaining former/current names are mapped there. The decision/action framing, approved questions, examples, response meanings, exact saved writing and previous definitions below are unchanged. Old section names in the dated wording inventory are historical references, not instructions to restore old navigation labels.
 
 Adopted by the product owner on 18 October 2026. Build: `20261018-decision-language`.
 

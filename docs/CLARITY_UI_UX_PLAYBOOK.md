@@ -349,7 +349,7 @@ The guide’s main action reads **Begin my decision** before work is recorded an
 
 Retain the current page order and approved names:
 
-**The Decision → Things Dear to You → Cost of Yes → Carrot on the Stick → What Compounds → The Domino Effect → The Devil’s Advocate → Wiggle Room → Reversibility → Decision Drivers → Tricks of the Mind → Decision Overview.**
+**The Decision → Things Dear to You → The Trade-Offs → Carrot on the Stick → What Compounds → The Domino Effect → The Devil’s Advocate → Wiggle Room → Reversibility → Decision Drivers → Tricks of the Mind → Decision Overview.**
 
 Each row has three stable columns: **16px icon, flexible label, 14px status slot**. Use an 8px gap. Reserve the status slot even when no completion icon is present. Navigation rows are at least 44px tall; long labels may wrap, increasing row height. All status badges stay aligned to the same right column.
 
@@ -403,7 +403,7 @@ A writing group follows one order: **persistent question → relevant guidance/d
 
 Use 16px input text, a 44px minimum single-line height and about 120px initial height for a main narrative field. Short supporting textareas can start near 88px. Allow vertical resizing or accessible auto-growth. Long writing must not be clipped, replaced by ellipses or forced into a tiny fixed-height editor.
 
-Placeholders give a short starting cue; they do not replace a label or contain the only instruction. Full example answers stay visibly outside and before the related field (or in the existing local disclosure), so typing does not erase the example. Keep short writing cues in the empty field. Samples are never saved as the user’s response. Decision and Cost of Yes now display their existing sample text above the field rather than keeping the full sample only in the placeholder.
+Placeholders give a short starting cue; they do not replace a label or contain the only instruction. Full example answers stay visibly outside and before the related field (or in the existing local disclosure), so typing does not erase the example. Keep short writing cues in the empty field. Samples are never saved as the user’s response. Decision and The Trade-Offs now display their existing sample text above the field rather than keeping the full sample only in the placeholder.
 
 Field states: default, hover, focus, filled, unknown/inactive, invalid and read-only. Filled fields keep the same neutral styling; they do not turn green. A focus ring does not change the answer state. Invalid fields use error text and an error border with an associated message; do not use pink as an error signal.
 
@@ -596,7 +596,7 @@ This map assigns visual structure to all current pages. It does not replace the 
 | --- | --- | --- |
 | The Decision | Main choice/context writing and current existing timing groups | Neutral context; pink answer selection; local neutral history/review invitation |
 | Things Dear to You | Life-direction reflection, priorities and boundaries as a coherent workspace | Neutral priority tiles; selected pink; boundaries explicitly labelled |
-| Cost of Yes | Sacrifice/alternative exploration task | Neutral guides; honey examples; no automatic ranking color |
+| The Trade-Offs | Sacrifice/alternative exploration task | Neutral guides; honey examples; no automatic ranking color |
 | Carrot on the Stick | Rewards/relief reflection and alignment task | Neutral guide table/disclosure; honey example; pink existing responses |
 | What Compounds | Three written reflections; shared decision context sits above the frame | Neutral life-area guide; honey example; no gain/loss green/red scheme |
 | The Domino Effect | Immediate change plus both consequence trails | Thin neutral connectors; locally labelled continuation/end states |

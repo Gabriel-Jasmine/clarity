@@ -16,3 +16,7 @@ Keep asset licenses and attribution when replacing or adding assets. The app use
 - `reverse-card`: original owner-requested card outline with opposing reverse arrows. Replaces the previous undo arrow for Reversibility; it contains no third-party logo.
 
 Both inherit currentColor and the existing 16px sidebar sizing, neutral/pink state and completion-slot rules. What Compounds retains `sprout`; The Devil’s Advocate, Decision Drivers and Decision Overview retain their original icons. [Canonical approved names and mapping](../docs/SECTION_NAMES_2026-10-19.md).
+
+## Trade-Offs icon refinement — 19 October 2026
+
+The Trade-Offs uses the original `scale` balance-scales symbol already present in the sprite. The previously selected `receipt` geometry remains bundled for compatibility but is no longer the section icon. No new geometry or dependency is introduced.

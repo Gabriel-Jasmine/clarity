@@ -10,7 +10,7 @@ Build `20261019-section-names`; UI/UX Playbook 1.6.0. The owner approved the com
 | --- | --- | --- |
 | Decision | The Decision | message-circle-question |
 | What Matters | Things Dear to You | gem |
-| Trade-Offs | Cost of Yes | receipt |
+| Trade-Offs | The Trade-Offs | scale — original balance scales restored |
 | Incentives | Carrot on the Stick | carrot |
 | Compounding | What Compounds | sprout — retained |
 | Further Consequences | The Domino Effect | domino-tile — two tiles, one leaning against the other |
@@ -22,6 +22,8 @@ Build `20261019-section-names`; UI/UX Playbook 1.6.0. The owner approved the com
 | Decision Overview | Decision Overview | map — retained |
 
 Titles use title case, including lowercase short articles/prepositions within a title. The first title is singular **The Decision**. Preserve the owner's exact **Carrot on the Stick** and **Reversibility** wording. The guide title **How Clarity works** is outside the twelve sections and is unchanged.
+
+The owner later approved **The Trade-Offs** in place of the earlier Cost of Yes title, with the original `scale` balance-scales symbol restored. This neutral title leaves the decision open. Navigation, page headings, guide and current source/export labels use this name; question wording, IDs, saved writing and assessment meanings are unchanged.
 
 ## Presentation and asset scope
 
