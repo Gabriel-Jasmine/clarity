@@ -1,12 +1,14 @@
 # Approved section titles and icons — 19 October 2026
 
+The owner subsequently refined the first title to **The Decision** and restored **Reversibility**, explicitly applying both changes to navigation and page headings. Icons and section functions remain unchanged.
+
 Build `20261019-section-names`; UI/UX Playbook 1.6.0. The owner approved the complete naming/icon set and explicitly authorized the GitHub update after reviewing the sidebar mock. This supersedes earlier section labels in current user-facing presentation; dated design/research records retain their original terminology.
 
 ## Approved order and mapping
 
 | Earlier section name | Approved title | Approved icon |
 | --- | --- | --- |
-| Decision | Question on the Table | message-circle-question |
+| Decision | The Decision | message-circle-question |
 | What Matters | Things Dear to You | gem |
 | Trade-Offs | Cost of Yes | receipt |
 | Incentives | Carrot on the Stick | carrot |
@@ -14,16 +16,16 @@ Build `20261019-section-names`; UI/UX Playbook 1.6.0. The owner approved the com
 | Further Consequences | The Domino Effect | domino-tile — two tiles, one leaning against the other |
 | The Devil’s Advocate | The Devil’s Advocate | messages-square — retained |
 | Stress Test | Wiggle Room | expand |
-| Reversibility | Undoability | reverse-card — opposing reverse arrows on a card |
+| Reversibility | Reversibility | reverse-card — opposing reverse arrows on a card |
 | Decision Drivers | Decision Drivers | layers — retained |
 | Judgment Check | Tricks of the Mind | ghost |
 | Decision Overview | Decision Overview | map — retained |
 
-Titles use title case, including lowercase short articles/prepositions within a title. The first title is singular **Question on the Table**. Preserve the owner's exact **Carrot on the Stick** and **Undoability** wording. The guide title **How Clarity works** is outside the twelve sections and is unchanged.
+Titles use title case, including lowercase short articles/prepositions within a title. The first title is singular **The Decision**. Preserve the owner's exact **Carrot on the Stick** and **Reversibility** wording. The guide title **How Clarity works** is outside the twelve sections and is unchanged.
 
 ## Presentation and asset scope
 
-The existing dark sidebar, 16px outline icons, Manrope type, widths, insets, independent pink current state and green completion state remain. What Compounds retains its existing sprout. The Devil’s Advocate, Decision Drivers and Decision Overview retain their icons. The Domino Effect uses two pip-marked tiles, one upright and the other leaning against it. Undoability uses the approved card outline with opposing reverse arrows, without a brand logo.
+The existing dark sidebar, 16px outline icons, Manrope type, widths, insets, independent pink current state and green completion state remain. What Compounds retains its existing sprout. The Devil’s Advocate, Decision Drivers and Decision Overview retain their icons. The Domino Effect uses two pip-marked tiles, one upright and the other leaning against it. Reversibility uses the approved card outline with opposing reverse arrows, without a brand logo.
 
 The original locally bundled Lucide sprite geometries and license remain. Six additional unmodified geometries come from the installed `lucide@1.8.0` package. `domino-tile` and `reverse-card` are original owner-requested custom geometry. All use the same local sprite/currentColor mechanism; no remote icon service or runtime dependency is added.
 

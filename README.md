@@ -4,9 +4,9 @@
 
 The owner-approved title-case section names and selected icons are implemented in build `20261019-section-names` and [Playbook 1.6.0](docs/CLARITY_UI_UX_PLAYBOOK.md). The current order is:
 
-Question on the Table → Things Dear to You → Cost of Yes → Carrot on the Stick → What Compounds → The Domino Effect → The Devil’s Advocate → Wiggle Room → Undoability → Decision Drivers → Tricks of the Mind → Decision Overview
+The Decision → Things Dear to You → Cost of Yes → Carrot on the Stick → What Compounds → The Domino Effect → The Devil’s Advocate → Wiggle Room → Reversibility → Decision Drivers → Tricks of the Mind → Decision Overview
 
-The Domino Effect has two tiles, one leaning against the other; Undoability has the reverse-card icon. What Compounds keeps the sprout. Current navigation, guide, review links, source/report headings and exported display metadata use the new names while stable IDs, stored writing/history, group keys, questions, assessments and schema 2 remain. [Canonical mapping, compatibility and actual validation](docs/SECTION_NAMES_2026-10-19.md). Earlier dated entries below retain their historical names and validation scope.
+The Domino Effect has two tiles, one leaning against the other; Reversibility has the reverse-card icon. What Compounds keeps the sprout. Current navigation, guide, review links, source/report headings and exported display metadata use the new names while stable IDs, stored writing/history, group keys, questions, assessments and schema 2 remain. [Canonical mapping, compatibility and actual validation](docs/SECTION_NAMES_2026-10-19.md). Earlier dated entries below retain their historical names and validation scope.
 
 ## Decision language and framing — 18 October 2026
 

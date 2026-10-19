@@ -13,6 +13,6 @@ Keep asset licenses and attribution when replacing or adding assets. The app use
 ## Approved custom section icons — 19 October 2026
 
 - `domino-tile`: original owner-requested outline geometry showing two pip-marked tiles, one upright and one leaning against it. Replaces the previous consequence branch icon in current section navigation.
-- `reverse-card`: original owner-requested card outline with opposing reverse arrows. Replaces the previous undo arrow for Undoability; it contains no third-party logo.
+- `reverse-card`: original owner-requested card outline with opposing reverse arrows. Replaces the previous undo arrow for Reversibility; it contains no third-party logo.
 
 Both inherit currentColor and the existing 16px sidebar sizing, neutral/pink state and completion-slot rules. What Compounds retains `sprout`; The Devil’s Advocate, Decision Drivers and Decision Overview retain their original icons. [Canonical approved names and mapping](../docs/SECTION_NAMES_2026-10-19.md).

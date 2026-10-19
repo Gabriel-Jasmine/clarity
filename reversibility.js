@@ -69,7 +69,7 @@ function setReverseCheck(id,value){
 function reverseInvestigations(){
  const r=reverseData();if(r.trail!=='irreversible')return [];
  const out=[];if(r.adjustmentResponse==='unknown')out.push('Explore whether you could approach this decision differently to limit lasting consequences.');
- const rows=reverseSourceRows();rows.forEach(s=>{const c=reverseCheckCurrent(s);if(c?.value==='check')out.push('Undoability — '+sectionDisplayName(s.section)+': '+s.prompt+'\n'+s.text);else if(r.checks[s.id]&&!c)out.push('Revisit your Undoability check: the earlier '+sectionDisplayName(s.section)+' answer or what you’re considering has changed.');});
+ const rows=reverseSourceRows();rows.forEach(s=>{const c=reverseCheckCurrent(s);if(c?.value==='check')out.push('Reversibility — '+sectionDisplayName(s.section)+': '+s.prompt+'\n'+s.text);else if(r.checks[s.id]&&!c)out.push('Revisit your Reversibility check: the earlier '+sectionDisplayName(s.section)+' answer or what you’re considering has changed.');});
  return out;
 }
 function reverseRetainedText(o=choiceOption()){
@@ -265,8 +265,8 @@ function reverseAdoptionPanel(){
  if(!reverseAdoptionOpen)return '';
  return '<section class="approach-confirm"><h3>Make this your current approach?</h3><small>Current approach</small><blockquote>'+esc(choiceOption().name)+'</blockquote><p class="field-note" id="approach-wording-help">Check the wording before updating your decision.</p><label class="field"><span>New approach</span><textarea data-approachdraft aria-describedby="approach-wording-help">'+esc(reverseAdoptionDraft)+'</textarea></label><p class="field-note">Your earlier answers and assessments will be kept. You can revisit them to consider whether they still fit this approach.</p><div class="review-actions"><button data-confirmapproach>Update my decision</button><button class="secondary" data-cancelapproach>Keep considering it</button></div><p id="approach-error" role="alert" hidden>Write a different approach to update your decision.</p></section>';
 }
-function reverseChecksNotesOverview(){const r=reverseData();return r.trail==='irreversible'&&r.checksNote.trim()?'<div class="reverse-checks-notes"><h4>Your Undoability notes</h4><p class="reverse-raw">'+esc(r.checksNote)+'</p><small>Shown as you wrote it; not counted as a separate checklist item.</small></div>':'';}
-function reverseChecksOverviewLink(){const r=reverseData();return r.trail==='irreversible'?'<button class="edit-link" data-reviewreversechecks>Review Undoability checks</button>':'';}
+function reverseChecksNotesOverview(){const r=reverseData();return r.trail==='irreversible'&&r.checksNote.trim()?'<div class="reverse-checks-notes"><h4>Your Reversibility notes</h4><p class="reverse-raw">'+esc(r.checksNote)+'</p><small>Shown as you wrote it; not counted as a separate checklist item.</small></div>':'';}
+function reverseChecksOverviewLink(){const r=reverseData();return r.trail==='irreversible'?'<button class="edit-link" data-reviewreversechecks>Review Reversibility checks</button>':'';}
 function bindReviewConnections(){
  document.querySelectorAll('[data-reversedependency]').forEach(e=>e.onchange=()=>{setReverseDependency(e.dataset.dependencyfield,e.dataset.reversedependency,e.checked);save();});
  document.querySelectorAll('[data-keepassessment]').forEach(e=>e.onclick=()=>{acknowledgeDriverAssessment(e.dataset.keepassessment,'keep');render();});

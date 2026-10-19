@@ -1,6 +1,6 @@
 # Working on Clarity
 
-Current section labels/icons are defined in [Approved section titles and icons](docs/SECTION_NAMES_2026-10-19.md). Use their exact title case and singular **Question on the Table**. Preserve internal section/source/group keys and historical quotations; use the display aliases rather than migrating saved state for a label change.
+Current section labels/icons are defined in [Approved section titles and icons](docs/SECTION_NAMES_2026-10-19.md). Use their exact title case and singular **The Decision**. Preserve internal section/source/group keys and historical quotations; use the display aliases rather than migrating saved state for a label change.
 
 Before UI work, read [the UI/UX Playbook](docs/CLARITY_UI_UX_PLAYBOOK.md) and the relevant current product/language decisions. The playbook is the canonical design standard; the private product-notes repository records rationale and history.
 

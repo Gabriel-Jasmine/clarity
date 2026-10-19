@@ -8,7 +8,7 @@ Version **1.6.0** · Adopted 19 October 2026 · Owner: Clarity product owner
 
 ## Current section labels — 19 October 2026
 
-Version 1.6.0 adopts [the approved section titles and icons](SECTION_NAMES_2026-10-19.md), including singular **Question on the Table**, **Wiggle Room**, the two leaning domino tiles and the reverse-card icon. Title case applies to the twelve section labels. Existing layout/type/color/spacing and functional contracts are unchanged. Use display aliases for old stored group/source labels. Earlier adoption/version entries retain their historical names.
+Version 1.6.0 adopts [the approved section titles and icons](SECTION_NAMES_2026-10-19.md), including singular **The Decision**, **Wiggle Room**, the two leaning domino tiles and the reverse-card icon. Title case applies to the twelve section labels. Existing layout/type/color/spacing and functional contracts are unchanged. Use display aliases for old stored group/source labels. Earlier adoption/version entries retain their historical names.
 
 ## Contents
 
@@ -41,7 +41,7 @@ Version 1.3.0 adds the owner-approved editorial homepage, local constellation ar
 13. Guidance, examples and reference material
 14. Repeated cards, tables and consequence chains
 15. Decision Drivers and source relationships
-16. Undoability and review connections
+16. Reversibility and review connections
 17. Overview and export
 18. Shared states, feedback and recovery
 19. Dialogs and destructive actions
@@ -274,7 +274,7 @@ A visible fill or full enclosing border needs its own internal padding. Transpar
 
 Use `--cl-inset-workspace`, `--cl-inset-panel`, `--cl-inset-row-block` and `--cl-inset-control-inline`. Keep the same role consistent across pages; do not give badges the same padding as a workspace. Existing native fields retain their shared internal text padding. Icon-only controls and completion indicators may use centered glyphs rather than text padding.
 
-The Domino Effect uses a padded header and active editor. Its recorded answer aligns with the header's 16px text inset. Keep vertical padding off the clamped paragraph itself so two-line truncation and Show more remain accurate. Filled hover treatments on text actions also need an internal inset. Expanded Undoability guides retain 16px after the last paragraph; collapsed summaries keep their existing comfortable targets.
+The Domino Effect uses a padded header and active editor. Its recorded answer aligns with the header's 16px text inset. Keep vertical padding off the clamped paragraph itself so two-line truncation and Show more remain accurate. Filled hover treatments on text actions also need an internal inset. Expanded Reversibility guides retain 16px after the last paragraph; collapsed summaries keep their existing comfortable targets.
 
 Native select controls use the local Lucide chevron at 16px, vertically centered with a 12px right inset. Reserve 44px at the text end so values cannot run beneath the arrow; retain the 12px leading text inset. Keep the native select element, keyboard behavior and focus ring. In forced-colors mode restore the browser arrow. Driver assessment controls wrap according to available width rather than squeezing long values into narrow columns.
 
@@ -349,7 +349,7 @@ The guide’s main action reads **Begin my decision** before work is recorded an
 
 Retain the current page order and approved names:
 
-**Question on the Table → Things Dear to You → Cost of Yes → Carrot on the Stick → What Compounds → The Domino Effect → The Devil’s Advocate → Wiggle Room → Undoability → Decision Drivers → Tricks of the Mind → Decision Overview.**
+**The Decision → Things Dear to You → Cost of Yes → Carrot on the Stick → What Compounds → The Domino Effect → The Devil’s Advocate → Wiggle Room → Reversibility → Decision Drivers → Tricks of the Mind → Decision Overview.**
 
 Each row has three stable columns: **16px icon, flexible label, 14px status slot**. Use an 8px gap. Reserve the status slot even when no completion icon is present. Navigation rows are at least 44px tall; long labels may wrap, increasing row height. All status badges stay aligned to the same right column.
 
@@ -397,9 +397,9 @@ Hover changes fill/border without movement. Pressed state may darken slightly. D
 
 ## 11. Writing fields and conditional answers
 
-The Question on the Table opening uses **What decision are you trying to make?** with the fixed external starter **I’m deciding whether to…** immediately before its action-only textarea. Use the existing 16px/26px regular writing role; associate it through `aria-describedby`. Never prefill or prepend the starter to saved writing. Existing sentences remain verbatim. Keep the question → helper → example → starter → answer order and one structural frame. [Full contract](DECISION_LANGUAGE.md).
+The The Decision opening uses **What decision are you trying to make?** with the fixed external starter **I’m deciding whether to…** immediately before its action-only textarea. Use the existing 16px/26px regular writing role; associate it through `aria-describedby`. Never prefill or prepend the starter to saved writing. Existing sentences remain verbatim. Keep the question → helper → example → starter → answer order and one structural frame. [Full contract](DECISION_LANGUAGE.md).
 
-A writing group follows one order: **persistent question → relevant guidance/definitions and personal context → example → answer field → existing answer-state controls/status**. Examples are local to the question they support, not collected at the bottom of the page. An input label can remain immediately beside its field when a larger question introduces the group. In Undoability, the direct writing label comes before its helper/example. Preserve conditional visibility and existing disclosure states; a collapsed example stays in the same position before writing. Do not move essential definitions into an optional example.
+A writing group follows one order: **persistent question → relevant guidance/definitions and personal context → example → answer field → existing answer-state controls/status**. Examples are local to the question they support, not collected at the bottom of the page. An input label can remain immediately beside its field when a larger question introduces the group. In Reversibility, the direct writing label comes before its helper/example. Preserve conditional visibility and existing disclosure states; a collapsed example stays in the same position before writing. Do not move essential definitions into an optional example.
 
 Use 16px input text, a 44px minimum single-line height and about 120px initial height for a main narrative field. Short supporting textareas can start near 88px. Allow vertical resizing or accessible auto-growth. Long writing must not be clipped, replaced by ellipses or forced into a tiny fixed-height editor.
 
@@ -480,7 +480,7 @@ Their visual checked state is pink/neutral control selection, not a green sectio
 
 Keep **Why this matters** and the expectation-basis question distinct in presentation and meaning. Preserve the entire expectation/dependency guidance and existing Overview/export content. The abbreviated component mock does not authorize shortening the production page.
 
-## 16. Undoability and review connections
+## 16. Reversibility and review connections
 
 Retain the current two opening responses, **Reversible / Irreversible**, with visible definitions and no new default selection. Selected state is pink. Do not assign green to reversible or red to irreversible; they are provisional user judgments, not safe/unsafe classifications.
 
@@ -490,7 +490,7 @@ First pass uses ordinary neutral task styling without change warnings. After a l
 
 **Use this approach** leads to the existing editable confirmation. **Update my decision** adopts; **Keep considering it** cancels. Preserve earlier wording and snapshots and the existing affected-review reopening rules. These functional interactions are not new proposals in this playbook.
 
-Do not add “Return to [page]” shortcuts or mandatory Undoability acknowledgements. Use the established sidebar and approved contextual actions. Supporting notes are labelled as notes, not silently counted as tasks.
+Do not add “Return to [page]” shortcuts or mandatory Reversibility acknowledgements. Use the established sidebar and approved contextual actions. Supporting notes are labelled as notes, not silently counted as tasks.
 
 ## 17. Overview and export
 
@@ -594,7 +594,7 @@ This map assigns visual structure to all current pages. It does not replace the 
 
 | Page | Signature frame contains | Supporting treatment and accents |
 | --- | --- | --- |
-| Question on the Table | Main choice/context writing and current existing timing groups | Neutral context; pink answer selection; local neutral history/review invitation |
+| The Decision | Main choice/context writing and current existing timing groups | Neutral context; pink answer selection; local neutral history/review invitation |
 | Things Dear to You | Life-direction reflection, priorities and boundaries as a coherent workspace | Neutral priority tiles; selected pink; boundaries explicitly labelled |
 | Cost of Yes | Sacrifice/alternative exploration task | Neutral guides; honey examples; no automatic ranking color |
 | Carrot on the Stick | Rewards/relief reflection and alignment task | Neutral guide table/disclosure; honey example; pink existing responses |
@@ -602,7 +602,7 @@ This map assigns visual structure to all current pages. It does not replace the 
 | The Domino Effect | Immediate change plus both consequence trails | Thin neutral connectors; locally labelled continuation/end states |
 | The Devil’s Advocate | Failure/outcome writing and its choice connection | Neutral example and guidance hierarchy; selected pink; no danger-themed full page |
 | Wiggle Room | Assessment and accompanying capacity/setback writing | Neutral scenarios; honey coaching; existing explicit tolerance/status labels |
-| Undoability | Active reversible route or irreversible stages | Pink trail/stage selection; neutral source reuse; guidance before writing |
+| Reversibility | Active reversible route or irreversible stages | Pink trail/stage selection; neutral source reuse; guidance before writing |
 | Decision Drivers | Entire right editing workspace | Left reflection library greyish ivory; selected sources/current destination pink |
 | Tricks of the Mind | Relevant choice groups and conditional writing | Neutral questions; honey examples; pink response state; no bias diagnosis styling |
 | Decision Overview | Full report body | Blue open-information panel; neutral driver groups, warnings and history; compact dark export actions |
