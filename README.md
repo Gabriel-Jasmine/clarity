@@ -1,5 +1,9 @@
 # Clarity
 
+## Consistent taxonomy guides — 19 October 2026
+
+The Trade-Offs, Carrot on the Stick, What Compounds and The Domino Effect now share one neutral **Thinking guide**, closed initially, with a short introduction above it. Wiggle Room uses the same collapsible **Response guide** before its assessment question. Complete taxonomy content and response definitions are retained; selection categories stay visible. [Display contract and verification](docs/THINKING_GUIDES_2026-10-19.md); [Playbook 1.8.0](docs/CLARITY_UI_UX_PLAYBOOK.md).
+
 ## Things Dear to You examples — 19 October 2026
 
 The owner approved two specific additions after the shared-story replacement: a life-direction example with guidance about a deeply fulfilling life, and one boundary example shared above all boundary fields. Both use the existing **Example** disclosure, closed by default. The boundary example appears only after **Yes**; no other question acquires an example. The question wording, user answers, storage, assessments and exports are unchanged. [Current scope and exact copy](docs/SHARED_EXAMPLE.md#things-dear-to-you--approved-additions).
@@ -432,4 +436,3 @@ The [UI/UX Playbook 1.1.0](docs/CLARITY_UI_UX_PLAYBOOK.md) assigns one shared si
 [Playbook 1.2.2](docs/CLARITY_UI_UX_PLAYBOOK.md) enforces internal space inside filled and framed components with shared inset tokens. This corrects consequence headers/editors, choice context, Driver selection controls, dropdown-arrow insets and expanded guides while preserving typography and native control behavior. [Audit and validation](docs/SURFACE_SPACING_2026-10-18.md).
 
 Transparent text actions also retain 8px vertical and 12px horizontal padding inside their own button bounds, including the keyboard focus outline. [Button-spacing correction and validation](docs/BUTTON_SPACING_2026-10-18.md).
-

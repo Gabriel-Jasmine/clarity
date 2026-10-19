@@ -8,6 +8,7 @@ Before any question, copy, example, synthesis or AI work, read [Decision languag
 
 - Before example or briefing work, read [Shared fictional example](docs/SHARED_EXAMPLE.md) and the linked full persona in product notes. Use the higher-paying-design-job relocation case consistently. The owner additionally approved only the life-direction and single conditional boundary examples in Things Dear to You. Otherwise replace existing samples only; do not add further slots or prefill user answers.
 - Use the shared `exampleDisclosure` / `.example-disclosure` component for worked examples: header **Example**, all closed by default (including the first), native independent toggles, local honey surface and the current approved story. Essential definitions stay visible. See [the rollout contract](docs/EXAMPLES_2026-10-19.md).
+- Reference taxonomies use `thinkingGuide` / `.guide-disclosure`: short introduction above, neutral Thinking guide closed by default, complete content inside and before supported questions. Wiggle Room uses Response guide above its main assessment question, also closed. Keep selectable categories and other essential definitions visible. See [the rollout contract](docs/THINKING_GUIDES_2026-10-19.md).
 - Reuse the semantic tokens in `styles.css` and established components. Keep pink for selection, green for completion, blue for Overview information needs and honey for optional guidance.
 - Use one 2px charcoal structural frame per page's main working surface. Keep navigation completion badges small and independent of current-page selection.
 - Give filled/fully framed text surfaces and all text-button bounds (including transparent actions and their focus outlines) explicit internal padding using the shared `--cl-inset-*` role tokens. Check collapsed, active-editor, expanded, selected, hover and narrow states; outer margins do not replace inner padding.
@@ -18,4 +19,3 @@ Before any question, copy, example, synthesis or AI work, read [Decision languag
 - Verify layout and keyboard behavior in a real browser when possible. DOM/storage tests do not establish visual quality, accessibility conformance or user comprehension. State checks that remain outstanding.
 - Keep locally bundled font/icon licenses with their assets. Production should not require a remote icon script.
 - Do not publish or push changes without authorization in the task. Continue within authorization already given; routine reversible implementation choices do not require repeated approval.
-

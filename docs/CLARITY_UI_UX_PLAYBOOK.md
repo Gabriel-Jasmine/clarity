@@ -1,10 +1,16 @@
 # Clarity UI/UX Playbook
 
-Version **1.7.0** · Adopted 19 October 2026 · Owner: Clarity product owner
+Version **1.8.0** · Adopted 19 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+
+## Consistent taxonomy guides — 19 October 2026
+
+Version 1.8.0 adopts one neutral **Thinking guide** disclosure for the four reference taxonomies in The Trade-Offs, Carrot on the Stick, What Compounds and The Domino Effect. A short purpose sentence stays visible directly above the disclosure. Detailed guidance, contextual title and the complete taxonomy stay inside it. Place it before the questions it supports, inside the existing task frame. All start closed, including the first; the native whole-header toggle has the shared right-aligned chevron, typography and role-based insets. Use the shared `thinkingGuide` helper and `.guide-disclosure` styles.
+
+Wiggle Room uses the same component with the function-specific title **Response guide**, closed initially and positioned before the main assessment question. This is the owner-approved exception to the earlier always-visible response-definition treatment. Its five definitions and six assessment conditions retain their meanings. Selectable categories and condition descriptions in Things Dear to You and Wiggle Room stay visible. Other essential definitions, worked examples, saved answers, review rules and exports are unchanged. See [rollout and verification](THINKING_GUIDES_2026-10-19.md).
 
 ## Consistent examples — 19 October 2026
 
@@ -441,7 +447,9 @@ Assessment values remain visually neutral choices. Use pink for whichever answer
 | Worked example | Shared honey Example disclosure, closed by default | After its question and guidance/context, before the related answer |
 | Other optional coaching | Small labelled honey surface where appropriate | Local to the task; not automatically renamed Example |
 | Earlier user writing | Greyish ivory reference card | Explicit source, current/history status and exact text |
-| Long guide | Neutral disclosure/table | Clear summary; expands locally |
+| Reference taxonomy | Shared neutral Thinking guide, closed by default | Short introduction above; complete guide before supported questions |
+| Wiggle Room response definitions | Shared neutral Response guide, closed by default | Before the main assessment question; owner-approved exception |
+| Other long guide | Neutral disclosure/table | Clear summary; expands locally |
 | Open information need in Overview | Blue region | Clear heading, unanswered items and existing action |
 
 **Worked-example contract:** use the shared `exampleDisclosure` helper and `.example-disclosure` styles. The visible header is exactly **Example** in both states, with a right-aligned local chevron rotating when open. The entire header is a native, keyboard-operable summary with at least a 48px height and 12px vertical / 16px horizontal internal padding. Body text uses the existing 14px/22px regular role and 16px side/bottom insets. All examples, including the first on every page or conditional branch, start closed; multiple examples can be open independently. Do not assign an accordion `name` or persist disclosure state into decision data. Ordinary typing preserves the open DOM instance; page/branch rerenders start closed again. Optional examples are not essential field descriptions and are not wrapped inside answer labels. Keep essential helper/definition text visible and associated with its answer. Descriptive labels, if needed, belong inside the expanded body rather than changing the Example title. The component showcase alone may have an explicitly expanded specimen for design review.
@@ -881,4 +889,3 @@ These are inspected file versions, not claims about later repository state. Prod
 - W3C, [Reflow, SC 1.4.10](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
 
 References checked on 17 October 2026. The Understanding pages explain the criteria; the normative WCAG recommendation determines conformance. This playbook’s 44px preferred touch targets and typography/spacing defaults are Clarity design choices, not claims that WCAG prescribes those exact values.
-

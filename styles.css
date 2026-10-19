@@ -490,8 +490,6 @@ button:disabled {cursor:default;opacity:.5}
 .incentive-writing-card {min-width:0}
 .incentive-choice-context {padding-bottom:24px;border-bottom:1px solid var(--cl-divider);margin-bottom:24px}
 .incentive-choice-context p {margin:8px 0 0;overflow-wrap:anywhere}
-.incentive-reward-guide>summary {padding:0 0 14px}
-.incentive-reward-guide>.field-note {margin:0 0 18px;max-width:850px}
 .incentive-reward-table {width:100%;table-layout:fixed;border-collapse:collapse;}
 .incentive-reward-table th,.incentive-reward-table td {text-align:left;padding:12px 14px;border-bottom:1px solid var(--cl-divider);vertical-align:top;overflow-wrap:anywhere}
 .incentive-reward-table thead th:first-child,.incentive-reward-table tbody tr:not(.incentive-reward-group)>th {width:34%}
@@ -516,8 +514,6 @@ button:disabled {cursor:default;opacity:.5}
 .compounding-writing-card {min-width:0}
 .compounding-choice-context {padding-bottom:24px;border-bottom:1px solid var(--cl-divider);margin-bottom:24px}
 .compounding-choice-context p {margin:10px 0 0}
-.compounding-life-guide summary {cursor:pointer}
-.compounding-life-guide>.field-note {margin:16px 0}
 .compounding-life-table {width:100%;table-layout:fixed;border-collapse:collapse;margin-top:20px}
 .compounding-life-table th,.compounding-life-table td {padding:14px;vertical-align:top;text-align:left;overflow-wrap:anywhere;border-bottom:1px solid var(--cl-divider)}
 .compounding-life-table th:first-child {width:30%}
@@ -538,7 +534,6 @@ button:disabled {cursor:default;opacity:.5}
 .consequence-card {min-width:0}
 .consequence-card [hidden] {display:none!important}
 .consequence-card>h2 {margin-top:0}
-.consequence-guide {margin:32px 0}
 .consequence-instructions {margin:28px 0}
 .consequence-exploration {border-top:1px solid var(--cl-divider);padding-top:24px;margin-top:28px}
 .consequence-entry {border-left:1px solid var(--cl-divider);padding-left:16px;margin-top:14px;min-width:0}
@@ -583,7 +578,6 @@ button:disabled {cursor:default;opacity:.5}
 .stress-context p {margin:6px 0 0;overflow-wrap:anywhere}
 .stress-card .stress-question {display:block;margin:0 0 10px}
 .stress-card .stress-helper {margin:0 0 24px;max-width:820px;}
-.stress-assessment {display:grid;grid-template-columns:minmax(0,1fr) 190px;align-items:start;gap:28px}
 .stress-card .stress-table {min-width:0;width:100%;table-layout:fixed}
 .stress-card .stress-table th,.stress-card .stress-table td {padding:16px 10px;border-bottom:1px solid var(--cl-divider);vertical-align:middle}
 .stress-card .stress-table th:first-child {width:55%;padding-left:0}
@@ -592,21 +586,10 @@ button:disabled {cursor:default;opacity:.5}
 .stress-card .stress-table tbody th {text-align:left}
 .stress-table th>p {margin:5px 0 0}
 .stress-card .stress-table td select {min-width:0;max-width:100%;min-height:44px;padding:10px 8px}
-.stress-response-guide {padding:16px}
-.stress-response-guide h3 {margin:0 0 16px}
-.stress-response-guide dl {margin:0}
-.stress-response-guide dl>div+div {margin-top:16px}
-.stress-response-guide dt {margin:0 0 4px}
-.stress-response-guide dd {margin:0}
 .stress-writing {border-top:1px solid var(--cl-divider);margin-top:30px;padding-top:26px}
 .stress-writing>p {max-width:850px;margin:0 0 14px}
 .stress-writing textarea {display:block;min-height:140px;resize:vertical}
 .stress-card .stress-footnote {margin:14px 0 0}
-@media (max-width:1050px) {
-.stress-assessment {grid-template-columns:minmax(0,1fr);gap:20px}
-.stress-response-guide dl {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.stress-response-guide dl>div+div {margin-top:0}
-}
 @media (max-width:600px) {
 .stress-context {grid-template-columns:1fr;padding:16px;gap:14px}
 .stress-card .stress-table thead {display:none}
@@ -615,11 +598,7 @@ button:disabled {cursor:default;opacity:.5}
 .stress-card .stress-table th:first-child {width:100%;padding:0;border:0}
 .stress-card .stress-table td {padding:12px 0 0;border:0}
 .stress-card .stress-table td select {width:100%}
-.stress-response-guide dl {grid-template-columns:1fr 1fr}
 .stress-writing {margin-top:24px}
-}
-@media (max-width:380px) {
-.stress-response-guide dl {grid-template-columns:1fr}
 }
 .decision-timing-field {border:0;padding:0;margin:0;min-width:0}
 .decision-timing-field>.question {display:block;padding:0}
@@ -757,10 +736,7 @@ button:disabled {cursor:default;opacity:.5}
 .trade-context,.incentive-choice-context,.compounding-choice-context{border-bottom:1px solid var(--cl-divider)}
 .resource-prompt span{color:var(--cl-muted)}
 .static-chips .chip{background:var(--cl-surface);border-color:var(--cl-divider)}
-.stress-response-guide,.thinking-prompts{background:var(--cl-surface);padding:16px;border-radius:var(--cl-radius-small)}
-.stress-response-guide h3{color:var(--cl-muted)}
-.stress-response-guide dd{color:var(--cl-muted)}
-.incentive-reward-guide,.compounding-life-guide,.consequence-guide{background:var(--cl-surface);padding:12px 16px;border-radius:var(--cl-radius-small);border:0}
+.thinking-prompts{background:var(--cl-surface);padding:16px;border-radius:var(--cl-radius-small)}
 .incentive-reward-table th,.compounding-life-table th,.consequence-life-table th,.stress-card .stress-table thead th{color:var(--cl-muted);}
 .incentive-writing-part h2.question,.compounding-writing-part h2.question,.stress-card .stress-question,
 .advocate-question,.judgment-evidence legend,.judgment-challenge-field>label,
@@ -865,6 +841,36 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
 .reverse-writing-label{display:block;margin:0 0 8px}
 .reverse-writing>.field-note{margin:0 0 12px}
 
+/* Shared reference taxonomies; examples retain their separate honey component. */
+.thinking-guide-block{min-width:0;margin:0 0 var(--cl-space-6)}
+.thinking-guide-introduction{margin:0 0 var(--cl-space-3)}
+.guide-disclosure{display:block;min-width:0;background:var(--cl-surface);border:1px solid var(--cl-divider);border-radius:var(--cl-radius-field);padding:0;margin:0;color:var(--cl-ink);font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-body)}
+.guide-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:var(--cl-space-4);list-style:none;min-height:48px;padding:var(--cl-space-3) var(--cl-inset-panel);border-radius:var(--cl-radius-field);font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-label)}
+.guide-disclosure>summary::-webkit-details-marker{display:none}
+.guide-disclosure>summary .cl-icon{flex:0 0 16px;width:16px;height:16px}
+.guide-disclosure[open]>summary .cl-icon{transform:rotate(180deg)}
+.guide-content{padding:0 var(--cl-inset-panel) var(--cl-inset-panel);overflow-wrap:anywhere}
+.guide-content>.guide-title{margin:0 0 var(--cl-space-3);font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-label)}
+.guide-content>.field-note{margin:0 0 var(--cl-space-4)}
+.guide-content table{width:100%;table-layout:fixed;border-collapse:collapse;margin:0;font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-body)}
+.guide-content table th,.guide-content table td{padding:var(--cl-space-3);border-bottom:1px solid var(--cl-divider);text-align:left;vertical-align:top;overflow-wrap:anywhere}
+.guide-content table th{color:var(--cl-ink);font-weight:var(--cl-weight-label)}
+.guide-content table thead th{color:var(--cl-muted);font-weight:var(--cl-weight-control)}
+.guide-content table th:first-child{width:34%;padding-left:0}
+.guide-content table td:last-child{padding-right:0}
+.guide-content table tbody:last-child tr:last-child>*{border-bottom:0}
+.guide-content .incentive-reward-group th{padding:var(--cl-space-4) 0 var(--cl-space-2)}
+.guide-content .incentive-reward-group small{font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-body);color:var(--cl-muted)}
+.guide-content table td p{margin:0}
+.guide-content table td p+p{margin-top:var(--cl-space-3)}
+.guide-content table td strong{display:block;margin-bottom:var(--cl-space-1)}
+.stress-assessment{display:block;min-width:0}
+@media(max-width:600px){
+ .guide-content table th,.guide-content table td{padding:var(--cl-space-3) var(--cl-space-2)}
+ .guide-content table th:first-child{width:38%;padding-left:0}
+ .guide-content table td:last-child{padding-right:0}
+}
+
 /* Shared optional examples: all production instances start closed. */
 .example-disclosure{display:block;min-width:0;background:var(--cl-honey);color:var(--cl-ink);border:0;border-radius:var(--cl-radius-field);padding:0;margin:0 0 var(--cl-space-4);font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-body)}
 .example-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:var(--cl-space-4);list-style:none;min-height:48px;padding:var(--cl-space-3) var(--cl-inset-panel);border-radius:var(--cl-radius-field);color:var(--cl-honey-ink);font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-label)}
@@ -921,13 +927,13 @@ input:not([type=checkbox]):not([type=radio]),textarea,select,
 .direction-label,.decision-anchor>small,.stress-context span,.advocate-choice>span,
 .trade-context .direction-label,.incentive-direction-reference .direction-label,
 .compounding-write-label,.reverse-writing-label,.report-label,.overview-trade>strong,
-.overview-section>p>strong,.stress-response-guide h3,.stress-response-guide dt,
+.overview-section>p>strong,
 .reversibility-page .reverse-demands>legend,.reversibility-page .reverse-check>legend{
  font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-label)
 }
 /* Primary questions remain questions even when their container is a generic field. */
 .field>.type-question{font-size:var(--cl-size-question);line-height:var(--cl-line-question);font-weight:var(--cl-weight-label)}
-.field small,.field-note,.muted,.stress-helper,.stress-writing>p,.stress-response-guide dd,
+.field small,.field-note,.muted,.stress-helper,.stress-writing>p,
 .domain-card p,.incentive-choice p,.resource-prompt span,.resource-prompt strong,.advocate-example-context,
 .reverse-guide>p,.reversibility-page .reverse-guide>p,.report-explanation{
  font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-body)

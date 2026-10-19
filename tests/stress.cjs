@@ -33,7 +33,13 @@ let html=b.doc.querySelector('#screen').innerHTML;
 for(const text of ['Open a bakery','Build an income','Time with family','Available Time','Support and Cooperation','Your assessment','How much could you manage before this becomes unworkable?'])assert(html.includes(text));
 assert.equal((html.match(/<select /g)||[]).length,6);
 assert.equal((html.match(/<textarea /g)||[]).length,1);
-assert.equal((html.match(/<details /g)||[]).length,1);
+assert.equal((html.match(/<details /g)||[]).length,2);
+const responseGuide=html.match(/<details class="guide-disclosure" id="stress-response-guide">([\s\S]*?)<\/details>/);
+assert(responseGuide,'Response guide uses the closed shared disclosure');
+assert(responseGuide[1].startsWith('<summary><span>Response guide</span>'));
+assert(responseGuide[1].includes('#chevron-down'));
+assert(html.indexOf('id="stress-response-guide"')<html.indexOf('<h3 class="stress-question">'));
+assert.equal((responseGuide[1].match(/scope="row"/g)||[]).length,5);
 assert(!html.includes('<details open'));assert(!html.includes('stress-legend'));
 // The shared context is outside the task; Stress Test does not repeat it inside.
 assert.equal((html.match(/class="direction-reference decision-context"/g)||[]).length,1);
@@ -75,5 +81,3 @@ html=b.doc.querySelector('#screen').innerHTML;assert(!html.includes('<script>'))
 r('step=7;render()');b.doc.querySelector('#back').onclick();assert.equal(r('step'),6);b.doc.querySelector('#next').onclick();assert.equal(r('step'),7);b.doc.querySelector('#next').onclick();assert.equal(r('step'),9);
 b.doc.querySelector('#reset').onclick();assert.equal(r('data.stressTest.formatVersion'),2);assert.equal(r('stressNotes()'),'');assert(!r('stressComplete()'));
 console.log('Passed: six-condition focal-choice UI, guide/example structure, real context and escaping, response and writing persistence, unknowns/completion/status, Drivers/Overview/export, non-destructive historical migration and one-time review reset, retained-path association, navigation and reset.');
-
-
