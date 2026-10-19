@@ -53,6 +53,10 @@ input:disabled,textarea:disabled,select:disabled{background:var(--cl-disabled-su
 a{color:var(--cl-pink-ink);text-underline-offset:3px}
 h1,h2,h3,h4{font-family:var(--cl-font);letter-spacing:-.02em;overflow-wrap:anywhere}
 h1{margin:8px 0 0}
+/* Section navigation focuses this heading for assistive technology.
+   Suppress the native pointer/touch ring; retain visible keyboard focus. */
+#title:focus:not(:focus-visible){outline:none}
+#title:focus-visible{outline:2px solid var(--cl-focus);outline-offset:var(--cl-space-2)}
 h2{margin:0 0 12px}
 h3{margin:24px 0 12px}
 h4{margin:20px 0 8px}
