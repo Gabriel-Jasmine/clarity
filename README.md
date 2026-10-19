@@ -1,8 +1,12 @@
 # Clarity
 
+## Current shared example — 19 October 2026
+
+All existing sample answers now follow one fictional person considering a higher-paying design job in another city while protecting close relationships and preparing to start an independent design studio. Existing example slots, conditional branches and closed-by-default display are preserved. No new examples, questions or prefilled answers are added. [Current contract](docs/SHARED_EXAMPLE.md); [full persona and narrative](https://github.com/Gabriel-Jasmine/clarity-product-decision-notes/blob/main/SHARED_EXAMPLE_NARRATIVE.md). This current content rule supersedes historical implementation notes describing pottery, bakery or other sample stories. The broader briefing redesign remains separate.
+
 ## Consistent examples — 19 October 2026
 
-Worked examples across all ten applicable sections now use one honey **Example** disclosure with a right-aligned chevron. Every example starts closed, including the first on each page. Examples stay between the relevant question/guidance and writing field; essential instructions remain visible. Existing sample wording, questions, answers, storage and exports are retained. The proposed single relocation story is separate. [Contract and actual verification](docs/EXAMPLES_2026-10-19.md); [Playbook 1.7.0](docs/CLARITY_UI_UX_PLAYBOOK.md).
+Worked examples across all ten applicable sections now use one honey **Example** disclosure with a right-aligned chevron. Every example starts closed, including the first on each page. Examples stay between the relevant question/guidance and writing field; essential instructions remain visible. Questions, answers, storage and exports are retained. Sample wording now follows the separately approved [shared narrative](docs/SHARED_EXAMPLE.md), using the same existing slots. [Contract and actual verification](docs/EXAMPLES_2026-10-19.md); [Playbook 1.7.0](docs/CLARITY_UI_UX_PLAYBOOK.md).
 
 ## Current section titles and icons — 19 October 2026
 

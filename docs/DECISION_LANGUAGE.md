@@ -23,7 +23,7 @@ The immediate **Aim for this decision** and broader **Direction in life** remain
 - Opening: **What decision are you trying to make?**
 - Helper: **Focus on one action you’re considering. You’ll explore other ways forward as you work through it.**
 - Fixed answer starter: **I’m deciding whether to…**
-- Example: **I’m deciding whether to open a community pottery studio.**
+- Example: **I’m deciding whether to accept a higher-paying design job in another city.**
 - Leaning: **Do this / Not do this**, beneath **Which way are you leaning right now?**
 - Aim: **What are you hoping to achieve?**
 - Immediate cost: **If you do this, what would you have to give up or delay immediately?**
@@ -45,7 +45,7 @@ Stored source/history quotations must not be rewritten. For the Devil's Advocate
 
 ## Maintenance
 
-Update the visible prompt, helper/example where affected, generated information needs, accessible names, Overview, AI context and current definition metadata together. Keep current copy aligned in the component showcase and guide. Preserve the approved homepage copy. The wider briefing redesign and a single shared fictional example remain separate work.
+Update the visible prompt, helper/example where affected, generated information needs, accessible names, Overview, AI context and current definition metadata together. Keep current copy aligned in the component showcase and guide. Preserve the approved homepage copy. The [shared fictional example](SHARED_EXAMPLE.md) now governs replacement copy in existing sample slots. The wider briefing redesign and adding example slots remain separate work.
 
 Update the private `CLARITY_LANGUAGE_GUIDE.md`, `PRODUCT_REASONING.md`, `CURRENT_PRODUCT.md`, `UX_UI_LOG.md`, `OPEN_QUESTIONS.md` and `CHANGELOG.md` when this contract changes. Research/coverage registers retain their existing scientific scope; a vocabulary update is not new psychological capture or validation.
 

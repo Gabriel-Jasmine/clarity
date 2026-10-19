@@ -30,7 +30,7 @@ assert.equal(r('data.devilsAdvocate.outcomes.length'),1);
 assert.equal(r('advocateComplete()'),false);
 r('step=6;render()');
 let html=b.doc.querySelector('#screen').innerHTML;
-for(const copy of ["Looking at your life direction, what would failure in this decision look like?","Could doing this lead you towards that outcome? If so, how?","I could end up…","Write how it could happen, if you see a connection…","neighbourhood bakery"] )assert(html.includes(copy));
+for(const copy of ["Looking at your life direction, what would failure in this decision look like?","Could doing this lead you towards that outcome? If so, how?","I could end up…","Write how it could happen, if you see a connection…","higher-paying design job in another city"] )assert(html.includes(copy));
 assert(!html.includes('research'));assert(!html.includes('further studies'));assert(!html.includes('Earlier Inversion notes'));
 assert.equal((html.match(/<textarea/g)||[]).length,2);
 assert(!html.includes('advocate-connection" hidden'));
