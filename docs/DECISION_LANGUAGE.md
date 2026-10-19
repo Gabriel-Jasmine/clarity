@@ -1,5 +1,9 @@
 # Decision language and framing
 
+## Section-name overlay — 19 October 2026
+
+[Approved section titles and icons](SECTION_NAMES_2026-10-19.md) now govern the section labels referenced by this contract. The opening section is **Question on the Table**, alternatives are explored in **Cost of Yes**, and the remaining former/current names are mapped there. The decision/action framing, approved questions, examples, response meanings, exact saved writing and previous definitions below are unchanged. Old section names in the dated wording inventory are historical references, not instructions to restore old navigation labels.
+
 Adopted by the product owner on 18 October 2026. Build: `20261018-decision-language`.
 
 This is the current public language and opening-framing contract. Read it before future questions, guidance, examples, summaries, exports or AI interpretation work. It supersedes the older rule that required users to “work through a decision, consider a choice, and make this choice.” The private language guide links here and retains the dated history.
@@ -145,3 +149,4 @@ The inventory below records the static system-copy replacements applied in this 
 ## Rollout record
 
 Implementation and validation: [Decision-language rollout](DECISION_LANGUAGE_2026-10-18.md).
+

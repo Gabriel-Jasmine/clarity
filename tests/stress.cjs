@@ -52,7 +52,7 @@ assert.equal(r('vulnerabilityItems().length'),0); // Writing is not automaticall
 let select=b.doc.querySelectorAll('[data-stressrow]')[0];select.value='unknown';select.onchange();
 assert(r('stressComplete()'));assert.equal(r('stressStatus()'),'Some limits are unknown');
 assert.equal(r('stressInvestigations().length'),1);assert(r('allInvestigations().join(" ")').includes('money'));
-assert(r('decisionOverview()').includes('Review Stress Test unknowns'));assert(r('decisionContextText()').includes('I don’t know yet'));
+assert(r('decisionOverview()').includes('Review Wiggle Room unknowns'));assert(r('decisionContextText()').includes('I don’t know yet'));
 select.value='beyond';select.onchange();assert.equal(r('stressStatus()'),'A tolerance limit is flagged');assert(r('vulnerabilityItems()[0]').includes('Beyond tolerance'));
 select.value='little-room';select.onchange();assert.equal(r('stressStatus()'),'Little room remains in some conditions');
 select.value='';select.onchange();assert(!r('stressComplete()'));assert.equal(r('stressStatus()'),'Partly assessed');
@@ -75,4 +75,5 @@ html=b.doc.querySelector('#screen').innerHTML;assert(!html.includes('<script>'))
 r('step=7;render()');b.doc.querySelector('#back').onclick();assert.equal(r('step'),6);b.doc.querySelector('#next').onclick();assert.equal(r('step'),7);b.doc.querySelector('#next').onclick();assert.equal(r('step'),9);
 b.doc.querySelector('#reset').onclick();assert.equal(r('data.stressTest.formatVersion'),2);assert.equal(r('stressNotes()'),'');assert(!r('stressComplete()'));
 console.log('Passed: six-condition focal-choice UI, guide/example structure, real context and escaping, response and writing persistence, unknowns/completion/status, Drivers/Overview/export, non-destructive historical migration and one-time review reset, retained-path association, navigation and reset.');
+
 

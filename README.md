@@ -1,5 +1,13 @@
 # Clarity
 
+## Current section titles and icons — 19 October 2026
+
+The owner-approved title-case section names and selected icons are implemented in build `20261019-section-names` and [Playbook 1.6.0](docs/CLARITY_UI_UX_PLAYBOOK.md). The current order is:
+
+Question on the Table → Things Dear to You → Cost of Yes → Carrot on the Stick → What Compounds → The Domino Effect → The Devil’s Advocate → Wiggle Room → Undoability → Decision Drivers → Tricks of the Mind → Decision Overview
+
+The Domino Effect has two tiles, one leaning against the other; Undoability has the reverse-card icon. What Compounds keeps the sprout. Current navigation, guide, review links, source/report headings and exported display metadata use the new names while stable IDs, stored writing/history, group keys, questions, assessments and schema 2 remain. [Canonical mapping, compatibility and actual validation](docs/SECTION_NAMES_2026-10-19.md). Earlier dated entries below retain their historical names and validation scope.
+
 ## Decision language and framing — 18 October 2026
 
 Clarity now opens with **What decision are you trying to make?**, the external starter **I’m deciding whether to…**, and **What are you hoping to achieve?**. The whole tool uses decision for the overall matter and this/doing this for the action under consideration. Alternatives are explored without a comparative-winner claim.
@@ -412,3 +420,4 @@ The [UI/UX Playbook 1.1.0](docs/CLARITY_UI_UX_PLAYBOOK.md) assigns one shared si
 [Playbook 1.2.2](docs/CLARITY_UI_UX_PLAYBOOK.md) enforces internal space inside filled and framed components with shared inset tokens. This corrects consequence headers/editors, choice context, Driver selection controls, dropdown-arrow insets and expanded guides while preserving typography and native control behavior. [Audit and validation](docs/SURFACE_SPACING_2026-10-18.md).
 
 Transparent text actions also retain 8px vertical and 12px horizontal padding inside their own button bounds, including the keyboard focus outline. [Button-spacing correction and validation](docs/BUTTON_SPACING_2026-10-18.md).
+

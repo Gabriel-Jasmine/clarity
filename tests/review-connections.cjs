@@ -19,7 +19,7 @@ const values=plain('data.factors.map(f=>({id:f.id,name:f.name,direction:f.direct
 r('data.reviewed=[7,9,10];save();data.reviewed=[7,9,10];save();data.stressTest.notesByOption[choiceOption().id]="Savings cover one month.";save();render()');
 assert.equal(r('driverAssessmentChanges(data.factors[0]).length'),1);assert.equal(r('driverAssessmentChanges(data.factors[1]).length'),0);
 assert.equal(r('driverSourceFreshness(data.factors[0].sources[0]).state'),'current'); // Quote unchanged; deliberately linked earlier answer changed.
-assert.ok(!r('data.reviewed.includes(10)'));assert.ok(page().includes('Does your assessment still fit?'));assert.ok(page().includes('an answer in Stress Test'));assert.ok(page().includes('Savings cover five months.'));assert.ok(page().includes('Savings cover one month.'));
+assert.ok(!r('data.reviewed.includes(10)'));assert.ok(page().includes('Does your assessment still fit?'));assert.ok(page().includes('an answer in Wiggle Room'));assert.ok(page().includes('Savings cover five months.'));assert.ok(page().includes('Savings cover one month.'));
 assert.deepEqual(plain('data.factors.map(f=>({id:f.id,name:f.name,direction:f.direction,importance:f.importance,evidence:f.evidence,strength:f.strength}))'),values);
 assert.ok(!button('keepassessment',id).disabled); // No prerequisite visit or separate Reversibility acknowledgement.
 button('keepassessment',id).onclick();assert.equal(r('driverAssessmentChanges(data.factors[0]).length'),0);assert.ok(!page().includes('Does your assessment still fit?'));assert.equal(r('data.factors[0].direction'),'for');
@@ -33,7 +33,7 @@ r('choiceOption().trade.immediate="An unrelated expense";save()');assert.equal(r
 r('data.stressTest.summaryUnknownByOption[choiceOption().id]=true;save();render()');assert.ok(page().includes('No longer active or linked.'));
 // Overview separates written questions from counted source checks, and links to the exact local stage.
 r('reverseData().trail="irreversible";reverseData().lasting="Cannot recover setup spending.";reverseData().adjustmentResponse="unknown";reverseData().checksNote="Ask about shared access.\\nConfirm weekend demand.";step=11;render()');
-const before=plain('allInvestigations()');assert.ok(page().includes('Your Reversibility notes'));assert.ok(page().includes('not counted as a separate checklist item'));r('reverseData().checksNote+="\\nAn additional written question";save()');assert.deepEqual(plain('allInvestigations()'),before);
+const before=plain('allInvestigations()');assert.ok(page().includes('Your Undoability notes'));assert.ok(page().includes('not counted as a separate checklist item'));r('reverseData().checksNote+="\\nAn additional written question";save()');assert.deepEqual(plain('allInvestigations()'),before);
 button('reviewreversechecks').onclick();assert.equal(r('step'),9);assert.equal(r('reverseStage'),2);assert.ok(page().includes('Which unanswered questions'));
 // Adopt an adjustment deliberately. Cancel and invalid drafts leave the decision untouched.
 r('reverseStage=1;reverseData().adjustmentResponse="yes";reverseData().adjustment="Keep employment and teach weekend classes.";choiceOption().trade.immediate="Original cost answer";choiceOption().incentives.gain="Original incentive answer";choiceOption().compound.build="Original compounding answer";choiceOption().consequence.immediate="Original consequence answer";data.reviewed=[0,1,2,3,4,5,6,7,8,9,10];save();render()');
@@ -61,3 +61,4 @@ const old=b.stored();delete old.factors[1].assessmentReview;old.reviewed=[10];co
 r('data.approachHistory[0].from="<script>bad</script>";step=0;render()');assert.ok(!page().includes('<script>bad'));
 b.doc.querySelector('#reset').onclick();assert.equal(r('data.approachHistory.length'),0);assert.equal(r('data.factors.length'),0);assert.equal(r('approachDraft'),null);
 console.log('Passed: first pass, explicit dependency scope, post-assessment cues, keep/change without prerequisites, unchanged ratings, reload/re-edit/removal, notes versus unresolved checks, direct checks navigation, deliberate adoption/cancel/validation, complete earlier snapshots, review scope, action history, export provenance, escaping and reset.');
+

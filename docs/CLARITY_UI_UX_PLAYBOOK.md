@@ -1,10 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.5.1** · Adopted 18 October 2026 · Owner: Clarity product owner
+Version **1.6.0** · Adopted 19 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+
+## Current section labels — 19 October 2026
+
+Version 1.6.0 adopts [the approved section titles and icons](SECTION_NAMES_2026-10-19.md), including singular **Question on the Table**, **Wiggle Room**, the two leaning domino tiles and the reverse-card icon. Title case applies to the twelve section labels. Existing layout/type/color/spacing and functional contracts are unchanged. Use display aliases for old stored group/source labels. Earlier adoption/version entries retain their historical names.
 
 ## Contents
 
@@ -37,7 +41,7 @@ Version 1.3.0 adds the owner-approved editorial homepage, local constellation ar
 13. Guidance, examples and reference material
 14. Repeated cards, tables and consequence chains
 15. Decision Drivers and source relationships
-16. Reversibility and review connections
+16. Undoability and review connections
 17. Overview and export
 18. Shared states, feedback and recovery
 19. Dialogs and destructive actions
@@ -211,7 +215,7 @@ All ordinary interface and user-writing text uses Manrope. Distinguish purpose w
 
 | Role | Examples | Size / line-height | Weight |
 | --- | --- | --- | --- |
-| Page title | Decision, Stress Test | 30 / 38px desktop; 26 / 34px narrow | 700 |
+| Page title | Decision, Wiggle Room | 30 / 38px desktop; 26 / 34px narrow | 700 |
 | Section/panel title | What is driving your view; Your reflections | 22 / 30px | 700 |
 | Main question / subsection heading | What choice are you considering? | 18 / 28px | 600 |
 | User writing and stored answer | Typed answer, earlier reflection, source quote | 16 / 26px | 400 |
@@ -270,7 +274,7 @@ A visible fill or full enclosing border needs its own internal padding. Transpar
 
 Use `--cl-inset-workspace`, `--cl-inset-panel`, `--cl-inset-row-block` and `--cl-inset-control-inline`. Keep the same role consistent across pages; do not give badges the same padding as a workspace. Existing native fields retain their shared internal text padding. Icon-only controls and completion indicators may use centered glyphs rather than text padding.
 
-Further Consequences uses a padded header and active editor. Its recorded answer aligns with the header's 16px text inset. Keep vertical padding off the clamped paragraph itself so two-line truncation and Show more remain accurate. Filled hover treatments on text actions also need an internal inset. Expanded Reversibility guides retain 16px after the last paragraph; collapsed summaries keep their existing comfortable targets.
+The Domino Effect uses a padded header and active editor. Its recorded answer aligns with the header's 16px text inset. Keep vertical padding off the clamped paragraph itself so two-line truncation and Show more remain accurate. Filled hover treatments on text actions also need an internal inset. Expanded Undoability guides retain 16px after the last paragraph; collapsed summaries keep their existing comfortable targets.
 
 Native select controls use the local Lucide chevron at 16px, vertically centered with a 12px right inset. Reserve 44px at the text end so values cannot run beneath the arrow; retain the 12px leading text inset. Keep the native select element, keyboard behavior and focus ring. In forced-colors mode restore the browser arrow. Driver assessment controls wrap according to available width rather than squeezing long values into narrow columns.
 
@@ -282,9 +286,9 @@ Desktop default: 232px sidebar; main content with 32px outer padding; generous a
 
 A single writing page should generally cap its main reading surface around 880px. A true reference/editor workspace or report can use approximately 1120px. These are layout defaults to test with real content, not forced widths. Do not center every component independently.
 
-Standard reading order: **page title → page description → existing decision aim/life-direction references → task content → existing page actions**. The shell may retain compact progress and truthful save state. Use the shared 14px/22px regular description role. Render exactly one page introduction at the start of the content area, before personal context, source references or the main workspace. Orientation explains what the section is for; the user’s aim and life direction then anchor that task. Do not hide the page description inside a later card or repeat it below context. Preserve page-specific context: Decision is still collecting the aim; What Matters shows the existing aim reference while asking for life direction. Do not add redundant references merely to make every page identical.
+Standard reading order: **page title → page description → existing decision aim/life-direction references → task content → existing page actions**. The shell may retain compact progress and truthful save state. Use the shared 14px/22px regular description role. Render exactly one page introduction at the start of the content area, before personal context, source references or the main workspace. Orientation explains what the section is for; the user’s aim and life direction then anchor that task. Do not hide the page description inside a later card or repeat it below context. Preserve page-specific context: Decision is still collecting the aim; Things Dear to You shows the existing aim reference while asking for life direction. Do not add redundant references merely to make every page identical.
 
-**Shared decision context:** after the description, show one neutral `direction-reference decision-context` box. **You’re considering** spans the first row; **Aim for this decision** and **Direction in life** share the second row on desktop. Stack all three at 760px and below. Keep the existing 16px panel inset, 14px/600 labels, 16px/400 answers and padded Edit actions. Each action returns to its existing source section. Place the box outside the charcoal task frame; remove duplicate action/aim/direction reminders from the workspace. Decision collects the action and aim and has no repeated reference box. What Matters shows the existing action and aim while collecting life direction. The standalone decision heading in the Overview report remains part of the report. Preserve all other questions, guides, controls, report content and saved-data semantics.
+**Shared decision context:** after the description, show one neutral `direction-reference decision-context` box. **You’re considering** spans the first row; **Aim for this decision** and **Direction in life** share the second row on desktop. Stack all three at 760px and below. Keep the existing 16px panel inset, 14px/600 labels, 16px/400 answers and padded Edit actions. Each action returns to its existing source section. Place the box outside the charcoal task frame; remove duplicate action/aim/direction reminders from the workspace. Decision collects the action and aim and has no repeated reference box. Things Dear to You shows the existing action and aim while collecting life direction. The standalone decision heading in the Overview report remains part of the report. Preserve all other questions, guides, controls, report content and saved-data semantics.
 
 Use one page scrollbar by default. A long desktop sidebar may have its own navigation scroll region. Avoid nested scrolling inside ordinary writing cards. Do not pin action bars where they cover writing or keyboard focus.
 
@@ -320,6 +324,9 @@ Avoid decorative heavy underlines, heavy borders on all containers, large drop s
 
 ## 8. Icons and shape language
 
+The approved `domino-tile` and `reverse-card` custom symbols extend the existing outline family. Keep the two-tile leaning geometry and opposing arrows on a card; use currentColor and the existing sidebar sizing/state rules. The exact section/icon mapping is maintained in the [naming record](SECTION_NAMES_2026-10-19.md).
+
+
 Use one consistent Lucide outline icon family or an explicitly adopted equivalent throughout the app. Production integration must bundle or supply the chosen library consistently rather than depending on a mock renderer.
 
 Default icon box: 16px for navigation, inline controls and compact labels; 20px for section-title accents; 24px only for occasional empty states. Normal outline stroke: approximately 1.75–2.0 in the chosen icon system. Do not mix emoji, filled icons and unrelated outline families as interchangeable navigation symbols.
@@ -342,7 +349,7 @@ The guide’s main action reads **Begin my decision** before work is recorded an
 
 Retain the current page order and approved names:
 
-**Decision → What Matters → Trade-Offs → Incentives → Compounding → Further Consequences → The Devil’s Advocate → Stress Test → Reversibility → Decision Drivers → Judgment Check → Decision Overview.**
+**Question on the Table → Things Dear to You → Cost of Yes → Carrot on the Stick → What Compounds → The Domino Effect → The Devil’s Advocate → Wiggle Room → Undoability → Decision Drivers → Tricks of the Mind → Decision Overview.**
 
 Each row has three stable columns: **16px icon, flexible label, 14px status slot**. Use an 8px gap. Reserve the status slot even when no completion icon is present. Navigation rows are at least 44px tall; long labels may wrap, increasing row height. All status badges stay aligned to the same right column.
 
@@ -390,13 +397,13 @@ Hover changes fill/border without movement. Pressed state may darken slightly. D
 
 ## 11. Writing fields and conditional answers
 
-The Decision opening uses **What decision are you trying to make?** with the fixed external starter **I’m deciding whether to…** immediately before its action-only textarea. Use the existing 16px/26px regular writing role; associate it through `aria-describedby`. Never prefill or prepend the starter to saved writing. Existing sentences remain verbatim. Keep the question → helper → example → starter → answer order and one structural frame. [Full contract](DECISION_LANGUAGE.md).
+The Question on the Table opening uses **What decision are you trying to make?** with the fixed external starter **I’m deciding whether to…** immediately before its action-only textarea. Use the existing 16px/26px regular writing role; associate it through `aria-describedby`. Never prefill or prepend the starter to saved writing. Existing sentences remain verbatim. Keep the question → helper → example → starter → answer order and one structural frame. [Full contract](DECISION_LANGUAGE.md).
 
-A writing group follows one order: **persistent question → relevant guidance/definitions and personal context → example → answer field → existing answer-state controls/status**. Examples are local to the question they support, not collected at the bottom of the page. An input label can remain immediately beside its field when a larger question introduces the group. In Reversibility, the direct writing label comes before its helper/example. Preserve conditional visibility and existing disclosure states; a collapsed example stays in the same position before writing. Do not move essential definitions into an optional example.
+A writing group follows one order: **persistent question → relevant guidance/definitions and personal context → example → answer field → existing answer-state controls/status**. Examples are local to the question they support, not collected at the bottom of the page. An input label can remain immediately beside its field when a larger question introduces the group. In Undoability, the direct writing label comes before its helper/example. Preserve conditional visibility and existing disclosure states; a collapsed example stays in the same position before writing. Do not move essential definitions into an optional example.
 
 Use 16px input text, a 44px minimum single-line height and about 120px initial height for a main narrative field. Short supporting textareas can start near 88px. Allow vertical resizing or accessible auto-growth. Long writing must not be clipped, replaced by ellipses or forced into a tiny fixed-height editor.
 
-Placeholders give a short starting cue; they do not replace a label or contain the only instruction. Full example answers stay visibly outside and before the related field (or in the existing local disclosure), so typing does not erase the example. Keep short writing cues in the empty field. Samples are never saved as the user’s response. Decision and Trade-Offs now display their existing sample text above the field rather than keeping the full sample only in the placeholder.
+Placeholders give a short starting cue; they do not replace a label or contain the only instruction. Full example answers stay visibly outside and before the related field (or in the existing local disclosure), so typing does not erase the example. Keep short writing cues in the empty field. Samples are never saved as the user’s response. Decision and Cost of Yes now display their existing sample text above the field rather than keeping the full sample only in the placeholder.
 
 Field states: default, hover, focus, filled, unknown/inactive, invalid and read-only. Filled fields keep the same neutral styling; they do not turn green. A focus ring does not change the answer state. Invalid fields use error text and an error border with an associated message; do not use pink as an error signal.
 
@@ -448,7 +455,7 @@ Hard boundaries remain distinct from ordinary drivers and scores. Use explicit l
 
 Use visible headers, left-aligned prose, top-aligned cells and thin row separators. Avoid alternating bright fills and oversized gridlines. Keep controls inside cells large enough to operate. On narrow screens, reflow to labelled rows/cards when relationships remain clear; preserve a horizontal table region only when two-dimensional comparison is essential, and label its scroll area. Do not make the whole page scroll horizontally.
 
-### Further Consequences
+### The Domino Effect
 
 Frame immediate change and both consequence trails as one coherent workspace. Use thin neutral connectors and indentation; connectors indicate sequence, not certainty. Start both trails from the same immediate change. Use neutral styling for all later nodes: a trail’s first possibility does not make every later consequence good or bad.
 
@@ -473,7 +480,7 @@ Their visual checked state is pink/neutral control selection, not a green sectio
 
 Keep **Why this matters** and the expectation-basis question distinct in presentation and meaning. Preserve the entire expectation/dependency guidance and existing Overview/export content. The abbreviated component mock does not authorize shortening the production page.
 
-## 16. Reversibility and review connections
+## 16. Undoability and review connections
 
 Retain the current two opening responses, **Reversible / Irreversible**, with visible definitions and no new default selection. Selected state is pink. Do not assign green to reversible or red to irreversible; they are provisional user judgments, not safe/unsafe classifications.
 
@@ -483,7 +490,7 @@ First pass uses ordinary neutral task styling without change warnings. After a l
 
 **Use this approach** leads to the existing editable confirmation. **Update my decision** adopts; **Keep considering it** cancels. Preserve earlier wording and snapshots and the existing affected-review reopening rules. These functional interactions are not new proposals in this playbook.
 
-Do not add “Return to [page]” shortcuts or mandatory Reversibility acknowledgements. Use the established sidebar and approved contextual actions. Supporting notes are labelled as notes, not silently counted as tasks.
+Do not add “Return to [page]” shortcuts or mandatory Undoability acknowledgements. Use the established sidebar and approved contextual actions. Supporting notes are labelled as notes, not silently counted as tasks.
 
 ## 17. Overview and export
 
@@ -587,17 +594,17 @@ This map assigns visual structure to all current pages. It does not replace the 
 
 | Page | Signature frame contains | Supporting treatment and accents |
 | --- | --- | --- |
-| Decision | Main choice/context writing and current existing timing groups | Neutral context; pink answer selection; local neutral history/review invitation |
-| What Matters | Life-direction reflection, priorities and boundaries as a coherent workspace | Neutral priority tiles; selected pink; boundaries explicitly labelled |
-| Trade-Offs | Sacrifice/alternative exploration task | Neutral guides; honey examples; no automatic ranking color |
-| Incentives | Rewards/relief reflection and alignment task | Neutral guide table/disclosure; honey example; pink existing responses |
-| Compounding | Three written reflections; shared decision context sits above the frame | Neutral life-area guide; honey example; no gain/loss green/red scheme |
-| Further Consequences | Immediate change plus both consequence trails | Thin neutral connectors; locally labelled continuation/end states |
+| Question on the Table | Main choice/context writing and current existing timing groups | Neutral context; pink answer selection; local neutral history/review invitation |
+| Things Dear to You | Life-direction reflection, priorities and boundaries as a coherent workspace | Neutral priority tiles; selected pink; boundaries explicitly labelled |
+| Cost of Yes | Sacrifice/alternative exploration task | Neutral guides; honey examples; no automatic ranking color |
+| Carrot on the Stick | Rewards/relief reflection and alignment task | Neutral guide table/disclosure; honey example; pink existing responses |
+| What Compounds | Three written reflections; shared decision context sits above the frame | Neutral life-area guide; honey example; no gain/loss green/red scheme |
+| The Domino Effect | Immediate change plus both consequence trails | Thin neutral connectors; locally labelled continuation/end states |
 | The Devil’s Advocate | Failure/outcome writing and its choice connection | Neutral example and guidance hierarchy; selected pink; no danger-themed full page |
-| Stress Test | Assessment and accompanying capacity/setback writing | Neutral scenarios; honey coaching; existing explicit tolerance/status labels |
-| Reversibility | Active reversible route or irreversible stages | Pink trail/stage selection; neutral source reuse; guidance before writing |
+| Wiggle Room | Assessment and accompanying capacity/setback writing | Neutral scenarios; honey coaching; existing explicit tolerance/status labels |
+| Undoability | Active reversible route or irreversible stages | Pink trail/stage selection; neutral source reuse; guidance before writing |
 | Decision Drivers | Entire right editing workspace | Left reflection library greyish ivory; selected sources/current destination pink |
-| Judgment Check | Relevant choice groups and conditional writing | Neutral questions; honey examples; pink response state; no bias diagnosis styling |
+| Tricks of the Mind | Relevant choice groups and conditional writing | Neutral questions; honey examples; pink response state; no bias diagnosis styling |
 | Decision Overview | Full report body | Blue open-information panel; neutral driver groups, warnings and history; compact dark export actions |
 
 On Drivers, the expectation-basis group may sit below the two-column area using the existing layout. It must not receive a second heavy frame just to match the editor. The whole page should still read as one coherent task.
@@ -867,3 +874,4 @@ These are inspected file versions, not claims about later repository state. Prod
 - W3C, [Reflow, SC 1.4.10](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
 
 References checked on 17 October 2026. The Understanding pages explain the criteria; the normative WCAG recommendation determines conformance. This playbook’s 44px preferred touch targets and typography/spacing defaults are Clarity design choices, not claims that WCAG prescribes those exact values.
+

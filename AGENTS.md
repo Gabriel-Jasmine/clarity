@@ -1,5 +1,7 @@
 # Working on Clarity
 
+Current section labels/icons are defined in [Approved section titles and icons](docs/SECTION_NAMES_2026-10-19.md). Use their exact title case and singular **Question on the Table**. Preserve internal section/source/group keys and historical quotations; use the display aliases rather than migrating saved state for a label change.
+
 Before UI work, read [the UI/UX Playbook](docs/CLARITY_UI_UX_PLAYBOOK.md) and the relevant current product/language decisions. The playbook is the canonical design standard; the private product-notes repository records rationale and history.
 
 Before any question, copy, example, synthesis or AI work, read [Decision language and framing](docs/DECISION_LANGUAGE.md). “Decision” names the overall matter; “this / doing this / if you do this” refers to the concrete action under consideration. The opening is “What decision are you trying to make?” with the external starter “I’m deciding whether to…”. Preserve one-action scope, action-only storage, raw existing writing and historical prompt/source wording. Do not reintroduce “make this choice”, infer commitment or claim alternative comparison.
@@ -14,3 +16,4 @@ Before any question, copy, example, synthesis or AI work, read [Decision languag
 - Verify layout and keyboard behavior in a real browser when possible. DOM/storage tests do not establish visual quality, accessibility conformance or user comprehension. State checks that remain outstanding.
 - Keep locally bundled font/icon licenses with their assets. Production should not require a remote icon script.
 - Do not publish or push changes without authorization in the task. Continue within authorization already given; routine reversible implementation choices do not require repeated approval.
+

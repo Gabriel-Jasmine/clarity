@@ -37,7 +37,7 @@ for(const key of keys){
  assert(r('judgmentAdditionalContextText("'+key+'")').includes('writing (inactive; follow-up hidden)'));assert(r('judgmentAdditionalContextText("'+key+'")').includes(value));
  const reload=b.reload();reload.run('step=8;render()');assert.equal(reload.run('data.judgment.'+key+'.response'),'none');assert.equal(reload.run('data.judgment.'+key+'.detail'),value);assert(reload.doc.querySelector('#judgment-'+key+'-followup').hidden);
  reload.run('data.judgment.'+key+'.response="yes";render()');assert(!reload.doc.querySelector('#judgment-'+key+'-followup').hidden);assert(reload.doc.querySelector('#screen').innerHTML.includes(value));
- choose(key,'unsure');assert(b.doc.querySelector('#judgment-'+key+'-followup').hidden);assert(r('judgmentContextComplete("'+key+'")'));assert.equal(r('judgmentInvestigations().length'),1);assert.equal(r('analyse().readiness'),'Still investigating');assert(r('decisionOverview()').includes('Review Judgment Check uncertainty'));
+ choose(key,'unsure');assert(b.doc.querySelector('#judgment-'+key+'-followup').hidden);assert(r('judgmentContextComplete("'+key+'")'));assert.equal(r('judgmentInvestigations().length'),1);assert.equal(r('analyse().readiness'),'Still investigating');assert(r('decisionOverview()').includes('Review Tricks of the Mind uncertainty'));
  choose(key,'yes');assert(!b.doc.querySelector('#judgment-'+key+'-followup').hidden);assert.equal(r('data.judgment.'+key+'.detail'),value);
  write(key,'');assert(!r('judgmentContextComplete("'+key+'")'));choose(key,'none');assert(r('judgmentContextComplete("'+key+'")'));
  write(key,'<script>bad</script>');choose(key,'yes');r('render()');assert(!page().includes('<script>bad'));assert(!r('judgmentAdditionalOverview("'+key+'")').includes('<script>bad'));assert(r('judgmentAdditionalContextText("'+key+'")').includes('<script>bad'));choose(key,'none');
@@ -71,3 +71,4 @@ for(const key of keys){
 for(let i=0;i<12;i++){r('step='+i+';render()');assert(page().length>0);}
 r('step=8;render()');b.doc.querySelector('#next').onclick();assert.equal(r('step'),11);b.doc.querySelector('#reset').onclick();for(const key of keys){assert.equal(r('data.judgment.'+key+'.response'),'');assert.equal(r('data.judgment.'+key+'.detail'),'');}
 console.log('Passed: G04/G05 universal blank choices, Yes-only follow-ups, input continuity, retention/restoration/reload, independent state, scoped one-time migration, legacy No/Maybe/Yes history without inference/signals, unknown and completeness rules, Overview/export, escaping, navigation/reset. Live-browser checks remain pending.');
+

@@ -69,7 +69,7 @@ function setReverseCheck(id,value){
 function reverseInvestigations(){
  const r=reverseData();if(r.trail!=='irreversible')return [];
  const out=[];if(r.adjustmentResponse==='unknown')out.push('Explore whether you could approach this decision differently to limit lasting consequences.');
- const rows=reverseSourceRows();rows.forEach(s=>{const c=reverseCheckCurrent(s);if(c?.value==='check')out.push('Reversibility — '+s.section+': '+s.prompt+'\n'+s.text);else if(r.checks[s.id]&&!c)out.push('Revisit your Reversibility check: the earlier '+s.section+' answer or what you’re considering has changed.');});
+ const rows=reverseSourceRows();rows.forEach(s=>{const c=reverseCheckCurrent(s);if(c?.value==='check')out.push('Undoability — '+sectionDisplayName(s.section)+': '+s.prompt+'\n'+s.text);else if(r.checks[s.id]&&!c)out.push('Revisit your Undoability check: the earlier '+sectionDisplayName(s.section)+' answer or what you’re considering has changed.');});
  return out;
 }
 function reverseRetainedText(o=choiceOption()){
@@ -91,7 +91,7 @@ function reverseCurrentText(o=choiceOption()){
  if(r.trail==='irreversible'){
   out.push('What stays changed:\n'+(r.lasting||'[Not answered]'),'Room to adjust: '+(reverseAdjustmentChoices.find(([v])=>v===r.adjustmentResponse)?.[1]||'[Not answered]'));
   if(r.adjustmentResponse==='yes')out.push(reverseAdjustmentAdopted(o)?'Adjustment used in the current approach:':'Possible adjustment — not adopted:',r.adjustment||'[Not answered]');
-  if(o.id===choiceOption().id)out.push('Earlier reflections to consider:\n'+(reverseSourceRows().map(s=>s.section+'\n'+s.text+'\nPrompt: '+s.prompt+'\n'+(reverseCheckCurrent(s)?reverseCheckChoices.find(([v])=>v===reverseCheckCurrent(s).value)[1]:r.checks[s.id]?'Earlier answer or decision changed; check needs review':'Not yet reviewed')).join('\n\n')||'[No earlier reflections available]'));
+  if(o.id===choiceOption().id)out.push('Earlier reflections to consider:\n'+(reverseSourceRows().map(s=>sectionDisplayName(s.section)+'\n'+s.text+'\nPrompt: '+s.prompt+'\n'+(reverseCheckCurrent(s)?reverseCheckChoices.find(([v])=>v===reverseCheckCurrent(s).value)[1]:r.checks[s.id]?'Earlier answer or decision changed; check needs review':'Not yet reviewed')).join('\n\n')||'[No earlier reflections available]'));
   out.push('Checks writing (optional):\n'+(r.checksNote||'[Not provided]'));
  }
  return out.join('\n\n');
@@ -104,10 +104,10 @@ function reverseOverview(){
   out.push('<h4>What you could not undo</h4><p class="reverse-raw">'+esc(r.lasting||'Not answered yet.')+'</p><h4>Room to adjust</h4><p>'+esc(reverseAdjustmentChoices.find(([id])=>id===r.adjustmentResponse)?.[1]||'Not answered yet.')+'</p>');
   if(r.adjustmentResponse==='yes')out.push('<small>'+(reverseAdjustmentAdopted()?'Used in your current approach':'A possibility you are considering')+'</small><p class="reverse-raw">'+esc(r.adjustment)+'</p>');
   const checks=reverseSourceRows().filter(row=>reverseCheckCurrent(row));
-  if(checks.length)out.push('<details><summary>Your source checks</summary>'+checks.map(row=>'<h4>'+esc(row.section)+'</h4><p class="reverse-raw">'+esc(row.text)+'</p><small>'+esc(reverseCheckChoices.find(([id])=>id===reverseCheckCurrent(row).value)?.[1])+'</small>').join('')+'</details>');
+  if(checks.length)out.push('<details><summary>Your source checks</summary>'+checks.map(row=>'<h4>'+esc(sectionDisplayName(row.section))+'</h4><p class="reverse-raw">'+esc(row.text)+'</p><small>'+esc(reverseCheckChoices.find(([id])=>id===reverseCheckCurrent(row).value)?.[1])+'</small>').join('')+'</details>');
  }
  const context=reverseSourceRows().filter(row=>(r.trail==='reversible'?['route']:r.trail==='irreversible'?['lasting',...(r.adjustmentResponse==='yes'?['adjustment']:[]),'checks']:[]).some(key=>r.dependencies[key]?.[row.id]));
- if(context.length)out.push('<details><summary>Supporting context</summary>'+context.map(row=>'<h4>'+esc(row.section)+'</h4><p class="reverse-raw">'+esc(row.text)+'</p>').join('')+'</details>');
+ if(context.length)out.push('<details><summary>Supporting context</summary>'+context.map(row=>'<h4>'+esc(sectionDisplayName(row.section))+'</h4><p class="reverse-raw">'+esc(row.text)+'</p>').join('')+'</details>');
  return out.join('');
 }
 function reverseReflectionRows(o=choiceOption(),includeInactive=false){
@@ -120,7 +120,7 @@ function reverseExample(text){return '<details class="reverse-guide"><summary>Se
 function reverseWriting(key,question,help,placeholder,example){return '<div class="reverse-writing"><label class="reverse-writing-label" for="reverse-writing-'+key+'">'+esc(question)+'</label>'+(help?'<p class="field-note" id="reverse-help-'+key+'">'+esc(help)+'</p>':'')+(example?reverseExample(example):'')+'<textarea id="reverse-writing-'+key+'" data-reversetext="'+key+'" '+(help?'aria-describedby="reverse-help-'+key+'"':'')+' placeholder="'+esc(placeholder)+'">'+esc(reverseData()[key])+'</textarea></div>';}
 function reverseSourcePanel(assess=false,dependencyField=''){
  const rows=reverseSourceRows();if(!rows.length)return '<p class="field-note">Earlier relevant writing will appear here when available. You can still describe your own concerns.</p>';
- const cards=rows.map(s=>{const check=reverseCheckCurrent(s),stale=reverseData().checks[s.id]&&!check;return '<div class="reverse-source"><div class="section-heading"><strong>'+esc(s.section)+'</strong><button class="edit-link" data-edit="'+s.step+'">Revisit</button></div><blockquote>'+esc(s.text)+'</blockquote><p>'+esc(s.prompt)+'</p>'+(dependencyField?'<label class="reverse-dependency"><input type="checkbox" data-reversedependency="'+esc(s.id)+'" data-dependencyfield="'+esc(dependencyField)+'" '+(reverseData().dependencies[dependencyField]?.[s.id]?'checked':'')+'><span>My explanation relies on this answer</span></label>':'')+(assess?'<fieldset class="reverse-check"><legend class="field-note">Does this raise anything you still need to establish? <small>(optional)</small></legend>'+reverseCheckChoices.map(([v,l])=>'<label><input type="radio" name="reverse-check-'+esc(s.id)+'" data-reversecheck="'+esc(s.id)+'" value="'+v+'" '+(check?.value===v?'checked':'')+'><span>'+l+'</span></label>').join('')+'</fieldset>'+(stale?'<p class="field-note">The earlier answer or what you’re considering has changed. Your earlier check is retained; consider it again.</p>':''):'')+'</div>';});
+ const cards=rows.map(s=>{const check=reverseCheckCurrent(s),stale=reverseData().checks[s.id]&&!check;return '<div class="reverse-source"><div class="section-heading"><strong>'+esc(sectionDisplayName(s.section))+'</strong><button class="edit-link" data-edit="'+s.step+'">Revisit</button></div><blockquote>'+esc(s.text)+'</blockquote><p>'+esc(s.prompt)+'</p>'+(dependencyField?'<label class="reverse-dependency"><input type="checkbox" data-reversedependency="'+esc(s.id)+'" data-dependencyfield="'+esc(dependencyField)+'" '+(reverseData().dependencies[dependencyField]?.[s.id]?'checked':'')+'><span>My explanation relies on this answer</span></label>':'')+(assess?'<fieldset class="reverse-check"><legend class="field-note">Does this raise anything you still need to establish? <small>(optional)</small></legend>'+reverseCheckChoices.map(([v,l])=>'<label><input type="radio" name="reverse-check-'+esc(s.id)+'" data-reversecheck="'+esc(s.id)+'" value="'+v+'" '+(check?.value===v?'checked':'')+'><span>'+l+'</span></label>').join('')+'</fieldset>'+(stale?'<p class="field-note">The earlier answer or what you’re considering has changed. Your earlier check is retained; consider it again.</p>':''):'')+'</div>';});
  return '<p class="field-note">These earlier reflections may be relevant. They are your recorded answers, not verified facts.</p>'+cards.slice(0,3).join('')+(cards.length>3?'<details class="reverse-guide"><summary>More earlier reflections ('+(cards.length-3)+')</summary>'+cards.slice(3).join('')+'</details>':'');
 }
 function reversibilityScreen(){
@@ -210,9 +210,9 @@ function driverAssessmentChanges(f){
 }
 function driverAssessmentReviewCue(f,editable=false){
  const changes=driverAssessmentChanges(f);if(!changes.length)return '';
- const action=changes.some(change=>change.kind==='action'),sections=[...new Set(changes.filter(c=>c.kind!=='action').map(c=>c.section))];
+ const action=changes.some(change=>change.kind==='action'),sections=[...new Set(changes.filter(c=>c.kind!=='action').map(c=>sectionDisplayName(c.section)))];
  const description=action?'You assessed this driver for your previous approach.':'You changed '+(sections.length===1?'an answer in '+sections[0]:'earlier answers in '+sections.join(', '))+' after assessing this driver.';
- return '<section class="driver-review-cue"><h3>Does your assessment still fit?</h3><p class="field-note">'+esc(description)+'</p><details><summary>See what changed</summary>'+changes.map(c=>'<h4>'+esc(c.section)+'</h4><small>When you assessed this driver</small><blockquote>'+esc(c.before??'Not linked then.')+'</blockquote><small>Now</small><blockquote>'+esc(c.current??'No longer active or linked.')+'</blockquote>').join('')+'</details>'+(editable?'<div class="review-actions"><button data-keepassessment="'+esc(f.id)+'">Keep my assessment</button><button class="secondary" data-changeassessment="'+esc(f.id)+'">Change my assessment</button></div>':'<button class="edit-link" data-edit="10">Reconsider this assessment</button>')+'</section>';
+ return '<section class="driver-review-cue"><h3>Does your assessment still fit?</h3><p class="field-note">'+esc(description)+'</p><details><summary>See what changed</summary>'+changes.map(c=>'<h4>'+esc(sectionDisplayName(c.section))+'</h4><small>When you assessed this driver</small><blockquote>'+esc(c.before??'Not linked then.')+'</blockquote><small>Now</small><blockquote>'+esc(c.current??'No longer active or linked.')+'</blockquote>').join('')+'</details>'+(editable?'<div class="review-actions"><button data-keepassessment="'+esc(f.id)+'">Keep my assessment</button><button class="secondary" data-changeassessment="'+esc(f.id)+'">Change my assessment</button></div>':'<button class="edit-link" data-edit="10">Reconsider this assessment</button>')+'</section>';
 }
 function acknowledgeDriverAssessment(id,method='keep'){
  const f=activeDrivers().find(row=>row.id===id);if(!f||!driverAssessmentComplete(f))return false;
@@ -265,8 +265,8 @@ function reverseAdoptionPanel(){
  if(!reverseAdoptionOpen)return '';
  return '<section class="approach-confirm"><h3>Make this your current approach?</h3><small>Current approach</small><blockquote>'+esc(choiceOption().name)+'</blockquote><p class="field-note" id="approach-wording-help">Check the wording before updating your decision.</p><label class="field"><span>New approach</span><textarea data-approachdraft aria-describedby="approach-wording-help">'+esc(reverseAdoptionDraft)+'</textarea></label><p class="field-note">Your earlier answers and assessments will be kept. You can revisit them to consider whether they still fit this approach.</p><div class="review-actions"><button data-confirmapproach>Update my decision</button><button class="secondary" data-cancelapproach>Keep considering it</button></div><p id="approach-error" role="alert" hidden>Write a different approach to update your decision.</p></section>';
 }
-function reverseChecksNotesOverview(){const r=reverseData();return r.trail==='irreversible'&&r.checksNote.trim()?'<div class="reverse-checks-notes"><h4>Your Reversibility notes</h4><p class="reverse-raw">'+esc(r.checksNote)+'</p><small>Shown as you wrote it; not counted as a separate checklist item.</small></div>':'';}
-function reverseChecksOverviewLink(){const r=reverseData();return r.trail==='irreversible'?'<button class="edit-link" data-reviewreversechecks>Review Reversibility checks</button>':'';}
+function reverseChecksNotesOverview(){const r=reverseData();return r.trail==='irreversible'&&r.checksNote.trim()?'<div class="reverse-checks-notes"><h4>Your Undoability notes</h4><p class="reverse-raw">'+esc(r.checksNote)+'</p><small>Shown as you wrote it; not counted as a separate checklist item.</small></div>':'';}
+function reverseChecksOverviewLink(){const r=reverseData();return r.trail==='irreversible'?'<button class="edit-link" data-reviewreversechecks>Review Undoability checks</button>':'';}
 function bindReviewConnections(){
  document.querySelectorAll('[data-reversedependency]').forEach(e=>e.onchange=()=>{setReverseDependency(e.dataset.dependencyfield,e.dataset.reversedependency,e.checked);save();});
  document.querySelectorAll('[data-keepassessment]').forEach(e=>e.onclick=()=>{acknowledgeDriverAssessment(e.dataset.keepassessment,'keep');render();});
@@ -282,3 +282,4 @@ function approachContextText(){
  const history=data.approachHistory;if(!history.length)return '';
  return '\n## Approach revisions\nEarlier answers below are retained snapshots for previous approaches, not current evidence.\n'+history.map(entry=>'Revision ID: '+entry.id+'\nPrevious approach:\n'+entry.from+'\nUpdated approach:\n'+entry.to+'\nChosen through: '+entry.source+'\nEarlier answers are preserved in the structured action record.').join('\n\n')+(approachReviewPending().length?'\nEarlier sections not yet reconsidered for the current approach: '+approachReviewPending().map(i=>steps[i]).join(', '):'');
 }
+

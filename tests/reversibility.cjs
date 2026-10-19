@@ -58,7 +58,7 @@ assert.equal(p.records.find(x=>x.questionId==='Q72'&&x.pathId===r('choiceOption(
 assert.equal(p.records.find(x=>x.questionId==='Q75'&&x.pathId===r('choiceOption().id')).scope,'inactive');
 assert(p.records.some(x=>x.questionId==='Q76'&&x.sourceRecordId==='Q09:rules:savings'&&x.sourceFreshness==='current'));
 assert(p.records.filter(x=>x.questionId==='Q41').every(x=>x.scope==='historical'&&!x.required));
-assert(p.records.filter(x=>/^Q7[0-7]$/.test(x.questionId)).every(x=>x.section==='Reversibility'));
+assert(p.records.filter(x=>/^Q7[0-7]$/.test(x.questionId)).every(x=>x.section==='Undoability'));
 assert.equal(new Set(p.records.map(x=>x.recordId)).size,p.records.length);
 assert(p.records.filter(x=>x.sourceRecordId).every(x=>p.records.some(record=>record.recordId===x.sourceRecordId)));
 assert(r('decisionContextText()').includes(raw));assert(r('decisionOverview()').includes('Confirm the transition budget'));
@@ -77,3 +77,4 @@ r('step=9;reverseStage=0;reverseData().trail="irreversible";render()');b.doc.que
 b.doc.querySelector('#next').onclick();assert.equal(r('reverseStage'),2);b.doc.querySelector('#next').onclick();assert.equal(r('step'),10);
 assert(!r('assessmentComplete()'));
 console.log('Reversibility: migration, both trails, restoration, live-source checks, Drivers, export and navigation pass.');
+

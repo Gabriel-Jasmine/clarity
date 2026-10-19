@@ -126,7 +126,7 @@ assert(p.records.filter(x=>x.pathId===r('data.options[1].id')).every(x=>x.scope=
 assert(p.records.some(x=>x.questionId==='Q69'&&x.value.before===raw));
 assert(p.records.some(x=>x.questionId==='Q68'&&x.value===true));
 assert(p.records.some(x=>x.questionId==='Q50'&&x.value.sourceHistory.some(s=>s.text===raw)));
-assert.deepEqual(p.navigationOrder,[0,1,2,3,4,5,6,7,9,10,8,11]);assert.equal(p.sectionIds['8'],'Judgment Check');
+assert.deepEqual(p.navigationOrder,[0,1,2,3,4,5,6,7,9,10,8,11]);assert.equal(p.sectionIds['8'],'Tricks of the Mind');
 r('step=11;render()');const overview=page().split('<section class="ai-export">')[0];
 assert(overview.includes('Earlier unlinked reflections')||overview.includes('Earlier review material'));
 assert(overview.includes('the reflection has since changed'));assert(!overview.includes('<tag>'));
@@ -177,3 +177,4 @@ assert.equal(r('data.factors[1].sources[0].text'),'Retained gain');assert(r('dat
 r('step=10;save();data.reviewed.push(10);save();render()');
 const group=b.doc.querySelectorAll('[data-sourcegroup]')[0];assert(group);group.open=true;group.ontoggle();assert(r('data.reviewed.includes(10)'));assert(r('data.driverReview.openGroups.length')>0);
 console.log('Passed: whole-flow scope, stable navigation/migration, independent stakes, direction and retained strength, source-switch undo/reload/re-edit/move, relevance undo/restoration/shared groups, boundary compatibility/history, warning priorities, raw version-2 capture and empty-branch finish/reopen. Simulated DOM/storage and actual branch closures; browser layout/accessibility remain pending.');
+
