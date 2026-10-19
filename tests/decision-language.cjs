@@ -5,7 +5,7 @@ let page=()=>b.doc.querySelector('#screen').innerHTML;
 const plain=code=>JSON.parse(r('JSON.stringify('+code+')'));
 assert(page().includes('What decision are you trying to make?'));
 assert(page().includes('id="decision-answer-starter">I’m deciding whether to…</span>'));
-assert(page().includes('aria-describedby="choice-help choice-example decision-answer-starter"'));
+assert(page().includes('aria-describedby="choice-help decision-answer-starter"'));
 assert.equal(r('choiceOption().name'),'');
 const input=b.doc.querySelectorAll('[data-choice]')[0];
 input.value='Accept a new job in another city';input.oninput();input.onchange();

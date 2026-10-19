@@ -1,10 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.6.0** · Adopted 19 October 2026 · Owner: Clarity product owner
+Version **1.7.0** · Adopted 19 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+
+## Consistent examples — 19 October 2026
+
+Version 1.7.0 adopts one **Example** disclosure throughout the ten sections containing worked examples. Every instance starts closed, including the first on a page. Use the shared honey component, right-aligned chevron, native whole-header toggle and consistent internal insets. Keep it after its question/guidance and before writing. Essential definitions remain visible. Preserve existing example wording; the proposed shared relocation story is separate. See [example rollout and verification](EXAMPLES_2026-10-19.md).
 
 ## Current section labels — 19 October 2026
 
@@ -399,11 +403,11 @@ Hover changes fill/border without movement. Pressed state may darken slightly. D
 
 The The Decision opening uses **What decision are you trying to make?** with the fixed external starter **I’m deciding whether to…** immediately before its action-only textarea. Use the existing 16px/26px regular writing role; associate it through `aria-describedby`. Never prefill or prepend the starter to saved writing. Existing sentences remain verbatim. Keep the question → helper → example → starter → answer order and one structural frame. [Full contract](DECISION_LANGUAGE.md).
 
-A writing group follows one order: **persistent question → relevant guidance/definitions and personal context → example → answer field → existing answer-state controls/status**. Examples are local to the question they support, not collected at the bottom of the page. An input label can remain immediately beside its field when a larger question introduces the group. In Reversibility, the direct writing label comes before its helper/example. Preserve conditional visibility and existing disclosure states; a collapsed example stays in the same position before writing. Do not move essential definitions into an optional example.
+A writing group follows one order: **persistent question → relevant guidance/definitions and personal context → example → answer field → existing answer-state controls/status**. Examples are local to the question they support, not collected at the bottom of the page. An input label can remain immediately beside its field when a larger question introduces the group. In Reversibility, the direct writing label comes before its helper/example. Preserve conditional visibility. All worked examples now use the shared Example disclosure, closed by default, in the same position before writing. Do not move essential definitions into an optional example.
 
 Use 16px input text, a 44px minimum single-line height and about 120px initial height for a main narrative field. Short supporting textareas can start near 88px. Allow vertical resizing or accessible auto-growth. Long writing must not be clipped, replaced by ellipses or forced into a tiny fixed-height editor.
 
-Placeholders give a short starting cue; they do not replace a label or contain the only instruction. Full example answers stay visibly outside and before the related field (or in the existing local disclosure), so typing does not erase the example. Keep short writing cues in the empty field. Samples are never saved as the user’s response. Decision and The Trade-Offs now display their existing sample text above the field rather than keeping the full sample only in the placeholder.
+Placeholders give a short starting cue; they do not replace a label or contain the only instruction. Full example answers stay outside and before the related field in the shared optional Example disclosure, so typing does not erase the example. Keep short writing cues in the empty field. Samples are never saved as the user’s response. Decision and The Trade-Offs now display their existing sample text above the field rather than keeping the full sample only in the placeholder.
 
 Field states: default, hover, focus, filled, unknown/inactive, invalid and read-only. Filled fields keep the same neutral styling; they do not turn green. A focus ring does not change the answer state. Invalid fields use error text and an error border with an associated message; do not use pink as an error signal.
 
@@ -434,10 +438,13 @@ Assessment values remain visually neutral choices. Use pink for whichever answer
 | Content type | Treatment | Information order |
 | --- | --- | --- |
 | Essential definition | Neutral helper text | Visible before the choice |
-| Short example or optional coaching | Small honey surface, labelled | After its question and guidance/context, before the related answer; existing disclosures stay local |
+| Worked example | Shared honey Example disclosure, closed by default | After its question and guidance/context, before the related answer |
+| Other optional coaching | Small labelled honey surface where appropriate | Local to the task; not automatically renamed Example |
 | Earlier user writing | Greyish ivory reference card | Explicit source, current/history status and exact text |
 | Long guide | Neutral disclosure/table | Clear summary; expands locally |
 | Open information need in Overview | Blue region | Clear heading, unanswered items and existing action |
+
+**Worked-example contract:** use the shared `exampleDisclosure` helper and `.example-disclosure` styles. The visible header is exactly **Example** in both states, with a right-aligned local chevron rotating when open. The entire header is a native, keyboard-operable summary with at least a 48px height and 12px vertical / 16px horizontal internal padding. Body text uses the existing 14px/22px regular role and 16px side/bottom insets. All examples, including the first on every page or conditional branch, start closed; multiple examples can be open independently. Do not assign an accordion `name` or persist disclosure state into decision data. Ordinary typing preserves the open DOM instance; page/branch rerenders start closed again. Optional examples are not essential field descriptions and are not wrapped inside answer labels. Keep essential helper/definition text visible and associated with its answer. Descriptive labels, if needed, belong inside the expanded body rather than changing the Example title. The component showcase alone may have an explicitly expanded specimen for design review.
 
 The reflections column remains neutral because it contains reference material to work with. Blue should identify an information need, not all content from another page. Honey is assistance, not a good/bad result or a universal warning background.
 

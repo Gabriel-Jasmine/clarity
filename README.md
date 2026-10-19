@@ -1,5 +1,9 @@
 # Clarity
 
+## Consistent examples — 19 October 2026
+
+Worked examples across all ten applicable sections now use one honey **Example** disclosure with a right-aligned chevron. Every example starts closed, including the first on each page. Examples stay between the relevant question/guidance and writing field; essential instructions remain visible. Existing sample wording, questions, answers, storage and exports are retained. The proposed single relocation story is separate. [Contract and actual verification](docs/EXAMPLES_2026-10-19.md); [Playbook 1.7.0](docs/CLARITY_UI_UX_PLAYBOOK.md).
+
 ## Current section titles and icons — 19 October 2026
 
 The owner-approved title-case section names and selected icons are implemented in build `20261019-section-names` and [Playbook 1.6.0](docs/CLARITY_UI_UX_PLAYBOOK.md). The current order is:

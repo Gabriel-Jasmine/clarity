@@ -116,7 +116,7 @@ function reverseReflectionRows(o=choiceOption(),includeInactive=false){
  if(includeInactive&&r.easier.trim())rows.push({id:o.id+'-reverse-legacy-easier',text:r.easier,section:'Earlier Reversibility',optionId:o.id});
  return rows;
 }
-function reverseExample(text){return '<details class="reverse-guide"><summary>See an example</summary><p>'+esc(text)+'</p></details>';}
+function reverseExample(text){return exampleDisclosure('<p>'+esc(text)+'</p>');}
 function reverseWriting(key,question,help,placeholder,example){return '<div class="reverse-writing"><label class="reverse-writing-label" for="reverse-writing-'+key+'">'+esc(question)+'</label>'+(help?'<p class="field-note" id="reverse-help-'+key+'">'+esc(help)+'</p>':'')+(example?reverseExample(example):'')+'<textarea id="reverse-writing-'+key+'" data-reversetext="'+key+'" '+(help?'aria-describedby="reverse-help-'+key+'"':'')+' placeholder="'+esc(placeholder)+'">'+esc(reverseData()[key])+'</textarea></div>';}
 function reverseSourcePanel(assess=false,dependencyField=''){
  const rows=reverseSourceRows();if(!rows.length)return '<p class="field-note">Earlier relevant writing will appear here when available. You can still describe your own concerns.</p>';

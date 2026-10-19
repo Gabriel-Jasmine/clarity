@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Clarity — Component Showcase</title>
 <link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../styles.css?v=20261018-decision-context">
+<link rel="stylesheet" href="../styles.css?v=20261019-examples">
 <link rel="stylesheet" href="../home.css?v=20261018-compact-homepage">
 <style>
 .showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
@@ -53,7 +53,7 @@
 </section>
 <section class="card">
 <h2 class="showcase-title"><svg class="cl-icon" aria-hidden="true"><use href="../assets/icons.svg?v=20261019-section-icons#message-circle-question"></use></svg>Writing and answer states</h2>
-<label class="field"><span class="type-question">What decision are you trying to make?</span><small>Focus on one action you’re considering. You’ll explore other ways forward as you work through it.</small><span class="writing-example"><span class="example-label">Example</span><span>I’m deciding whether to open a community pottery studio.</span></span><span class="decision-answer-starter">I’m deciding whether to…</span><textarea>Open a community pottery studio.</textarea></label>
+<div class="field"><label class="type-question" for="showcase-decision">What decision are you trying to make?</label><small id="showcase-decision-help">Focus on one action you’re considering. You’ll explore other ways forward as you work through it.</small><details class="example-disclosure"><summary><span>Example</span><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=20261019-section-icons#chevron-down"></use></svg></summary><div class="example-content"><p>I’m deciding whether to open a community pottery studio.</p></div></details><span class="decision-answer-starter" id="showcase-starter">I’m deciding whether to…</span><textarea id="showcase-decision" aria-describedby="showcase-decision-help showcase-starter">Open a community pottery studio.</textarea></div>
 <label class="field"><span class="type-question">What are you hoping to achieve?</span><textarea id="unknown-writing" placeholder="I’m hoping this would help me…"></textarea></label>
 <label class="reflection-control"><input type="checkbox" id="unknown-toggle" aria-controls="unknown-writing"><span>I don’t know yet</span></label>
 <label class="field"><span>Read-only source</span><input value="An earlier answer, kept as written." readonly></label>
@@ -76,7 +76,7 @@
 <section class="card">
 <h2>Guidance, examples and tables</h2>
 <p class="field-note">Essential definitions stay visible before the related choice.</p>
-<div class="judgment-example"><small>Example</small><p>Three quiet months would use most of the money set aside for the studio.</p></div>
+<p class="field-note">Closed by default in production; this expanded specimen shows the open state. Each header toggles independently, including with Enter or Space.</p><details class="example-disclosure" open><summary><span>Example</span><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=20261019-section-icons#chevron-down"></use></svg></summary><div class="example-content"><p>Three quiet months would use most of the money set aside for the studio.</p></div></details><details class="example-disclosure"><summary><span>Example</span><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=20261019-section-icons#chevron-down"></use></svg></summary><div class="example-content"><p><strong>Failure outcome</strong></p><p>The studio keeps me working every weekend, leaving little time for the relationships and creative work I hoped to protect. Longer examples wrap within the same inset on narrow screens.</p></div></details>
 <details class="compounding-life-guide"><summary>A few areas to consider</summary><table class="compounding-life-table"><thead><tr><th>Area</th><th>What could build over time?</th></tr></thead><tbody><tr><th>Skills</th><td>Regular teaching develops practical experience.</td></tr><tr><th>Money</th><td>Recurring commitments reduce room to adapt.</td></tr></tbody></table></details>
 </section>
 <section class="card showcase-wide">

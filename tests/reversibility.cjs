@@ -15,7 +15,7 @@ assert(!page().includes('data-reversetext'));
 choose('reversetrail','reversible');assert(!r('reverseComplete()'));
 assert.equal(b.doc.querySelectorAll('[data-reversedemand]').length,6);
 const html=page();assert(html.indexOf('Funds to exit')<html.indexOf('<textarea'));
-assert(html.indexOf('See an example')<html.indexOf('<textarea'));
+assert(html.indexOf('class="example-disclosure"')<html.indexOf('<textarea'));
 assert(html.includes('Could you learn enough before changing course becomes harder?'));
 assert(!html.includes('ct-factor-hint'));
 const money=input('reversedemand','money');money.checked=true;money.onchange();type('route',raw);
@@ -28,7 +28,7 @@ choose('reversetrail','irreversible');assert(!r('reverseComplete()'));assert(!r(
 assert(!plain('currentReflectionRows()').some(s=>s.id.endsWith('-reverse-route')));
 assert.equal(r('activeDrivers().length'),0);type('lasting','Lost setup spending and a previous role');
 input('reversestage','1').onclick();choose('reverseadjust','yes');type('adjustment','Build initial demand before leaving employment');
-assert(r('reverseComplete()'));assert(page().indexOf('See an example')<page().indexOf('<textarea'));
+assert(r('reverseComplete()'));assert(page().indexOf('class="example-disclosure"')<page().indexOf('<textarea'));
 choose('reverseadjust','unknown');assert(!page().includes('data-reversetext="adjustment"'));
 assert(page().includes('Yes, here’s how'));assert(r('reverseComplete()'));
 assert(plain('reverseInvestigations()').some(x=>x.includes('approach this decision differently')));
