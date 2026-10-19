@@ -8,7 +8,7 @@ Version **1.7.0** · Adopted 19 October 2026 · Owner: Clarity product owner
 
 ## Consistent examples — 19 October 2026
 
-Version 1.7.0 adopts one **Example** disclosure throughout the ten sections containing worked examples. Every instance starts closed, including the first on a page. Use the shared honey component, right-aligned chevron, native whole-header toggle and consistent internal insets. Keep it after its question/guidance and before writing. Essential definitions remain visible. Use the current [shared example narrative](SHARED_EXAMPLE.md) in existing sample slots. The 19 October story replacement changes copy only; adding examples and broader briefing redesign remain separate. See [example rollout and verification](EXAMPLES_2026-10-19.md).
+Version 1.7.0 adopts one **Example** disclosure throughout the eleven sections now containing worked examples. Every instance starts closed, including the first on a page. Use the shared honey component, right-aligned chevron, native whole-header toggle and consistent internal insets. Keep it after its question/guidance and before writing. Essential definitions remain visible. Use the current [shared example narrative](SHARED_EXAMPLE.md) in existing sample slots. The 19 October story replacement changes copy only; The owner subsequently approved exactly two additional disclosures in Things Dear to You: life direction and one shared conditional boundary example. See [their exact scope](SHARED_EXAMPLE.md#things-dear-to-you--approved-additions). Further additions and broader briefing redesign remain separate. See [example rollout and verification](EXAMPLES_2026-10-19.md).
 
 ## Current section labels — 19 October 2026
 
