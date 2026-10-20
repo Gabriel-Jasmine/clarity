@@ -1148,12 +1148,12 @@ function earlierReflectionRows(){
  data.factors.forEach(f=>(f.sources||[]).forEach(r=>{if(!rows.has(r.id))add({...r,section:'Earlier linked reflection'});}));
  return [...rows.values()];
 }
-function reflections(){const current=currentReflectionRows();return data.driverReview.reuseIds.length?[...current,...earlierReflectionRows().filter(r=>data.driverReview.reuseIds.includes(r.id)).map(r=>({...r,explicitlyReused:true}))]:current;}
+function reflections(){const current=currentReflectionRows(),currentIds=new Set(current.map(r=>r.id));const selected=new Set(data.driverReview.reuseIds);return [...current,...earlierReflectionRows().filter(r=>selected.has(r.id)&&!currentIds.has(r.id)).map(r=>({...r,explicitlyReused:true}))];}
 function reuseReflectionRows(){const rows=earlierReflectionRows(),ids=new Set(rows.map(r=>r.id));return [...rows,...currentReflectionRows().filter(r=>data.driverReview.reuseIds.includes(r.id)&&!ids.has(r.id)).map(r=>({...r,section:'Previously included; now a current reflection'}))];}
-function reflectionAvailable(id){return currentReflectionRows().some(r=>r.id===id)||data.driverReview.reuseIds.includes(id);}
+function reflectionAvailable(id){return reflections().some(r=>r.id===id);}
 function activeDrivers(){return data.factors.filter(f=>!f.inactive&&(f.origin==='manual'||!f.sources.length||activeDriverSources(f).length));}
 
-function activeDriverSources(f){const ids=new Set([...currentReflectionRows().map(r=>r.id),...data.driverReview.reuseIds]);return (f.sources||[]).filter(r=>!r.inactive&&ids.has(r.id));}
+// Prior writing is not current evidence merely because its ID still matches.\n// It needs unchanged current wording, or a deliberate user re-adoption.\nfunction activeDriverSources(f){const available=new Map(reflections().map(r=>[r.id,r]));return (f.sources||[]).filter(source=>{if(source.inactive)return false;const now=available.get(source.id);return !!now&&(sameReflectionText(source.id,now.text,source.text)||source.writingSwitch?.checked===true);});}
 
 function driverTitle(f){return f.name.trim()||"Untitled driver";}
 function driverLinks(id){return data.factors.flatMap(f=>(f.sources||[]).filter(r=>r.id===id).map(source=>({driver:f,source})));}
@@ -1261,6 +1261,7 @@ function toggleCurrentWriting(driverId,sourceId,checked){
  driverReviewChanged();save();
 }
 function toggleEarlierReflection(id,checked){
+ // An archived answer can enter the current assessment only by an explicit action.\n if(checked&&!earlierReflectionRows().some(row=>row.id===id))return;
  if(checked){
   const previous=new Set(driverLinks(id).filter(({driver,source})=>!driver.inactive&&activeDriverSources(driver).includes(source)).map(({driver})=>driver.id));
   data.driverReview.reuseIds=[...new Set([...data.driverReview.reuseIds,id])];selectDriverReflection(id,true,true);
