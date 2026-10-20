@@ -1,10 +1,18 @@
 # Clarity UI/UX Playbook
 
-Version **1.8.1** · Adopted 20 October 2026 · Owner: Clarity product owner
+Version **1.9.0** · Adopted 20 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+
+## Shared layout rules — 20 October 2026
+
+Version 1.9.0 applies the owner-approved audit corrections through shared rules. Ordinary writing pages and How Clarity works use an 880px column. Wiggle Room, Decision Drivers and Decision Overview retain a 1184px workspace for their assessment, reference/editor and report layouts. Header, progress, introduction/context, task and footer inherit the same page-width token and leading edge. The entire ordinary page is aligned; do not cap only its question frame. Home remains the separate approved editorial composition.
+
+Workspace padding is 24px at desktop/intermediate widths and 16px below 760px. Remove conflicting legacy overrides rather than adding page-specific exceptions. Ordinary question-group separators use 32px margin above and 32px padding below the line; the standalone divider uses 32px on each side. Preserve real guide-to-task transitions and existing nested/review structures. The first report block starts at the normal workspace inset.
+
+Expandable reference-guide bodies use full available width and 16px side/bottom padding. Scope standalone briefing styles to `.guide-page .briefing-content`; do not reuse `.guide-content` for the page wrapper. Menu appears only below 760px, matching the collapsed sidebar. Questions, examples, typography, native controls, saved writing/history, source/review semantics and exports remain unchanged. [Implementation, page map and actual verification](SHARED_LAYOUT_2026-10-20.md).
 
 ## Trade-Offs writing-column alignment — 20 October 2026
 
@@ -298,7 +306,7 @@ Check actual text bounds against all four edges in default, filled, collapsed, a
 
 Desktop default: 232px sidebar; main content with 32px outer padding; generous available width without making long writing lines unbounded. Sidebar corners remain rounded, approximately 18px, with a small outer inset. The canvas fills the browser; there is no thick frame around the whole application.
 
-A single writing page should generally cap its main reading surface around 880px. A true reference/editor workspace or report can use approximately 1120px. These are layout defaults to test with real content, not forced widths. Do not center every component independently.
+A single writing page uses the 880px maximum `--cl-width-writing`; Wiggle Room, Decision Drivers and Decision Overview use the 1184px maximum `--cl-width-workspace`. The inherited `--cl-page-width` aligns the header, progress, content/context and footer on one leading edge. How Clarity works uses the same writing-column width. Actual widths shrink to the available space; these are maxima, not forced widths. Do not center components independently or cap only the question column. Home retains its own editorial layout.
 
 Standard reading order: **page title → page description → existing decision aim/life-direction references → task content → existing page actions**. The shell may retain compact progress and truthful save state. Use the shared 14px/22px regular description role. Render exactly one page introduction at the start of the content area, before personal context, source references or the main workspace. Orientation explains what the section is for; the user’s aim and life direction then anchor that task. Do not hide the page description inside a later card or repeat it below context. Preserve page-specific context: Decision is still collecting the aim; Things Dear to You shows the existing aim reference while asking for life direction. Do not add redundant references merely to make every page identical.
 
@@ -561,6 +569,8 @@ These are starting breakpoints, to adjust through actual content testing rather 
 | 1100px and wider | Full sidebar; reference/editor columns where useful; 32px main padding |
 | 760–1099px | Sidebar may narrow to about 208px; 24px main padding; stack workspace columns when fields become cramped |
 | Below 760px | Section-menu trigger; full-width page; 16px padding; single-column writing and stacked reference/editor |
+
+The Menu control is hidden at 760px and wider while the sidebar navigation is visible. It appears below 760px, where the existing disclosure controls the collapsed navigation. Do not retain a separate legacy 950px trigger breakpoint.
 
 Do not force an icon-only sidebar that hides section meanings. A mobile section drawer keeps labels, current state and small completion circles. Its trigger exposes open/closed state, supports keyboard operation and returns focus correctly. If modal, apply modal rules; if inline, do not trap focus.
 

@@ -1,5 +1,9 @@
 # Clarity
 
+## Shared layout rules — 20 October 2026
+
+The owner-approved all-page correction gives ordinary writing pages and How Clarity works one aligned 880px column. Wiggle Room, Decision Drivers and Decision Overview retain the wider 1184px workspace. Header, progress, context, task and navigation share their page width. Conflicting 28px/20px frame padding is removed, expanded guides retain their 16px insets, Menu follows the below-760px navigation breakpoint, and ordinary question groups use shared spacing. Home's composition and all application/data contracts are unchanged. [Playbook 1.9.0](docs/CLARITY_UI_UX_PLAYBOOK.md); [implementation and browser verification](docs/SHARED_LAYOUT_2026-10-20.md).
+
 ## Trade-Offs layout aligned — 20 October 2026
 
 The owner-approved page structure removes the empty leading divider, aligns the header/progress/context/frame/footer to an 880px writing column, restores token-based frame padding and regular group spacing, and keeps alternative rows usable at narrow widths. The current Thinking guide and closed Examples are retained. Changes are scoped to Trade-Offs; application scripts, questions, saved writing, assessments and exports are unchanged. [Implementation and verification](docs/TRADE_LAYOUT_2026-10-20.md); [Playbook 1.8.1](docs/CLARITY_UI_UX_PLAYBOOK.md).

@@ -1,4 +1,4 @@
-/* Clarity UI/UX Playbook 1.5.1 — shared foundations. */
+/* Clarity UI/UX Playbook 1.9.0 — shared foundations. */
 @font-face{font-family:Manrope;src:url("assets/manrope-latin.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
 :root{
   color-scheme:light;
@@ -18,6 +18,7 @@
   --cl-space-5:20px;--cl-space-6:24px;--cl-space-8:32px;--cl-space-10:40px;--cl-space-12:48px;
   --cl-inset-workspace:var(--cl-space-6);--cl-inset-panel:var(--cl-space-4);
   --cl-inset-row-block:var(--cl-space-2);--cl-inset-control-inline:var(--cl-space-3);
+  --cl-width-writing:880px;--cl-width-workspace:1184px;
 
   --cl-sidebar-width:232px;--cl-control-height:44px;--cl-completion-size:12px;
   --cl-completion-icon:10px;--cl-status-column:14px;--cl-motion-fast:150ms;
@@ -88,21 +89,28 @@ details>p{margin:12px 0;}
 .app>aside #reset{flex-shrink:0;background:var(--cl-field);border-color:var(--cl-field);color:var(--cl-ink);width:100%;min-height:44px}
 #mobileNavToggle{display:none}
 main{min-width:0;padding:0 20px 0 0}
-main>header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;max-width:1184px;margin:0 auto;padding:24px 0}
+.app>main{--cl-page-width:var(--cl-width-writing)}
+.app>main:has(> #screen > :is(.stress-card,.drivers-page,.decision-overview)){--cl-page-width:var(--cl-width-workspace)}
+main>header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;max-width:var(--cl-page-width,var(--cl-width-workspace));margin:0;padding:24px 0}
 .eyebrow{color:var(--cl-muted);letter-spacing:.06em}
 .saved{flex-shrink:0;color:var(--cl-muted);white-space:nowrap}
-.progress{height:3px;max-width:1184px;margin:0 auto;background:var(--cl-divider);border-radius:3px;overflow:hidden}
+.progress{height:3px;max-width:var(--cl-page-width,var(--cl-width-workspace));margin:0;background:var(--cl-divider);border-radius:3px;overflow:hidden}
 .progress i{display:block;height:100%;background:var(--cl-frame)}
-#screen{max-width:1184px;margin:0 auto;padding:28px 0;min-width:0}
-#screen:has(>.decision-card),#screen:has(>.what-matters-card),#screen:has(>.judgment-card){max-width:880px;margin-left:0}
-main>footer{position:static;display:flex;justify-content:space-between;gap:16px;max-width:1184px;margin:0 auto;padding:12px 0 24px;border:0;background:transparent}
+#screen{max-width:var(--cl-page-width,var(--cl-width-workspace));margin:0;padding:28px 0;min-width:0}
+main>footer{position:static;display:flex;justify-content:space-between;gap:16px;max-width:var(--cl-page-width,var(--cl-width-workspace));margin:0;padding:12px 0 24px;border:0;background:transparent}
 .card,.clarity,.state{position:relative;min-width:0;padding:var(--cl-inset-workspace);background:var(--cl-surface-work);border:2px solid var(--cl-frame);border-radius:var(--cl-radius-workspace)}
 .muted{color:var(--cl-muted)}
 .field{display:flex;flex-direction:column;gap:8px;margin:24px 0;min-width:0}
 .field small,.field-note{color:var(--cl-muted)}
 .field-note{margin:0 0 16px;max-width:75ch}
 .question{margin-bottom:12px}
-.divider{height:1px;background:var(--cl-divider);margin:32px 0}
+.divider{height:1px;background:var(--cl-divider);margin:var(--cl-space-8) 0}
+/* Ordinary question groups share one separator rhythm, including genuine guide-to-task boundaries. */
+.trade-cost-section+.trade-cost-section,.trade-cost-part+.trade-cost-part,
+.incentive-writing-part,.compounding-writing-part,.consequence-immediate,
+.consequence-next,.consequence-exploration,.stress-writing,.reversibility-page .reverse-section{
+ margin-top:var(--cl-space-8);padding-top:var(--cl-space-8);border-top:1px solid var(--cl-divider)
+}
 .grid{display:grid;gap:24px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .row{display:grid;grid-template-columns:32px minmax(0,1fr) 40px;gap:8px;margin:8px 0;align-items:center}
 .row b{display:grid;place-items:center;width:28px;height:28px;background:var(--cl-surface);border-radius:50%;}
@@ -132,7 +140,6 @@ main>footer{position:static;display:flex;justify-content:space-between;gap:16px;
 .decision-block {margin:22px 0}
 .question {margin-bottom:9px}
 .field-note {margin:0 0 12px;}
-.divider {height:1px;margin:30px 0}
 .choice-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .choice-grid.compact {grid-template-columns:repeat(3,minmax(0,1fr))}
 .choice-card {display:flex;align-items:center;gap:10px;border:1px solid var(--cl-divider);padding:13px 14px;cursor:pointer;min-height:48px}
@@ -328,7 +335,6 @@ nav button {padding:10px 8px;display:flex;justify-content:space-between;gap:8px;
 #mobileNavToggle {display:none}
 .storage-note {margin-top:auto;z-index:1}
 .brand+nav+button {margin-top:0}
-.card,.clarity,.state {padding:28px}
 input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible,summary:focus-visible {outline-offset:3px}
 button {min-height:44px}
 button:disabled {opacity:.5;cursor:not-allowed}
@@ -395,13 +401,11 @@ details summary {cursor:pointer;padding:12px 0}
 aside {padding:18px 20px;display:grid;grid-template-columns:1fr auto;gap:12px;overflow:visible}
 .brand {border:0;padding:0}
 .brand small {margin-top:2px}
-#mobileNavToggle {display:block;align-self:center}
 nav.mobile-open {display:flex;grid-column:1/-1;margin-top:0}
 .storage-note {margin:0;grid-column:1}
 #reset {grid-column:2}
 header {padding-top:24px}
 #screen {padding-top:24px}
-.card {padding:20px}
 .overview-state {grid-template-columns:1fr}
 .overview-state>div {border-right:0;border-bottom:1px solid var(--cl-divider);padding:12px 0}
 .overview-state>div:last-child {border-bottom:0}
@@ -457,16 +461,13 @@ button:disabled {cursor:default;opacity:.5}
 .direction-reference {grid-template-columns:1fr;padding:16px;gap:16px}
 }
 .trade-page-intro {max-width:780px;margin:0 0 26px}
-.trade-cost-card {padding:var(--cl-inset-workspace)}
 .trade-cost-card .trade-context {margin:20px 0 0}
 .trade-context .trade-context-action {grid-column:1/-1}
 .trade-cost-section {margin:0;padding:0;border:0}
-.trade-cost-section+.trade-cost-section {margin-top:var(--cl-space-8);padding-top:var(--cl-space-8);border-top:1px solid var(--cl-divider)}
 .trade-cost-card .question {margin:0 0 var(--cl-space-2)}
 .trade-cost-card .field-note {margin:0 0 var(--cl-space-4);max-width:75ch}
 .trade-cost-card #trade-cost-title {margin:0 0 var(--cl-space-3)}
 .trade-cost-card .thinking-guide-introduction {margin:0 0 var(--cl-space-3)}
-.trade-cost-card .guide-disclosure>.guide-content {max-width:none;padding:0 var(--cl-inset-panel) var(--cl-inset-panel)}
 .trade-alternative-row {display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:center;gap:10px;margin:12px 0}
 .trade-alternative-row>span {min-width:0}
 .trade-alternative-row input {min-width:0}
@@ -475,7 +476,6 @@ button:disabled {cursor:default;opacity:.5}
 .trade-cost-table th,.trade-cost-table td {padding:10px 12px;vertical-align:top;text-align:left;border-bottom:1px solid var(--cl-divider);overflow-wrap:anywhere}
 .trade-cost-table th:first-child {width:32%}
 .trade-cost-part {margin-top:0}
-.trade-cost-part+.trade-cost-part {margin-top:var(--cl-space-8);padding-top:var(--cl-space-8);border-top:1px solid var(--cl-divider)}
 .trade-cost-card .trade-cost-part textarea {min-height:180px;width:100%;resize:vertical}
 .trade-cost-part textarea::placeholder {opacity:1}
 .trade-cost-unknown {display:flex;align-items:center;gap:10px;min-height:44px;margin-top:14px;width:fit-content;cursor:pointer}
@@ -502,7 +502,6 @@ button:disabled {cursor:default;opacity:.5}
 .incentive-reward-table .incentive-reward-group th {padding:15px 14px}
 .incentive-reward-group span {display:block}
 .incentive-reward-group small {display:block;margin-top:4px}
-.incentive-writing-part {border-top:1px solid var(--cl-divider);padding-top:26px;margin-top:28px}
 .incentive-writing-part h2.question {margin:0 0 8px}
 .incentive-writing-part .field-note {margin:0 0 16px}
 .incentive-writing-part textarea {min-height:120px;}
@@ -526,7 +525,6 @@ button:disabled {cursor:default;opacity:.5}
 .compounding-life-table td p {margin:0 0 14px;}
 .compounding-life-table td p:last-child {margin-bottom:0}
 .compounding-life-table td strong {display:block;margin-bottom:4px}
-.compounding-writing-part {border-top:1px solid var(--cl-divider);padding-top:26px;margin-top:28px}
 .compounding-writing-part h2.question {margin:0 0 12px}
 .compounding-writing-part>.field-note {margin:0 0 16px}
 .compounding-write-label {display:block;margin-bottom:8px}
@@ -541,7 +539,6 @@ button:disabled {cursor:default;opacity:.5}
 .consequence-card [hidden] {display:none!important}
 .consequence-card>h2 {margin-top:0}
 .consequence-instructions {margin:28px 0}
-.consequence-exploration {border-top:1px solid var(--cl-divider);padding-top:24px;margin-top:28px}
 .consequence-entry {border-left:1px solid var(--cl-divider);padding-left:16px;margin-top:14px;min-width:0}
 .consequence-entry:first-child {margin-top:0}
 .consequence-summary-head {display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -561,22 +558,16 @@ button:disabled {cursor:default;opacity:.5}
 .consequence-life-table tbody th:first-child {width:100%;padding:16px 0 4px;border:0}
 .consequence-life-table tbody td {padding:0 0 16px}
 }
-.consequence-immediate {border-top:1px solid var(--cl-divider);padding-top:24px;margin-top:26px}
 .consequence-immediate>label {display:block;margin:12px 0}
 .consequence-immediate textarea {display:block;width:100%;min-height:72px;}.consequence-origin>span {display:block;margin-bottom:7px}.consequence-origin>p {margin:0;overflow-wrap:anywhere}
-.consequence-next {margin:26px 0 3px;border-top:1px solid var(--cl-divider);padding-top:23px}
 .consequence-next .muted {margin:8px 0 14px}
 .consequence-origin {border:1px solid var(--cl-divider);padding:13px 15px}
 .consequence-exploration .consequence-direction {margin-bottom:12px}
 .consequence-exploration h3 {margin:0}
-.consequence-exploration {margin-top:22px;padding-top:22px}
 .consequence-first-entry {border-left:0;padding-left:0}
 .consequence-first-entry .consequence-editor>textarea {margin-top:1px}
 .consequence-editor>.field-note {margin:0 0 12px}
 .consequence-legacy-hint {margin-top:22px}
-@media (max-width:600px) {
-.consequence-immediate,.consequence-next {margin-top:20px}
-}
 .stress-card {min-width:0}
 .stress-card .intro {max-width:850px;margin:0 0 24px;}
 .stress-context {display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;padding:18px 20px;margin:0 0 28px}
@@ -592,7 +583,6 @@ button:disabled {cursor:default;opacity:.5}
 .stress-card .stress-table tbody th {text-align:left}
 .stress-table th>p {margin:5px 0 0}
 .stress-card .stress-table td select {min-width:0;max-width:100%;min-height:44px;padding:10px 8px}
-.stress-writing {border-top:1px solid var(--cl-divider);margin-top:30px;padding-top:26px}
 .stress-writing>p {max-width:850px;margin:0 0 14px}
 .stress-writing textarea {display:block;min-height:140px;resize:vertical}
 .stress-card .stress-footnote {margin:14px 0 0}
@@ -604,7 +594,6 @@ button:disabled {cursor:default;opacity:.5}
 .stress-card .stress-table th:first-child {width:100%;padding:0;border:0}
 .stress-card .stress-table td {padding:12px 0 0;border:0}
 .stress-card .stress-table td select {width:100%}
-.stress-writing {margin-top:24px}
 }
 .decision-timing-field {border:0;padding:0;margin:0;min-width:0}
 .decision-timing-field>.question {display:block;padding:0}
@@ -685,7 +674,6 @@ button:disabled {cursor:default;opacity:.5}
 .reversibility-page .reverse-trail span,.reversibility-page .reverse-demands label>span {min-width:0}
 .reversibility-page .reverse-trail strong,.reversibility-page .reverse-trail small,.reversibility-page .reverse-demands small {display:block}
 .reversibility-page .reverse-trail small,.reversibility-page .reverse-demands small {margin-top:6px}
-.reversibility-page .reverse-section {border-top:1px solid var(--cl-divider);margin-top:24px;padding-top:24px}
 .reversibility-page .reverse-section h3 {margin:0 0 12px}
 .reversibility-page .reverse-guide,.reversibility-page .reverse-history {margin:14px 0}
 .reversibility-page summary {min-height:44px;padding:10px 0}
@@ -776,6 +764,7 @@ button:disabled {cursor:default;opacity:.5}
 .empty-state{background:var(--cl-field);border:1px dashed var(--cl-control-border);border-radius:var(--cl-radius-small);padding:24px;margin-bottom:20px}
 .driver-review-cue{border-left:2px solid var(--cl-control-border);padding-left:16px}
 .decision-overview{background:var(--cl-surface-work);border:2px solid var(--cl-frame);border-radius:var(--cl-radius-workspace);padding:var(--cl-inset-workspace);min-width:0}
+.decision-overview>.decision-anchor:first-child{margin-top:0}
 .overview-hero{background:var(--cl-field);border:0;border-radius:var(--cl-radius-small);padding:var(--cl-inset-panel)}
 .overview-hero>p{}
 .assessment-label{color:var(--cl-muted)}
@@ -826,7 +815,6 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
   main>header{padding:8px 0 20px;align-items:center}
   .eyebrow{letter-spacing:0}
   #screen{padding:24px 0}
-  .card,.clarity,.state,.decision-overview{padding:16px}
   .two,.three,.metricgrid,.psych,.stategrid,.overview-state{grid-template-columns:1fr}
   .driver-editors,.reflection-panel,.driver-basis{padding:16px}
   .driver-direction{grid-template-columns:1fr}
@@ -855,7 +843,7 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
 .guide-disclosure>summary::-webkit-details-marker{display:none}
 .guide-disclosure>summary .cl-icon{flex:0 0 16px;width:16px;height:16px}
 .guide-disclosure[open]>summary .cl-icon{transform:rotate(180deg)}
-.guide-content{padding:0 var(--cl-inset-panel) var(--cl-inset-panel);overflow-wrap:anywhere}
+.guide-disclosure>.guide-content{max-width:none;padding:0 var(--cl-inset-panel) var(--cl-inset-panel);overflow-wrap:anywhere}
 .guide-content>.guide-title{margin:0 0 var(--cl-space-3);font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-label)}
 .guide-content>.field-note{margin:0 0 var(--cl-space-4)}
 .guide-content table{width:100%;table-layout:fixed;border-collapse:collapse;margin:0;font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-body)}
@@ -1030,16 +1018,11 @@ button,.add,.edit-link,.reference-edit,.chip,.tabs button,.driver-activate,
 .sidebar-guide[aria-current="page"]:before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;border-radius:2px;background:var(--cl-pink)}
 #nav .sidebar-nav-divider{align-self:stretch;flex-shrink:0;border:0;border-top:1px solid color-mix(in srgb,var(--cl-sidebar-muted) 35%,transparent);margin:8px 8px 12px}
 .app>aside .guide-section-link{display:grid;grid-template-columns:16px minmax(0,1fr) var(--cl-status-column);align-items:center;gap:8px;flex-shrink:0;min-height:44px;padding:10px 8px;border-radius:8px;color:var(--cl-sidebar-ink);text-decoration:none;font-size:var(--cl-size-label);line-height:var(--cl-line-label)}
-.guide-content{max-width:840px;padding:0 0 40px}
-.guide-content .card{margin-top:24px}
-.guide-content h2{font-size:var(--cl-size-section);line-height:var(--cl-line-section);margin:28px 0 12px}
-.guide-content ul{padding-left:24px;margin-bottom:24px}
-.guide-content li+li{margin-top:12px}
-.guide-content .briefing-footnote{color:var(--cl-muted);margin:24px 0 0}
+.guide-page .briefing-content{max-width:var(--cl-page-width);padding:0 0 var(--cl-space-10)}
+.guide-page .briefing-content .card{margin-top:var(--cl-space-6)}
+.guide-page .briefing-content h2{font-size:var(--cl-size-section);line-height:var(--cl-line-section);margin:28px 0 12px}
+.guide-page .briefing-content ul{padding-left:24px;margin-bottom:24px}
+.guide-page .briefing-content li+li{margin-top:12px}
+.guide-page .briefing-content .briefing-footnote{color:var(--cl-muted);margin:24px 0 0}
 .guide-begin{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 24px;border:1px solid var(--cl-primary);border-radius:var(--cl-radius-pill);background:var(--cl-primary);color:var(--cl-field);text-decoration:none;font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-control);margin-top:8px}
 .guide-begin:hover{background:var(--cl-primary-hover)}
-
-/* Trade-Offs is one writing column; keep the page anchors aligned with its task. */
-@media screen{
- main:has(> #screen > .trade-cost-card)>:is(header,.progress,#screen,footer){max-width:880px;margin-left:0;margin-right:0}
-}

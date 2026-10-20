@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Clarity — Component Showcase</title>
 <link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../styles.css?v=20261020-trade-layout">
+<link rel="stylesheet" href="../styles.css?v=20261020-shared-layout">
 <link rel="stylesheet" href="../home.css?v=20261018-compact-homepage">
 <style>
 .showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
@@ -15,10 +15,11 @@
 .showcase-state{border-top:1px solid var(--cl-divider);padding-top:16px;margin-top:16px}
 .showcase-error{color:var(--cl-error);font-size:.875rem}
 .showcase-nav button{cursor:default}
+.showcase-page .app>main{--cl-page-width:var(--cl-width-workspace);max-width:var(--cl-width-workspace)}
 @media(max-width:1099px){.showcase-grid{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
+<body class="showcase-page">
 <div class="app">
 <aside>
 <div class="sidebar-top">
@@ -38,8 +39,9 @@
 <a href="../index.html">Open Clarity</a>
 </aside>
 <main>
-<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.8.0</span></header>
+<header><div><div class="eyebrow">CLARITY / COMPONENT SHOWCASE</div><h1>A clearer view of your decision.</h1></div><span class="badge">Playbook 1.9.0</span></header>
 <div class="page-introduction" data-page-introduction="showcase"><p>Review the shared components and their states before applying them to a Clarity page.</p></div>
+<p class="field-note">Shared layout: writing pages use one 880px column; Wiggle Room, Decision Drivers and Decision Overview retain the wider workspace. Header, progress, context, task and navigation share the page width. Workspaces use 24px padding, falling to 16px below 760px; expanded reference guides keep 16px side and bottom insets.</p>
 <section class="direction-reference decision-context" aria-label="Your decision context"><div class="decision-context-action"><div class="direction-label">You’re considering <button class="reference-edit" type="button">Edit</button></div><p>Accept a higher-paying design job in another city.</p></div><div><div class="direction-label">Aim for this decision <button class="reference-edit" type="button">Edit</button></div><p>Build savings and experience to start my own design studio within two to three years.</p></div><div><div class="direction-label">Direction in life <button class="reference-edit" type="button">Edit</button></div><p>Live creatively, keep growing and be present with the people I love.</p></div></section>
 <div class="showcase-grid">
 <section class="card home-page showcase-wide" aria-labelledby="entry-showcase-title">
