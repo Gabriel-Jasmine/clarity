@@ -1,10 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.8.0** · Adopted 19 October 2026 · Owner: Clarity product owner
+Version **1.8.1** · Adopted 20 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+
+## Trade-Offs writing-column alignment — 20 October 2026
+
+Version 1.8.1 makes the first-group rule explicit: normal workspace padding introduces the first content group; thin separators belong between actual groups, never before the first content. Preserve one frame and the question → guidance → optional Example → answer order. The owner-approved Trade-Offs layout uses an 880px maximum shared by its header/progress, introduction/context/frame and footer; all align on the same leading edge. It uses 24px workspace padding on desktop/intermediate widths and 16px below 760px, with 32px on each side of group separators. Other specialized workspaces keep their existing layout. [Scoped implementation and verification](TRADE_LAYOUT_2026-10-20.md).
 
 ## Consistent taxonomy guides — 19 October 2026
 
@@ -316,7 +320,7 @@ The approved homepage headline is “A good decision begins with Clarity”. Onl
 
 It is structural, remains visible while the workspace is idle, and does not indicate which field has focus. Keyboard focus uses a separate ring on the actual control.
 
-Apply the frame to the smallest coherent region containing the page’s primary task, not to every card and not to the browser-sized page. Multiple questions can sit within the same frame using spacing and thin separators. Do not add a second nested signature frame around an active driver card.
+Apply the frame to the smallest coherent region containing the page’s primary task, not to every card and not to the browser-sized page. Multiple questions can sit within the same frame using spacing and thin separators. The first group begins at the normal workspace inset without an opening separator or additional section top margin/padding. Apply separators between actual groups only. Preserve intentional separation after genuine guide/reference content. Do not add a second nested signature frame around an active driver card.
 
 | Surface | Default treatment |
 | --- | --- |

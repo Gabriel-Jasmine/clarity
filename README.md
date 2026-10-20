@@ -1,5 +1,9 @@
 # Clarity
 
+## Trade-Offs layout aligned — 20 October 2026
+
+The owner-approved page structure removes the empty leading divider, aligns the header/progress/context/frame/footer to an 880px writing column, restores token-based frame padding and regular group spacing, and keeps alternative rows usable at narrow widths. The current Thinking guide and closed Examples are retained. Changes are scoped to Trade-Offs; application scripts, questions, saved writing, assessments and exports are unchanged. [Implementation and verification](docs/TRADE_LAYOUT_2026-10-20.md); [Playbook 1.8.1](docs/CLARITY_UI_UX_PLAYBOOK.md).
+
 ## Consistent taxonomy guides — 19 October 2026
 
 The Trade-Offs, Carrot on the Stick, What Compounds and The Domino Effect now share one neutral **Thinking guide**, closed initially, with a short introduction above it. Wiggle Room uses the same collapsible **Response guide** before its assessment question. Complete taxonomy content and response definitions are retained; selection categories stay visible. [Display contract and verification](docs/THINKING_GUIDES_2026-10-19.md); [Playbook 1.8.0](docs/CLARITY_UI_UX_PLAYBOOK.md).
