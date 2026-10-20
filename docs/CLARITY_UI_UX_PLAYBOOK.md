@@ -1,10 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.9.0** · Adopted 20 October 2026 · Owner: Clarity product owner
+Version **1.9.1** · Adopted 20 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+
+## Page-specific responsive corrections — 20 October 2026
+
+Version 1.9.1 applies the existing responsive/control standards to the remaining measured defects. Wiggle Room stacks its assessment rows when the assessment container is 600px or narrower, including tablet layouts with a sidebar. Its hard-boundary assessment uses wrapping native radio cards with the same three labels/values and a Clear assessment action preserving the former blank selection. Keep groups independent, preserve notes and restore focus after rendering. The Domino Effect's stacked guide headings use the full row width below 601px. Other pages retain the shared layout correction. [Scoped implementation and verification](PAGE_LAYOUT_2026-10-20.md).
 
 ## Shared layout rules — 20 October 2026
 

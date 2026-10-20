@@ -1,5 +1,9 @@
 # Clarity
 
+## Page-specific responsive corrections — 20 October 2026
+
+The follow-up inspection found three remaining issues on two pages. Wiggle Room now stacks assessment rows according to available panel width; hard-boundary responses use wrapping radio cards with the existing wording/values and a Clear assessment action. The Domino Effect's stacked phone guide gives headings the full row width. Questions, assessment meanings, saved notes/history and exports are preserved. Other pages retain the shared layout. [Implementation and verification](docs/PAGE_LAYOUT_2026-10-20.md); [Playbook 1.9.1](docs/CLARITY_UI_UX_PLAYBOOK.md).
+
 ## Shared layout rules — 20 October 2026
 
 The owner-approved all-page correction gives ordinary writing pages and How Clarity works one aligned 880px column. Wiggle Room, Decision Drivers and Decision Overview retain the wider 1184px workspace. Header, progress, context, task and navigation share their page width. Conflicting 28px/20px frame padding is removed, expanded guides retain their 16px insets, Menu follows the below-760px navigation breakpoint, and ordinary question groups use shared spacing. Home's composition and all application/data contracts are unchanged. [Playbook 1.9.0](docs/CLARITY_UI_UX_PLAYBOOK.md); [implementation and browser verification](docs/SHARED_LAYOUT_2026-10-20.md).

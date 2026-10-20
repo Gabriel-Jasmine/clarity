@@ -1,4 +1,4 @@
-/* Clarity UI/UX Playbook 1.9.0 — shared foundations. */
+/* Clarity UI/UX Playbook 1.9.1 — shared foundations. */
 @font-face{font-family:Manrope;src:url("assets/manrope-latin.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
 :root{
   color-scheme:light;
@@ -588,6 +588,8 @@ button:disabled {cursor:default;opacity:.5}
 .stress-card .stress-footnote {margin:14px 0 0}
 @media (max-width:600px) {
 .stress-context {grid-template-columns:1fr;padding:16px;gap:14px}
+}
+@container stress-assessment (max-width:600px) {
 .stress-card .stress-table thead {display:none}
 .stress-card .stress-table,.stress-card .stress-table tbody,.stress-card .stress-table tr,.stress-card .stress-table th,.stress-card .stress-table td {display:block;width:100%}
 .stress-card .stress-table tr {border-bottom:1px solid var(--cl-divider);padding:16px 0}
@@ -664,6 +666,11 @@ button:disabled {cursor:default;opacity:.5}
 .boundary-check-row>p {overflow-wrap:anywhere}
 .boundary-check-row textarea {min-height:95px}
 .boundary-check-row .field {margin:12px 0}
+.boundary-assessment {margin:12px 0;min-width:0}
+.boundary-assessment .choice-grid {grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
+.boundary-assessment .choice-card {align-items:flex-start}
+.boundary-assessment .choice-card input {margin-top:4px}
+.boundary-assessment .choice-card span {min-width:0;overflow-wrap:anywhere}
 @media (max-width:600px) {
 .driver-direction {grid-template-columns:1fr}
 }
@@ -858,11 +865,12 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
 .guide-content table td p{margin:0}
 .guide-content table td p+p{margin-top:var(--cl-space-3)}
 .guide-content table td strong{display:block;margin-bottom:var(--cl-space-1)}
-.stress-assessment{display:block;min-width:0}
+.stress-assessment{display:block;min-width:0;container:stress-assessment / inline-size}
 @media(max-width:600px){
  .guide-content table th,.guide-content table td{padding:var(--cl-space-3) var(--cl-space-2)}
  .guide-content table th:first-child{width:38%;padding-left:0}
  .guide-content table td:last-child{padding-right:0}
+ .consequence-card .guide-content .consequence-life-table tbody th:first-child{width:100%}
 }
 
 /* Shared optional examples: all production instances start closed. */
