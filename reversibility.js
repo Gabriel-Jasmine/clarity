@@ -144,7 +144,7 @@ function bindReversibility(){
  document.querySelectorAll('[data-reversedemand]').forEach(e=>e.onchange=()=>{const r=reverseData();r.demands=e.checked?[...new Set([...r.demands,e.dataset.reversedemand])]:r.demands.filter(id=>id!==e.dataset.reversedemand);save();});
  document.querySelectorAll('[data-reversetext]').forEach(e=>e.oninput=()=>{
   reverseData()[e.dataset.reversetext]=e.value;save();
-  if(e.dataset.reversetext==='checksNote'){const slot=document.querySelector('[data-reverse-related-slot]');if(slot)slot.innerHTML=e.value.trim()?reverseOptionalNotes(true,'checks'):'';}
+  if(e.dataset.reversetext==='checksNote'){const slot=document.querySelector('[data-reverse-related-slot]');if(slot){slot.innerHTML=e.value.trim()?reverseOptionalNotes(true,'checks'):'';bindReversibility();}}
   if(e.dataset.reversetext==='adjustment'){
    const button=document.querySelector('[data-adoptadjustment]'),status=document.querySelector('[data-adjustmentstatus]');
    if(button){button.disabled=!e.value.trim();button.hidden=reverseAdjustmentAdopted();}
