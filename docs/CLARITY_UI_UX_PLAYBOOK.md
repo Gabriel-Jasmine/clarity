@@ -911,3 +911,10 @@ These are inspected file versions, not claims about later repository state. Prod
 - W3C, [Reflow, SC 1.4.10](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
 
 References checked on 17 October 2026. The Understanding pages explain the criteria; the normative WCAG recommendation determines conformance. This playbook’s 44px preferred touch targets and typography/spacing defaults are Clarity design choices, not claims that WCAG prescribes those exact values.
+
+
+## 2026-10-21 — Quiet approach-revision reminder
+
+The Decision's previous-approach review is contextual, not a primary question. Show a neutral short history cue beneath the working decision card, with the list of previously answered sections closed by default. Place a matching low-emphasis cue on Decision Overview while section reviews remain pending. Individual section notices should be brief and skippable, with an optional explicit **Still applies** action; the section's earlier writing remains prefilled and editable. No separate completion requirement is introduced.
+
+A first journey shows no revision cue. Direct wording edits must not automatically generate a historical decision revision: provide an explicit **Different approach / Wording only** distinction after the edit. Reversibility's deliberate **Update my decision** remains an explicit revision. Navigating to a section, expanding history, and using Continue do not mean that a user reconsidered their reasoning. Preserve historical answer snapshots and do not treat them as additional evidence. Keep the distinct Driver assessment-basis review controls intact. Use the shared neutral palette and responsive layout, not attention-grabbing badges.
