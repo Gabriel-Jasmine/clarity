@@ -1040,3 +1040,32 @@ button,.add,.edit-link,.reference-edit,.chip,.tabs button,.driver-activate,
 .guide-page .briefing-content .briefing-footnote{color:var(--cl-muted);margin:24px 0 0}
 .guide-begin{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 24px;border:1px solid var(--cl-primary);border-radius:var(--cl-radius-pill);background:var(--cl-primary);color:var(--cl-field);text-decoration:none;font-size:var(--cl-size-label);line-height:var(--cl-line-label);font-weight:var(--cl-weight-control);margin-top:8px}
 .guide-begin:hover{background:var(--cl-primary-hover)}
+
+/* 2026-10-21 — quiet, revision-only history and section review */
+.approach-review{margin:18px 0 0;padding:16px 0 0;border-top:1px solid var(--cl-divider);color:var(--cl-muted)}
+.approach-review-intro{position:relative;padding-left:27px}
+.approach-review-intro:before{content:"↶";position:absolute;left:0;top:0;font-size:18px;color:var(--cl-muted)}
+.approach-review h3,.approach-overview-reminder h3{font-size:var(--cl-size-label);font-weight:600;line-height:var(--cl-line-label);color:var(--cl-ink);margin:0 0 4px}
+.approach-review p,.approach-overview-reminder p,.approach-section-note p,.approach-edit-prompt p{font-size:var(--cl-size-label);line-height:var(--cl-line-label);margin:0 0 12px;color:var(--cl-muted)}
+.approach-review-details{margin:6px 0 0 27px}
+.approach-review-details>summary{width:max-content;max-width:100%;padding:7px 0;cursor:pointer;font-size:var(--cl-size-label);font-weight:600;color:var(--cl-ink)}
+.approach-review-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0 14px}
+.approach-review-row{display:flex;align-items:center;gap:4px;border:1px solid var(--cl-divider);border-radius:var(--cl-radius-small);background:var(--cl-field)}
+.approach-review-link{min-width:0;flex:1;text-align:left;justify-content:flex-start;padding:9px 12px;border:0;border-radius:var(--cl-radius-small);background:transparent;color:var(--cl-ink);font-size:var(--cl-size-label)}
+.approach-review-mark{border:0;background:transparent;color:var(--cl-muted);font-size:var(--cl-size-meta);padding:6px 9px}
+.approach-review-link:hover,.approach-review-mark:hover{background:var(--cl-surface)}
+.approach-history{margin:8px 0;color:var(--cl-muted);font-size:var(--cl-size-label)}
+.approach-history summary{cursor:pointer;padding:8px 0}
+.approach-history-list{padding:4px 12px;border-left:2px solid var(--cl-divider)}
+.approach-history-only{margin-top:18px;padding-top:10px;border-top:1px solid var(--cl-divider)}
+.approach-section-note{padding:10px 0 12px;margin:4px 0 12px;border:0;border-bottom:1px solid var(--cl-divider)}
+.approach-section-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.approach-section-actions button{font-size:var(--cl-size-meta);min-height:36px;padding:6px 12px}
+.approach-section-actions span{font-size:var(--cl-size-meta);color:var(--cl-muted)}
+.approach-overview-reminder{padding:0 0 16px;margin:0 0 20px;border-bottom:1px solid var(--cl-divider)}
+.approach-overview-reminder button{font-size:var(--cl-size-label)}
+.approach-edit-prompt{border-top:1px solid var(--cl-divider);padding:14px 0 8px;margin-top:12px}
+.approach-edit-prompt h3{margin:0 0 6px;font-size:var(--cl-size-label)}
+.approach-edit-actions{display:flex;flex-wrap:wrap;gap:8px}
+.approach-edit-actions button{font-size:var(--cl-size-label)}
+@media(max-width:600px){.approach-review-links{grid-template-columns:1fr}.approach-review-details{margin-left:0}}
