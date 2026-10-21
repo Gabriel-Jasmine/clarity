@@ -1,9 +1,7 @@
 // Guide navigation does not initialize or modify decision data.
 (() => {
- const slugToStep={"the-decision":0,"things-dear-to-you":1,"the-trade-offs":2,"carrot-on-the-stick":3,"what-compounds":4,"the-domino-effect":5,"the-devils-advocate":6,"wiggle-room":7,"tricks-of-the-mind":8,"reversibility":9,"decision-drivers":10,"decision-overview":11};
- const sectionSlugsFromLink=href=>slugToStep[new URL(href).pathname.replace(/\\/+$/,'').split('/').pop()];
-  const slugToStep={"the-decision":0,"things-dear-to-you":1,"the-trade-offs":2,"carrot-on-the-stick":3,"what-compounds":4,"the-domino-effect":5,"the-devils-advocate":6,"wiggle-room":7,"tricks-of-the-mind":8,"reversibility":9,"decision-drivers":10,"decision-overview":11};
-  const sectionSlugsFromLink=href=>slugToStep[new URL(href).pathname.replace(/\\/+$/,'').split('/').pop()];
+ const slugToStep=Object.fromEntries(["the-decision","things-dear-to-you","the-trade-offs","carrot-on-the-stick","what-compounds","the-domino-effect","the-devils-advocate","wiggle-room","tricks-of-the-mind","reversibility","decision-drivers","decision-overview"].map((slug,id)=>[slug,id]));
+ const sectionSlugsFromLink=href=>slugToStep[new URL(href).pathname.split('/').filter(Boolean).pop()];
   if (document.body.classList.contains('guide-page')) {
     const toggle = document.getElementById('mobileNavToggle');
     const nav = document.getElementById('nav');
