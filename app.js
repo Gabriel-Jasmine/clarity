@@ -11,7 +11,17 @@ function sectionDisplayName(name){
 const stepOrder=[0,1,2,3,4,5,6,7,9,10,8,11];
 // Canonical section slugs are stable and indexed by saved section ID, not journey order.
 const sectionSlugs=["the-decision","things-dear-to-you","the-trade-offs","carrot-on-the-stick","what-compounds","the-domino-effect","the-devils-advocate","wiggle-room","tricks-of-the-mind","reversibility","decision-drivers","decision-overview"];
-function routeForStep(id){return new URL(sectionSlugs[id]+'/',document.baseURI).pathname;}
+// Freeze the app root before pushState changes the visible URL.
+// The loaded app.js URL identifies /clarity/ on GitHub Pages and / on Cloudflare.
+const clarityRootURL=typeof location==='undefined'?null:(()=>{
+ const script=document.querySelector('script[src*="app.js"]');
+ const assetURL=script?.src?new URL(script.src):new URL('app.js',document.baseURI);
+ const root=new URL('./',assetURL);
+ const base=document.querySelector('base');
+ if(base)base.href=root.href;
+ return root;
+})();
+function routeForStep(id){return new URL(sectionSlugs[id]+'/',clarityRootURL||document.baseURI).pathname;}
 function routeStep(){
  if(typeof location==='undefined')return null;
  const parts=location.pathname.split('/').filter(Boolean);
