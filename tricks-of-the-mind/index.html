@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<base href="../">
+<!-- Section entry pages share this shell; keep route wrappers in sync. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Clarity is a guided decision-thinking tool for consequential decisions where there is no obvious right answer.">
+<title>Tricks of the Mind — Clarity</title>
+<link rel="preload" href="assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=20261020-page-layout">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="app">
+  <aside>
+    <div class="sidebar-top">
+      <div class="brand"><a class="brand-home" href="index.html" aria-label="Clarity home"><strong>Clarity</strong></a><small>Think clearly. Choose deliberately.</small></div>
+      <a class="sidebar-home" href="index.html"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=20261019-section-icons#house"></use></svg><span>Home</span></a>
+      <button id="mobileNavToggle" class="secondary" aria-expanded="false" aria-controls="nav"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=20261019-section-icons#menu"></use></svg>Menu</button>
+    </div>
+    <nav id="nav" aria-label="Clarity guide and decision sections"></nav><p class="storage-note">Saved in this browser</p>
+    <button id="reset" class="secondary"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=20261019-section-icons#plus"></use></svg>New decision</button>
+  </aside>
+  <main id="main-content">
+    <header><div><div class="eyebrow">CLARITY / GUIDED DECISION THINKING</div><h1 id="title" tabindex="-1"></h1></div><span class="saved" id="stepCount"></span></header>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    <section id="screen"></section>
+    <footer><button id="back" class="secondary">← Back</button><button id="next">Continue →</button></footer>
+  </main>
+</div>
+<script src="capture.js?v=20261019-trade-offs"></script>
+<script src="reversibility.js?v=20261019-shared-story"></script>
+<script src="app.js?v=20261021-section-routing"></script>
+<script src="navigation.js?v=20261021-section-routing"></script>
+</body>
+</html>
