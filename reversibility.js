@@ -260,7 +260,14 @@ function resolveApproachEdit(different){
  const draft=approachDraft;
  approachDraft=null;delete data.pendingApproachEdit;
  if(different)recordApproachRevision(draft.from,choiceOption().name,draft.answers,draft.sections,'decision-edit');
- else if(data.approachReview?.action===draft.from)data.approachReview.action=choiceOption().name;
+ else {
+  if(data.approachReview?.action===draft.from)data.approachReview.action=choiceOption().name;
+  // A wording correction is not changed evidence for an existing Driver assessment.
+  data.factors.forEach(f=>{
+   if(f.directionChoice?.id===choiceOption().id&&f.directionChoice.name===draft.from)f.directionChoice.name=choiceOption().name;
+   if(f.assessmentReview?.snapshot?.action?.id===choiceOption().id&&f.assessmentReview.snapshot.action.text===draft.from)f.assessmentReview.snapshot.action.text=choiceOption().name;
+  });
+ }
  render();return true;
 }
 function adoptAdjustedApproach(text){
