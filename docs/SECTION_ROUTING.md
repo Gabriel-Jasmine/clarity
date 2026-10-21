@@ -29,3 +29,6 @@ Clarity has one shared stateful decision app, accessible from twelve stable cano
 
 ## Regression checklist
 Test all twelve deep links, refresh, old `decision.html?section=N` links, mobile and desktop navigation, browser history, unfinished work, localStorage persistence, reset, and completion indicators. Ensure `decision.html` and all wrappers share the same shell and scripts.
+
+## 2026-10-21 routing regression fix
+The initial route update accidentally duplicated declarations and inserted malformed routing JavaScript, causing decision pages to blank. Consolidated routing into one route map/one popstate handler and repaired navigation.js syntax. The legacy decision.html shell uses `<base href="./">`, while per-section wrappers use `<base href="../">`: these stable base URLs prevent client-side transitions from creating nested section paths. Keep these base tags when regenerating shell files. Automated syntax and routing checks are in `tests/section-routes.cjs`.
