@@ -231,23 +231,43 @@ function approachAnsweredSections(){
  return stepOrder.filter(i=>i!==11&&(present[i]||data.reviewed.includes(i)));
 }
 function recordApproachRevision(from,to,answers,sections,source){
- if(!from.trim()||from===to)return;
+ if(!from.trim()||!to.trim()||from.trim()===to.trim())return;
  data.approachHistory.push({id:uid(),pathId:choiceOption().id,from,to,source,answers});
- data.approachReview={action:to,sections:[...sections]};
+ data.approachReview={action:to,sections:[...new Set(sections)],acknowledged:[]};
  data.reviewed=[];
 }
+// Direct editing is provisional until the user explicitly identifies a different approach.
+// Typographic and wording edits never create approach history on blur, render, or reload.
 function finishApproachDraft(){
  if(!approachDraft)return;
- const draft=approachDraft;approachDraft=null;delete data.pendingApproachEdit;
- recordApproachRevision(draft.from,choiceOption().name,draft.answers,draft.sections,'decision-edit');
+ if(!choiceOption().name.trim()||choiceOption().name.trim()===approachDraft.from.trim()){
+  approachDraft=null;delete data.pendingApproachEdit;
+ }
 }
 function editCurrentApproach(text){
- if(!approachDraft&&choiceOption().name.trim()&&approachAnsweredSections().some(i=>i!==0))approachDraft={from:choiceOption().name,answers:approachAnswerSnapshot(),sections:approachAnsweredSections()};
+ const previous=choiceOption().name;
+ if(!approachDraft&&previous.trim()&&approachAnsweredSections().some(i=>i!==0)){
+  approachDraft={from:previous,answers:approachAnswerSnapshot(),sections:approachAnsweredSections()};
+ }
  choiceOption().name=text;data.pendingApproachEdit=approachDraft;save();
+}
+function approachEditPrompt(){
+ if(!approachDraft||!choiceOption().name.trim()||choiceOption().name.trim()===approachDraft.from.trim())return '';
+ return '<section class="approach-edit-prompt"><h3>Did your approach change?</h3><p>Is this a different way forward, or are you only adjusting how you describe the same decision?</p><div class="approach-edit-actions"><button class="secondary" data-approachdifferent>Different approach</button><button class="secondary" data-approachwording>Wording only</button></div></section>';
+}
+function resolveApproachEdit(different){
+ if(!approachDraft||!choiceOption().name.trim())return false;
+ const draft=approachDraft;
+ approachDraft=null;delete data.pendingApproachEdit;
+ if(different)recordApproachRevision(draft.from,choiceOption().name,draft.answers,draft.sections,'decision-edit');
+ else if(data.approachReview?.action===draft.from)data.approachReview.action=choiceOption().name;
+ render();return true;
 }
 function adoptAdjustedApproach(text){
  if(typeof text!=='string'||!text.trim()||text.trim()===choiceOption().name)return false;
- finishApproachDraft();
+ // The Reversibility confirmation is itself an explicit approach-change decision.
+ // Do not turn an unclassified, earlier wording edit into a second revision.
+ approachDraft=null;delete data.pendingApproachEdit;
  const from=choiceOption().name,answers=approachAnswerSnapshot(),sections=approachAnsweredSections();
  choiceOption().name=text.trim();
  recordApproachRevision(from,choiceOption().name,answers,sections,'reversibility-adjustment');
@@ -255,12 +275,33 @@ function adoptAdjustedApproach(text){
  reverseAdoptionOpen=false;step=0;render();return true;
 }
 function approachReviewPending(){return data.approachReview?.action===choiceOption().name?data.approachReview.sections:[];}
+function acknowledgeApproachSection(i,method='kept'){
+ if(!approachReviewPending().includes(i))return false;
+ data.approachReview.sections=data.approachReview.sections.filter(section=>section!==i);
+ if(!Array.isArray(data.approachReview.acknowledged))data.approachReview.acknowledged=[];
+ data.approachReview.acknowledged.push({section:i,method});
+ save();return true;
+}
+function approachHistoryDisclosure(){
+ return '<details class="approach-history"><summary>Previous approaches</summary><div class="approach-history-list">'+data.approachHistory.map(entry=>'<p class="reverse-raw">'+esc(entry.from)+'</p>').join('')+'</div></details>';
+}
 function approachReviewPanel(){
  if(!data.approachHistory.length)return '';
  const pending=approachReviewPending();
- return '<section class="approach-review"><h3>'+(pending.length?'Do your earlier answers still fit?':'Your approach history')+'</h3>'+(pending.length?'<p class="field-note">These answers were written for your previous approach. Keep what still fits and revise what changes.</p><div class="approach-review-links">'+pending.map(i=>'<button class="secondary" data-edit="'+i+'">'+esc(i===0?'Decision timing':steps[i])+'</button>').join('')+'</div>':'')+'<details><summary>Previous approaches</summary>'+data.approachHistory.map(entry=>'<p class="reverse-raw">'+esc(entry.from)+'</p>').join('')+'</details></section>';
+ if(!pending.length)return '<div class="approach-history-only">'+approachHistoryDisclosure()+'</div>';
+ return '<section class="approach-review" aria-label="Earlier answers review"><div class="approach-review-intro"><h3>You\u2019ve updated your decision</h3><p>Your earlier answers are still here. You can revisit any that may have changed with your new approach.</p></div><details class="approach-review-details"><summary>Review earlier answers</summary><div class="approach-review-links">'+pending.map(i=>'<div class="approach-review-row"><button class="approach-review-link" data-edit="'+i+'">'+esc(i===0?'Decision timing':steps[i])+'</button>'+(i===0?'<button class="approach-review-mark" data-keepapproachsection="0">Mark reviewed</button>':'')+'</div>').join('')+'</div>'+approachHistoryDisclosure()+'</details></section>';
 }
-function approachSectionNote(){return approachReviewPending().includes(step)?'<p class="field-note approach-section-note">Some answers on this page were written for your previous approach. Consider whether they still fit.</p>':'';}
+function approachSectionNote(){
+ if(step===0||!approachReviewPending().includes(step))return '';
+ return '<div class="approach-section-note"><p>Some earlier answers may still apply to your updated approach.</p><div class="approach-section-actions"><button class="secondary" data-keepapproachsection="'+step+'">Still applies</button><span>Or revise the answers below.</span></div></div>';
+}
+function noteApproachSectionChange(event){
+ if(step===0||!approachReviewPending().includes(step))return;
+ const target=event.target;
+ if(!target||!['INPUT','TEXTAREA','SELECT'].includes(target.tagName))return;
+ // Answer controls only. Navigation, disclosure and review actions cannot acknowledge.
+ acknowledgeApproachSection(step,'updated');
+}
 let reverseAdoptionOpen=false,reverseAdoptionDraft='';
 function reverseAdjustmentAdopted(o=choiceOption()){const adopted=o.reverse.adoptedAdjustment;return adopted?.text===o.reverse.adjustment&&adopted.action===o.name;}
 function reverseAdoptionPanel(){
@@ -270,6 +311,15 @@ function reverseAdoptionPanel(){
 function reverseChecksNotesOverview(){const r=reverseData();return r.trail==='irreversible'&&r.checksNote.trim()?'<div class="reverse-checks-notes"><h4>Your Reversibility notes</h4><p class="reverse-raw">'+esc(r.checksNote)+'</p><small>Shown as you wrote it; not counted as a separate checklist item.</small></div>':'';}
 function reverseChecksOverviewLink(){const r=reverseData();return r.trail==='irreversible'?'<button class="edit-link" data-reviewreversechecks>Review Reversibility checks</button>':'';}
 function bindReviewConnections(){
+ document.querySelectorAll('[data-approachdifferent]').forEach(e=>e.onclick=()=>resolveApproachEdit(true));
+ document.querySelectorAll('[data-approachwording]').forEach(e=>e.onclick=()=>resolveApproachEdit(false));
+ document.querySelectorAll('[data-keepapproachsection]').forEach(e=>e.onclick=()=>{if(acknowledgeApproachSection(Number(e.dataset.keepapproachsection)))render();});
+ const approachScreen=document.querySelector('#screen');
+ if(approachScreen&&typeof approachScreen.addEventListener==='function'&&!approachScreen._clarityApproachTracking){
+  approachScreen.addEventListener('input',noteApproachSectionChange);
+  approachScreen.addEventListener('change',noteApproachSectionChange);
+  approachScreen._clarityApproachTracking=true;
+ }
  document.querySelectorAll('[data-reversedependency]').forEach(e=>e.onchange=()=>{setReverseDependency(e.dataset.dependencyfield,e.dataset.reversedependency,e.checked);save();});
  document.querySelectorAll('[data-keepassessment]').forEach(e=>e.onclick=()=>{acknowledgeDriverAssessment(e.dataset.keepassessment,'keep');render();});
  document.querySelectorAll('[data-changeassessment]').forEach(e=>e.onclick=()=>{const f=data.factors.find(f=>f.id===e.dataset.changeassessment);if(!f)return;f.reviewEditing=true;render();Array.from(document.querySelectorAll('[data-driverdirection]')).find(n=>n.dataset.driverdirection===f.id)?.focus();});
