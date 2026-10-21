@@ -448,3 +448,10 @@ The [UI/UX Playbook 1.1.0](docs/CLARITY_UI_UX_PLAYBOOK.md) assigns one shared si
 [Playbook 1.2.2](docs/CLARITY_UI_UX_PLAYBOOK.md) enforces internal space inside filled and framed components with shared inset tokens. This corrects consequence headers/editors, choice context, Driver selection controls, dropdown-arrow insets and expanded guides while preserving typography and native control behavior. [Audit and validation](docs/SURFACE_SPACING_2026-10-18.md).
 
 Transparent text actions also retain 8px vertical and 12px horizontal padding inside their own button bounds, including the keyboard focus outline. [Button-spacing correction and validation](docs/BUTTON_SPACING_2026-10-18.md).
+
+
+### Quiet approach-revision review · 21 October 2026
+
+A review reminder appears only after an explicitly confirmed approach revision, not during a first pass or after a wording-only correction. Direct changes to the action are initially provisional and ask whether the user changed the approach or only reworded the same decision; reloading does not silently classify the edit. Reversibility's intentional **Update my decision** remains an explicit revision. Genuine revisions preserve exact previous answers and assessments; the prior decision remains in the historical record.
+
+The Decision now places the neutral revision reminder outside the main question card, initially collapsed. Decision Overview has a matching quiet notice while older sections are pending. An affected section offers optional **Still applies** confirmation; edits to answer controls can mark it updated. Simply entering a page, opening a disclosure, or choosing **Continue** never acknowledges a review. Previous approaches remain available in a quiet history disclosure. The separate Decision Drivers source/assessment review remains unchanged. Styling is responsive; accessibility and live-browser validation remain appropriate follow-ups.
