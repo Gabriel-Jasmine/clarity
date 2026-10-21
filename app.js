@@ -1518,7 +1518,9 @@ bind=function(){
  if($('#copyContext'))$('#copyContext').onclick=async()=>{try{await navigator.clipboard.writeText(decisionContextText());$('#copyFeedback').textContent='Copied';}catch{$('#copyFeedback').textContent='Could not copy. Use Preview context to copy the text.';}};
 };
 const originalNext=$('#next').onclick;
-$('#next').onclick=()=>{if(step===9&&reverseData().trail==='irreversible'&&reverseStage<2){reverseStage++;render();window.scrollTo(0,0);return;}// Navigating forward never means that earlier reasoning has been reviewed.if(!data.reviewed)data.reviewed=[];if(sectionAnswerChecks()[step]&&!(step===10&&activeDrivers().some(f=>driverAssessmentChanges(f).length))){if(!data.reviewed.includes(step))data.reviewed.push(step);}else data.reviewed=data.reviewed.filter(index=>index!==step);originalNext();$("#title").focus();window.scrollTo(0,0);};
+$('#next').onclick=()=>{if(step===9&&reverseData().trail==='irreversible'&&reverseStage<2){reverseStage++;render();window.scrollTo(0,0);return;}
+ // Navigating forward never means that earlier reasoning has been reviewed.
+ if(!data.reviewed)data.reviewed=[];if(sectionAnswerChecks()[step]&&!(step===10&&activeDrivers().some(f=>driverAssessmentChanges(f).length))){if(!data.reviewed.includes(step))data.reviewed.push(step);}else data.reviewed=data.reviewed.filter(index=>index!==step);originalNext();$("#title").focus();window.scrollTo(0,0);};
 $('#mobileNavToggle').onclick=()=>{const open=$('#nav').classList.toggle('mobile-open');$('#mobileNavToggle').setAttribute('aria-expanded',String(open));};
 
 if(typeof window!=='undefined')window.addEventListener('popstate',()=>{const s=routeStep();if(s!==null&&s!==step){step=s;active=choiceOption().id;incentiveReview=false;render();}});

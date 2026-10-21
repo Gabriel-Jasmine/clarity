@@ -17,7 +17,10 @@ const shell=fs.readFileSync(require('node:path').join(__dirname,'..','decision.h
 for(const slug of slugs){
  const file=require('node:path').join(__dirname,'..',slug,'index.html');assert(fs.existsSync(file),slug);
  const entry=fs.readFileSync(file,'utf8');
- assert.equal(entry,shell.replace('<base href="./">','<base href="../">'),slug+' must match the shared shell');
+ const id=slugs.indexOf(slug);
+ const title=JSON.parse(app.match(/^const steps=(\\[[^\\n]+\\]);/m)[1])[id];
+ const expected=shell.replace('<base href="./">','<base href="../">').replace('<title>Clarity — Guided Decision Thinking</title>', '<title>'+title+' — Clarity</title>');
+ assert.equal(entry,expected,slug+' must match the shared shell except for its title and base');
  assert(entry.indexOf('completion.js?')<entry.indexOf('app.js?'),slug+' loads completion before the app');
 }
 console.log('Passed: routing scripts parse, no duplicate declarations/listeners, twelve unique static section routes.');
