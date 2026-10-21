@@ -9,6 +9,23 @@ function sectionDisplayName(name){
 
 // Section IDs stay stable in saved data; navigation order is independent.
 const stepOrder=[0,1,2,3,4,5,6,7,9,10,8,11];
+// Stable public routes, indexed by existing immutable section ID (not journey order).
+const sectionSlugs=["the-decision","things-dear-to-you","the-trade-offs","carrot-on-the-stick","what-compounds","the-domino-effect","the-devils-advocate","wiggle-room","tricks-of-the-mind","reversibility","decision-drivers","decision-overview"];
+function sectionRoute(id){return new URL(sectionSlugs[id]+'/',document.baseURI).pathname;}
+function requestedSection(){
+ const pathname=location.pathname.replace(/\\/+$/,'');
+ const slug=pathname.slice(pathname.lastIndexOf('/')+1);
+ const fromPath=sectionSlugs.indexOf(slug);
+ if(fromPath!==-1)return fromPath;
+ const legacy=new URL(location.href).searchParams.get('section');
+ return /^(?:[0-9]|1[01])$/.test(legacy||'')?Number(legacy):null;
+}
+function syncSectionRoute(){
+ if(typeof history==='undefined'||typeof location==='undefined')return;
+ const target=sectionRoute(step);
+ if(location.pathname!==target)history.pushState({claritySection:step},'',target);
+}
+
 // Presentation-only icons; section IDs and reviewed-state rules stay unchanged.
 const sectionIcons=["message-circle-question", "gem", "scale", "carrot", "sprout", "domino-tile", "messages-square", "expand", "ghost", "reverse-card", "layers", "map"];
 function uiIcon(name){return '<svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=20261019-section-icons#'+name+'"></use></svg>';}
@@ -438,7 +455,7 @@ data.options.forEach(o=>{
     o.consequence.formatVersion=3;
   }
 });
-let step=Math.max(0,Math.min(11,data.ui?.step||0)),active=data.options.some(o=>o.id===data.ui?.active)?data.ui.active:data.options[0].id,incentiveReview=false;
+let step=Math.max(0,Math.min(11,(requestedSection()??data.ui?.step??0))),active=data.options.some(o=>o.id===data.ui?.active)?data.ui.active:data.options[0].id,incentiveReview=false;
 if(!data.reviewed)data.reviewed=[];
 if(timingFormatChanged)data.reviewed=data.reviewed.filter(i=>i!==0);
 if(incentiveFormatChanged)data.reviewed=data.reviewed.filter(i=>i!==3);
@@ -544,6 +561,7 @@ const pageIntroductions={
 };
 function pageIntroduction(){return '<div class="page-introduction" data-page-introduction="'+step+'">'+pageIntroductions[step].map(text=>'<p>'+esc(text)+'</p>').join('')+'</div>';}
 function render(){
+  syncSectionRoute();
  finishApproachDraft();
  if(step===2||step===3||step===4||step===5||step===7||step===9)active=choiceOption().id;
  save();$("#title").textContent=steps[step];$("#stepCount").textContent=(stepOrder.indexOf(step)+1)+" of "+steps.length;
@@ -1453,4 +1471,5 @@ const originalNext=$('#next').onclick;
 $('#next').onclick=()=>{if(step===9&&reverseData().trail==='irreversible'&&reverseStage<2){reverseStage++;render();window.scrollTo(0,0);return;}if(data.approachReview)data.approachReview.sections=data.approachReview.sections.filter(i=>i!==step);if(!data.reviewed)data.reviewed=[];if(!data.reviewed.includes(step))data.reviewed.push(step);originalNext();$("#title").focus();window.scrollTo(0,0);};
 $('#mobileNavToggle').onclick=()=>{const open=$('#nav').classList.toggle('mobile-open');$('#mobileNavToggle').setAttribute('aria-expanded',String(open));};
 
+if(typeof window!=='undefined')window.addEventListener('popstate',()=>{const requested=requestedSection();if(requested!==null&&requested!==step){step=requested;active=choiceOption().id;incentiveReview=false;render();}});
 render();
