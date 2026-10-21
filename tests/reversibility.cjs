@@ -52,7 +52,7 @@ e=input('reversecheck',key,'checked');e.checked=true;e.onchange();assert(r('reve
 assert(!plain('reverseInvestigations()').some(x=>x.includes('changed')));
 type('checksNote','Confirm the transition budget before signing.');
 // Full export distinguishes inactive writing, historical ratings and source snapshots.
-let p=payload();assert.equal(Object.keys(p.questions).length,77);assert([41,42,43].every(n=>p.questions['Q'+n].retired));
+let p=payload();assert.equal(Object.keys(p.questions).length,78);assert([41,42,43].every(n=>p.questions['Q'+n].retired));
 assert.equal(p.questions.Q70.question,'As you see it now, is this decision reversible?');
 assert.equal(p.records.find(x=>x.questionId==='Q72'&&x.pathId===r('choiceOption().id')).scope,'inactive');
 assert.equal(p.records.find(x=>x.questionId==='Q75'&&x.pathId===r('choiceOption().id')).scope,'inactive');

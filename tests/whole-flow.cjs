@@ -11,7 +11,7 @@ const raw='  A current reflection\nSecond line — <tag> "quote"  ';
 
 // All nine stakes are available independently of the three priorities.
 r('step=1;data.priorities=["work","learning","purpose"];data.stakes=["work","financial"];render()');
-assert.equal(b.doc.querySelectorAll('[data-stake]').length,9);
+assert.equal(b.doc.querySelectorAll('[data-stake]').length,10);
 const priority=b.doc.querySelectorAll('[data-priority]').find(e=>e.value==='work');priority.checked=false;priority.onchange();
 assert(plain('data.stakes').includes('work'));assert(plain('data.stakes').includes('financial'));
 assert.equal(r('data.priorities.length'),2);
@@ -119,7 +119,7 @@ assert.equal(r('analyse().readiness'),'A hard boundary conflict is recorded');
 r('data.rules[0].check.value="yes"');assert.equal(r('analyse().readiness'),'A tolerance limit needs review');
 
 // Full records preserve raw text, changed sources, old path scopes and relationships exactly once per ID.
-let p=payload();assert.equal(p.version,2);assert.equal(Object.keys(p.questions).length,77);
+let p=payload();assert.equal(p.version,2);assert.equal(Object.keys(p.questions).length,78);
 assert.equal(p.questions.Q45.version,2);assert.equal(p.questions.Q66.retired,false);
 assert.equal(new Set(p.records.map(x=>x.recordId)).size,p.records.length);
 assert(p.records.filter(x=>x.pathId===r('data.options[1].id')).every(x=>x.scope==='historical'&&!x.required&&!x.visible));

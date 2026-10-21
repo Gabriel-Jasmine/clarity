@@ -13,5 +13,11 @@ assert(routes);
 const slugs=JSON.parse(routes[1]);
 assert.equal(slugs.length,12);
 assert.equal(new Set(slugs).size,12);
-for(const slug of slugs){assert(fs.existsSync(require('node:path').join(__dirname,'..',slug,'index.html')),slug);}
+const shell=fs.readFileSync(require('node:path').join(__dirname,'..','decision.html'),'utf8');
+for(const slug of slugs){
+ const file=require('node:path').join(__dirname,'..',slug,'index.html');assert(fs.existsSync(file),slug);
+ const entry=fs.readFileSync(file,'utf8');
+ assert.equal(entry,shell.replace('<base href="./">','<base href="../">'),slug+' must match the shared shell');
+ assert(entry.indexOf('completion.js?')<entry.indexOf('app.js?'),slug+' loads completion before the app');
+}
 console.log('Passed: routing scripts parse, no duplicate declarations/listeners, twelve unique static section routes.');

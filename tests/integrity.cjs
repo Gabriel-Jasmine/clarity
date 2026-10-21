@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const source=['capture.js','reversibility.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
+const source=['completion.js','capture.js','reversibility.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
 function boot(saved){
  const globals=new Map(),screenNodes=[];let storage=saved?JSON.stringify(saved):null;
  const node=(attrs='')=>{
@@ -12,7 +12,7 @@ function boot(saved){
  };
  for(const id of ['title','stepCount','bar','nav','back','next','screen','reset','mobileNavToggle'])globals.set('#'+id,node());
  const doc={querySelector:s=>globals.get(s)||screenNodes.find(n=>s==='#'+n.id)||null,querySelectorAll:s=>{const key=s.match(/^\[data-([a-z]+)\]$/)?.[1];return key?screenNodes.filter(n=>key in n.dataset):[];},getElementById:id=>globals.get('#'+id)||screenNodes.find(n=>n.id===id)||null};
- const ctx={document:doc,localStorage:{getItem:()=>storage,setItem:(k,v)=>storage=v},window:{scrollTo(){}},navigator:{clipboard:{writeText:async()=>{}}},confirm:()=>true,console,Blob,URL};
+ const ctx={document:doc,localStorage:{getItem:()=>storage,setItem:(k,v)=>storage=v},window:{scrollTo(){},addEventListener(){}},navigator:{clipboard:{writeText:async()=>{}}},confirm:()=>true,console,Blob,URL};
  vm.createContext(ctx);vm.runInContext(source,ctx);return{run:code=>vm.runInContext(code,ctx),doc,reload:()=>boot(JSON.parse(storage)),stored:()=>JSON.parse(storage)};
 }
 const b=boot(),r=b.run;
@@ -20,7 +20,7 @@ const raw='  Preserved writing\nSecond line — <tag> "quote"  ';
 r('data.objective='+JSON.stringify(raw)+';data.lifeDirectionUnknown=true;choiceOption().trade.immediate='+JSON.stringify(raw)+';choiceOption().trade.immediateUnknown=true;data.hasHardBoundaries="no";data.rules=[{id:"old-boundary",text:'+JSON.stringify(raw)+',status:{},investigate:{}}];choiceOption().trade.foregone=["Older opportunity"];choiceOption().trade.foregoneState="unknown";choiceOption().trade.commitments=["Older commitment"];choiceOption().trade.commitmentState="none";save()');
 let exported=r('decisionContextText()');assert(exported.includes(raw));assert(exported.includes('Older opportunity'));assert(exported.includes('Older commitment'));assert(exported.includes('inactive; not the current response'));
 const payload=()=>JSON.parse(r('captureContextAppendix()').split('```json\n')[1].split('\n```')[0]);
-let p=payload();assert.equal(p.version,2);assert.equal(p.captureTime,null);assert.equal(Object.keys(p.questions).length,77);assert.equal(Object.values(p.questions).filter(q=>q.retired).length,10);assert(Object.values(p.questions).every(q=>typeof q.question==='string'&&q.question.length));assert.equal(new Set(p.records.map(record=>record.recordId)).size,p.records.length);
+let p=payload();assert.equal(p.version,2);assert.equal(p.captureTime,null);assert.equal(Object.keys(p.questions).length,78);assert.equal(Object.values(p.questions).filter(q=>q.retired).length,10);assert(Object.values(p.questions).every(q=>typeof q.question==='string'&&q.question.length));assert.equal(new Set(p.records.map(record=>record.recordId)).size,p.records.length);
 assert(p.records.filter(record=>record.scope==='inactive'&&record.value===raw).length===3);
 assert(p.records.every(record=>record.questionId.startsWith('legacy.')||record.questionVersion));
 assert(p.records.find(record=>record.questionId==='Q52').state==='not_shown');assert(p.records.find(record=>record.questionId==='Q05'&&record.scope==='current').state==='unknown');

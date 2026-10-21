@@ -47,7 +47,7 @@ b=b.reload();assert.equal(r('data.approachHistory.length'),1);assert.equal(r('da
 // Later writing does not rewrite the original answers or the previous action in history.
 r('choiceOption().trade.immediate="Revised weekend cost";save();step=11;render()');assert.equal(r('data.approachHistory[0].answers.options[0].trade.immediate'),'Original cost answer');assert.ok(page().includes('Used in your current approach'));
 const payload=JSON.parse(r('captureContextAppendix()').split('```json\n')[1].split('\n```')[0]);
-assert.equal(Object.keys(payload.questions).length,77);assert.equal(new Set(payload.records.map(row=>row.recordId)).size,payload.records.length);
+assert.equal(Object.keys(payload.questions).length,78);assert.equal(new Set(payload.records.map(row=>row.recordId)).size,payload.records.length);
 assert.ok(payload.records.some(row=>row.questionId==='action.approachRevision'&&row.scope==='historical'&&row.value.answers.options[0].trade.immediate==='Original cost answer'));
 assert.ok(payload.records.some(row=>row.questionId==='action.reverseDependencies'));
 assert.ok(payload.records.some(row=>row.questionId==='action.driverAssessmentReview'));

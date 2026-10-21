@@ -1,10 +1,14 @@
 # Clarity UI/UX Playbook
 
-Version **1.9.1** · Adopted 20 October 2026 · Owner: Clarity product owner
+Version **1.9.2** · Updated 21 October 2026 · Owner: Clarity product owner
 
 **Purpose:** give every future Clarity interface update one shared visual and interaction standard. The agreed mock establishes the direction; this playbook makes it repeatable across the product.
 
 **Status:** adopted presentation standard. Version 1.2.2 extends the same compact-control inset to transparent Edit, Review, Add and Show more buttons, including their keyboard focus outline. See [button spacing validation](BUTTON_SPACING_2026-10-18.md). Version 1.2.1 enforces explicit internal padding for framed and filled text surfaces; see [surface spacing validation](SURFACE_SPACING_2026-10-18.md). Version 1.2.0 adds a single reading order across all 12 pages: the page description precedes personal decision references, and a local example follows its question/guidance and precedes its answer field. It includes the version 1.1.0 typography correction. Existing data, reasoning and export contracts remain unchanged. See [content-order validation](CONTENT_ORDER_2026-10-18.md) and [typography audit](TYPOGRAPHY_AUDIT_2026-10-17.md) for evidence and remaining limits.
+
+## Accurate section completion — 21 October 2026
+
+Version 1.9.2 corrects completion behavior across all devices and all twelve sections. A green check requires complete required answers and current review status; opening a section or pressing Continue on missing answers does not qualify. Reuse the same answer checks for navigation and Overview. Save a versioned, freshness-checked completion projection for the read-only guide; do not trust legacy reviewed flags alone. Explicit unknown/none responses count where the existing question allows them. Optional answers do not become required. [Implementation and validation](SECTION_COMPLETION_2026-10-21.md).
 
 ## Page-specific responsive corrections — 20 October 2026
 
@@ -365,7 +369,7 @@ Circular neutral icon backgrounds may be used for section headers. Do not put ev
 
 ### Global homepage route
 
-The Clarity wordmark links to `index.html` on the homepage, guide and every decision page. The guide and tool share a sidebar: **Home**, then **How Clarity works**, then a neutral divider and the twelve decision sections. The guide is a peer of Home, not its child and not a decision step. Home and the guide have no section number, progress contribution or completion badge; the current guide uses the existing pink navigation treatment. Guide section links retain existing reviewed indicators from saved state without changing them.
+The Clarity wordmark links to `index.html` on the homepage, guide and every decision page. The guide and tool share a sidebar: **Home**, then **How Clarity works**, then a neutral divider and the twelve decision sections. The guide is a peer of Home, not its child and not a decision step. Home and the guide have no section number, progress contribution or completion badge; the current guide uses the existing pink navigation treatment. Guide section links read the tool's versioned, freshness-checked completion projection without modifying saved state. Legacy reviewed flags alone do not establish completion.
 
 On mobile, the guide and tool top row contains **Clarity**, **Home** and **Menu**. Home is always visible. Menu opens the controlled navigation region containing How Clarity works, the divider and decision sections. Preserve at least 44px targets, compact-control internal insets, existing keyboard/expanded-state behavior and section selection logic. Links and controls must fit at 320px without clipping or overlap.
 
@@ -401,7 +405,7 @@ These dimensions reproduce the latest mock correction; validate the chosen icon�
 
 Hover uses a subtle dark neutral surface. Focus uses a soft-pink outline on the dark sidebar; the plum focus token is for light surfaces. Never turn the green circle pink when its section becomes current.
 
-Use `aria-current="page"` for current page navigation. Convey completion through accessible text such as “Decision Drivers, completed,” while keeping the visible label exact. Completion comes from the existing product rules. The design must not redefine completion as merely opening a page, writing any text or resolving every uncertainty.
+Use `aria-current="page"` for current page navigation. Convey completion through accessible text such as “Decision Drivers, completed,” while keeping the visible label exact. Completion requires the section's existing required answers and current review status. Continue remains available for skipping, but cannot mark missing answers reviewed. Overview's check requires all eleven answer sections to be complete. The same predicate drives tool badges, saved guide indicators and the Overview's missing-answer checks. Do not redefine completion as merely opening a page, writing any text or resolving every uncertainty.
 
 If the current review is invalidated by an edit under existing rules, remove its completed indicator accordingly and show the approved local review messaging. Do not invent permanent warning badges, new completion scores or new mandatory acknowledgements.
 

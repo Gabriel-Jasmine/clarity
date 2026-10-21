@@ -18,7 +18,7 @@ assert.equal(b.reload().run('data.choiceInclination'),'not');
 
 // All current definitions are updated; original and retired definitions remain inspectable.
 const definitions=plain('captureQuestionDefinitions()');
-assert.equal(Object.keys(definitions).length,77);
+assert.equal(Object.keys(definitions).length,78);
 const revised=Object.entries(definitions).filter(([,d])=>d.previousDefinitions);
 assert.equal(revised.length,20);
 for(const [,d] of revised){assert.equal(d.version,2);assert.equal(d.previousDefinitions[0].version,1);}

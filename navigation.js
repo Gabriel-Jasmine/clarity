@@ -11,12 +11,12 @@
     });
     try {
       const saved = JSON.parse(localStorage.getItem('clarity-v1'));
-      const reviewed = saved && Array.isArray(saved.reviewed) ? saved.reviewed : [];
+      const completedSections = ClarityCompletionCache.read(saved);
       nav.querySelectorAll('.guide-section-link').forEach(link => {
         const section = Number(sectionSlugsFromLink(link.href));
-        const complete = reviewed.includes(section);
-        link.setAttribute('aria-label', link.querySelector('.nav-label').textContent + (complete ? ', reviewed' : ', not reviewed'));
-        if (complete) link.querySelector('.nav-status').innerHTML = '<span class="cl-completion"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg></span>';
+        const complete = completedSections[section] === true;
+        link.setAttribute('aria-label', link.querySelector('.nav-label').textContent + (complete ? ', completed' : ', incomplete'));
+        link.querySelector('.nav-status').innerHTML = complete ? '<span class="cl-completion"><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg></span>' : '';
       });
     } catch {
       // Reading the guide remains available without saved state.

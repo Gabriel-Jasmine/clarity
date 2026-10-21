@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const source=['capture.js','reversibility.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
+const source=['completion.js','capture.js','reversibility.js','app.js'].map(file=>fs.readFileSync(require('path').join(__dirname,'..',file),'utf8')).join('\n');
 function boot(saved){
  const globals=new Map(),screenNodes=[];let storage=saved?JSON.stringify(saved):null;
  const node=(attrs='')=>{
@@ -12,7 +12,7 @@ function boot(saved){
  };
  for(const id of ['title','stepCount','bar','nav','back','next','screen','reset','mobileNavToggle'])globals.set('#'+id,node());
  const doc={querySelector:s=>globals.get(s)||screenNodes.find(n=>s==='#'+n.id)||null,querySelectorAll:s=>{const key=s.match(/^\[data-([a-z]+)\]$/)?.[1];return key?screenNodes.filter(n=>key in n.dataset):[];},getElementById:id=>globals.get('#'+id)||screenNodes.find(n=>n.id===id)||null};
- const ctx={document:doc,localStorage:{getItem:()=>storage,setItem:(k,v)=>storage=v},window:{scrollTo(){}},navigator:{clipboard:{writeText:async()=>{}}},confirm:()=>true,console,Blob,URL};
+ const ctx={document:doc,localStorage:{getItem:()=>storage,setItem:(k,v)=>storage=v},window:{scrollTo(){},addEventListener(){}},navigator:{clipboard:{writeText:async()=>{}}},confirm:()=>true,console,Blob,URL};
  vm.createContext(ctx);vm.runInContext(source,ctx);return{run:code=>vm.runInContext(code,ctx),doc,reload:()=>boot(JSON.parse(storage)),stored:()=>JSON.parse(storage)};
 }
 const b=boot(),r=b.run,keys=['investmentContext','stateContext'];

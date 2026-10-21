@@ -436,6 +436,12 @@ footer button {max-width:75%}
 .stake-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:980px}
 .stake-card {display:flex;align-items:center;gap:10px;border:1px solid var(--cl-divider);padding:13px 14px;cursor:pointer;min-height:50px}
 .stake-card input {width:auto;margin:0}
+/* A custom affected area is a compact extension of its own selection tile. */
+.stake-card.stake-other{display:block;align-self:start;min-width:0;padding:0;cursor:default}
+.stake-other-choice{display:flex;align-items:center;gap:10px;min-height:50px;padding:var(--cl-inset-row-block) var(--cl-inset-control-inline);cursor:pointer}
+.stake-other-detail{min-width:0;margin-inline-start:27px;padding:0 var(--cl-inset-control-inline) var(--cl-inset-control-inline)}
+.stake-other-detail>label{display:block;margin-bottom:var(--cl-space-1);color:var(--cl-muted);font-size:var(--cl-size-meta);line-height:var(--cl-line-meta)}
+.stake-other-detail input[type=text]{width:100%;min-width:0;padding:var(--cl-inset-row-block) var(--cl-inset-control-inline)}
 .boundary-writing {margin-top:26px}
 .boundary-starters {display:flex;flex-wrap:wrap;gap:7px 10px;align-items:center;margin:10px 0 14px}
 .boundary-starters em {font-style:normal;border-bottom:1px solid var(--cl-divider);padding-bottom:2px}

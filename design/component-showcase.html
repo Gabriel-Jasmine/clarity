@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Clarity — Component Showcase</title>
 <link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../styles.css?v=20261020-page-layout">
+<link rel="stylesheet" href="../styles.css?v=20261021-affected-other">
 <link rel="stylesheet" href="../home.css?v=20261018-compact-homepage">
 <style>
 .showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
@@ -71,6 +71,15 @@
 </section>
 <section class="card">
 <h2>Boundaries and repeated items</h2>
+<section aria-labelledby="showcase-affected-title">
+<h3 class="question" id="showcase-affected-title">Which of these could be meaningfully affected if you do this?</h3>
+<p class="field-note">Select the areas this decision could meaningfully affect. You do not need to decide yet whether the effect would be good or bad.</p>
+<div class="stake-grid">
+<label class="stake-card"><input type="checkbox"><span>Work &amp; contribution</span></label>
+<label class="stake-card"><input type="checkbox"><span>Place, safety &amp; stability</span></label>
+<div class="stake-card stake-other selected" id="showcase-other-card"><label class="stake-other-choice"><input type="checkbox" id="showcase-other" checked aria-controls="showcase-other-detail"><span>Other</span></label><div id="showcase-other-detail" class="stake-other-detail"><label for="showcase-other-text">Please specify</label><input type="text" id="showcase-other-text" placeholder="Name the area…"></div></div>
+</div>
+</section>
 <fieldset class="boundary-assessment"><legend>Your assessment</legend><div class="choice-grid"><label class="choice-card"><input type="radio" name="showcase-boundary-assessment" value="yes"><span>Respects this boundary</span></label><label class="choice-card"><input type="radio" name="showcase-boundary-assessment" value="no"><span>Conflicts with this boundary</span></label><label class="choice-card"><input type="radio" name="showcase-boundary-assessment" value="unknown"><span>I’m not sure yet</span></label></div></fieldset>
 <div class="field"><label class="type-question" for="showcase-life-direction">What are you ultimately trying to build, protect, or become in your life?</label><small id="showcase-life-help">Picture the life you would find most fulfilling. What would make it feel deeply worthwhile to you? Consider how you spend your days, the person you become, your relationships and what you contribute.</small><details class="example-disclosure"><summary><span>Example</span><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=20261019-section-icons#chevron-down"></use></svg></summary><div class="example-content"><p>I want to feel that the way I spend my days reflects what matters to me. I want to keep growing as a creative person, make things I believe in, and feel proud of what I contribute. I want a loving partnership and close relationships where we share ordinary moments and can count on one another. I want enough security and freedom to enjoy life, explore and be present with the people I love. Looking back, I want to feel that I used my abilities well, cared for my people, and lived a life I would choose again.</p></div></details><textarea id="showcase-life-direction" aria-describedby="showcase-life-help" placeholder="The life I’m trying to build looks like..."></textarea></div>
 <div class="question">What must remain true, or what must not happen?</div><details class="example-disclosure"><summary><span>Example</span><svg class="cl-icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=20261019-section-icons#chevron-down"></use></svg></summary><div class="example-content"><p>Before accepting, I need my partner and me to agree on a long-distance arrangement we both consider workable, including visits and when we would review it.</p></div></details>
@@ -138,6 +147,7 @@
 <script>
 document.getElementById('mobileNavToggle').onclick=function(){const open=document.getElementById('nav').classList.toggle('mobile-open');this.setAttribute('aria-expanded',String(open));};
 document.getElementById('unknown-toggle').onchange=function(){document.getElementById('unknown-writing').disabled=this.checked;};
+document.getElementById('showcase-other').onchange=function(){document.getElementById('showcase-other-card').classList.toggle('selected',this.checked);document.getElementById('showcase-other-detail').hidden=!this.checked;document.getElementById('showcase-other-text').disabled=!this.checked;};
 document.querySelectorAll('[data-pill]').forEach(button=>button.onclick=()=>{button.parentElement.querySelectorAll('button').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});});
 document.querySelectorAll('[data-stage]').forEach(button=>button.onclick=()=>{button.parentElement.querySelectorAll('button').forEach(b=>b.removeAttribute('aria-current'));button.setAttribute('aria-current','step');});
 document.getElementById('add-boundary').onclick=()=>{const card=document.querySelector('.boundary-card').cloneNode(true);card.querySelector('textarea').value='';document.getElementById('boundaries').appendChild(card);card.querySelector('textarea').focus();};
