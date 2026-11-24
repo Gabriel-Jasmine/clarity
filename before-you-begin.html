@@ -11,9 +11,9 @@
 /* Guide-only layout and inline mental-model tooltip. */
 .guide-page .briefing-content .card{margin-top:0}
 .guide-page .briefing-content h2:first-child{margin-top:0}
-.guide-page .briefing-content .guide-instructions{list-style:disc outside;padding-left:0;margin-left:0}
-.guide-page .guide-instructions li{padding-left:0}
-.guide-page .guide-instructions li::marker{font-size:.75em;color:var(--cl-frame)}
+.guide-page .briefing-content .guide-instructions{list-style:none;padding-left:0;margin-left:0}
+.guide-page .guide-instructions li{position:relative;padding-left:18px}
+.guide-page .guide-instructions li::before{content:"";position:absolute;left:0;top:calc((var(--cl-line-body) - 5px)/2);width:5px;height:5px;border-radius:50%;background:var(--cl-frame)}
 .guide-page .model-tooltip-anchor{position:relative;display:inline-block;white-space:nowrap}
 .guide-page .model-tooltip-trigger{appearance:none;display:inline;min-height:0;margin:0;padding:0;border:0;border-bottom:1px dotted var(--cl-control-border);border-radius:0;background:transparent;color:inherit;font:inherit;line-height:1.2;cursor:help}
 .guide-page .model-tooltip-trigger:hover{background:transparent}
@@ -56,7 +56,7 @@
     <p>Clarity guides you through 10 stages of reflection built around <span class="model-tooltip-anchor"><button type="button" class="model-tooltip-trigger" aria-expanded="false" aria-describedby="mental-models-tooltip">seven mental models</button><span class="model-tooltip" id="mental-models-tooltip" role="tooltip" hidden>Opportunity Cost, Incentives, Compounding, Second-order Thinking, Inversion, Margin of Safety, and Reversibility</span></span>. It also includes a dedicated section to challenge your thinking against psychological biases that can quietly influence your judgment - here, we call them <em>the ghosts</em>.</p>
     <p>Through a series of guided questions, Clarity helps you look closer at what matters to you, what drives your decision, what you might be overlooking, and the consequences that could follow.</p>
     <h2>How to work through it</h2>
-    <ul class="guide-instructions">
+    <ul class="guide-instructions" role="list">
       <li>Start with one decision you're trying to make. Focus on the action you're considering and what you hope to achieve. You'll explore alternatives along the way.</li>
       <li>For open-ended questions, refer to the <strong>Example</strong> and <strong>Thinking Guide</strong>, where available, to understand how to approach the question and what you could consider in your answer.</li>
       <li>Remember, these are only guides. Your answers should reflect your own thoughts, not what the examples suggest. Be as honest and specific as you can, including when you don't know something yet.</li>
